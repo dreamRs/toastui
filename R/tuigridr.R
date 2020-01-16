@@ -1,24 +1,37 @@
-#' <Add Title>
+#' @title Interactive table with tui-grid
 #'
-#' <Add Description>
+#' @description Create interactive table : sortable, filterable,
+#'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
-#' @import htmlwidgets
+#' @param data A \code{data.frame} or something convertible en \code{data.frame}.
+#'
+#' @importFrom htmlwidgets createWidget
 #'
 #' @export
-tuigridr <- function(message, width = NULL, height = NULL, elementId = NULL) {
+tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
 
-  # forward options using x
-  x = list(
-    message = message
+  data <- as.data.frame(data)
+
+  x <- list(
+    columns = lapply(
+      X = names(data),
+      FUN = function(x) {
+        list(
+          header = x,
+          name = x
+        )
+      }
+    ),
+    data = jsonlite::toJSON(x = data, dataframe = "rows")
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'tuigridr',
+    name = "tuigridr",
     x,
     width = width,
     height = height,
-    package = 'tuigridr',
+    package = "tuigridr",
     elementId = elementId
   )
 }
@@ -39,14 +52,16 @@ tuigridr <- function(message, width = NULL, height = NULL, elementId = NULL) {
 #'
 #' @name tuigridr-shiny
 #'
+#' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
+#'
 #' @export
-tuigridrOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'tuigridr', width, height, package = 'tuigridr')
+tuigridOutput <- function(outputId, width = "100%", height = "400px"){
+  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr")
 }
 
 #' @rdname tuigridr-shiny
 #' @export
-renderTuigridr <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderTuigrid <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, tuigridrOutput, env, quoted = TRUE)
 }

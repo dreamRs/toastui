@@ -1,19 +1,19 @@
 HTMLWidgets.widget({
 
-  name: 'tuigridr',
+  name: "tuigridr",
 
-  type: 'output',
+  type: "output",
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
+    const grid = new tui.Grid({el: el, columns: [], data: []});
 
     return {
 
       renderValue: function(x) {
 
-        // TODO: code to render the widget, e.g.
-        el.innerText = x.message;
+        grid.setColumns(x.columns);
+        grid.resetData(x.data);
 
       },
 
