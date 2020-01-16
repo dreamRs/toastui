@@ -4,13 +4,15 @@
 #'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
 #' @param data A \code{data.frame} or something convertible en \code{data.frame}.
+#' @param theme Set styles for the entire table.
 #'
 #' @importFrom htmlwidgets createWidget
 #'
 #' @export
-tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
+tuigrid <- function(data, theme = c("clean", "striped", "default"), width = NULL, height = NULL, elementId = NULL) {
 
   data <- as.data.frame(data)
+  theme <- match.arg(theme)
 
   x <- list(
     nrow = nrow(data),
@@ -34,7 +36,9 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
         perPage = 10
       ),
       scrollY = FALSE
-    )
+    ),
+    theme = theme,
+    themeOptions = list()
   )
 
   # create widget

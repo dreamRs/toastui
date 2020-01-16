@@ -27,6 +27,7 @@ HTMLWidgets.widget({
         options.data = data;
 
         grid = new tui.Grid(options);
+        tui.Grid.applyTheme(x.theme, x.themeOptions);
 
       },
 

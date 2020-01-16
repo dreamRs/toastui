@@ -4,10 +4,18 @@
 \alias{tuigrid}
 \title{Interactive table with tui-grid}
 \usage{
-tuigrid(data, width = NULL, height = NULL, elementId = NULL)
+tuigrid(
+  data,
+  theme = c("clean", "striped", "default"),
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{data}{A \code{data.frame} or something convertible en \code{data.frame}.}
+
+\item{theme}{Set styles for the entire table.}
 }
 \description{
 Create interactive table : sortable, filterable,
