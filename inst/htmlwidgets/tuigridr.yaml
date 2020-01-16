@@ -1,4 +1,13 @@
 dependencies:
+  - name: tui-code-snippet
+    version: 2.2.0
+    src: htmlwidgets/lib/tui-code-snippet
+    script: tui-code-snippet.min.js
+  - name: tui-pagination
+    version: 3.4.0
+    src: htmlwidgets/lib/tui-pagination
+    script: tui-pagination.min.js
+    stylesheet: tui-pagination.min.css
   - name: tui-grid
     version: 4.8.1
     src: htmlwidgets/lib/tui-grid

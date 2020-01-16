@@ -24,10 +24,10 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
         }
       ),
       data = jsonlite::toJSON(x = data, dataframe = "rows"),
-      # pageOptions = list(
-      #   useClient = TRUE,
-      #   perPage = 10
-      # ),
+      pageOptions = list(
+        useClient = TRUE,
+        perPage = 10
+      ),
       scrollY = FALSE
     )
   )
