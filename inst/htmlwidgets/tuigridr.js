@@ -6,14 +6,16 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    const grid = new tui.Grid({el: el, columns: [], data: []});
+    var grid;
 
     return {
 
       renderValue: function(x) {
 
-        grid.setColumns(x.columns);
-        grid.resetData(x.data);
+        var options = x.options;
+        options.el = el;
+
+        grid = new tui.Grid(options);
 
       },
 

@@ -13,16 +13,23 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
   data <- as.data.frame(data)
 
   x <- list(
-    columns = lapply(
-      X = names(data),
-      FUN = function(x) {
-        list(
-          header = x,
-          name = x
-        )
-      }
-    ),
-    data = jsonlite::toJSON(x = data, dataframe = "rows")
+    options = list(
+      columns = lapply(
+        X = names(data),
+        FUN = function(x) {
+          list(
+            header = x,
+            name = x
+          )
+        }
+      ),
+      data = jsonlite::toJSON(x = data, dataframe = "rows"),
+      # pageOptions = list(
+      #   useClient = TRUE,
+      #   perPage = 10
+      # ),
+      scrollY = FALSE
+    )
   )
 
   # create widget
@@ -32,7 +39,20 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
     width = width,
     height = height,
     package = "tuigridr",
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      defaultWidth = "100%",
+      defaultHeight = "100%",
+      viewer.defaultHeight = "100%",
+      viewer.defaultWidth = "100%",
+      viewer.fill = FALSE,
+      viewer.suppress = FALSE,
+      knitr.figure = FALSE,
+      knitr.defaultWidth = "100%",
+      knitr.defaultHeight = "600px",
+      browser.fill = FALSE,
+      browser.external = TRUE
+    )
   )
 }
 
