@@ -13,6 +13,10 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
   data <- as.data.frame(data)
 
   x <- list(
+    nrow = nrow(data),
+    ncol = ncol(data),
+    data = jsonlite::toJSON(x = unname(data), matrix = "rowmajor"),
+    colnames = names(data),
     options = list(
       columns = lapply(
         X = names(data),
@@ -23,7 +27,8 @@ tuigrid <- function(data, width = NULL, height = NULL, elementId = NULL) {
           )
         }
       ),
-      data = jsonlite::toJSON(x = data, dataframe = "rows"),
+      # data = jsonlite::toJSON(x = data, dataframe = "rows"),
+      # data = jsonlite::toJSON(x = unname(data), matrix = "rowmajor"),
       pageOptions = list(
         useClient = TRUE,
         perPage = 10

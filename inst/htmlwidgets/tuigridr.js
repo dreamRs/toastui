@@ -15,6 +15,17 @@ HTMLWidgets.widget({
         var options = x.options;
         options.el = el;
 
+        const data = [];
+        for (let i = 0; i < x.nrow; i += 1) {
+          const row = { };
+          for (let j = 0; j < x.ncol; j += 1) {
+            row[x.colnames[j]] = x.data[i][j];
+          }
+          data.push(row);
+        }
+        console.log(data);
+        options.data = data;
+
         grid = new tui.Grid(options);
 
       },
