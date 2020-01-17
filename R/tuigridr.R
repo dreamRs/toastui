@@ -4,12 +4,13 @@
 #'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
 #' @param data A \code{data.frame} or something convertible en \code{data.frame}.
+#' @param sortable Logical, allow to sort columns.
 #' @param theme Set styles for the entire table.
 #'
 #' @importFrom htmlwidgets createWidget
 #'
 #' @export
-tuigrid <- function(data, theme = c("clean", "striped", "default"), width = NULL, height = NULL, elementId = NULL) {
+tuigrid <- function(data, sortable = TRUE, theme = c("clean", "striped", "default"), width = NULL, height = NULL, elementId = NULL) {
 
   data <- as.data.frame(data)
   theme <- match.arg(theme)
@@ -25,17 +26,19 @@ tuigrid <- function(data, theme = c("clean", "striped", "default"), width = NULL
         FUN = function(x) {
           list(
             header = x,
-            name = x
+            name = x,
+            sortable = isTRUE(sortable)
           )
         }
       ),
       # data = jsonlite::toJSON(x = data, dataframe = "rows"),
       # data = jsonlite::toJSON(x = unname(data), matrix = "rowmajor"),
-      pageOptions = list(
-        useClient = TRUE,
-        perPage = 10
-      ),
-      scrollY = FALSE
+      # pageOptions = list(
+      #   useClient = TRUE,
+      #   perPage = 10
+      # ),
+      scrollY = TRUE,
+      bodyHeight = "fitToParent"
     ),
     theme = theme,
     themeOptions = list()
@@ -54,12 +57,12 @@ tuigrid <- function(data, theme = c("clean", "striped", "default"), width = NULL
       defaultHeight = "100%",
       viewer.defaultHeight = "100%",
       viewer.defaultWidth = "100%",
-      viewer.fill = FALSE,
+      viewer.fill = TRUE,
       viewer.suppress = FALSE,
       knitr.figure = FALSE,
       knitr.defaultWidth = "100%",
       knitr.defaultHeight = "600px",
-      browser.fill = FALSE,
+      browser.fill = TRUE,
       browser.external = TRUE
     )
   )
