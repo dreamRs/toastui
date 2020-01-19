@@ -14,6 +14,7 @@
 #' @export
 tuigrid <- function(data, sortable = TRUE,
                     theme = c("clean", "striped", "default"),
+                    bodyHeight = "fitToParent",
                     width = NULL, height = NULL,
                     elementId = NULL) {
 
@@ -43,7 +44,7 @@ tuigrid <- function(data, sortable = TRUE,
       #   perPage = 10
       # ),
       scrollY = TRUE,
-      bodyHeight = "fitToParent"
+      bodyHeight = bodyHeight
     ),
     theme = theme,
     themeOptions = list()

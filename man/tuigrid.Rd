@@ -8,6 +8,7 @@ tuigrid(
   data,
   sortable = TRUE,
   theme = c("clean", "striped", "default"),
+  bodyHeight = "fitToParent",
   width = NULL,
   height = NULL,
   elementId = NULL

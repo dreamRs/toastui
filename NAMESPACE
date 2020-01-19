@@ -2,6 +2,7 @@
 
 export("%>%")
 export(renderTuigrid)
+export(tg_header)
 export(tg_theme)
 export(tuigrid)
 export(tuigridOutput)
