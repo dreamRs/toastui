@@ -6,7 +6,7 @@
 \alias{renderTuigrid}
 \title{Shiny bindings for tuigridr}
 \usage{
-tuigridOutput(outputId, width = "100\%", height = "400px")
+tuigridOutput(outputId, width = "100\%", height = "auto")
 
 renderTuigrid(expr, env = parent.frame(), quoted = FALSE)
 }

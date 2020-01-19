@@ -4,48 +4,56 @@
 #'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
 #' @param data A \code{data.frame} or something convertible en \code{data.frame}.
+#' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.
 #' @param sortable Logical, allow to sort columns.
+#' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
 #' @param theme Set styles for the entire table.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget
+#' @importFrom utils modifyList
 #'
 #' @export
-tuigrid <- function(data, sortable = TRUE,
+tuigrid <- function(data, ...,
+                    sortable = TRUE, pagination = NULL,
                     theme = c("clean", "striped", "default"),
-                    bodyHeight = "fitToParent",
                     width = NULL, height = NULL,
                     elementId = NULL) {
 
   data <- as.data.frame(data)
   theme <- match.arg(theme)
 
+  options <- list(
+    columns = lapply(
+      X = names(data),
+      FUN = function(x) {
+        list(
+          header = x,
+          name = x,
+          sortable = isTRUE(sortable)
+        )
+      }
+    ),
+    bodyHeight = "fitToParent"
+  )
+
+  options <- modifyList(x = options, val = list(...), keep.null = FALSE)
+
+  if (!is.null(pagination)) {
+    options$pageOptions <- list(
+      perPage = pagination,
+      useClient = TRUE
+    )
+    options$bodyHeight <- "auto"
+  }
+
   x <- list(
     nrow = nrow(data),
     ncol = ncol(data),
     data = unname(data),
     colnames = names(data),
-    options = list(
-      columns = lapply(
-        X = names(data),
-        FUN = function(x) {
-          list(
-            header = x,
-            name = x,
-            sortable = isTRUE(sortable)
-          )
-        }
-      ),
-      # data = jsonlite::toJSON(x = data, dataframe = "rows"),
-      # data = jsonlite::toJSON(x = unname(data), matrix = "rowmajor"),
-      # pageOptions = list(
-      #   useClient = TRUE,
-      #   perPage = 10
-      # ),
-      scrollY = TRUE,
-      bodyHeight = bodyHeight
-    ),
+    options = options,
     theme = theme,
     themeOptions = list()
   )
@@ -60,9 +68,9 @@ tuigrid <- function(data, sortable = TRUE,
     elementId = elementId,
     sizingPolicy = htmlwidgets::sizingPolicy(
       defaultWidth = "100%",
-      defaultHeight = "100%",
+      defaultHeight = "auto",
       viewer.defaultHeight = "100%",
-      viewer.defaultWidth = "100%",
+      viewer.defaultWidth = "auto",
       viewer.fill = TRUE,
       viewer.suppress = FALSE,
       knitr.figure = FALSE,
@@ -93,7 +101,7 @@ tuigrid <- function(data, sortable = TRUE,
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-tuigridOutput <- function(outputId, width = "100%", height = "400px"){
+tuigridOutput <- function(outputId, width = "100%", height = "auto"){
   htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr")
 }
 

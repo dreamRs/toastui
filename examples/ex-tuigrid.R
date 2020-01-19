@@ -15,7 +15,8 @@ tuigrid(iris)
 tuigrid(mtcars)
 
 
-
+# Pagination
+tuigrid(iris, pagination = 10)
 
 
 # Themes

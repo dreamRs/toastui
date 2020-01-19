@@ -6,9 +6,10 @@
 \usage{
 tuigrid(
   data,
+  ...,
   sortable = TRUE,
+  pagination = NULL,
   theme = c("clean", "striped", "default"),
-  bodyHeight = "fitToParent",
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -17,7 +18,11 @@ tuigrid(
 \arguments{
 \item{data}{A \code{data.frame} or something convertible en \code{data.frame}.}
 
+\item{...}{Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.}
+
 \item{sortable}{Logical, allow to sort columns.}
+
+\item{pagination}{Number of rows per page to display, default to \code{NULL} (no pagination).}
 
 \item{theme}{Set styles for the entire table.}
 
