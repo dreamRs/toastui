@@ -1,15 +1,14 @@
 Package: tuigridr
-Title: Interactive Table with 'tui-grid' Library
+Title: Interactive Tables with 'tui-grid' Library
 Version: 0.0.0.9000
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("NHN FE Development Lab", role = c("cph"), comment = "tui-grid.js library"))
 Description: What the package does (one paragraph).
-License: What license it uses
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    htmlwidgets,
-    jsonlite
+    htmlwidgets
 RoxygenNote: 7.0.2

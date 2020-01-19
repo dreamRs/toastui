@@ -14,12 +14,12 @@ HTMLWidgets.widget({
 
         var options = x.options;
         options.el = el;
-
+        console.log(x.data);
         const data = [];
         for (let i = 0; i < x.nrow; i += 1) {
           const row = { };
           for (let j = 0; j < x.ncol; j += 1) {
-            row[x.colnames[j]] = x.data[i][j];
+            row[x.colnames[j]] = x.data[j][i];
           }
           data.push(row);
         }

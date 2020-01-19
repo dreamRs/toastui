@@ -6,6 +6,7 @@
 \usage{
 tuigrid(
   data,
+  sortable = TRUE,
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
@@ -15,7 +16,13 @@ tuigrid(
 \arguments{
 \item{data}{A \code{data.frame} or something convertible en \code{data.frame}.}
 
+\item{sortable}{Logical, allow to sort columns.}
+
 \item{theme}{Set styles for the entire table.}
+
+\item{width, height}{Width and height of the table in a CSS unit or a numeric.}
+
+\item{elementId}{Use an explicit element ID for the widget.}
 }
 \description{
 Create interactive table : sortable, filterable,

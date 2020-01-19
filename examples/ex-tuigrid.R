@@ -14,3 +14,11 @@ tuigrid(iris)
 # with mtcars
 tuigrid(mtcars)
 
+
+
+
+
+# Themes
+tuigrid(iris, theme = "striped")
+tuigrid(iris, theme = "default")
+

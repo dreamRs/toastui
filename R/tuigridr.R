@@ -6,11 +6,16 @@
 #' @param data A \code{data.frame} or something convertible en \code{data.frame}.
 #' @param sortable Logical, allow to sort columns.
 #' @param theme Set styles for the entire table.
+#' @param width,height Width and height of the table in a CSS unit or a numeric.
+#' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget
 #'
 #' @export
-tuigrid <- function(data, sortable = TRUE, theme = c("clean", "striped", "default"), width = NULL, height = NULL, elementId = NULL) {
+tuigrid <- function(data, sortable = TRUE,
+                    theme = c("clean", "striped", "default"),
+                    width = NULL, height = NULL,
+                    elementId = NULL) {
 
   data <- as.data.frame(data)
   theme <- match.arg(theme)
@@ -18,7 +23,7 @@ tuigrid <- function(data, sortable = TRUE, theme = c("clean", "striped", "defaul
   x <- list(
     nrow = nrow(data),
     ncol = ncol(data),
-    data = jsonlite::toJSON(x = unname(data), matrix = "rowmajor"),
+    data = unname(data),
     colnames = names(data),
     options = list(
       columns = lapply(
@@ -95,5 +100,5 @@ tuigridOutput <- function(outputId, width = "100%", height = "400px"){
 #' @export
 renderTuigrid <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, tuigridrOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, tuigridOutput, env, quoted = TRUE)
 }
