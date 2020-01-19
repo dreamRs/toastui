@@ -14,7 +14,7 @@
 #' @return A \code{tuidgridr} htmlwidget.
 #' @export
 #'
-#' @examples
+#' @example examples/ex-header.R
 tg_header <- function(tg, complexColumns = NULL, align = NULL, valign = NULL, height = NULL) {
   .widget_options2(
     tg, name_opt = "header",
