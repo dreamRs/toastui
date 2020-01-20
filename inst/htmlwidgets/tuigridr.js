@@ -12,9 +12,13 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
 
+        if (typeof grid !== "undefined") {
+          grid.destroy();
+          el.innerHTML = "";
+        }
+
         var options = x.options;
         options.el = el;
-        console.log(x.data);
         const data = [];
         for (let i = 0; i < x.nrow; i += 1) {
           const row = { };
@@ -23,11 +27,17 @@ HTMLWidgets.widget({
           }
           data.push(row);
         }
-        console.log(data);
         options.data = data;
 
         grid = new tui.Grid(options);
         tui.Grid.applyTheme(x.theme, x.themeOptions);
+
+        grid.on('focusChange', (ev) => {
+          grid.setSelectionRange({
+            start: [ev.rowKey, 0],
+            end: [ev.rowKey, grid.getColumns().length]
+          });
+        });
 
       },
 
