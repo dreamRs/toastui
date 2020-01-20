@@ -17,6 +17,7 @@
 #' @export
 tuigrid <- function(data, ...,
                     sortable = TRUE, pagination = NULL,
+                    filters = FALSE,
                     theme = c("clean", "striped", "default"),
                     width = NULL, height = NULL,
                     elementId = NULL) {
@@ -24,15 +25,18 @@ tuigrid <- function(data, ...,
   data <- as.data.frame(data)
   theme <- match.arg(theme)
 
+  filters <- simple_filters(data)
+
   options <- list(
     columns = lapply(
       X = names(data),
       FUN = function(x) {
-        list(
+        dropNulls(list(
           header = x,
           name = x,
-          sortable = isTRUE(sortable)
-        )
+          sortable = isTRUE(sortable),
+          filter = if (isTRUE(filters)) filters[[x]]
+        ))
       }
     ),
     bodyHeight = "fitToParent"
@@ -55,7 +59,8 @@ tuigrid <- function(data, ...,
     colnames = names(data),
     options = options,
     theme = theme,
-    themeOptions = list()
+    themeOptions = list(),
+    filters = filters
   )
 
   # create widget

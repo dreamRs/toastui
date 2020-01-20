@@ -9,6 +9,7 @@ tuigrid(
   ...,
   sortable = TRUE,
   pagination = NULL,
+  filters = FALSE,
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
