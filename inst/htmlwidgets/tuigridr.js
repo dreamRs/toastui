@@ -34,8 +34,8 @@ HTMLWidgets.widget({
 
         grid.on('focusChange', (ev) => {
           grid.setSelectionRange({
-            start: [ev.rowKey, 0],
-            end: [ev.rowKey, grid.getColumns().length]
+            start: [grid.getIndexOfRow(ev.rowKey), 0],
+            end: [grid.getIndexOfRow(ev.rowKey), grid.getColumns().length]
           });
         });
 
