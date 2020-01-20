@@ -4,7 +4,7 @@ tuigrid(iris)
 
 # Customize theme
 tuigrid(iris) %>%
-  tg_theme(
+  grid_theme(
     row = list(
       even = list(
         background = "#ddebf7"

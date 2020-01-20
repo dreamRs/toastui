@@ -1,11 +1,11 @@
 
 #' @title Modify theme options
 #'
-#' @description Properties to customize table theme, each argument
+#' @description Properties to customize grid theme, each argument
 #'  is a list of parameters, see full list here :
 #'  \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
 #'
-#' @param tg A table created with \code{\link{tuigrid}}.
+#' @param grid A grid created with \code{\link{tuigrid}}.
 #' @param row Styles for the table rows.
 #' @param cell Styles for the table cells.
 #' @param area Styles for the table areas.
@@ -19,16 +19,16 @@
 #' @export
 #'
 #' @example examples/ex-theme.R
-tg_theme <- function(tg, row = NULL, cell = NULL, area = NULL,
-                     outline = NULL, selection = NULL, scrollbar = NULL,
-                     frozenBorder = NULL, ...) {
+grid_theme <- function(grid, row = NULL, cell = NULL, area = NULL,
+                       outline = NULL, selection = NULL, scrollbar = NULL,
+                       frozenBorder = NULL, ...) {
   options <- dropNulls(list(
     row = row, cell = cell, area = area,
     outline = outline, selection = selection, scrollbar = scrollbar,
     frozenBorder = frozenBorder, ...
   ))
   .widget_options2(
-    tg, name_opt = "themeOptions",
+    grid, name_opt = "themeOptions",
     l = options, modify_x = TRUE
   )
 }

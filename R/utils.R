@@ -23,8 +23,8 @@ dropNulls <- function(x) {
 #' @noRd
 .widget_options <- function(widget, name_opt, ..., modify_x = FALSE) {
 
-  if(!inherits(widget, "htmlwidget")){
-    stop("widget must be a htmlwidget object")
+  if(!inherits(widget, "tuigridr")){
+    stop("grid must be a tuigridr object")
   }
 
   if (isTRUE(modify_x)) {
@@ -63,6 +63,10 @@ dropNulls <- function(x) {
 #'
 #' @noRd
 .widget_options2 <- function(widget, name_opt, l, modify_x = FALSE) {
+
+  if(!inherits(widget, "tuigridr")){
+    stop("grid must be a tuigridr object")
+  }
 
   if (isTRUE(modify_x)) {
     opts <- widget$x
