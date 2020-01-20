@@ -8,6 +8,11 @@ dependencies:
     src: htmlwidgets/lib/tui-pagination
     script: tui-pagination.min.js
     stylesheet: tui-pagination.min.css
+  - name: tui-date-picker
+    version: 4.0.3
+    src: htmlwidgets/lib/tui-date-picker
+    script: tui-date-picker.min.js
+    stylesheet: tui-date-picker.min.css
   - name: tui-grid
     version: 4.8.1
     src: htmlwidgets/lib/tui-grid
