@@ -7,6 +7,7 @@
 #' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
+#' @param filters Logical, allow to filter columns.
 #' @param theme Set styles for the entire table.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
@@ -53,6 +54,7 @@ tuigrid <- function(data, ...,
   }
 
   x <- list(
+    data_df = data,
     nrow = nrow(data),
     ncol = ncol(data),
     data = unname(data),
@@ -71,6 +73,10 @@ tuigrid <- function(data, ...,
     height = height,
     package = "tuigridr",
     elementId = elementId,
+    preRenderHook = function(widget) {
+      widget$x$data_df <- NULL
+      widget
+    },
     sizingPolicy = htmlwidgets::sizingPolicy(
       defaultWidth = "100%",
       defaultHeight = "auto",

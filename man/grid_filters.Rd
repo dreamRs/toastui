@@ -23,7 +23,9 @@ grid_filters(
 
 \item{showClearBtn}{Reset the filter that has already been applied.}
 
-\item{operator}{Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}:}
+\item{operator}{Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}.}
+
+\item{format}{Date format.}
 
 \item{type}{Type of filter : \code{"auto"}, \code{"text"}, \code{"number"}, \code{"date"} or \code{"select"}.}
 }

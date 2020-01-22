@@ -25,6 +25,8 @@ tuigrid(
 
 \item{pagination}{Number of rows per page to display, default to \code{NULL} (no pagination).}
 
+\item{filters}{Logical, allow to filter columns.}
+
 \item{theme}{Set styles for the entire table.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}

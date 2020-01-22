@@ -32,12 +32,30 @@ HTMLWidgets.widget({
         grid = new tui.Grid(options);
         tui.Grid.applyTheme(x.theme, x.themeOptions);
 
+        /*
         grid.on('focusChange', (ev) => {
+          console.log(ev.rowKey);
           grid.setSelectionRange({
             start: [grid.getIndexOfRow(ev.rowKey), 0],
             end: [grid.getIndexOfRow(ev.rowKey), grid.getColumns().length]
           });
         });
+        */
+
+        // Styles for rows
+        if (x.hasOwnProperty("rowClass")) {
+          console.log(x.rowClass);
+          for (let i = 0; i < x.rowClass.length; i += 1) {
+            console.log(x.rowClass[i].styles);
+            addStyle(x.rowClass[i].styles);
+            for (let j = 0; j < x.rowClass[i].rowKey.length; j += 1) {
+              grid.addRowClassName(
+                x.rowClass[i].rowKey[j],
+                x.rowClass[i].class
+              );
+            }
+          }
+        }
 
       },
 
@@ -50,3 +68,17 @@ HTMLWidgets.widget({
     };
   }
 });
+
+
+function addStyle(styles) {
+  var css = document.createElement('style');
+  css.type = 'text/css';
+  if (css.styleSheet) {
+    css.styleSheet.cssText = styles;
+  } else {
+    css.appendChild(document.createTextNode(styles));
+  }
+  document.getElementsByTagName("head")[0].appendChild(css);
+}
+
+

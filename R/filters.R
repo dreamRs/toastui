@@ -30,7 +30,8 @@ simple_filters <- function(data) {
 #' @param vars Name(s) of column in the data used in \code{\link{tuigrid}}.
 #' @param showApplyBtn Apply filters only when button is pressed.
 #' @param showClearBtn Reset the filter that has already been applied.
-#' @param operator Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}:
+#' @param operator Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}.
+#' @param format Date format.
 #' @param type Type of filter : \code{"auto"}, \code{"text"}, \code{"number"}, \code{"date"} or \code{"select"}.
 #'
 #' @return A \code{tuidgridr} htmlwidget.
