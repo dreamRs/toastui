@@ -19,7 +19,7 @@ if (interactive()) {
     output$grid <- renderTuigrid({
       tuigrid(df) %>%
         grid_row_selection(
-          inputId = "rows", label = "Select", width = 50
+          inputId = "rows", width = 50
         )
     })
 

@@ -4,7 +4,6 @@
 #' @param grid A table created with \code{\link{tuigrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param label Display label in header row.
-#' @param type Type of selection : \code{"checkbox"} (multiple) or \code{"radio"} (single).
 #' @param return Value that will be accessible via \code{input} :
 #'  a \code{data.frame} with selected row(s) or just the index of rows.
 #' @param width Width of the column.
@@ -14,16 +13,17 @@
 #'
 #' @example examples/ex-grid_row_selection.R
 grid_row_selection <- function(grid, inputId, label = NULL,
-                               type = c("checkbox", "radio"),
                                return = c("data", "index"),
                                width = NULL) {
-  type <- match.arg(type)
   return <- match.arg(return)
   if(!inherits(grid, "tuigridr")){
     stop("grid must be a tuigridr object.")
   }
+  if (!is.null(grid$x$rowSelection)) {
+    stop("grid_row_selection: you can only have one type of selection at the same time.")
+  }
   config <- dropNulls(list(
-    type = type,
+    type = "checkbox",
     header = label,
     width = width
   ))
@@ -35,8 +35,11 @@ grid_row_selection <- function(grid, inputId, label = NULL,
       config
     )
   }
-  grid$x$rowSelectionId <- inputId
-  grid$x$rowSelectionValue <- return
+  grid$x$rowSelection <- list(
+    id = inputId,
+    returnValue = return,
+    label = label
+  )
   return(grid)
 }
 

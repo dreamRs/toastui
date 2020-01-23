@@ -1,17 +1,13 @@
 HTMLWidgets.widget({
-
   name: "tuigridr",
 
   type: "output",
 
   factory: function(el, width, height) {
-
     var grid;
 
     return {
-
       renderValue: function(x) {
-
         if (typeof grid !== "undefined") {
           grid.destroy();
           el.innerHTML = "";
@@ -19,9 +15,11 @@ HTMLWidgets.widget({
 
         var options = x.options;
         options.el = el;
+
+        // Construct data (put back names)
         const data = [];
         for (let i = 0; i < x.nrow; i += 1) {
-          const row = { };
+          const row = {};
           for (let j = 0; j < x.ncol; j += 1) {
             row[x.colnames[j]] = x.data[j][i];
           }
@@ -29,6 +27,7 @@ HTMLWidgets.widget({
         }
         options.data = data;
 
+        // Generate the grid
         grid = new tui.Grid(options);
         tui.Grid.applyTheme(x.theme, x.themeOptions);
 
@@ -75,39 +74,34 @@ HTMLWidgets.widget({
         }
 
         // Selection
-        if (x.hasOwnProperty("rowSelectionId") & HTMLWidgets.shinyMode) {
+        if (x.hasOwnProperty("rowSelection") & HTMLWidgets.shinyMode) {
           grid.on("check", function(ev) {
-            Shiny.setInputValue(x.rowSelectionId + ":tuigridrRowSelection", {
+            Shiny.setInputValue(x.rowSelection.id + ":tuigridrRowSelection", {
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
-              returnValue: x.rowSelectionValue
+              returnValue: x.rowSelection.returnValue
             });
           });
           grid.on("uncheck", function(ev) {
-            Shiny.setInputValue(x.rowSelectionId + ":tuigridrRowSelection", {
+            Shiny.setInputValue(x.rowSelection.id + ":tuigridrRowSelection", {
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
-              returnValue: x.rowSelectionValue
+              returnValue: x.rowSelection.returnValue
             });
           });
         }
-
       },
 
       resize: function(width, height) {
-
         // TODO: code to re-render the widget with a new size
-
       }
-
     };
   }
 });
 
-
 function addStyle(styles) {
-  var css = document.createElement('style');
-  css.type = 'text/css';
+  var css = document.createElement("style");
+  css.type = "text/css";
   if (css.styleSheet) {
     css.styleSheet.cssText = styles;
   } else {
@@ -115,5 +109,6 @@ function addStyle(styles) {
   }
   document.getElementsByTagName("head")[0].appendChild(css);
 }
+
 
 

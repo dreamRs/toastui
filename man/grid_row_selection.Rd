@@ -8,7 +8,6 @@ grid_row_selection(
   grid,
   inputId,
   label = NULL,
-  type = c("checkbox", "radio"),
   return = c("data", "index"),
   width = NULL
 )
@@ -19,8 +18,6 @@ grid_row_selection(
 \item{inputId}{The \code{input} slot that will be used to access the value.}
 
 \item{label}{Display label in header row.}
-
-\item{type}{Type of selection : \code{"checkbox"} (multiple) or \code{"radio"} (single).}
 
 \item{return}{Value that will be accessible via \code{input} :
 a \code{data.frame} with selected row(s) or just the index of rows.}
@@ -55,7 +52,7 @@ if (interactive()) {
     output$grid <- renderTuigrid({
       tuigrid(df) \%>\%
         grid_row_selection(
-          inputId = "rows", label = "Select", width = 50
+          inputId = "rows", width = 50
         )
     })
 
