@@ -8,6 +8,16 @@ dropNulls <- function(x) {
   if (!is.null(x)) x else y
 }
 
+list1 <- function(x) {
+  if (is.null(x))
+    return(x)
+  if (length(x) == 1 & !is.list(x)) {
+    list(x)
+  } else {
+    x
+  }
+}
+
 
 #' Utility function to create Htmlwidget parameters JSON
 #'

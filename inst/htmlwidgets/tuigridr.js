@@ -33,6 +33,7 @@ HTMLWidgets.widget({
         tui.Grid.applyTheme(x.theme, x.themeOptions);
 
         /*
+        // Apply focus on entire row
         grid.on('focusChange', (ev) => {
           console.log(ev.rowKey);
           grid.setSelectionRange({
@@ -44,14 +45,30 @@ HTMLWidgets.widget({
 
         // Styles for rows
         if (x.hasOwnProperty("rowClass")) {
-          console.log(x.rowClass);
+          //console.log(x.rowClass);
           for (let i = 0; i < x.rowClass.length; i += 1) {
-            console.log(x.rowClass[i].styles);
+            //console.log(x.rowClass[i].styles);
             addStyle(x.rowClass[i].styles);
             for (let j = 0; j < x.rowClass[i].rowKey.length; j += 1) {
               grid.addRowClassName(
                 x.rowClass[i].rowKey[j],
                 x.rowClass[i].class
+              );
+            }
+          }
+        }
+
+        // Styles for cell
+        if (x.hasOwnProperty("cellClass")) {
+          //console.log(x.cellClass);
+          for (let i = 0; i < x.cellClass.length; i += 1) {
+            //console.log(x.cellClass[i].styles);
+            addStyle(x.cellClass[i].styles);
+            for (let j = 0; j < x.cellClass[i].rowKey.length; j += 1) {
+              grid.addCellClassName(
+                x.cellClass[i].rowKey[j],
+                x.cellClass[i].column,
+                x.cellClass[i].class
               );
             }
           }
