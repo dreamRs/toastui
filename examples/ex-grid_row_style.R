@@ -1,6 +1,6 @@
 
 tuigrid(iris) %>%
-  set_row_style(
+  grid_row_style(
     Sepal.Length > 5,
     background = "#F781BE"
   )
@@ -8,16 +8,30 @@ tuigrid(iris) %>%
 
 dat <- iris[c(1:3, 51:53, 101:103), ]
 tuigrid(dat) %>%
-  set_row_style(
+  grid_row_style(
     Species == "setosa",
     background = "#E41A1C80",
     color = "#FFF"
   ) %>%
-  set_row_style(
+  grid_row_style(
     Species == "versicolor",
     background = "#377EB880"
   ) %>%
-  set_row_style(
+  grid_row_style(
     Species == "virginica",
     background = "#4DAF4A80"
   )
+
+
+# Use rlang to use character
+library(rlang)
+my_var <- "Sepal.Length"
+tuigrid(iris) %>%
+  grid_row_style(
+    !!sym(my_var) > 5,
+    background = "#F781BE"
+  )
+
+
+
+

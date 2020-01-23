@@ -12,5 +12,6 @@ LazyData: true
 Imports: 
     utils,
     htmlwidgets,
-    magrittr
+    magrittr,
+    rlang
 RoxygenNote: 7.0.2
