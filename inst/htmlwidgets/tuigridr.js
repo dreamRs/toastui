@@ -74,6 +74,24 @@ HTMLWidgets.widget({
           }
         }
 
+        // Selection
+        if (x.hasOwnProperty("rowSelectionId") & HTMLWidgets.shinyMode) {
+          grid.on("check", function(ev) {
+            Shiny.setInputValue(x.rowSelectionId + ":tuigridrRowSelection", {
+              selected: grid.getCheckedRows(),
+              colnames: x.colnames,
+              returnValue: x.rowSelectionValue
+            });
+          });
+          grid.on("uncheck", function(ev) {
+            Shiny.setInputValue(x.rowSelectionId + ":tuigridrRowSelection", {
+              selected: grid.getCheckedRows(),
+              colnames: x.colnames,
+              returnValue: x.rowSelectionValue
+            });
+          });
+        }
+
       },
 
       resize: function(width, height) {

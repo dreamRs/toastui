@@ -4,16 +4,19 @@ ui <- fluidPage(
   tags$h2("tuigridr shiny example"),
   tabsetPanel(
     tabPanel(
-      title = "Default",
-      tuigridOutput("default")
+      title = "Fixed height",
+      tuigridOutput("default", height = "400px"),
+      tags$b("CHECK HEIGHT")
     ),
     tabPanel(
       title = "Full height",
-      tuigridOutput("fullheight", height = "auto")
+      tuigridOutput("fullheight", height = "auto"),
+      tags$b("CHECK HEIGHT")
     ),
     tabPanel(
       title = "Pagination",
-      tuigridOutput("pagination")
+      tuigridOutput("pagination"),
+      tags$b("CHECK HEIGHT")
     )
   )
 )

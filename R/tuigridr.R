@@ -112,8 +112,8 @@ tuigrid <- function(data, ...,
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-tuigridOutput <- function(outputId, width = "100%", height = "400px"){
-  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr")
+tuigridOutput <- function(outputId, width = "100%", height = "auto"){
+  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr", inline = TRUE)
 }
 
 #' @rdname tuigridr-shiny
