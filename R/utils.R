@@ -34,7 +34,7 @@ list1 <- function(x) {
 .widget_options <- function(widget, name_opt, ..., modify_x = FALSE) {
 
   if(!inherits(widget, "tuigridr")){
-    stop("grid must be a tuigridr object")
+    stop("grid must be an object built with tuigridr().")
   }
 
   if (isTRUE(modify_x)) {
@@ -75,7 +75,7 @@ list1 <- function(x) {
 .widget_options2 <- function(widget, name_opt, l, modify_x = FALSE) {
 
   if(!inherits(widget, "tuigridr")){
-    stop("grid must be a tuigridr object")
+    stop("grid must be an object built with tuigridr().")
   }
 
   if (isTRUE(modify_x)) {

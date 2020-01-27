@@ -17,7 +17,7 @@ grid_row_selection <- function(grid, inputId, label = NULL,
                                width = NULL) {
   return <- match.arg(return)
   if(!inherits(grid, "tuigridr")){
-    stop("grid must be a tuigridr object.")
+    stop("grid must be an object built with tuigridr().")
   }
   if (!is.null(grid$x$rowSelection)) {
     stop("grid_row_selection: you can only have one type of selection at the same time.")

@@ -45,7 +45,7 @@ grid_filters <- function(grid, vars,
                          format = "yyyy-MM-dd",
                          type = c("auto", "text", "date", "number", "select")) {
   if(!inherits(grid, "tuigridr")){
-    stop("grid must be a tuigridr object.")
+    stop("grid must be an object built with tuigridr().")
   }
   var_diff <- setdiff(vars, grid$x$colnames)
   if (length(var_diff) > 0) {

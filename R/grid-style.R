@@ -17,7 +17,7 @@
 grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., class = NULL) {
   expr <- enquo(expr)
   if(!inherits(grid, "tuigridr")){
-    stop("grid_row_style: grid must be a tuigridr object.")
+    stop("grid must be an object built with tuigridr().")
   }
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (!is.logical(rowKey))
