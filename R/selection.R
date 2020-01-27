@@ -44,5 +44,27 @@ grid_row_selection <- function(grid, inputId, label = NULL,
 }
 
 
+#' Cell selection (in shiny)
+#'
+#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param inputId The \code{input} slot that will be used to access the value.
+#'
+#' @return A \code{tuidgridr} htmlwidget.
+#' @export
+#'
+#' @example examples/ex-grid_cell_selection.R
+grid_cell_selection <- function(grid, inputId) {
+  return <- match.arg(return)
+  if(!inherits(grid, "tuigridr")){
+    stop("grid must be an object built with tuigridr().")
+  }
+  if (!is.null(grid$x$cellSelection)) {
+    grid$x$cellSelection <- NULL
+  }
+  grid$x$cellSelection <- list(
+    id = inputId
+  )
+  return(grid)
+}
 
 

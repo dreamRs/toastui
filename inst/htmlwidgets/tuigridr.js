@@ -90,6 +90,15 @@ HTMLWidgets.widget({
             });
           });
         }
+        if (x.hasOwnProperty("cellSelection") & HTMLWidgets.shinyMode) {
+          grid.on("click", function(ev) {
+            Shiny.setInputValue(x.cellSelection.id + ":tuigridrCellSelection", {
+              selected: grid.getSelectionRange(),
+              colnames: x.colnames,
+              returnValue: x.cellSelection.returnValue
+            });
+          });
+        }
       },
 
       resize: function(width, height) {

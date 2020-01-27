@@ -18,5 +18,12 @@
       unlist(lapply(data$selected, `[[`, "rowKey")) + 1
     }
   })
+  registerInputHandler("tuigridrCellSelection", function(data, ...) {
+    if (is.null(data))
+      return(NULL)
+    if (is.null(data$selected))
+      return(NULL)
+    data.frame(start = unlist(check$start), end = unlist(check$end))
+  })
 }
 
