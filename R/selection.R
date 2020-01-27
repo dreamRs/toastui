@@ -58,13 +58,32 @@ grid_cell_selection <- function(grid, inputId) {
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
   }
-  if (!is.null(grid$x$cellSelection)) {
-    grid$x$cellSelection <- NULL
-  }
   grid$x$cellSelection <- list(
     id = inputId
   )
   return(grid)
 }
+
+
+
+#' Click event (in shiny)
+#'
+#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param inputId The \code{input} slot that will be used to access the value.
+#'
+#' @return A \code{tuidgridr} htmlwidget.
+#' @export
+#'
+#' @example examples/ex-grid_click.R
+grid_click <- function(grid, inputId) {
+  if(!inherits(grid, "tuigridr")){
+    stop("grid must be an object built with tuigridr().")
+  }
+  grid$x$clickEvent <- list(
+    id = inputId
+  )
+  return(grid)
+}
+
 
 

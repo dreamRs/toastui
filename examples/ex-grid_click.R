@@ -3,7 +3,7 @@ if (interactive()) {
   library(tuigridr)
 
   ui <- fluidPage(
-    tags$h2("tuigridr cell selection"),
+    tags$h2("tuigridr click"),
     tuigridOutput("grid"),
     verbatimTextOutput("res")
   )
@@ -18,13 +18,13 @@ if (interactive()) {
 
     output$grid <- renderTuigrid({
       tuigrid(df) %>%
-        grid_cell_selection(
-          inputId = "cells"
+        grid_click(
+          inputId = "click"
         )
     })
 
     output$res <- renderPrint({
-      input$cells
+      input$click
     })
   }
 

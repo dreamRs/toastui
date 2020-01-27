@@ -96,6 +96,14 @@ HTMLWidgets.widget({
             });
           });
         }
+        if (x.hasOwnProperty("clickEvent") & HTMLWidgets.shinyMode) {
+          grid.on("click", function(ev) {
+            Shiny.setInputValue(x.clickEvent.id, {
+              row: ev.rowKey + 1,
+              col: ev.columnName
+            });
+          });
+        }
       },
 
       resize: function(width, height) {
