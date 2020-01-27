@@ -1,4 +1,5 @@
 library(shiny)
+library(tuigridr)
 
 ui <- fluidPage(
   tags$h2("tuigridr shiny example"),

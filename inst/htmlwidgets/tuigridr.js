@@ -14,7 +14,13 @@ HTMLWidgets.widget({
         }
 
         var options = x.options;
-        options.el = el;
+        options.el = document.getElementById(el.id + "-container");
+
+        //if (options.hasOwnProperty("bodyHeight") & HTMLWidgets.shinyMode) {
+        //  if (options.bodyHeight == "fitToParent") {
+        //    document.getElementById(el.id).style.marginBottom = "25px";
+        //  }
+        //}
 
         // Construct data (put back names)
         const data = [];
@@ -108,6 +114,7 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
         // TODO: code to re-render the widget with a new size
+        grid.refreshLayout();
       }
     };
   }

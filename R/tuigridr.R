@@ -93,6 +93,15 @@ tuigrid <- function(data, ...,
   )
 }
 
+tuigridr_html <- function(id, style, class, ...) {
+  htmltools::tags$div(
+    id = id, class = class, style = style,
+    htmltools::tags$div(
+      id = paste0(id, "-container"), class = class, style = style, ...
+    )
+  )
+}
+
 #' Shiny bindings for tuigridr
 #'
 #' Output and render functions for using tuigridr within Shiny
@@ -113,7 +122,7 @@ tuigrid <- function(data, ...,
 #'
 #' @export
 tuigridOutput <- function(outputId, width = "100%", height = "auto"){
-  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr", inline = TRUE)
+  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr", inline = FALSE)
 }
 
 #' @rdname tuigridr-shiny
