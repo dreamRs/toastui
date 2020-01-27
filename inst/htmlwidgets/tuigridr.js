@@ -75,20 +75,17 @@ HTMLWidgets.widget({
 
         // Selection
         if (x.hasOwnProperty("rowSelection") & HTMLWidgets.shinyMode) {
-          grid.on("check", function(ev) {
+          function rowSelection(ev) {
             Shiny.setInputValue(x.rowSelection.id + ":tuigridrRowSelection", {
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
               returnValue: x.rowSelection.returnValue
             });
-          });
-          grid.on("uncheck", function(ev) {
-            Shiny.setInputValue(x.rowSelection.id + ":tuigridrRowSelection", {
-              selected: grid.getCheckedRows(),
-              colnames: x.colnames,
-              returnValue: x.rowSelection.returnValue
-            });
-          });
+          }
+          grid.on("checkAll", rowSelection);
+          grid.on("uncheckAll", rowSelection);
+          grid.on("check", rowSelection);
+          grid.on("uncheck", rowSelection);
         }
         if (x.hasOwnProperty("cellSelection") & HTMLWidgets.shinyMode) {
           grid.on("click", function(ev) {
