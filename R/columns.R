@@ -1,0 +1,104 @@
+
+
+#' Set columns options
+#'
+#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param vars Name(s) of column in the data used in \code{\link{tuigrid}}.
+#' @param header The header of the column to be shown on the header.
+#' @param ellipsis If set to true, ellipsis will be used for overflowing content.
+#' @param align Horizontal alignment of the column content. Available values are 'left', 'center', 'right'.
+#' @param valign Vertical alignment of the column content. Available values are 'top', 'middle', 'bottom'.
+#' @param className The name of the class to be used for all cells of the column.
+#' @param width The width of the column. The unit is pixel. If this value isn't set, the column's width is automatically resized.
+#' @param minWidth The minimum width of the column. The unit is pixel.
+#' @param hidden If set to true, the column will not be shown.
+#' @param resizable If set to false, the width of the column will not be changed.
+#' @param defaultValue The default value to be shown when the column doesn't have a value.
+#' @param formatter The function that formats the value of the cell.
+#'  The return value of the function will be shown as the value of the cell.
+#'  If set to 'listItemText', the value will be shown the text.
+#' @param escapeHTML If set to true, the value of the cell will be encoded as HTML entities.
+#' @param ignored If set to true, the value of the column will be ignored when setting up the list of modified rows.
+#' @param sortable If set to true, sort button will be shown on the right side
+#'  of the column header, which executes the sort action when clicked.
+#' @param sortingType If set to 'desc', will execute descending sort initially
+#'  when sort button is clicked. Default to 'asc'.
+#' @param onBeforeChange The function that will be called before changing the
+#'  value of the cell. If stop() method in event object is called, the changing will be canceled.
+#' @param onAfterChange The function that will be called after changing the value of the cell.
+#' @param whiteSpace If set to 'normal', the text line is broken by fitting to the column's width.
+#'  If set to 'pre', spaces are preserved and the text is braken by new line characters.
+#'  If set to 'pre-wrap', spaces are preserved, the text line is broken by fitting to the
+#'  column's width and new line characters. If set to 'pre-line', spaces are merged,
+#'  the text line is broken by fitting to the column's width and new line characters.
+#' @param ... Additional parameters.
+#'
+#' @note Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
+#'
+#' @return A \code{tuidgridr} htmlwidget.
+#' @export
+#'
+#' @example examples/ex-grid_columns.R
+grid_columns <- function(grid, vars,
+                         header = NULL,
+                         ellipsis = NULL,
+                         align = NULL,
+                         valign = NULL,
+                         className = NULL,
+                         width = NULL,
+                         minWidth = NULL,
+                         hidden = NULL,
+                         resizable = NULL,
+                         defaultValue = NULL,
+                         formatter = NULL,
+                         escapeHTML = NULL,
+                         ignored = NULL,
+                         sortable = NULL,
+                         sortingType = NULL,
+                         onBeforeChange = NULL,
+                         onAfterChange = NULL,
+                         whiteSpace = NULL,
+                         ...) {
+  if(!inherits(grid, "tuigridr")){
+    stop("grid must be an object built with tuigridr().")
+  }
+  var_diff <- setdiff(vars, grid$x$colnames)
+  if (length(var_diff) > 0) {
+    stop("Variable(s) ", paste(var_diff, collapse = ", "),
+         " are not valid columns in data passed to tuigridr()")
+  }
+  config <- dropNulls(list(
+    header = header,
+    ellipsis = ellipsis,
+    align = align,
+    valign = valign,
+    className = className,
+    width = width,
+    minWidth = minWidth,
+    hidden = hidden,
+    resizable = resizable,
+    defaultValue = defaultValue,
+    formatter = formatter,
+    escapeHTML = escapeHTML,
+    ignored = ignored,
+    sortable = sortable,
+    sortingType = sortingType,
+    onBeforeChange = onBeforeChange,
+    onAfterChange = onAfterChange,
+    whiteSpace = whiteSpace,
+    ...
+  ))
+  config <- lapply(config, rep_len, length.out = length(vars))
+  for (variable in vars) {
+    i <- which(grid$x$colnames == variable)
+    j <- which(vars == variable)
+    colOpts <- lapply(config, `[`, j)
+    colOpts$name <- variable
+    if (is.null(colOpts$header))
+      colOpts$header <- variable
+    grid$x$options$columns[[i]] <- colOpts
+  }
+  return(grid)
+}
+
+
