@@ -14,7 +14,7 @@ dependencies:
     script: tui-date-picker.min.js
     stylesheet: tui-date-picker.min.css
   - name: tui-grid
-    version: 4.8.1
+    version: 4.10.1
     src: htmlwidgets/lib/tui-grid
     script: tui-grid.min.js
     stylesheet: tui-grid.min.css
