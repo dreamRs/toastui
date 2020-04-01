@@ -16,7 +16,7 @@ ui <- fluidPage(
     ),
     tabPanel(
       title = "Pagination",
-      tuigridOutput("pagination"),
+      tuigridOutput("pagination", height = "auto"),
       tags$b("CHECK HEIGHT")
     )
   )
@@ -25,15 +25,15 @@ ui <- fluidPage(
 server <- function(input, output, session) {
 
   output$default <- renderTuigrid({
-    tuigrid(iris)
+    tuigrid(rolling_stones_500)
   })
 
   output$fullheight <- renderTuigrid({
-    tuigrid(iris, bodyHeight = "auto")
+    tuigrid(rolling_stones_500, bodyHeight = "auto")
   })
 
   output$pagination <- renderTuigrid({
-    tuigrid(iris, pagination = 15)
+    tuigrid(rolling_stones_500, pagination = 15)
   })
 
 }

@@ -8,18 +8,15 @@ tuigrid(data.frame(
 ))
 
 
-# With iris
-tuigrid(iris)
-
-# with mtcars
-tuigrid(mtcars)
+# default usage
+tuigrid(rolling_stones_50)
 
 
 # Pagination
-tuigrid(iris, pagination = 10)
+tuigrid(rolling_stones_50, pagination = 10)
 
 
 # Themes
-tuigrid(iris, theme = "striped")
-tuigrid(iris, theme = "default")
+tuigrid(rolling_stones_50, theme = "striped")
+tuigrid(rolling_stones_50, theme = "default")
 

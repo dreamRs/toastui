@@ -45,11 +45,15 @@ Properties to customize grid theme, each argument
 }
 \examples{
 
-# Default
-tuigrid(iris)
+# Default is "clean" theme
+tuigrid(rolling_stones_50)
+
+# others builtins themes
+tuigrid(rolling_stones_50, theme = "striped")
+tuigrid(rolling_stones_50, theme = "default")
 
 # Customize theme
-tuigrid(iris) \%>\%
+tuigrid(rolling_stones_50) \%>\%
   grid_theme(
     row = list(
       even = list(
