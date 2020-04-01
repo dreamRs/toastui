@@ -54,7 +54,6 @@ grid_row_selection <- function(grid, inputId, label = NULL,
 #'
 #' @example examples/ex-grid_cell_selection.R
 grid_cell_selection <- function(grid, inputId) {
-  return <- match.arg(return)
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
   }

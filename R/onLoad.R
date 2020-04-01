@@ -23,7 +23,7 @@
       return(NULL)
     if (is.null(data$selected))
       return(NULL)
-    data.frame(start = unlist(check$start), end = unlist(check$end))
+    data.frame(start = unlist(data$selected$start), end = unlist(data$selected$end))
   })
 }
 
