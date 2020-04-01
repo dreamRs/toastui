@@ -17,7 +17,8 @@
 #'
 #' @export
 tuigrid <- function(data, ...,
-                    sortable = TRUE, pagination = NULL,
+                    sortable = TRUE,
+                    pagination = NULL,
                     filters = FALSE,
                     theme = c("clean", "striped", "default"),
                     width = NULL, height = NULL,
@@ -26,7 +27,7 @@ tuigrid <- function(data, ...,
   data <- as.data.frame(data)
   theme <- match.arg(theme)
 
-  filters <- simple_filters(data)
+  filters_type <- simple_filters(data)
 
   options <- list(
     columns = lapply(
@@ -36,7 +37,7 @@ tuigrid <- function(data, ...,
           header = x,
           name = x,
           sortable = isTRUE(sortable),
-          filter = if (isTRUE(filters)) filters[[x]]
+          filter = if (isTRUE(filters)) filters_type[[x]]
         ))
       }
     ),

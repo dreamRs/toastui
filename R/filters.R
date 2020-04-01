@@ -37,13 +37,13 @@ simple_filters <- function(data) {
 #' @return A \code{tuidgridr} htmlwidget.
 #' @export
 #'
-#' @example
+#' @example examples/ex-filters.R
 grid_filters <- function(grid, vars,
                          showApplyBtn = NULL,
                          showClearBtn = NULL,
                          operator = NULL,
                          format = "yyyy-MM-dd",
-                         type = c("auto", "text", "date", "number", "select")) {
+                         type = "auto") {
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
   }
@@ -52,7 +52,7 @@ grid_filters <- function(grid, vars,
     stop("Variable(s) ", paste(var_diff, collapse = ", "),
          " are not valid columns in data passed to tuigridr()")
   }
-  type <- match.arg(type)
+  type <- match.arg(type, several.ok = TRUE, choices = c("auto", "text", "date", "number", "select"))
   l_var <- length(vars)
   if (!is.null(showApplyBtn))
     showApplyBtn <- rep_len(x = showApplyBtn, length.out = l_var)
@@ -66,11 +66,11 @@ grid_filters <- function(grid, vars,
     i <- which(grid$x$colnames == variable)
     j <- which(vars == variable)
     if (identical(type[j], "auto")) {
-      type <- grid$x$filters[[variable]]
+      type[j] <- grid$x$filters[[variable]]
     }
     grid$x$options$columns[[i]]$filter <- dropNulls(list(
-      type = type,
-      format = if (type == "date") format,
+      type = type[j],
+      format = if (type[j] == "date") format,
       showApplyBtn = showApplyBtn[j],
       showClearBtn = showClearBtn[j],
       operator = operator[j]
