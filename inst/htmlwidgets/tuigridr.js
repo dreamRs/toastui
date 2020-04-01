@@ -94,7 +94,7 @@ HTMLWidgets.widget({
           grid.on("uncheck", rowSelection);
         }
         if (x.hasOwnProperty("cellSelection") & HTMLWidgets.shinyMode) {
-          grid.on("click", function(ev) {
+          grid.on("selection", function(ev) {
             Shiny.setInputValue(x.cellSelection.id + ":tuigridrCellSelection", {
               selected: grid.getSelectionRange(),
               colnames: x.colnames,

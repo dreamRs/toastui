@@ -2,9 +2,7 @@
 #' @importFrom shiny registerInputHandler
 .onLoad <- function(...) {
   registerInputHandler("tuigridrRowSelection", function(data, ...) {
-    if (is.null(data))
-      return(NULL)
-    if (is.null(data$selected))
+    if (is.null(data) || is.null(data$selected))
       return(NULL)
     if (identical(data$returnValue, "data")) {
       do.call("rbind", lapply(
@@ -19,11 +17,14 @@
     }
   })
   registerInputHandler("tuigridrCellSelection", function(data, ...) {
-    if (is.null(data))
+    if (is.null(data) || is.null(data$selected))
       return(NULL)
-    if (is.null(data$selected))
-      return(NULL)
-    data.frame(start = unlist(data$selected$start), end = unlist(data$selected$end))
+    start <- unlist(data$selected$start) + 1
+    end <- unlist(data$selected$end) + 1
+    data.frame(
+      rows = c(start[1], end[1]),
+      cols = c(start[2], end[2])
+    )
   })
 }
 

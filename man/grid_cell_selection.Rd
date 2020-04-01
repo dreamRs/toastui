@@ -4,12 +4,14 @@
 \alias{grid_cell_selection}
 \title{Cell selection (in shiny)}
 \usage{
-grid_cell_selection(grid, inputId)
+grid_cell_selection(grid, inputId, selectionUnit = c("cell", "row"))
 }
 \arguments{
 \item{grid}{A table created with \code{\link{tuigrid}}.}
 
 \item{inputId}{The \code{input} slot that will be used to access the value.}
+
+\item{selectionUnit}{The unit of selection on grid.}
 }
 \value{
 A \code{tuidgridr} htmlwidget.
@@ -24,8 +26,10 @@ if (interactive()) {
 
   ui <- fluidPage(
     tags$h2("tuigridr cell selection"),
-    tuigridOutput("grid"),
-    verbatimTextOutput("res")
+    tuigridOutput("grid_1"),
+    verbatimTextOutput("result_1"),
+    tuigridOutput("grid_2"),
+    verbatimTextOutput("result_2")
   )
 
   server <- function(input, output, session) {
@@ -36,15 +40,25 @@ if (interactive()) {
       letters = letters[1:12]
     )
 
-    output$grid <- renderTuigrid({
+    output$grid_1 <- renderTuigrid({
       tuigrid(df) \%>\%
         grid_cell_selection(
           inputId = "cells"
         )
     })
-
-    output$res <- renderPrint({
+    output$result_1 <- renderPrint({
       input$cells
+    })
+
+    output$grid_2 <- renderTuigrid({
+      tuigrid(df) \%>\%
+        grid_cell_selection(
+          inputId = "rows",
+          selectionUnit = "row"
+        )
+    })
+    output$result_2 <- renderPrint({
+      input$rows
     })
   }
 

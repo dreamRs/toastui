@@ -48,17 +48,21 @@ grid_row_selection <- function(grid, inputId, label = NULL,
 #'
 #' @param grid A table created with \code{\link{tuigrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
+#' @param selectionUnit The unit of selection on grid.
 #'
 #' @return A \code{tuidgridr} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_cell_selection.R
-grid_cell_selection <- function(grid, inputId) {
+grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row")) {
+  selectionUnit <- match.arg(selectionUnit)
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
   }
+  grid$x$options$selectionUnit <- selectionUnit
   grid$x$cellSelection <- list(
-    id = inputId
+    id = inputId,
+    returnValue = selectionUnit
   )
   return(grid)
 }
