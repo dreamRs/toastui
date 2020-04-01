@@ -6,7 +6,7 @@ ui <- fluidPage(
   tabsetPanel(
     tabPanel(
       title = "Fixed height",
-      tuigridOutput("default", height = "400px"),
+      tuigridOutput("default"),
       tags$b("CHECK HEIGHT")
     ),
     tabPanel(
