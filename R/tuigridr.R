@@ -63,7 +63,8 @@ tuigrid <- function(data, ...,
     options = options,
     theme = theme,
     themeOptions = list(),
-    filters = filters
+    filters = filters,
+    rowAttributes = list()
   )
 
   # create widget

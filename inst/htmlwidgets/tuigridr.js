@@ -16,6 +16,8 @@ HTMLWidgets.widget({
         var options = x.options;
         options.el = document.getElementById(el.id + "-container");
 
+        var rowAttributes = x.rowAttributes;
+
         //if (options.hasOwnProperty("bodyHeight") & HTMLWidgets.shinyMode) {
         //  if (options.bodyHeight == "fitToParent") {
         //    document.getElementById(el.id).style.marginBottom = "25px";
@@ -28,6 +30,10 @@ HTMLWidgets.widget({
           const row = {};
           for (let j = 0; j < x.ncol; j += 1) {
             row[x.colnames[j]] = x.data[j][i];
+          }
+          if (rowAttributes.length > 0) { // && rowAttributes[i].length > 0
+            console.log(rowAttributes[i]);
+            row._attributes = rowAttributes[i];
           }
           data.push(row);
         }
