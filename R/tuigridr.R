@@ -94,10 +94,11 @@ tuigrid <- function(data, ...,
   )
 }
 
+#' @importFrom htmltools tags
 tuigridr_html <- function(id, style, class, ...) {
-  htmltools::tags$div(
+  tags$div(
     id = id, class = class, style = style,
-    htmltools::tags$div(
+    tags$div(
       id = paste0(id, "-container"), class = class, style = style, ...
     )
   )
