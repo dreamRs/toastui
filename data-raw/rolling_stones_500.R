@@ -4,11 +4,16 @@
 
 library(data.table)
 rolling_stones_500 <- fread("data-raw/albumlist.csv")
-rolling_stones_50 <- rolling_stones_500[Number <= 50]
 
+library(stringi)
+vars <- c("Album", "Artist", "Genre", "Subgenre")
+rolling_stones_500[, (vars) := lapply(.SD, stri_trans_general, id = "latin-ascii"), .SDcols = vars]
+
+# TOP50
+rolling_stones_50 <- rolling_stones_500[Number <= 50]
 
 rolling_stones_500 <- as.data.frame(rolling_stones_500)
 rolling_stones_50 <- as.data.frame(rolling_stones_50)
 
-usethis::use_data(rolling_stones_500)
-usethis::use_data(rolling_stones_50)
+usethis::use_data(rolling_stones_500, overwrite = TRUE)
+usethis::use_data(rolling_stones_50, overwrite = TRUE)
