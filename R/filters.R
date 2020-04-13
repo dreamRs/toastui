@@ -62,19 +62,25 @@ grid_filters <- function(grid, vars,
     operator <- rep_len(x = operator, length.out = l_var)
   if (!is.null(type))
     type <- rep_len(x = type, length.out = l_var)
+  filters_type <- simple_filters(grid$x$data_df)
   for (variable in vars) {
     i <- which(grid$x$colnames == variable)
     j <- which(vars == variable)
     if (identical(type[j], "auto")) {
-      type[j] <- grid$x$filters[[variable]]
+      type[j] <- filters_type[[variable]]
     }
-    grid$x$options$columns[[i]]$filter <- dropNulls(list(
+    filtering <- dropNulls(list(
       type = type[j],
       format = if (type[j] == "date") format,
       showApplyBtn = showApplyBtn[j],
       showClearBtn = showClearBtn[j],
       operator = operator[j]
     ))
+    if (length(filtering) > 1) {
+      grid$x$options$columns[[i]]$filter <- filtering
+    } else {
+      grid$x$options$columns[[i]]$filter <- filtering$type
+    }
   }
   return(grid)
 }

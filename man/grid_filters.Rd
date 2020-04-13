@@ -37,11 +37,14 @@ Set filters options
 }
 \examples{
 
+library(tuigridr)
+
 data <- data.frame(
   number = 1:12,
   month.abb = month.abb,
   month.name = month.name,
-  date = Sys.Date() + 0:11, stringsAsFactors = FALSE
+  date = Sys.Date() + 0:11,
+  stringsAsFactors = FALSE
 )
 
 tuigrid(data) \%>\%
