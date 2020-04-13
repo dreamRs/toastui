@@ -1,6 +1,8 @@
 
 
-#' Set columns options
+#' @title Set columns options
+#'
+#' @description Set options for one or several specific column.
 #'
 #' @param grid A table created with \code{\link{tuigrid}}.
 #' @param vars Name(s) of column in the data used in \code{\link{tuigrid}}.
@@ -62,6 +64,8 @@ grid_columns <- function(grid, vars,
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
   }
+  if (missing(vars))
+    vars <- grid$x$colnames
   var_diff <- setdiff(vars, grid$x$colnames)
   if (length(var_diff) > 0) {
     stop("Variable(s) ", paste(var_diff, collapse = ", "),
@@ -100,5 +104,48 @@ grid_columns <- function(grid, vars,
   }
   return(grid)
 }
+
+
+
+
+#' @title Set global columns options
+#'
+#' @description Set options for all columns.
+#'
+#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param minWidth Minimum width of each columns.
+#' @param resizable If set to true, resize-handles of each columns will be shown.
+#' @param frozenCount The number of frozen columns.
+#' @param frozenBorderWidth The value of frozen border width.
+#'  When the frozen columns are created by "frozenCount" option, the frozen border width set.
+#'
+#' @return A \code{tuidgridr} htmlwidget.
+#' @export
+#'
+#' @example examples/ex-grid_columns_opts.R
+grid_columns_opts <- function(grid,
+                              minWidth = NULL,
+                              resizable = NULL,
+                              frozenCount = NULL,
+                              frozenBorderWidth = NULL) {
+  if(!inherits(grid, "tuigridr")){
+    stop("grid must be an object built with tuigridr().")
+  }
+  options <- dropNulls(list(
+    minWidth = minWidth,
+    resizable = resizable,
+    frozenCount = frozenCount,
+    frozenBorderWidth = frozenBorderWidth
+  ))
+  .widget_options2(
+    grid, name_opt = "columnOptions",
+    l = options
+  )
+}
+
+
+
+
+
 
 

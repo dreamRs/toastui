@@ -84,17 +84,19 @@ the text line is broken by fitting to the column's width and new line characters
 A \code{tuidgridr} htmlwidget.
 }
 \description{
-Set columns options
+Set options for one or several specific column.
 }
 \note{
 Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
 }
 \examples{
+library(tuigridr)
+
 # New header label
 tuigrid(iris) \%>\%
   grid_columns(vars = "Sepal.Length", header = "Length of Sepal")
 
-# Align content to righjt & resize
+# Align content to right & resize
 tuigrid(iris) \%>\%
   grid_columns(vars = "Sepal.Length",
                align = "right",

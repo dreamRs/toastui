@@ -1,8 +1,10 @@
+library(tuigridr)
+
 # New header label
 tuigrid(iris) %>%
   grid_columns(vars = "Sepal.Length", header = "Length of Sepal")
 
-# Align content to righjt & resize
+# Align content to right & resize
 tuigrid(iris) %>%
   grid_columns(vars = "Sepal.Length",
                align = "right",
