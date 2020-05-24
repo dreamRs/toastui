@@ -100,7 +100,14 @@ grid_columns <- function(grid, vars,
     colOpts$name <- variable
     if (is.null(colOpts$header))
       colOpts$header <- variable
-    grid$x$options$columns[[i]] <- colOpts
+    if (!is.null(grid$x$options$columns[[i]])) {
+      grid$x$options$columns[[i]] <- modifyList(
+        x = grid$x$options$columns[[i]],
+        val = colOpts
+      )
+    } else {
+      grid$x$options$columns[[i]] <- colOpts
+    }
   }
   return(grid)
 }
