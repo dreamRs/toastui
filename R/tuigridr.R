@@ -8,6 +8,8 @@
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
 #' @param filters Logical, allow to filter columns.
+#' @param cols_width Width for the columns, can be \code{"auto"} (width is determined by column's content)
+#'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.
 #' @param theme Set styles for the entire table.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
@@ -20,8 +22,10 @@ tuigrid <- function(data, ...,
                     sortable = TRUE,
                     pagination = NULL,
                     filters = FALSE,
+                    cols_width = "auto",
                     theme = c("clean", "striped", "default"),
-                    width = NULL, height = NULL,
+                    width = NULL,
+                    height = NULL,
                     elementId = NULL) {
 
   data <- as.data.frame(data)
@@ -54,6 +58,9 @@ tuigrid <- function(data, ...,
     options$bodyHeight <- "auto"
   }
 
+  if (is.null(options$rowHeight))
+    options$rowHeight <- "auto"
+
   x <- list(
     data_df = data,
     nrow = nrow(data),
@@ -68,9 +75,9 @@ tuigrid <- function(data, ...,
   )
 
   # create widget
-  htmlwidgets::createWidget(
+  widget <- htmlwidgets::createWidget(
     name = "tuigridr",
-    x,
+    x = x,
     width = width,
     height = height,
     package = "tuigridr",
@@ -93,7 +100,21 @@ tuigrid <- function(data, ...,
       browser.external = TRUE
     )
   )
+  if (identical(cols_width, "auto")) {
+    widget <- grid_columns(
+      grid = widget,
+      minWidth = nchar_cols(data),
+      whiteSpace = "pre-line"
+    )
+  } else if (is.numeric(cols_width)) {
+    widget <- grid_columns(
+      grid = widget,
+      width = cols_width
+    )
+  }
+  return(widget)
 }
+
 
 #' @importFrom htmltools tags
 tuigridr_html <- function(id, style, class, ...) {

@@ -18,6 +18,22 @@ list1 <- function(x) {
   }
 }
 
+maxnchar <- function(x) {
+  if (inherits(x, "character")) {
+    max(nchar(x, keepNA = FALSE), na.rm = TRUE)
+  } else if (inherits(x, "factor")) {
+    max(nchar(levels(x), keepNA = FALSE), na.rm = TRUE)
+  } else {
+    0
+  }
+}
+nchar_cols <- function(data, min_width = 70) {
+  cols <- vapply(data, maxnchar, numeric(1))
+  colsnms <- nchar(names(data), keepNA = FALSE) + 10
+  widths <- pmax(cols, colsnms)
+  pmin(pmax(min_width, widths * 4), 500)
+}
+
 
 #' Utility function to create Htmlwidget parameters JSON
 #'

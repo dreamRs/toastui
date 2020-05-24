@@ -10,6 +10,7 @@ tuigrid(
   sortable = TRUE,
   pagination = NULL,
   filters = FALSE,
+  cols_width = "auto",
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
@@ -26,6 +27,9 @@ tuigrid(
 \item{pagination}{Number of rows per page to display, default to \code{NULL} (no pagination).}
 
 \item{filters}{Logical, allow to filter columns.}
+
+\item{cols_width}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
+or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.}
 
 \item{theme}{Set styles for the entire table.}
 
