@@ -103,7 +103,10 @@ tuigrid <- function(data, ...,
   if (identical(cols_width, "auto")) {
     widget <- grid_columns(
       grid = widget,
-      minWidth = nchar_cols(data),
+      minWidth = nchar_cols(
+        data = data,
+        add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
+      ),
       whiteSpace = "pre-line"
     )
   } else if (is.numeric(cols_width)) {
