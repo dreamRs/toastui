@@ -4,6 +4,10 @@ dropNulls <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE = logical(1))]
 }
 
+list_ <- function(...) {
+  dropNulls(list(...))
+}
+
 `%||%` <- function(x, y) {
   if (!is.null(x)) x else y
 }
@@ -27,9 +31,9 @@ maxnchar <- function(x) {
     0
   }
 }
-nchar_cols <- function(data, min_width = 70) {
+nchar_cols <- function(data, min_width = 70, add_header = 10) {
   cols <- vapply(data, maxnchar, numeric(1))
-  colsnms <- nchar(names(data), keepNA = FALSE) + 10
+  colsnms <- nchar(names(data), keepNA = FALSE) + add_header
   widths <- pmax(cols, colsnms)
   pmin(pmax(min_width, widths * 4), 500)
 }

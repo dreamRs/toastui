@@ -1,3 +1,4 @@
+library(tuigridr)
 
 # Default is "clean" theme
 tuigrid(rolling_stones_50)
@@ -6,26 +7,18 @@ tuigrid(rolling_stones_50)
 tuigrid(rolling_stones_50, theme = "striped")
 tuigrid(rolling_stones_50, theme = "default")
 
+
 # Customize theme
 tuigrid(rolling_stones_50) %>%
   grid_theme(
-    row = list(
-      even = list(
-        background = "#ddebf7"
-      )
-    ),
-    cell = list(
-      normal = list(
-        border = "#9bc2e6",
-        showHorizontalBorder = TRUE
-      ),
-      header = list(
-        background = "#5b9bd5",
-        text = "#FFF"
-      )
-    )
+    row.even.background = "#ddebf7",
+    cell.normal.border = "#9bc2e6",
+    cell.normal.showVerticalBorder = TRUE,
+    cell.normal.showHorizontalBorder = TRUE,
+    cell.header.background = "#5b9bd5",
+    cell.header.text = "#FFF",
+    cell.selectedHeader.background = "#0B173B",
+    cell.focused.border = "#0B173B"
   )
-
-
 
 

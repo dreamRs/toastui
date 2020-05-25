@@ -6,34 +6,172 @@
 \usage{
 grid_theme(
   grid,
-  row = NULL,
-  cell = NULL,
-  area = NULL,
-  outline = NULL,
-  selection = NULL,
-  scrollbar = NULL,
-  frozenBorder = NULL,
-  ...
+  selection.background = NULL,
+  selection.border = NULL,
+  scrollbar.border = NULL,
+  scrollbar.background = NULL,
+  scrollbar.emptySpace = NULL,
+  scrollbar.thumb = NULL,
+  scrollbar.active = NULL,
+  outline.border = NULL,
+  outline.showVerticalBorder = NULL,
+  frozenBorder.border = NULL,
+  area.header.border = NULL,
+  area.header.background = NULL,
+  area.body.background = NULL,
+  area.summary.border = NULL,
+  area.summary.background = NULL,
+  row.even.background = NULL,
+  row.even.text = NULL,
+  row.odd.background = NULL,
+  row.odd.text = NULL,
+  row.dummy.background = NULL,
+  row.hover.background = NULL,
+  cell.normal.background = NULL,
+  cell.normal.border = NULL,
+  cell.normal.text = NULL,
+  cell.normal.showVerticalBorder = NULL,
+  cell.normal.showHorizontalBorder = NULL,
+  cell.header.background = NULL,
+  cell.header.border = NULL,
+  cell.header.text = NULL,
+  cell.header.showVerticalBorder = NULL,
+  cell.header.showHorizontalBorder = NULL,
+  cell.rowHeader.background = NULL,
+  cell.rowHeader.border = NULL,
+  cell.rowHeader.text = NULL,
+  cell.rowHeader.showVerticalBorder = NULL,
+  cell.rowHeader.showHorizontalBorder = NULL,
+  cell.summary.background = NULL,
+  cell.summary.border = NULL,
+  cell.summary.text = NULL,
+  cell.summary.showVerticalBorder = NULL,
+  cell.summary.showHorizontalBorder = NULL,
+  cell.selectedHeader.background = NULL,
+  cell.selectedRowHeader.background = NULL,
+  cell.focused.border = NULL,
+  cell.focused.background = NULL,
+  cell.focusedInactive.border = NULL,
+  cell.required.background = NULL,
+  cell.required.text = NULL,
+  cell.editable.background = NULL,
+  cell.editable.text = NULL,
+  cell.disabled.background = NULL,
+  cell.disabled.text = NULL,
+  cell.invalid.background = NULL,
+  cell.invalid.text = NULL
 )
 }
 \arguments{
 \item{grid}{A grid created with \code{\link{tuigrid}}.}
 
-\item{row}{Styles for the table rows.}
+\item{selection.background}{Background color of a selection layer.}
 
-\item{cell}{Styles for the table cells.}
+\item{selection.border}{Border color of a selection layer.}
 
-\item{area}{Styles for the table areas.}
+\item{scrollbar.border}{Border color of scrollbars.}
 
-\item{outline}{Styles for the table outline.}
+\item{scrollbar.background}{Background color of scrollbars.}
 
-\item{selection}{Styles for a selection layer.}
+\item{scrollbar.emptySpace}{Color of extra spaces except scrollbar.}
 
-\item{scrollbar}{Styles for scrollbars.}
+\item{scrollbar.thumb}{Color of thumbs in scrollbars.}
 
-\item{frozenBorder}{Styles for a frozen border.}
+\item{scrollbar.active}{Color of arrows(for IE) or  thumb:hover(for other browsers) in scrollbars.}
 
-\item{...}{Additional arguments.}
+\item{outline.border}{Color of the table outline.}
+
+\item{outline.showVerticalBorder}{Whether vertical outlines of the table are visible.}
+
+\item{frozenBorder.border}{Border color of a frozen border.}
+
+\item{area.header.border}{Border color of the header area in the table.}
+
+\item{area.header.background}{Background color of the header area in the table.}
+
+\item{area.body.background}{Background color of the body area in the table.}
+
+\item{area.summary.border}{Border color of the summary area in the table.}
+
+\item{area.summary.background}{Background color of the summary area in the table.}
+
+\item{row.even.background}{background color of even row.}
+
+\item{row.even.text}{text color of even row.}
+
+\item{row.odd.background}{background color of cells in odd row.}
+
+\item{row.odd.text}{text color of odd row.}
+
+\item{row.dummy.background}{background color of dummy row.}
+
+\item{row.hover.background}{background color of hovered row.}
+
+\item{cell.normal.background}{Background color of normal cells.}
+
+\item{cell.normal.border}{Border color of normal cells.}
+
+\item{cell.normal.text}{Text color of normal cells.}
+
+\item{cell.normal.showVerticalBorder}{Whether vertical borders of normal cells are visible.}
+
+\item{cell.normal.showHorizontalBorder}{Whether horizontal borders of normal cells are visible.}
+
+\item{cell.header.background}{Background color of header cells.}
+
+\item{cell.header.border}{border color of header cells.}
+
+\item{cell.header.text}{text color of header cells.}
+
+\item{cell.header.showVerticalBorder}{Whether vertical borders of header cells are visible.}
+
+\item{cell.header.showHorizontalBorder}{Whether horizontal borders of header cells are visible.}
+
+\item{cell.rowHeader.background}{Background color of row's header cells.}
+
+\item{cell.rowHeader.border}{border color of row's header cells.}
+
+\item{cell.rowHeader.text}{text color of row's header cells.}
+
+\item{cell.rowHeader.showVerticalBorder}{Whether vertical borders of row's header cells are visible.}
+
+\item{cell.rowHeader.showHorizontalBorder}{Whether horizontal borders of row's header cells are visible.}
+
+\item{cell.summary.background}{Background color of cells in the summary area.}
+
+\item{cell.summary.border}{border color of cells in the summary area.}
+
+\item{cell.summary.text}{text color of cells in the summary area.}
+
+\item{cell.summary.showVerticalBorder}{Whether vertical borders of cells in the summary area are visible.}
+
+\item{cell.summary.showHorizontalBorder}{Whether horizontal borders of cells in the summary area are visible.}
+
+\item{cell.selectedHeader.background}{background color of selected header cells.}
+
+\item{cell.selectedRowHeader.background}{background color of selected row's haed cells.}
+
+\item{cell.focused.border}{border color of a focused cell.}
+
+\item{cell.focused.background}{background color of a focused cell.}
+
+\item{cell.focusedInactive.border}{border color of a inactive focus cell.}
+
+\item{cell.required.background}{background color of required cells.}
+
+\item{cell.required.text}{text color of required cells.}
+
+\item{cell.editable.background}{background color of the editable cells.}
+
+\item{cell.editable.text}{text color of the selected editable cells.}
+
+\item{cell.disabled.background}{background color of disabled cells.}
+
+\item{cell.disabled.text}{text color of disabled cells.}
+
+\item{cell.invalid.background}{background color of invalid cells.}
+
+\item{cell.invalid.text}{text color of invalid cells.}
 }
 \value{
 A \code{tuidgridr} htmlwidget.
@@ -44,6 +182,7 @@ Properties to customize grid theme, each argument
  \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
 }
 \examples{
+library(tuigridr)
 
 # Default is "clean" theme
 tuigrid(rolling_stones_50)
@@ -52,27 +191,19 @@ tuigrid(rolling_stones_50)
 tuigrid(rolling_stones_50, theme = "striped")
 tuigrid(rolling_stones_50, theme = "default")
 
+
 # Customize theme
 tuigrid(rolling_stones_50) \%>\%
   grid_theme(
-    row = list(
-      even = list(
-        background = "#ddebf7"
-      )
-    ),
-    cell = list(
-      normal = list(
-        border = "#9bc2e6",
-        showHorizontalBorder = TRUE
-      ),
-      header = list(
-        background = "#5b9bd5",
-        text = "#FFF"
-      )
-    )
+    row.even.background = "#ddebf7",
+    cell.normal.border = "#9bc2e6",
+    cell.normal.showVerticalBorder = TRUE,
+    cell.normal.showHorizontalBorder = TRUE,
+    cell.header.background = "#5b9bd5",
+    cell.header.text = "#FFF",
+    cell.selectedHeader.background = "#0B173B",
+    cell.focused.border = "#0B173B"
   )
-
-
 
 
 }
