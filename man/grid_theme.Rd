@@ -201,8 +201,8 @@ tuigrid(rolling_stones_50) \%>\%
     cell.normal.showHorizontalBorder = TRUE,
     cell.header.background = "#5b9bd5",
     cell.header.text = "#FFF",
-    cell.selectedHeader.background = "#0B173B",
-    cell.focused.border = "#0B173B"
+    cell.selectedHeader.background = "#013ADF",
+    cell.focused.border = "#013ADF"
   )
 
 
