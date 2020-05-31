@@ -37,3 +37,45 @@ tuigrid(iris) %>%
     column = "Sepal.Length",
     background = "#F781BE"
   )
+
+
+
+
+# Style multiple columns
+
+cor_longley <- as.data.frame(cor(longley))
+cor_longley$Var <- row.names(cor_longley)
+vars <- c("GNP.deflator", "GNP",
+          "Unemployed", "Armed.Forces",
+          "Population", "Year", "Employed")
+tuigrid(cor_longley[, c("Var", vars)]) %>%
+  grid_cells_style(
+    fun = ~ . > 0.9,
+    columns = vars,
+    background = "#053061",
+    color = "#FFF"
+  ) %>%
+  grid_cells_style(
+    fun = ~ . > 0 & . <= 0.9,
+    columns = vars,
+    background = "#539dc8",
+    color = "#FFF"
+  ) %>%
+  grid_cells_style(
+    fun = ~ . < 0,
+    columns = vars,
+    background = "#b51f2e",
+    color = "#FFF"
+  )
+
+
+
+
+
+
+
+
+
+
+
+

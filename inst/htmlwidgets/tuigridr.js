@@ -84,6 +84,21 @@ HTMLWidgets.widget({
             }
           }
         }
+        // Styles for cells
+        if (x.hasOwnProperty("cellsClass")) {
+          console.log(x.cellsClass);
+          for (let i = 0; i < x.cellsClass.length; i += 1) {
+            console.log(x.cellsClass[i].styles);
+            addStyle(x.cellsClass[i].styles);
+            for (let j = 0; j < x.cellsClass[i].rowKey.length; j += 1) {
+              grid.addCellClassName(
+                x.cellsClass[i].rowKey[j],
+                x.cellsClass[i].column,
+                x.cellsClass[i].class
+              );
+            }
+          }
+        }
 
         // Selection
         if (x.hasOwnProperty("rowSelection") & HTMLWidgets.shinyMode) {
@@ -120,7 +135,9 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
         // TODO: code to re-render the widget with a new size
-        grid.refreshLayout();
+        if (typeof grid !== "undefined") {
+          grid.refreshLayout();
+        }
       }
     };
   }

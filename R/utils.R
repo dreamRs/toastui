@@ -14,7 +14,7 @@ list_ <- function(...) {
 
 list1 <- function(x) {
   if (is.null(x))
-    return(x)
+    return(NULL)
   if (length(x) == 1 & !is.list(x)) {
     list(x)
   } else {

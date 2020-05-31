@@ -14,7 +14,12 @@
 #' @importFrom rlang enquo eval_tidy
 #'
 #' @example examples/ex-grid_row_style.R
-grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., class = NULL) {
+grid_row_style <- function(grid,
+                           expr,
+                           background = NULL,
+                           color = NULL,
+                           ...,
+                           class = NULL) {
   expr <- enquo(expr)
   if(!inherits(grid, "tuigridr")){
     stop("grid must be an object built with tuigridr().")
@@ -36,7 +41,7 @@ grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., cla
   grid$x$rowClass <- append(
     x = grid$x$rowClass,
     values = list(list(
-      rowKey = rowKey,
+      rowKey = list1(rowKey),
       class = class,
       styles = styles
     ))
@@ -48,7 +53,7 @@ grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., cla
 
 
 
-#' Set grid cell style
+#' Set grid cell(s) style
 #'
 #' @param grid A grid created with \code{\link{tuigrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.
@@ -61,10 +66,17 @@ grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., cla
 #' @return A \code{tuidgridr} htmlwidget.
 #' @export
 #'
-#' @importFrom rlang enquo eval_tidy
+#' @name grid-cell-style
+#'
+#' @importFrom rlang enquo eval_tidy as_function
 #'
 #' @example examples/ex-grid_cell_style.R
-grid_cell_style <- function(grid, expr, column, background = NULL, color = NULL, ..., class = NULL) {
+grid_cell_style <- function(grid,
+                            expr,
+                            column,
+                            background = NULL,
+                            color = NULL, ...,
+                            class = NULL) {
   if (!is.character(column) | length(column) != 1)
     stop("grid_cell_style: column must be a character of length one.")
   expr <- enquo(expr)
@@ -88,7 +100,7 @@ grid_cell_style <- function(grid, expr, column, background = NULL, color = NULL,
   grid$x$cellClass <- append(
     x = grid$x$cellClass,
     values = list(list(
-      rowKey = rowKey,
+      rowKey = list1(rowKey),
       class = class,
       column = column,
       styles = styles
@@ -96,4 +108,67 @@ grid_cell_style <- function(grid, expr, column, background = NULL, color = NULL,
   )
   return(grid)
 }
+
+
+
+#' @param fun Function to apply to \code{columns} to identify rows to style.
+#' @param columns Columns names to use with \code{fun}.
+#'
+#' @export
+#'
+#' @rdname grid-cell-style
+grid_cells_style <- function(grid,
+                             fun,
+                             columns,
+                             background = NULL,
+                             color = NULL,
+                             ...,
+                             class = NULL) {
+  if(!inherits(grid, "tuigridr")){
+    stop("grid_cells_style: grid must be a tuigridr object.", call. = FALSE)
+  }
+  if (!is.character(columns))
+    stop("grid_cell_style: column must be character.", call. = FALSE)
+  fun <- as_function(fun)
+  rowKeys <- lapply(
+    X = grid$x$data_df[, columns, drop = FALSE],
+    FUN = fun
+  )
+  if (!all(vapply(rowKeys, is.logical, logical(1))))
+    stop("grid_cells_style: fun must evaluate to a logical vector!", call. = FALSE)
+  rowKeys <- lapply(rowKeys, function(x) {
+    which(x) - 1
+  })
+  if (is.null(class)) {
+    class <- paste0("tuigridr-cells-", sample.int(1e12, 1))
+  }
+  styles <- dropNulls(list(
+    background = background,
+    color = color, ...
+  ))
+  styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
+  styles <- paste(styles, collapse = ";")
+  styles <- sprintf(".%s{%s}", class, styles)
+  grid$x$cellsClass <- append(
+    x = grid$x$cellsClass,
+    values = dropNulls(lapply(
+      X = seq_along(rowKeys),
+      FUN = function(i) {
+        if (length(rowKeys[[i]]) > 0) {
+          list(
+            rowKey = list1(rowKeys[[i]]),
+            class = class,
+            column = columns[i],
+            styles = styles
+          )
+        } else {
+          NULL
+        }
+      }
+    ))
+  )
+  return(grid)
+}
+
+
 
