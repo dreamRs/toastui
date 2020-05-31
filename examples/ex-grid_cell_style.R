@@ -1,3 +1,5 @@
+library(tuigridr)
+
 tuigrid(iris) %>%
   grid_cell_style(
     Sepal.Length > 5,

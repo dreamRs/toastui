@@ -36,6 +36,8 @@ A \code{tuidgridr} htmlwidget.
 Set grid cell style
 }
 \examples{
+library(tuigridr)
+
 tuigrid(iris) \%>\%
   grid_cell_style(
     Sepal.Length > 5,

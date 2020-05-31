@@ -33,16 +33,14 @@ grid_row_style <- function(grid, expr, background = NULL, color = NULL, ..., cla
   styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
   styles <- paste(styles, collapse = ";")
   styles <- sprintf(".%s{%s}", class, styles)
-  if (is.null(grid$x$rowClass)) {
-    grid$x$rowClass <- list(
-      list(rowKey = rowKey, class = class, styles = styles)
-    )
-  } else {
-    grid$x$rowClass <- c(
-      grid$x$rowClass,
-      list(list(rowKey = rowKey, class = class, styles = styles))
-    )
-  }
+  grid$x$rowClass <- append(
+    x = grid$x$rowClass,
+    values = list(list(
+      rowKey = rowKey,
+      class = class,
+      styles = styles
+    ))
+  )
   return(grid)
 }
 
@@ -87,26 +85,15 @@ grid_cell_style <- function(grid, expr, column, background = NULL, color = NULL,
   styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
   styles <- paste(styles, collapse = ";")
   styles <- sprintf(".%s{%s}", class, styles)
-  if (is.null(grid$x$cellClass)) {
-    grid$x$cellClass <- list(
-      list(
-        rowKey = rowKey,
-        class = class,
-        column = column,
-        styles = styles
-      )
-    )
-  } else {
-    grid$x$cellClass <- c(
-      grid$x$cellClass,
-      list(list(
-        rowKey = rowKey,
-        class = class,
-        column = column,
-        styles = styles
-      ))
-    )
-  }
+  grid$x$cellClass <- append(
+    x = grid$x$cellClass,
+    values = list(list(
+      rowKey = rowKey,
+      class = class,
+      column = column,
+      styles = styles
+    ))
+  )
   return(grid)
 }
 
