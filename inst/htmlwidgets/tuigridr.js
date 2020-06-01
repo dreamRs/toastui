@@ -1,3 +1,73 @@
+
+function rescale(x, from, to) {
+  return (x - from[0])/(from[1] - from[0]) * (to[1] - to[0]) + to[0];
+}
+
+
+class CustomBarRenderer {
+  constructor(props) {
+    const el = document.createElement("div");
+    const bar = document.createElement("div");
+
+    const { bar_bg, color, background } = props.columnInfo.renderer.options;
+
+    el.style.background = background;
+    el.style.margin = "0 5px 0 5px";
+
+    bar.style.background = bar_bg;
+    bar.style.color = color;
+    bar.style.height = "20px";
+    bar.style.lineHeight = "20px";
+    bar.style.paddingLeft = "3px";
+    bar.style.minWidth = "6px";
+    bar.style.fontWeight = "bold";
+
+    el.appendChild(bar);
+
+    this.bar = bar;
+    this.el = el;
+    this.render(props);
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  render(props) {
+    const from = props.columnInfo.renderer.options.from;
+    const to = [0, 100];
+    var width = rescale(props.value, from, to);
+    this.bar.style.width = String(width) + "%";
+    this.bar.innerHTML = String(props.value);
+  }
+}
+
+class CustomSliderRenderer {
+  constructor(props) {
+    const el = document.createElement('input');
+    const { min, max } = props.columnInfo.renderer.options;
+
+    el.type = 'range';
+    el.min = String(min);
+    el.max = String(max);
+
+    el.addEventListener('mousedown', (ev) => {
+      ev.stopPropagation();
+    });
+
+    this.el = el;
+    this.render(props);
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  render(props) {
+    this.el.value = String(props.value);
+  }
+}
+
 HTMLWidgets.widget({
   name: "tuigridr",
 
@@ -31,7 +101,8 @@ HTMLWidgets.widget({
           for (let j = 0; j < x.ncol; j += 1) {
             row[x.colnames[j]] = x.data[j][i];
           }
-          if (rowAttributes.length > 0) { // && rowAttributes[i].length > 0
+          if (rowAttributes.length > 0) {
+            // && rowAttributes[i].length > 0
             console.log(rowAttributes[i]);
             row._attributes = rowAttributes[i];
           }
@@ -153,6 +224,4 @@ function addStyle(styles) {
   }
   document.getElementsByTagName("head")[0].appendChild(css);
 }
-
-
 
