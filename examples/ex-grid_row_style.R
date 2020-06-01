@@ -1,6 +1,6 @@
-library(tuigridr)
+library(toastui)
 
-tuigrid(iris) %>%
+datagrid(iris) %>%
   grid_row_style(
     Sepal.Length > 5,
     background = "#F781BE"
@@ -8,7 +8,7 @@ tuigrid(iris) %>%
 
 
 dat <- iris[c(1:3, 51:53, 101:103), ]
-tuigrid(dat) %>%
+datagrid(dat) %>%
   grid_row_style(
     Species == "setosa",
     background = "#E41A1C80",
@@ -27,7 +27,7 @@ tuigrid(dat) %>%
 # Use rlang to use character
 library(rlang)
 my_var <- "Sepal.Length"
-tuigrid(iris) %>%
+datagrid(iris) %>%
   grid_row_style(
     !!sym(my_var) > 5,
     background = "#F781BE"

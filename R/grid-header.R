@@ -3,7 +3,7 @@
 #'
 #' @description Properties to modify grid's header, like creating grouped header.
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param complexColumns \code{list}. This options creates new parent
 #'  headers of the multiple columns which includes the headers of
 #'  specified columns, and sets up the hierarchy.
@@ -15,13 +15,14 @@
 #' @param ... Named arguments to merge columns under a common header,
 #'  e.g. \code{newcol = c("col1", "col2")}.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @name grid-header
 #'
 #' @example examples/ex-header.R
 grid_header <- function(grid, complexColumns = NULL, align = NULL, valign = NULL, height = NULL) {
+  check_grid(grid, "grid_header")
   .widget_options2(
     grid, name_opt = "header",
     l = dropNulls(list(
@@ -36,6 +37,7 @@ grid_header <- function(grid, complexColumns = NULL, align = NULL, valign = NULL
 #'
 #' @rdname grid-header
 grid_complex_header <- function(grid, ..., height = 80) {
+  check_grid(grid, "grid_complex_header")
   args <- list(...)
   if (!all(nzchar(names(args))))
     stop("grid_complex_header: all arguments in '...' must be named!", call. = FALSE)

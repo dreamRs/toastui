@@ -1,8 +1,8 @@
 ---
-title: "tuigridr"
+title: "datagridr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tuigridr}
+  %\VignetteIndexEntry{datagridr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tuigridr)
+library(toastui)
 ```
 
 
@@ -24,23 +24,23 @@ library(tuigridr)
 Create a table:
 
 ```{r}
-tuigrid(rolling_stones_50)
+datagrid(rolling_stones_50)
 ```
 
 ```{r}
-tuigrid(rolling_stones_50) %>% 
+datagrid(rolling_stones_50) %>% 
   grid_columns(minWidth = pmax(60, c(2, 4, 61, 30, 41, 53) * 3), whiteSpace = "pre-line")
 ```
 
 
 ```{r}
-tuigrid(rolling_stones_50) %>% 
+datagrid(rolling_stones_50) %>% 
   grid_columns(resizable = TRUE)
 ```
 
 
 ```{r}
-tuigrid(rolling_stones_50) %>% 
+datagrid(rolling_stones_50) %>% 
   grid_columns(vars = c("Number", "Year"), width = 100)
 ```
 
@@ -51,7 +51,7 @@ tuigrid(rolling_stones_50) %>%
 Sort is activated by default, you can desactivate like this:
 
 ```{r}
-tuigrid(rolling_stones_50, sortable = FALSE)
+datagrid(rolling_stones_50, sortable = FALSE)
 ```
 
 
@@ -61,14 +61,14 @@ tuigrid(rolling_stones_50, sortable = FALSE)
 You can allow filtering rows in the table with:
 
 ```{r}
-tuigrid(rolling_stones_50, filters = TRUE)
+datagrid(rolling_stones_50, filters = TRUE)
 ```
 
 
 You can customize filter type with `grid_filters()`:
 
 ```{r}
-tuigrid(rolling_stones_50) %>% 
+datagrid(rolling_stones_50) %>% 
   grid_filters(
     vars = "Artist", 
     showApplyBtn = TRUE, 
@@ -83,7 +83,7 @@ tuigrid(rolling_stones_50) %>%
 Activata pagination by indicating the number of rows to display:
 
 ```{r}
-tuigrid(rolling_stones_50, pagination = 8)
+datagrid(rolling_stones_50, pagination = 8)
 ```
 
 
@@ -93,7 +93,7 @@ tuigrid(rolling_stones_50, pagination = 8)
 Group columns under a common label:
 
 ```{r}
-tuigrid(head(iris)) %>%
+datagrid(head(iris)) %>%
   grid_complex_header(
     "Sepal" = c("Sepal.Length", "Sepal.Width"),
     "Petal" = c("Petal.Length", "Petal.Width")

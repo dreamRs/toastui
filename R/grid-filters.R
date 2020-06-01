@@ -1,6 +1,4 @@
 
-
-
 simple_filters <- function(data) {
   lapply(
     X = data,
@@ -26,15 +24,15 @@ simple_filters <- function(data) {
 
 #' Set filters options
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
-#' @param vars Name(s) of column in the data used in \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
+#' @param vars Name(s) of column in the data used in \code{\link{datagrid}}.
 #' @param showApplyBtn Apply filters only when button is pressed.
 #' @param showClearBtn Reset the filter that has already been applied.
 #' @param operator Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}.
 #' @param format Date format.
 #' @param type Type of filter : \code{"auto"}, \code{"text"}, \code{"number"}, \code{"date"} or \code{"select"}.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-filters.R
@@ -44,13 +42,11 @@ grid_filters <- function(grid, vars,
                          operator = NULL,
                          format = "yyyy-MM-dd",
                          type = "auto") {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_filters")
   var_diff <- setdiff(vars, grid$x$colnames)
   if (length(var_diff) > 0) {
     stop("Variable(s) ", paste(var_diff, collapse = ", "),
-         " are not valid columns in data passed to tuigridr()")
+         " are not valid columns in data passed to datagrid()")
   }
   type <- match.arg(type, several.ok = TRUE, choices = c("auto", "text", "date", "number", "select"))
   l_var <- length(vars)

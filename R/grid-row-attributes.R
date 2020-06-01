@@ -1,19 +1,17 @@
 
 #' Merge rows
 #'
-#' @param grid A grid created with \code{\link{tuigrid}}.
+#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param vars Variable(s) in which merge consecutives rows.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @importFrom stats setNames
 #'
 #' @example examples/ex-grid_row_merge.R
 grid_row_merge <- function(grid, vars) {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_row_merge")
   if (any(!vars %in% grid$x$colnames))
     stop("Invalid var(s) name supplied.")
   for (var in vars) {

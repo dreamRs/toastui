@@ -1,14 +1,14 @@
 
 #' Set grid row style
 #'
-#' @param grid A grid created with \code{\link{tuigrid}}.
+#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.
 #' @param background Background color.
 #' @param color Text color.
 #' @param ... Other CSS properties.
 #' @param class CSS class to apply to the row.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @importFrom rlang enquo eval_tidy
@@ -21,15 +21,13 @@ grid_row_style <- function(grid,
                            ...,
                            class = NULL) {
   expr <- enquo(expr)
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_row_style")
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (!is.logical(rowKey))
     stop("grid_row_style: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
-    class <- paste0("tuigridr-row-", sample.int(1e12, 1))
+    class <- paste0("datagrid-row-", sample.int(1e12, 1))
   }
   styles <- dropNulls(list(
     background = background,
@@ -55,7 +53,7 @@ grid_row_style <- function(grid,
 
 #' Set grid cell(s) style
 #'
-#' @param grid A grid created with \code{\link{tuigrid}}.
+#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.
 #' @param column Name of column (variable name) to identify cells to style.
 #' @param background Background color.
@@ -63,7 +61,7 @@ grid_row_style <- function(grid,
 #' @param ... Other CSS properties.
 #' @param class CSS class to apply to the row.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @name grid-cell-style
@@ -77,18 +75,16 @@ grid_cell_style <- function(grid,
                             background = NULL,
                             color = NULL, ...,
                             class = NULL) {
+  check_grid(grid, "grid_cell_style")
   if (!is.character(column) | length(column) != 1)
     stop("grid_cell_style: column must be a character of length one.")
   expr <- enquo(expr)
-  if(!inherits(grid, "tuigridr")){
-    stop("grid_cell_style: grid must be a tuigridr object.")
-  }
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (!is.logical(rowKey))
     stop("grid_cell_style: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
-    class <- paste0("tuigridr-cell-", sample.int(1e12, 1))
+    class <- paste0("datagrid-cell-", sample.int(1e12, 1))
   }
   styles <- dropNulls(list(
     background = background,
@@ -124,9 +120,7 @@ grid_cells_style <- function(grid,
                              color = NULL,
                              ...,
                              class = NULL) {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid_cells_style: grid must be a tuigridr object.", call. = FALSE)
-  }
+  check_grid(grid, "grid_cells_style")
   if (!is.character(columns))
     stop("grid_cell_style: column must be character.", call. = FALSE)
   fun <- as_function(fun)
@@ -140,7 +134,7 @@ grid_cells_style <- function(grid,
     which(x) - 1
   })
   if (is.null(class)) {
-    class <- paste0("tuigridr-cells-", sample.int(1e12, 1))
+    class <- paste0("datagrid-cells-", sample.int(1e12, 1))
   }
   styles <- dropNulls(list(
     background = background,

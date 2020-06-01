@@ -1,11 +1,11 @@
-Package: tuigridr
-Title: Interactive Tables with 'tui-grid' Library
+Package: toastui
+Title: Interactive Tables, Calendars and Charts for the Web
 Version: 0.0.0.9000
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
   person("Fanny", "Meyer", role = "aut"),
-  person("NHN FE Development Lab", role = c("cph"), comment = "tui-grid.js library"))
-Description: What the package does (one paragraph).
+  person("NHN FE Development Lab", role = c("cph"), comment = "tui-grid, tui-calendar, tui-chart libraries"))
+Description: Create interactive tables, calendar and charts to integrate in 'shiny' applications or 'rmarkdown' documents.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

@@ -1,5 +1,4 @@
-
-library(tuigridr)
+library(toastui)
 
 data <- data.frame(
   number = 1:12,
@@ -9,7 +8,7 @@ data <- data.frame(
   stringsAsFactors = FALSE
 )
 
-tuigrid(data) %>%
+datagrid(data) %>%
   grid_filters(
     vars = "month.abb",
     showApplyBtn = TRUE,
@@ -25,7 +24,7 @@ tuigrid(data) %>%
 
 
 # Filter all variables
-tuigrid(rolling_stones_500) %>%
+datagrid(rolling_stones_500) %>%
   grid_filters(vars = names(rolling_stones_500))
 # or
-tuigrid(rolling_stones_500, filters = TRUE)
+datagrid(rolling_stones_500, filters = TRUE)

@@ -1,15 +1,15 @@
-library(tuigridr)
+library(toastui)
 
 # Default is "clean" theme
-tuigrid(rolling_stones_50)
+datagrid(rolling_stones_50)
 
 # others builtins themes
-tuigrid(rolling_stones_50, theme = "striped")
-tuigrid(rolling_stones_50, theme = "default")
+datagrid(rolling_stones_50, theme = "striped")
+datagrid(rolling_stones_50, theme = "default")
 
 
 # Customize theme
-tuigrid(rolling_stones_50) %>%
+datagrid(rolling_stones_50) %>%
   grid_theme(
     row.even.background = "#ddebf7",
     cell.normal.border = "#9bc2e6",

@@ -1,13 +1,13 @@
-library(tuigridr)
+library(toastui)
 
 #‗ Set minimal width for columns
-tuigrid(countries) %>%
+datagrid(countries) %>%
   grid_columns_opts(
     minWidth = 140
   )
 
 # Freeze two first columns
-tuigrid(countries) %>%
+datagrid(countries) %>%
   grid_columns_opts(
     minWidth = 140,
     frozenCount = 2,

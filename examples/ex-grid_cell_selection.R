@@ -1,12 +1,12 @@
 if (interactive()) {
   library(shiny)
-  library(tuigridr)
+  library(toastui)
 
   ui <- fluidPage(
-    tags$h2("tuigridr cell selection"),
-    tuigridOutput("grid_1"),
+    tags$h2("datagrid cell selection"),
+    datagridOutput("grid_1"),
     verbatimTextOutput("result_1"),
-    tuigridOutput("grid_2"),
+    datagridOutput("grid_2"),
     verbatimTextOutput("result_2")
   )
 
@@ -18,8 +18,8 @@ if (interactive()) {
       letters = letters[1:12]
     )
 
-    output$grid_1 <- renderTuigrid({
-      tuigrid(df) %>%
+    output$grid_1 <- renderDatagrid({
+      datagrid(df) %>%
         grid_cell_selection(
           inputId = "cells"
         )
@@ -28,8 +28,8 @@ if (interactive()) {
       input$cells
     })
 
-    output$grid_2 <- renderTuigrid({
-      tuigrid(df) %>%
+    output$grid_2 <- renderDatagrid({
+      datagrid(df) %>%
         grid_cell_selection(
           inputId = "rows",
           selectionUnit = "row"

@@ -1,22 +1,22 @@
 library(shiny)
-library(tuigridr)
+library(toastui)
 
 ui <- fluidPage(
-  tags$h2("tuigridr shiny example"),
+  tags$h2("datagrid shiny example"),
   tabsetPanel(
     tabPanel(
       title = "Fixed height",
-      tuigridOutput("default"),
+      datagridOutput("default"),
       tags$b("CHECK HEIGHT")
     ),
     tabPanel(
       title = "Full height",
-      tuigridOutput("fullheight", height = "auto"),
+      datagridOutput("fullheight", height = "auto"),
       tags$b("CHECK HEIGHT")
     ),
     tabPanel(
       title = "Pagination",
-      tuigridOutput("pagination", height = "auto"),
+      datagridOutput("pagination", height = "auto"),
       tags$b("CHECK HEIGHT")
     )
   )
@@ -24,16 +24,16 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
 
-  output$default <- renderTuigrid({
-    tuigrid(rolling_stones_500)
+  output$default <- renderDatagrid({
+    datagrid(rolling_stones_500)
   })
 
-  output$fullheight <- renderTuigrid({
-    tuigrid(rolling_stones_500, bodyHeight = "auto")
+  output$fullheight <- renderDatagrid({
+    datagrid(rolling_stones_500, bodyHeight = "auto")
   })
 
-  output$pagination <- renderTuigrid({
-    tuigrid(rolling_stones_500, pagination = 15)
+  output$pagination <- renderDatagrid({
+    datagrid(rolling_stones_500, pagination = 15)
   })
 
 }

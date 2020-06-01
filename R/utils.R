@@ -1,4 +1,14 @@
 
+check_grid <- function(grid, fun = NULL) {
+  if(!inherits(grid, "datagrid")){
+    stop(paste(c(
+      fun, "grid must be an object built with datagrid()."
+    ), collapse = ": "), call. = FALSE)
+  }
+}
+
+# Functions to create JSON parameters -------------------------------------
+
 # dropNulls
 dropNulls <- function(x) {
   x[!vapply(x, is.null, FUN.VALUE = logical(1))]
@@ -32,6 +42,11 @@ rep_list <- function(l, n) {
   })
 }
 
+
+
+# Guess columns size ------------------------------------------------------
+
+
 maxnchar <- function(x) {
   if (inherits(x, "character")) {
     max(nchar(x, keepNA = FALSE), na.rm = TRUE)
@@ -49,6 +64,8 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
 }
 
 
+
+
 #' Utility function to create Htmlwidget parameters JSON
 #'
 #' @param bb A \code{htmlwidget} object.
@@ -63,8 +80,8 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
 #' @noRd
 .widget_options <- function(widget, name_opt, ..., modify_x = FALSE) {
 
-  if(!inherits(widget, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
+  if(!inherits(widget, "datagrid")){
+    stop("grid must be an object built with datagrid().")
   }
 
   if (isTRUE(modify_x)) {
@@ -104,8 +121,8 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
 #' @noRd
 .widget_options2 <- function(widget, name_opt, l, modify_x = FALSE) {
 
-  if(!inherits(widget, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
+  if(!inherits(widget, "datagrid")){
+    stop("grid must be an object built with datagrid().")
   }
 
   if (isTRUE(modify_x)) {

@@ -4,8 +4,8 @@
 #'
 #' @description Set options for one or several specific column.
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
-#' @param vars Name(s) of column in the data used in \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
+#' @param vars Name(s) of column in the data used in \code{\link{datagrid}}.
 #' @param header The header of the column to be shown on the header.
 #' @param ellipsis If set to true, ellipsis will be used for overflowing content.
 #' @param align Horizontal alignment of the column content. Available values are 'left', 'center', 'right'.
@@ -37,7 +37,7 @@
 #'
 #' @note Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_columns.R
@@ -61,15 +61,13 @@ grid_columns <- function(grid, vars,
                          onAfterChange = NULL,
                          whiteSpace = NULL,
                          ...) {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_columns")
   if (missing(vars))
     vars <- grid$x$colnames
   var_diff <- setdiff(vars, grid$x$colnames)
   if (length(var_diff) > 0) {
     stop("Variable(s) ", paste(var_diff, collapse = ", "),
-         " are not valid columns in data passed to tuigridr()")
+         " are not valid columns in data passed to datagrid()")
   }
   config <- dropNulls(list(
     header = header,
@@ -119,14 +117,14 @@ grid_columns <- function(grid, vars,
 #'
 #' @description Set options for all columns.
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param minWidth Minimum width of each columns.
 #' @param resizable If set to true, resize-handles of each columns will be shown.
 #' @param frozenCount The number of frozen columns.
 #' @param frozenBorderWidth The value of frozen border width.
 #'  When the frozen columns are created by "frozenCount" option, the frozen border width set.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_columns_opts.R
@@ -135,9 +133,7 @@ grid_columns_opts <- function(grid,
                               resizable = NULL,
                               frozenCount = NULL,
                               frozenBorderWidth = NULL) {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_columns_opts")
   options <- dropNulls(list(
     minWidth = minWidth,
     resizable = resizable,

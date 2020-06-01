@@ -1,6 +1,6 @@
-library(tuigridr)
+library(toastui)
 
-tuigrid(iris) %>%
+datagrid(iris) %>%
   grid_cell_style(
     Sepal.Length > 5,
     column = "Sepal.Length",
@@ -9,7 +9,7 @@ tuigrid(iris) %>%
 
 
 dat <- iris[c(1:3, 51:53, 101:103), ]
-tuigrid(dat) %>%
+datagrid(dat) %>%
   grid_cell_style(
     Species == "setosa",
     column = "Species",
@@ -31,7 +31,7 @@ tuigrid(dat) %>%
 # Use rlang to use character
 library(rlang)
 my_var <- "Sepal.Length"
-tuigrid(iris) %>%
+datagrid(iris) %>%
   grid_cell_style(
     !!sym(my_var) > 5,
     column = "Sepal.Length",
@@ -48,7 +48,7 @@ cor_longley$Var <- row.names(cor_longley)
 vars <- c("GNP.deflator", "GNP",
           "Unemployed", "Armed.Forces",
           "Population", "Year", "Employed")
-tuigrid(cor_longley[, c("Var", vars)]) %>%
+datagrid(cor_longley[, c("Var", vars)]) %>%
   grid_cells_style(
     fun = ~ . > 0.9,
     columns = vars,

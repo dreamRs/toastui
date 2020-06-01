@@ -5,7 +5,7 @@
 #'  is a list of parameters, see full list here :
 #'  \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
 #'
-#' @param grid A grid created with \code{\link{tuigrid}}.
+#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param outline.border Color of the table outline.
 #' @param outline.showVerticalBorder Whether vertical outlines of the table are visible.
 #' @param selection.background Background color of a selection layer.
@@ -61,7 +61,7 @@
 #' @param cell.invalid.background background color of invalid cells.
 #' @param cell.invalid.text text color of invalid cells.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-theme.R
@@ -120,6 +120,7 @@ grid_theme <- function(grid,
                        cell.disabled.text = NULL,
                        cell.invalid.background = NULL,
                        cell.invalid.text = NULL) {
+  check_grid(grid, "grid_theme")
   options <- list_(
     selection = list_(
       background = selection.background,

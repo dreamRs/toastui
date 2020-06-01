@@ -1,10 +1,10 @@
 if (interactive()) {
   library(shiny)
-  library(tuigridr)
+  library(toastui)
 
   ui <- fluidPage(
-    tags$h2("tuigridr click"),
-    tuigridOutput("grid"),
+    tags$h2("datagrid click"),
+    datagridOutput("grid"),
     verbatimTextOutput("res")
   )
 
@@ -16,8 +16,8 @@ if (interactive()) {
       letters = letters[1:12]
     )
 
-    output$grid <- renderTuigrid({
-      tuigrid(df) %>%
+    output$grid <- renderDatagrid({
+      datagrid(df) %>%
         grid_click(
           inputId = "click"
         )

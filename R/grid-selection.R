@@ -1,24 +1,24 @@
 
 #' Row selection (in shiny)
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param label Display label in header row.
 #' @param return Value that will be accessible via \code{input} :
 #'  a \code{data.frame} with selected row(s) or just the index of rows.
 #' @param width Width of the column.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_row_selection.R
-grid_row_selection <- function(grid, inputId, label = NULL,
+grid_row_selection <- function(grid, 
+                               inputId, 
+                               label = NULL,
                                return = c("data", "index"),
                                width = NULL) {
+  check_grid(grid, "grid_row_selection")
   return <- match.arg(return)
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
   if (!is.null(grid$x$rowSelection)) {
     stop("grid_row_selection: you can only have one type of selection at the same time.")
   }
@@ -46,19 +46,17 @@ grid_row_selection <- function(grid, inputId, label = NULL,
 
 #' Cell selection (in shiny)
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param selectionUnit The unit of selection on grid.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_cell_selection.R
 grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row")) {
+  check_grid(grid, "grid_cell_selection")
   selectionUnit <- match.arg(selectionUnit)
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
   grid$x$options$selectionUnit <- selectionUnit
   grid$x$cellSelection <- list(
     id = inputId,
@@ -71,17 +69,15 @@ grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row"))
 
 #' Click event (in shiny)
 #'
-#' @param grid A table created with \code{\link{tuigrid}}.
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #'
-#' @return A \code{tuidgridr} htmlwidget.
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_click.R
 grid_click <- function(grid, inputId) {
-  if(!inherits(grid, "tuigridr")){
-    stop("grid must be an object built with tuigridr().")
-  }
+  check_grid(grid, "grid_click")
   grid$x$clickEvent <- list(
     id = inputId
   )

@@ -1,7 +1,7 @@
 
 #' @importFrom shiny registerInputHandler
 .onLoad <- function(...) {
-  registerInputHandler("tuigridrRowSelection", function(data, ...) {
+  registerInputHandler("datagridRowSelection", function(data, ...) {
     if (is.null(data) || is.null(data$selected))
       return(NULL)
     if (identical(data$returnValue, "data")) {
@@ -16,7 +16,7 @@
       unlist(lapply(data$selected, `[[`, "rowKey")) + 1
     }
   })
-  registerInputHandler("tuigridrCellSelection", function(data, ...) {
+  registerInputHandler("datagridCellSelection", function(data, ...) {
     if (is.null(data) || is.null(data$selected))
       return(NULL)
     start <- unlist(data$selected$start) + 1

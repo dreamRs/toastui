@@ -1,9 +1,9 @@
-#' @title Interactive table with tui-grid
+#' @title Interactive tables with tui-grid
 #'
-#' @description Create interactive table : sortable, filterable,
+#' @description Create interactive tables : sortable, filterable,
 #'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
-#' @param data A \code{data.frame} or something convertible en \code{data.frame}.
+#' @param data A \code{data.frame} or something convertible in \code{data.frame}.
 #' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
@@ -14,19 +14,23 @@
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
-#' @importFrom htmlwidgets createWidget
+#' @importFrom htmlwidgets createWidget sizingPolicy
 #' @importFrom utils modifyList
 #'
 #' @export
-tuigrid <- function(data, ...,
-                    sortable = TRUE,
-                    pagination = NULL,
-                    filters = FALSE,
-                    cols_width = "auto",
-                    theme = c("clean", "striped", "default"),
-                    width = NULL,
-                    height = NULL,
-                    elementId = NULL) {
+#' 
+#' @return A \code{datagrid} htmlwidget.
+#' 
+#' @example examples/ex-datagrid.R
+datagrid <- function(data, ...,
+                     sortable = TRUE,
+                     pagination = NULL,
+                     filters = FALSE,
+                     cols_width = "auto",
+                     theme = c("clean", "striped", "default"),
+                     width = NULL,
+                     height = NULL,
+                     elementId = NULL) {
 
   data <- as.data.frame(data)
   theme <- match.arg(theme)
@@ -75,18 +79,18 @@ tuigrid <- function(data, ...,
   )
 
   # create widget
-  widget <- htmlwidgets::createWidget(
-    name = "tuigridr",
+  widget <- createWidget(
+    name = "datagrid",
     x = x,
     width = width,
     height = height,
-    package = "tuigridr",
+    package = "toastui",
     elementId = elementId,
     preRenderHook = function(widget) {
       widget$x$data_df <- NULL
       widget
     },
-    sizingPolicy = htmlwidgets::sizingPolicy(
+    sizingPolicy = sizingPolicy(
       defaultWidth = "100%",
       defaultHeight = "auto",
       viewer.defaultHeight = "100%",
@@ -120,7 +124,7 @@ tuigrid <- function(data, ...,
 
 
 #' @importFrom htmltools tags
-tuigridr_html <- function(id, style, class, ...) {
+datagrid_html <- function(id, style, class, ...) {
   tags$div(
     id = id, class = class, style = style,
     tags$div(
@@ -129,32 +133,32 @@ tuigridr_html <- function(id, style, class, ...) {
   )
 }
 
-#' Shiny bindings for tuigridr
+#' Shiny bindings for \code{datagrid}
 #'
-#' Output and render functions for using tuigridr within Shiny
+#' Output and render functions for using \code{\link{datagrid}} within Shiny
 #' applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a tuigridr
+#' @param expr An expression that generates a datagrid.
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
-#' @name tuigridr-shiny
+#' @name datagrid-shiny
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-tuigridOutput <- function(outputId, width = "100%", height = "400px"){
-  htmlwidgets::shinyWidgetOutput(outputId, "tuigridr", width, height, package = "tuigridr", inline = FALSE)
+datagridOutput <- function(outputId, width = "100%", height = "400px"){
+  htmlwidgets::shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)
 }
 
-#' @rdname tuigridr-shiny
+#' @rdname datagrid-shiny
 #' @export
-renderTuigrid <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderDatagrid <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, tuigridOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
 }

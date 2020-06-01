@@ -63,7 +63,7 @@ class CustomBarRenderer {
 // HTMLWidgets bindings
 
 HTMLWidgets.widget({
-  name: "tuigridr",
+  name: "datagrid",
 
   type: "output",
 
@@ -168,7 +168,7 @@ HTMLWidgets.widget({
         // Selection
         if (x.hasOwnProperty("rowSelection") & HTMLWidgets.shinyMode) {
           function rowSelection(ev) {
-            Shiny.setInputValue(x.rowSelection.id + ":tuigridrRowSelection", {
+            Shiny.setInputValue(x.rowSelection.id + ":datagridRowSelection", {
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
               returnValue: x.rowSelection.returnValue
@@ -181,7 +181,7 @@ HTMLWidgets.widget({
         }
         if (x.hasOwnProperty("cellSelection") & HTMLWidgets.shinyMode) {
           grid.on("selection", function(ev) {
-            Shiny.setInputValue(x.cellSelection.id + ":tuigridrCellSelection", {
+            Shiny.setInputValue(x.cellSelection.id + ":datagridCellSelection", {
               selected: grid.getSelectionRange(),
               colnames: x.colnames,
               returnValue: x.cellSelection.returnValue
