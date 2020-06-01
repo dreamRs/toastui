@@ -1,7 +1,7 @@
-#' @title \code{htmlwidget} interface to the
+#' @title HTMLwidget interface to the
 #'  \href{https://ui.toast.com/}{TOASTUI} javascript libraries.
 #'
-#' @description This package allow you to create interactive tables, calendars and charts in one.
+#' @description Create interactive tables, calendars and charts with one package.
 #' 
 #' @section Tables:
 #' Interactive and editable tables with \href{https://ui.toast.com/tui-grid/}{tui-grid}, see \code{\link{datagrid}}.
@@ -28,6 +28,12 @@ NULL
 
 #' @importFrom magrittr %>%
 #' @name %>%
+#' @export
+#' @rdname toastui-exports
+NULL
+
+#' @importFrom htmlwidgets JS
+#' @name JS
 #' @export
 #' @rdname toastui-exports
 NULL

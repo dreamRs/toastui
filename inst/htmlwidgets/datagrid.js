@@ -52,11 +52,13 @@ class CustomBarRenderer {
   }
 
   render(props) {
+    const prefix = props.columnInfo.renderer.options.prefix;
+    const suffix = props.columnInfo.renderer.options.suffix;
     const from = props.columnInfo.renderer.options.from;
     const to = [0, 100];
     var width = rescale(props.value, from, to);
     this.bar.style.width = String(width) + "%";
-    this.bar.innerHTML = String(props.value);
+    this.bar.innerHTML = prefix + String(props.value) + suffix;
   }
 }
 

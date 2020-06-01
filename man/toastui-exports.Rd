@@ -3,6 +3,7 @@
 \name{toastui-exports}
 \alias{toastui-exports}
 \alias{\%>\%}
+\alias{JS}
 \title{toastui exported operators and S3 methods}
 \description{
 The following functions are imported and then re-exported

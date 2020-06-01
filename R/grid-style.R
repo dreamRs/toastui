@@ -166,3 +166,62 @@ grid_cells_style <- function(grid,
 
 
 
+
+
+
+
+#' Style cells with a color bar
+#'
+#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param column The name of the column where to create a color bar.
+#' @param bar_bg Background color of the color bar.
+#' @param color Color of the text.
+#' @param background Background of the cell.
+#' @param from Range of values of the variable to rrepresent as a color bar.
+#'
+#' @return A \code{datagrid} htmlwidget.
+#' @export
+#' 
+#' @importFrom htmlwidgets JS
+#'
+#' @example examples/ex-grid_colorbar.R
+grid_colorbar <- function(grid,
+                          column,
+                          bar_bg = "#5E81AC",
+                          color = "#ECEFF4",
+                          background = "#ECEFF4",
+                          from = NULL,
+                          prefix = NULL,
+                          suffix = NULL) {
+  check_grid(grid, "grid_colorbar")
+  stopifnot(is.character(column) & length(column) == 1)
+  if (!column %in% grid$x$colnames) {
+    stop(
+      "grid_colorbar: invalid 'column' supplied, can't find in data.", 
+      call. = FALSE
+    )
+  }
+  if (is.null(from)) {
+    from <- range(pretty(grid$x$data_df[[column]]), na.rm = TRUE)
+  }
+  if (is.null(prefix))
+    prefix <- ""
+  if (is.null(suffix))
+    suffix <- ""
+  grid_columns(
+    grid = grid,
+    vars = column, 
+    renderer = list(
+      type = htmlwidgets::JS("CustomBarRenderer"),
+      options = list(
+        bar_bg = bar_bg,
+        color = color,
+        background = background,
+        from = from,
+        prefix = prefix,
+        suffix = suffix
+      )
+    )
+  )
+}
+

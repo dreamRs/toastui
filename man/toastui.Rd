@@ -3,10 +3,10 @@
 \docType{package}
 \name{toastui}
 \alias{toastui}
-\title{\code{htmlwidget} interface to the
+\title{HTMLwidget interface to the
  \href{https://ui.toast.com/}{TOASTUI} javascript libraries.}
 \description{
-This package allow you to create interactive tables, calendars and charts in one.
+Create interactive tables, calendars and charts with one package.
 }
 \section{Tables}{
 
