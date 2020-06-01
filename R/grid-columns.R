@@ -1,5 +1,4 @@
 
-
 #' @title Set columns options
 #'
 #' @description Set options for one or several specific column.
