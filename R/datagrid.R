@@ -8,7 +8,7 @@
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
 #' @param filters Logical, allow to filter columns.
-#' @param cols_width Width for the columns, can be \code{"auto"} (width is determined by column's content)
+#' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
 #'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.
 #' @param theme Set styles for the entire table.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
@@ -26,7 +26,8 @@ datagrid <- function(data, ...,
                      sortable = TRUE,
                      pagination = NULL,
                      filters = FALSE,
-                     cols_width = "auto",
+                     colnames = NULL,
+                     colwidths = "auto",
                      theme = c("clean", "striped", "default"),
                      width = NULL,
                      height = NULL,
@@ -36,16 +37,27 @@ datagrid <- function(data, ...,
   theme <- match.arg(theme)
 
   filters_type <- simple_filters(data)
+  
+  if (!is.vector(colnames)) {
+    colnames <- names(data)
+  } else if (!identical(length(colnames), ncol(data))) {
+    warning(
+      "datagrid: if provided, 'colnames' must be a vector of same length as number of cols in data.",
+      call. = FALSE
+    )
+    colnames <- names(data)
+  }
 
   options <- list(
     columns = lapply(
-      X = names(data),
-      FUN = function(x) {
+      X = seq_along(names(data)),
+      FUN = function(i) {
+        nm <- names(data)[i]
         dropNulls(list(
-          header = x,
-          name = x,
+          header = colnames[i],
+          name = nm,
           sortable = isTRUE(sortable),
-          filter = if (isTRUE(filters)) filters_type[[x]]
+          filter = if (isTRUE(filters)) filters_type[[nm]]
         ))
       }
     ),
@@ -104,7 +116,7 @@ datagrid <- function(data, ...,
       browser.external = TRUE
     )
   )
-  if (identical(cols_width, "auto")) {
+  if (identical(colwidths, "auto")) {
     widget <- grid_columns(
       grid = widget,
       minWidth = nchar_cols(
@@ -113,10 +125,10 @@ datagrid <- function(data, ...,
       ),
       whiteSpace = "pre-line"
     )
-  } else if (is.numeric(cols_width)) {
+  } else if (is.numeric(colwidths)) {
     widget <- grid_columns(
       grid = widget,
-      width = cols_width
+      width = colwidths
     )
   }
   return(widget)

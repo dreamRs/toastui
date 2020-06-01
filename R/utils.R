@@ -48,6 +48,8 @@ rep_list <- function(l, n) {
 
 
 maxnchar <- function(x) {
+  if (identical(length(x), 0L))
+    return(0)
   if (inherits(x, "character")) {
     max(nchar(x, keepNA = FALSE), na.rm = TRUE)
   } else if (inherits(x, "factor")) {

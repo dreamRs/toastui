@@ -96,8 +96,6 @@ grid_columns <- function(grid, vars,
     j <- which(vars == variable)
     colOpts <- lapply(config, `[[`, j)
     colOpts$name <- variable
-    if (is.null(colOpts$header))
-      colOpts$header <- variable
     if (!is.null(grid$x$options$columns[[i]])) {
       grid$x$options$columns[[i]] <- modifyList(
         x = grid$x$options$columns[[i]],

@@ -10,7 +10,8 @@ datagrid(
   sortable = TRUE,
   pagination = NULL,
   filters = FALSE,
-  cols_width = "auto",
+  colnames = NULL,
+  colwidths = "auto",
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
@@ -28,7 +29,7 @@ datagrid(
 
 \item{filters}{Logical, allow to filter columns.}
 
-\item{cols_width}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
+\item{colwidths}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
 or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.}
 
 \item{theme}{Set styles for the entire table.}
@@ -67,12 +68,19 @@ datagrid(rolling_stones_50, theme = "default")
 # Empty table
 datagrid(list())
 
-# with columns
+# Empty columns
 datagrid(data.frame(
   variable_1 = character(0),
   variable_2 = character(0)
 ))
 
-
+# Specify colnames
+datagrid(
+  data = data.frame(
+    variable_1 = sample(1:50, 12),
+    variable_2 = month.name
+  ),
+  colnames = c("Number", "Month of the year")
+)
 
 }

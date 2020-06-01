@@ -50,12 +50,14 @@ datagrid(dat) \%>\%
 datagrid(dat) \%>\% 
   grid_colorbar(
     column = "percentage",
-    from = c(0, 100)
+    from = c(0, 100),
+    suffix = "\%"
   ) \%>\% 
   grid_colorbar(
     column = "numeric",
     bar_bg = "#BF616A",
-    from = c(0, 1500)
+    from = c(0, 1500),
+    prefix = "$"
   )
 
 

@@ -20,11 +20,18 @@ datagrid(rolling_stones_50, theme = "default")
 # Empty table
 datagrid(list())
 
-# with columns
+# Empty columns
 datagrid(data.frame(
   variable_1 = character(0),
   variable_2 = character(0)
 ))
 
-
+# Specify colnames
+datagrid(
+  data = data.frame(
+    variable_1 = sample(1:50, 12),
+    variable_2 = month.name
+  ),
+  colnames = c("Number", "Month of the year")
+)
 
