@@ -92,11 +92,11 @@ grid_columns <- function(grid, vars,
     whiteSpace = whiteSpace,
     ...
   ))
-  config <- lapply(config, rep_len, length.out = length(vars))
+  config <- rep_list(config, length(vars))
   for (variable in vars) {
     i <- which(grid$x$colnames == variable)
     j <- which(vars == variable)
-    colOpts <- lapply(config, `[`, j)
+    colOpts <- lapply(config, `[[`, j)
     colOpts$name <- variable
     if (is.null(colOpts$header))
       colOpts$header <- variable

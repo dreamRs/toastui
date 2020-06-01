@@ -98,14 +98,18 @@ tuigrid(iris) \%>\%
 
 # Align content to right & resize
 tuigrid(iris) \%>\%
-  grid_columns(vars = "Sepal.Length",
-               align = "right",
-               resizable = TRUE)
+  grid_columns(
+    vars = "Sepal.Length",
+    align = "right",
+    resizable = TRUE
+  )
 
 # Hide a column
 tuigrid(iris) \%>\%
-  grid_columns(vars = "Sepal.Length",
-               hidden = TRUE)
+  grid_columns(
+    vars = "Sepal.Length",
+    hidden = TRUE
+  )
 
 
 # Set options for 2 columns

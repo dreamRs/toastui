@@ -22,6 +22,16 @@ list1 <- function(x) {
   }
 }
 
+rep_list <- function(l, n) {
+  lapply(l, function(x) {
+    if (is.atomic(x) & !inherits(x, "JS_EVAL")) {
+      rep_len(x, length.out = n)
+    } else {
+      lapply(seq_len(n), function(i) x)
+    }
+  })
+}
+
 maxnchar <- function(x) {
   if (inherits(x, "character")) {
     max(nchar(x, keepNA = FALSE), na.rm = TRUE)
