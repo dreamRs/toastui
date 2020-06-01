@@ -1,8 +1,26 @@
+/*!
+ * HTMLwidget for TOAST UI Grid
+ * @author Victor Perrier
+ */
 
-function rescale(x, from, to) {
-  return (x - from[0])/(from[1] - from[0]) * (to[1] - to[0]) + to[0];
+// Utility functions
+
+function addStyle(styles) {
+  var css = document.createElement("style");
+  css.type = "text/css";
+  if (css.styleSheet) {
+    css.styleSheet.cssText = styles;
+  } else {
+    css.appendChild(document.createTextNode(styles));
+  }
+  document.getElementsByTagName("head")[0].appendChild(css);
 }
 
+function rescale(x, from, to) {
+  return ((x - from[0]) / (from[1] - from[0])) * (to[1] - to[0]) + to[0];
+}
+
+// Custom renderers
 
 class CustomBarRenderer {
   constructor(props) {
@@ -42,31 +60,7 @@ class CustomBarRenderer {
   }
 }
 
-class CustomSliderRenderer {
-  constructor(props) {
-    const el = document.createElement('input');
-    const { min, max } = props.columnInfo.renderer.options;
-
-    el.type = 'range';
-    el.min = String(min);
-    el.max = String(max);
-
-    el.addEventListener('mousedown', (ev) => {
-      ev.stopPropagation();
-    });
-
-    this.el = el;
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    this.el.value = String(props.value);
-  }
-}
+// HTMLWidgets bindings
 
 HTMLWidgets.widget({
   name: "tuigridr",
@@ -213,15 +207,4 @@ HTMLWidgets.widget({
     };
   }
 });
-
-function addStyle(styles) {
-  var css = document.createElement("style");
-  css.type = "text/css";
-  if (css.styleSheet) {
-    css.styleSheet.cssText = styles;
-  } else {
-    css.appendChild(document.createTextNode(styles));
-  }
-  document.getElementsByTagName("head")[0].appendChild(css);
-}
 

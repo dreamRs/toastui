@@ -1,0 +1,104 @@
+---
+title: "tuigridr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tuigridr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tuigridr)
+```
+
+
+## Usage
+
+Create a table:
+
+```{r}
+tuigrid(rolling_stones_50)
+```
+
+```{r}
+tuigrid(rolling_stones_50) %>% 
+  grid_columns(minWidth = pmax(60, c(2, 4, 61, 30, 41, 53) * 3), whiteSpace = "pre-line")
+```
+
+
+```{r}
+tuigrid(rolling_stones_50) %>% 
+  grid_columns(resizable = TRUE)
+```
+
+
+```{r}
+tuigrid(rolling_stones_50) %>% 
+  grid_columns(vars = c("Number", "Year"), width = 100)
+```
+
+
+
+## Sort
+
+Sort is activated by default, you can desactivate like this:
+
+```{r}
+tuigrid(rolling_stones_50, sortable = FALSE)
+```
+
+
+
+## Filter
+
+You can allow filtering rows in the table with:
+
+```{r}
+tuigrid(rolling_stones_50, filters = TRUE)
+```
+
+
+You can customize filter type with `grid_filters()`:
+
+```{r}
+tuigrid(rolling_stones_50) %>% 
+  grid_filters(
+    vars = "Artist", 
+    showApplyBtn = TRUE, 
+    showClearBtn = TRUE, 
+    type = "text"
+  )
+```
+
+
+## Pagination
+
+Activata pagination by indicating the number of rows to display:
+
+```{r}
+tuigrid(rolling_stones_50, pagination = 8)
+```
+
+
+
+## Group columns
+
+Group columns under a common label:
+
+```{r}
+tuigrid(head(iris)) %>%
+  grid_complex_header(
+    "Sepal" = c("Sepal.Length", "Sepal.Width"),
+    "Petal" = c("Petal.Length", "Petal.Width")
+  )
+```
+
+
+

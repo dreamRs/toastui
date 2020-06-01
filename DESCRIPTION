@@ -2,8 +2,8 @@ Package: tuigridr
 Title: Interactive Tables with 'tui-grid' Library
 Version: 0.0.0.9000
 Authors@R: c(
-  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
-  person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
+  person("Fanny", "Meyer", role = "aut"),
   person("NHN FE Development Lab", role = c("cph"), comment = "tui-grid.js library"))
 Description: What the package does (one paragraph).
 License: GPL-3
@@ -19,3 +19,7 @@ Imports:
     magrittr,
     rlang
 RoxygenNote: 7.1.0
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
