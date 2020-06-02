@@ -238,6 +238,26 @@ HTMLWidgets.widget({
             });
           });
         }
+        
+        // Edit 
+        if (HTMLWidgets.shinyMode) {
+          if (x.hasOwnProperty("updateEditOnClick")) {
+            const editButton = document.getElementById(x.updateEditOnClick);
+            editButton.addEventListener("click", function (event) {
+              Shiny.setInputValue(el.id + "_data:datagridEdit", {
+                data: grid.getData(),
+                colnames: x.colnames
+              });
+            });
+          } else {
+            grid.on("editingFinish", function(ev) {
+              Shiny.setInputValue(el.id + "_data:datagridEdit", {
+                data: ev.instance.getData(),
+                colnames: x.colnames
+              });
+            });
+          }
+        }
       },
 
       resize: function(width, height) {

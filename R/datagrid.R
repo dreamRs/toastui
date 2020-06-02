@@ -77,7 +77,7 @@ datagrid <- function(data, ...,
   if (is.null(options$rowHeight))
     options$rowHeight <- "auto"
 
-  x <- list(
+  x <- dropNulls(list(
     data_df = data,
     nrow = nrow(data),
     ncol = ncol(data),
@@ -87,8 +87,9 @@ datagrid <- function(data, ...,
     theme = theme,
     themeOptions = list(),
     filters = filters,
-    rowAttributes = list()
-  )
+    rowAttributes = list(),
+    updateEditOnClick = NULL
+  ))
 
   # create widget
   widget <- createWidget(
@@ -138,7 +139,10 @@ datagrid <- function(data, ...,
 #' @importFrom htmltools tags
 datagrid_html <- function(id, style, class, ...) {
   tags$div(
-    id = id, class = class, style = style,
+    id = id, 
+    class = class, 
+    style = style,
+    style = "margin-bottom: 15px;",
     tags$div(
       id = paste0(id, "-container"), class = class, style = style, ...
     )

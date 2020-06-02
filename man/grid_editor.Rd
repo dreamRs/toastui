@@ -2,7 +2,7 @@
 % Please edit documentation in R/grid-editor.R
 \name{grid_editor}
 \alias{grid_editor}
-\title{Grid editor options}
+\title{Grid editor for columns}
 \usage{
 grid_editor(
   grid,
@@ -26,7 +26,8 @@ grid_editor(
 A \code{datagrid} htmlwidget.
 }
 \description{
-Grid editor options
+Allow to edit content of columns with different inputs,
+ then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 }
 \examples{
 library(toastui)

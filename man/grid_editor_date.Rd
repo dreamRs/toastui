@@ -2,7 +2,7 @@
 % Please edit documentation in R/grid-editor.R
 \name{grid_editor_date}
 \alias{grid_editor_date}
-\title{Grid editor options for date}
+\title{Grid editor for date/time columns}
 \usage{
 grid_editor_date(
   grid,
@@ -27,7 +27,8 @@ grid_editor_date(
 A \code{datagrid} htmlwidget.
 }
 \description{
-Grid editor options for date
+Allow to edit content of columns with a calendar and time picker,
+ then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 }
 \examples{
 library(toastui)

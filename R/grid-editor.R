@@ -2,6 +2,31 @@
 #' Grid editor options
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
+#' @param editingEvent If set to \code{"click"}, editable cell in
+#'  the view-mode will be changed to edit-mode by a single click.
+#' @param updateOnClick Use an \code{actionButton} inputId to send
+#'  edited data to the server only on click.
+#'
+#' @return A \code{datagrid} htmlwidget.
+#' @export
+#'
+#' @examples
+grid_editor_opts <- function(grid,
+                             editingEvent = c("dblclick", "click"),
+                             updateOnClick = NULL) {
+  check_grid(grid, "grid_editor_opts")
+  grid$x$options$editingEvent <- match.arg(editingEvent)
+  grid$x$updateEditOnClick <- updateOnClick
+  return(grid)
+}
+
+
+#' @title Grid editor for columns
+#' 
+#' @description Allow to edit content of columns with different inputs,
+#'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
+#'
+#' @param grid A table created with \code{\link{datagrid}}.
 #' @param column Column for which to activate the editable content.
 #' @param type Type of editor: \code{"text"}, \code{"checkbox"},
 #'  \code{"select"}, \code{"radio"} or \code{"password"}.
@@ -54,7 +79,10 @@ grid_editor <- function(grid,
 
 
 
-#' Grid editor options for date
+#' @title Grid editor for date/time columns
+#' 
+#' @description Allow to edit content of columns with a calendar and time picker,
+#'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param column Column for which to activate the date picker.

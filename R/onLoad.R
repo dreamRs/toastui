@@ -26,5 +26,16 @@
       cols = c(start[2], end[2])
     )
   })
+  registerInputHandler("datagridEdit", function(data, ...) {
+    if (is.null(data) || is.null(data$data))
+      return(NULL)
+    do.call("rbind", lapply(
+      X = data$data,
+      FUN = function(x) {
+        x <- x[names(x) %in% data$colnames]
+        as.data.frame(x)
+      }
+    ))
+  })
 }
 
