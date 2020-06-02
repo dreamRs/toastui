@@ -80,7 +80,7 @@ datagrid(rolling_stones_50) %>%
 
 ## Pagination
 
-Activata pagination by indicating the number of rows to display:
+Activat pagination by indicating the number of rows to display:
 
 ```{r}
 datagrid(rolling_stones_50, pagination = 8)

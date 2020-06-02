@@ -43,7 +43,7 @@
 #' @param cell.rowHeader.text text color of row's header cells.
 #' @param cell.rowHeader.showVerticalBorder Whether vertical borders of row's header cells are visible.
 #' @param cell.rowHeader.showHorizontalBorder Whether horizontal borders of row's header cells are visible.
-#' @param cell.selectedRowHeader.background background color of selected row's haed cells.
+#' @param cell.selectedRowHeader.background background color of selected row's head cells.
 #' @param cell.summary.background Background color of cells in the summary area.
 #' @param cell.summary.border border color of cells in the summary area.
 #' @param cell.summary.text text color of cells in the summary area.

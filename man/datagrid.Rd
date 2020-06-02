@@ -29,6 +29,8 @@ datagrid(
 
 \item{filters}{Logical, allow to filter columns.}
 
+\item{colnames}{Alternative colnames to be displayed in the header.}
+
 \item{colwidths}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
 or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.}
 

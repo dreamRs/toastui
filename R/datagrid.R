@@ -8,6 +8,7 @@
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
 #' @param filters Logical, allow to filter columns.
+#' @param colnames Alternative colnames to be displayed in the header.
 #' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
 #'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.
 #' @param theme Set styles for the entire table.

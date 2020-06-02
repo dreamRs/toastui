@@ -149,7 +149,7 @@ grid_theme(
 
 \item{cell.selectedHeader.background}{background color of selected header cells.}
 
-\item{cell.selectedRowHeader.background}{background color of selected row's haed cells.}
+\item{cell.selectedRowHeader.background}{background color of selected row's head cells.}
 
 \item{cell.focused.border}{border color of a focused cell.}
 

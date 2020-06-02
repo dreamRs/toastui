@@ -73,7 +73,7 @@ value of the cell. If stop() method in event object is called, the changing will
 \item{onAfterChange}{The function that will be called after changing the value of the cell.}
 
 \item{whiteSpace}{If set to 'normal', the text line is broken by fitting to the column's width.
-If set to 'pre', spaces are preserved and the text is braken by new line characters.
+If set to 'pre', spaces are preserved and the text is broken by new line characters.
 If set to 'pre-wrap', spaces are preserved, the text line is broken by fitting to the
 column's width and new line characters. If set to 'pre-line', spaces are merged,
 the text line is broken by fitting to the column's width and new line characters.}

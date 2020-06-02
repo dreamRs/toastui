@@ -30,7 +30,7 @@ grid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
 }
 
 
-#' Add rows to a existant \code{datagrid}
+#' Add rows to a existent \code{datagrid}
 #'
 #' @param proxy A \code{\link{grid_proxy}} or \code{outputId} of the grid.
 #' @param data \code{data.frame} to append in the grid.

@@ -26,7 +26,9 @@ grid_colorbar(
 
 \item{background}{Background of the cell.}
 
-\item{from}{Range of values of the variable to rrepresent as a color bar.}
+\item{from}{Range of values of the variable to represent as a color bar.}
+
+\item{prefix, suffix}{String to put in front of or after the value.}
 }
 \value{
 A \code{datagrid} htmlwidget.

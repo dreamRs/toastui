@@ -177,7 +177,8 @@ grid_cells_style <- function(grid,
 #' @param bar_bg Background color of the color bar.
 #' @param color Color of the text.
 #' @param background Background of the cell.
-#' @param from Range of values of the variable to rrepresent as a color bar.
+#' @param from Range of values of the variable to represent as a color bar.
+#' @param prefix,suffix String to put in front of or after the value.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
