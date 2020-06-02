@@ -259,6 +259,10 @@ HTMLWidgets.widget({
           }
         }
       },
+      
+      getWidget: function() {
+        return grid;
+      },
 
       resize: function(width, height) {
         // TODO: code to re-render the widget with a new size
@@ -269,4 +273,38 @@ HTMLWidgets.widget({
     };
   }
 });
+
+
+// From Friss tuto (https://github.com/FrissAnalytics/shinyJsTutorials/blob/master/tutorials/tutorial_03.Rmd)
+function getWidget(id) {
+  // Get the HTMLWidgets object
+  var htmlWidgetsObj = HTMLWidgets.find("#" + id);
+
+  // Use the getWidget method we created to get the underlying widget
+  var widgetObj;
+
+  if (typeof htmlWidgetsObj != "undefined") {
+    widgetObj = htmlWidgetsObj.getWidget();
+  }
+
+  return widgetObj;
+}
+
+
+if (HTMLWidgets.shinyMode) {
+  Shiny.addCustomMessageHandler("proxy-toastui-grid-addrows", function(obj) {
+    var grid = getWidget(obj.id);
+    if (typeof grid != "undefined") {
+      const data = [];
+        for (let i = 0; i < obj.data.nrow; i += 1) {
+          const row = {};
+          for (let j = 0; j < obj.data.ncol; j += 1) {
+            row[obj.data.colnames[j]] = obj.data.data[j][i];
+          }
+          data.push(row);
+        }
+      grid.appendRows(data, true);
+    }
+  });
+}
 

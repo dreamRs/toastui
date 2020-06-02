@@ -151,3 +151,33 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
 
   return(widget)
 }
+
+
+
+#' Call a proxy method
+#'
+#' @param proxy  A \code{proxy} \code{htmlwidget} object.
+#' @param name Proxy method.
+#' @param ... Arguments passed to method.
+#'
+#' @return A \code{htmlwidgetProxy} \code{htmlwidget} object.
+#' @noRd
+.call_proxy <- function(proxy, name, ...) {
+  if (!"htmlwidgetProxy" %in% class(proxy)) 
+    stop("This function must be used with a htmlwidgetProxy object", call. = FALSE)
+  proxy$session$sendCustomMessage(
+    type = sprintf("proxy-toastui-%s", name),
+    message = list(id = proxy$id, data = dropNulls(list(...)))
+  )
+  proxy
+}
+.call_proxy2 <- function(proxy, name, l) {
+  if (!"htmlwidgetProxy" %in% class(proxy)) 
+    stop("This function must be used with a htmlwidgetProxy object", call. = FALSE)
+  proxy$session$sendCustomMessage(
+    type = sprintf("proxy-toastui-%s", name),
+    message = list(id = proxy$id, data = l)
+  )
+  proxy
+}
+
