@@ -28,8 +28,8 @@ datagrid(rolling_stones_50)
 ```
 
 ```{r}
-datagrid(rolling_stones_50) %>% 
-  grid_columns(minWidth = pmax(60, c(2, 4, 61, 30, 41, 53) * 3), whiteSpace = "pre-line")
+datagrid(rolling_stones_50, colwidths = NULL) %>% 
+  grid_columns(whiteSpace = "pre-line")
 ```
 
 
@@ -41,7 +41,7 @@ datagrid(rolling_stones_50) %>%
 
 ```{r}
 datagrid(rolling_stones_50) %>% 
-  grid_columns(vars = c("Number", "Year"), width = 100)
+  grid_columns(vars = c("Number", "Year"), width = 150)
 ```
 
 

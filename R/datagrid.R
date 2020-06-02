@@ -113,7 +113,7 @@ datagrid <- function(data, ...,
       viewer.suppress = FALSE,
       knitr.figure = FALSE,
       knitr.defaultWidth = "100%",
-      knitr.defaultHeight = "600px",
+      knitr.defaultHeight = if (!is.null(pagination)) "auto" else "600px",
       browser.fill = TRUE,
       browser.external = TRUE
     )
