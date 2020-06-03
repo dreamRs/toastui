@@ -147,5 +147,60 @@ grid_columns_opts <- function(grid,
 
 
 
-
+#' Display buttons in grid's column
+#'
+#' @param grid A table created with \code{\link{datagrid}}.
+#' @param column The name of the column where to create buttons.
+#' @param inputId The \code{input} slot that will be used to access the value.
+#' @param label Label to display on button, if \code{NULL} use column's content.
+#' @param icon Icon to display in button.
+#' @param status Status (color) of the button: default, primary, success, info, warning, danger.
+#' @param btn_width Button's width.
+#' @param ... Further arguments passed to \code{\link{grid_columns}}.
+#'
+#' @return A \code{datagrid} htmlwidget.
+#' @export
+#'
+#' @example examples/ex-grid_col_button.R
+grid_col_button <- function(grid,
+                            column,
+                            inputId,
+                            label = NULL,
+                            icon = NULL,
+                            status = c("default", "primary", "success", "info", "warning", "danger"),
+                            btn_width = "100%",
+                            ...) {
+  check_grid(grid, "grid_col_button")
+  status <- match.arg(status)
+  stopifnot(is.character(column) & length(column) == 1)
+  if (!column %in% grid$x$colnames) {
+    stop(
+      "grid_colorbar: invalid 'column' supplied, can't find in data.", 
+      call. = FALSE
+    )
+  }
+  if (!is.null(icon)) {
+    icon_deps <- htmltools::findDependencies(icon)
+    grid$dependencies <- c(
+      grid$dependencies,
+      icon_deps
+    )
+    icon <- htmltools::doRenderTags(icon)
+  }
+  grid_columns(
+    grid = grid,
+    vars = column,
+    ...,
+    renderer = list(
+      type = JS("CustomButtonRenderer"),
+      options = dropNulls(list(
+        status = status,
+        width = btn_width,
+        label = label,
+        inputId = inputId,
+        icon = icon
+      ))
+    )
+  )
+}
 

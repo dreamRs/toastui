@@ -70,6 +70,8 @@ class CustomButtonRenderer {
     const status = props.columnInfo.renderer.options.status;
     el.type = "button";
     el.style.width = width;
+    el.style.padding = "5px 0";
+    el.style.boxSizing = "border-box";
     el.classList.add("btn");
     el.classList.add("btn-sm");
     el.classList.add("btn-" + status);
