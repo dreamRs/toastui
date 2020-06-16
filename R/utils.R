@@ -7,6 +7,19 @@ check_grid <- function(grid, fun = NULL) {
   }
 }
 
+
+to_hyphen <- function(x) {
+  tolower(gsub("([A-Z])", "-\\1", x))
+}
+
+make_styles <- function(styles, class) {
+  styles <- dropNulls(styles)
+  styles <- sprintf("%s:%s", to_hyphen(names(styles)), unlist(styles, use.names = FALSE))
+  styles <- paste(styles, collapse = ";")
+  sprintf(".%s{%s}", class, styles)
+}
+
+
 # Functions to create JSON parameters -------------------------------------
 
 # dropNulls

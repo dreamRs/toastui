@@ -58,7 +58,8 @@ datagrid(iris) \%>\%
   grid_cell_style(
     Sepal.Length > 5,
     column = "Sepal.Length",
-    background = "#F781BE"
+    background = "#F781BE",
+    fontWeight = "bold"
   )
 
 

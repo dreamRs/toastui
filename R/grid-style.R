@@ -5,6 +5,7 @@
 #' @param expr An expression giving position of row. Must return a logical vector.
 #' @param background Background color.
 #' @param color Text color.
+#' @param fontWeight Font weight, you can use \code{"bold"} for example.
 #' @param ... Other CSS properties.
 #' @param class CSS class to apply to the row.
 #'
@@ -18,6 +19,7 @@ grid_row_style <- function(grid,
                            expr,
                            background = NULL,
                            color = NULL,
+                           fontWeight = NULL,
                            ...,
                            class = NULL) {
   expr <- enquo(expr)
@@ -29,13 +31,12 @@ grid_row_style <- function(grid,
   if (is.null(class)) {
     class <- paste0("datagrid-row-", sample.int(1e12, 1))
   }
-  styles <- dropNulls(list(
+  styles <- make_styles(list(
     background = background,
-    color = color, ...
-  ))
-  styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
-  styles <- paste(styles, collapse = ";")
-  styles <- sprintf(".%s{%s}", class, styles)
+    color = color, 
+    fontWeight = fontWeight,
+    ...
+  ), class = class)
   grid$x$rowClass <- append(
     x = grid$x$rowClass,
     values = list(list(
@@ -73,7 +74,8 @@ grid_cell_style <- function(grid,
                             expr,
                             column,
                             background = NULL,
-                            color = NULL, ...,
+                            color = NULL, 
+                            ...,
                             class = NULL) {
   check_grid(grid, "grid_cell_style")
   if (!is.character(column) | length(column) != 1)
@@ -86,13 +88,11 @@ grid_cell_style <- function(grid,
   if (is.null(class)) {
     class <- paste0("datagrid-cell-", sample.int(1e12, 1))
   }
-  styles <- dropNulls(list(
+  styles <- make_styles(list(
     background = background,
-    color = color, ...
-  ))
-  styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
-  styles <- paste(styles, collapse = ";")
-  styles <- sprintf(".%s{%s}", class, styles)
+    color = color, 
+    ...
+  ), class = class)
   grid$x$cellClass <- append(
     x = grid$x$cellClass,
     values = list(list(
@@ -136,13 +136,10 @@ grid_cells_style <- function(grid,
   if (is.null(class)) {
     class <- paste0("datagrid-cells-", sample.int(1e12, 1))
   }
-  styles <- dropNulls(list(
+  styles <- make_styles(list(
     background = background,
     color = color, ...
-  ))
-  styles <- sprintf("%s:%s", names(styles), unlist(styles, use.names = FALSE))
-  styles <- paste(styles, collapse = ";")
-  styles <- sprintf(".%s{%s}", class, styles)
+  ), class = class)
   grid$x$cellsClass <- append(
     x = grid$x$cellsClass,
     values = dropNulls(lapply(

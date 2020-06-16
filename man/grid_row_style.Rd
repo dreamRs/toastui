@@ -4,7 +4,15 @@
 \alias{grid_row_style}
 \title{Set grid row style}
 \usage{
-grid_row_style(grid, expr, background = NULL, color = NULL, ..., class = NULL)
+grid_row_style(
+  grid,
+  expr,
+  background = NULL,
+  color = NULL,
+  fontWeight = NULL,
+  ...,
+  class = NULL
+)
 }
 \arguments{
 \item{grid}{A grid created with \code{\link{datagrid}}.}
@@ -14,6 +22,8 @@ grid_row_style(grid, expr, background = NULL, color = NULL, ..., class = NULL)
 \item{background}{Background color.}
 
 \item{color}{Text color.}
+
+\item{fontWeight}{Font weight, you can use \code{"bold"} for example.}
 
 \item{...}{Other CSS properties.}
 
