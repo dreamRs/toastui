@@ -8,6 +8,7 @@
 #' @param fontWeight Font weight, you can use \code{"bold"} for example.
 #' @param ... Other CSS properties.
 #' @param class CSS class to apply to the row.
+#' @param cssProperties Alternative to specify CSS properties with a named list.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
@@ -21,7 +22,8 @@ grid_row_style <- function(grid,
                            color = NULL,
                            fontWeight = NULL,
                            ...,
-                           class = NULL) {
+                           class = NULL,
+                           cssProperties = NULL) {
   expr <- enquo(expr)
   check_grid(grid, "grid_row_style")
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
@@ -31,11 +33,13 @@ grid_row_style <- function(grid,
   if (is.null(class)) {
     class <- paste0("datagrid-row-", sample.int(1e12, 1))
   }
-  styles <- make_styles(list(
-    background = background,
-    color = color, 
-    fontWeight = fontWeight,
-    ...
+  styles <- make_styles(c(
+    list(
+      background = background,
+      color = color, 
+      fontWeight = fontWeight,
+      ...
+    ), cssProperties
   ), class = class)
   grid$x$rowClass <- append(
     x = grid$x$rowClass,
@@ -59,8 +63,10 @@ grid_row_style <- function(grid,
 #' @param column Name of column (variable name) to identify cells to style.
 #' @param background Background color.
 #' @param color Text color.
+#' @param fontWeight Font weight, you can use \code{"bold"} for example.
 #' @param ... Other CSS properties.
 #' @param class CSS class to apply to the row.
+#' @param cssProperties Alternative to specify CSS properties with a named list.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
@@ -75,23 +81,49 @@ grid_cell_style <- function(grid,
                             column,
                             background = NULL,
                             color = NULL, 
+                            fontWeight = NULL,
                             ...,
-                            class = NULL) {
+                            class = NULL,
+                            cssProperties = NULL) {
   check_grid(grid, "grid_cell_style")
   if (!is.character(column) | length(column) != 1)
     stop("grid_cell_style: column must be a character of length one.")
   expr <- enquo(expr)
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
+  if (is.list(rowKey)) {
+    args <- dropNulls(list(
+      background = background,
+      color = color,
+      fontWeight = fontWeight,
+      ...
+    ))
+    args <- rep_list(args, length(rowKey))
+    if (!is.null(class))
+      class <- rep(class, times = length(rowKey))
+    for (i in seq_along(rowKey)) {
+      grid <- grid_cell_style(
+        grid = grid,
+        expr = rowKey[[i]],
+        column = column,
+        cssProperties = lapply(args, `[[`, i),
+        class = class[i]
+      )
+    }
+    return(grid)
+  }
   if (!is.logical(rowKey))
     stop("grid_cell_style: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
     class <- paste0("datagrid-cell-", sample.int(1e12, 1))
   }
-  styles <- make_styles(list(
-    background = background,
-    color = color, 
-    ...
+  styles <- make_styles(c(
+    list(
+      background = background,
+      color = color, 
+      fontWeight = fontWeight,
+      ...
+    ), cssProperties
   ), class = class)
   grid$x$cellClass <- append(
     x = grid$x$cellClass,
@@ -119,7 +151,8 @@ grid_cells_style <- function(grid,
                              background = NULL,
                              color = NULL,
                              ...,
-                             class = NULL) {
+                             class = NULL,
+                             cssProperties = NULL) {
   check_grid(grid, "grid_cells_style")
   if (!is.character(columns))
     stop("grid_cell_style: column must be character.", call. = FALSE)
@@ -136,9 +169,11 @@ grid_cells_style <- function(grid,
   if (is.null(class)) {
     class <- paste0("datagrid-cells-", sample.int(1e12, 1))
   }
-  styles <- make_styles(list(
-    background = background,
-    color = color, ...
+  styles <- make_styles(c(
+    list(
+      background = background,
+      color = color, ...
+    ), cssProperties
   ), class = class)
   grid$x$cellsClass <- append(
     x = grid$x$cellsClass,

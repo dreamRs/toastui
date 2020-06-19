@@ -11,7 +11,8 @@ grid_row_style(
   color = NULL,
   fontWeight = NULL,
   ...,
-  class = NULL
+  class = NULL,
+  cssProperties = NULL
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ grid_row_style(
 \item{...}{Other CSS properties.}
 
 \item{class}{CSS class to apply to the row.}
+
+\item{cssProperties}{Alternative to specify CSS properties with a named list.}
 }
 \value{
 A \code{datagrid} htmlwidget.

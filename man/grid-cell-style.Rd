@@ -12,8 +12,10 @@ grid_cell_style(
   column,
   background = NULL,
   color = NULL,
+  fontWeight = NULL,
   ...,
-  class = NULL
+  class = NULL,
+  cssProperties = NULL
 )
 
 grid_cells_style(
@@ -23,7 +25,8 @@ grid_cells_style(
   background = NULL,
   color = NULL,
   ...,
-  class = NULL
+  class = NULL,
+  cssProperties = NULL
 )
 }
 \arguments{
@@ -37,9 +40,13 @@ grid_cells_style(
 
 \item{color}{Text color.}
 
+\item{fontWeight}{Font weight, you can use \code{"bold"} for example.}
+
 \item{...}{Other CSS properties.}
 
 \item{class}{CSS class to apply to the row.}
+
+\item{cssProperties}{Alternative to specify CSS properties with a named list.}
 
 \item{fun}{Function to apply to \code{columns} to identify rows to style.}
 
