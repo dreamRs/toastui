@@ -56,7 +56,10 @@ grid_row_style <- function(grid,
 
 
 
-#' Set grid cell(s) style
+#' @title Set grid cell(s) style
+#' 
+#' @description Customize cell(s) appearance with CSS
+#'  according to an expression in the data used in the grid.
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.

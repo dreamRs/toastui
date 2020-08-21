@@ -18,7 +18,7 @@ Imports:
     shiny (>= 1.1.0),
     magrittr,
     rlang
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown

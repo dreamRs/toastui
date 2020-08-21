@@ -56,7 +56,8 @@ grid_cells_style(
 A \code{datagrid} htmlwidget.
 }
 \description{
-Set grid cell(s) style
+Customize cell(s) appearance with CSS
+ according to an expression in the data used in the grid.
 }
 \examples{
 library(toastui)
