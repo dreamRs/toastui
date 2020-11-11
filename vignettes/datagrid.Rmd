@@ -1,5 +1,5 @@
 ---
-title: "datagridr"
+title: "Tables with datagrid()"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{datagridr}

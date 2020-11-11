@@ -61,7 +61,7 @@ rep_list <- function(l, n) {
 
 
 maxnchar <- function(x) {
-  if (identical(length(x), 0L))
+  if (length(x) < 1L)
     return(0)
   if (inherits(x, "character")) {
     max(nchar(x, keepNA = FALSE), na.rm = TRUE)
