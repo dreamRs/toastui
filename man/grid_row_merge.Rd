@@ -20,14 +20,12 @@ Merge rows
 \examples{
 library(toastui)
 
-dat <- iris[c(1:3, 51:53, 101:103), ]
+datagrid(mtcars[, 1:5]) \%>\%
+  grid_row_merge(vars = "cyl")
 
-datagrid(dat) \%>\%
-  grid_row_merge(vars = "Species")
-
-datagrid(dat) \%>\%
-  grid_row_merge(vars = "Species") \%>\%
-  grid_row_merge(vars = "Petal.Width")
+datagrid(mtcars[, 1:8]) \%>\%
+  grid_row_merge(vars = "cyl") \%>\%
+  grid_row_merge(vars = "vs")
 
 
 

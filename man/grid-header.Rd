@@ -43,7 +43,7 @@ Properties to modify grid's header, like creating grouped header.
 \examples{
 library(toastui)
 
-datagrid(iris) \%>\%
+datagrid(rolling_stones_50) \%>\%
   grid_header(
     align = "left",
     height = "150px"

@@ -1,6 +1,6 @@
 library(toastui)
 
-datagrid(iris) %>%
+datagrid(rolling_stones_50) %>%
   grid_header(
     align = "left",
     height = "150px"
@@ -17,6 +17,10 @@ datagrid(iris) %>%
 
 # or use the full form to use more options
 datagrid(iris) %>%
+  grid_columns(
+    vars = c("Petal.Length", "Petal.Width"),
+    header = c("Length", "Width")
+  ) %>%
   grid_header(
     complexColumns = list(
       list(

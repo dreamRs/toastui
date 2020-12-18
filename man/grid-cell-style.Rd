@@ -62,42 +62,36 @@ Customize cell(s) appearance with CSS
 \examples{
 library(toastui)
 
-datagrid(iris) \%>\%
+datagrid(mtcars) \%>\%
   grid_cell_style(
-    Sepal.Length > 5,
-    column = "Sepal.Length",
+    mpg > 19,
+    column = "mpg",
     background = "#F781BE",
     fontWeight = "bold"
   )
 
 
-dat <- iris[c(1:3, 51:53, 101:103), ]
-datagrid(dat) \%>\%
+datagrid(mtcars) \%>\%
   grid_cell_style(
-    Species == "setosa",
-    column = "Species",
+    vs == 0,
+    column = "vs",
     background = "#E41A1C80",
     color = "#FFF"
   ) \%>\%
   grid_cell_style(
-    Species == "versicolor",
-    column = "Species",
+    vs == 1,
+    column = "vs",
     background = "#377EB880"
-  ) \%>\%
-  grid_cell_style(
-    Species == "virginica",
-    column = "Species",
-    background = "#4DAF4A80"
   )
 
 
 # Use rlang to use character
 library(rlang)
-my_var <- "Sepal.Length"
-datagrid(iris) \%>\%
+my_var <- "disp"
+datagrid(mtcars) \%>\%
   grid_cell_style(
-    !!sym(my_var) > 5,
-    column = "Sepal.Length",
+    !!sym(my_var) > 180,
+    column = "disp",
     background = "#F781BE"
   )
 

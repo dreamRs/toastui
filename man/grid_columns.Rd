@@ -93,30 +93,30 @@ Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
 library(toastui)
 
 # New header label
-datagrid(iris) \%>\%
-  grid_columns(vars = "Sepal.Length", header = "Length of Sepal")
+datagrid(mtcars[, 1:5]) \%>\%
+  grid_columns(vars = "mpg", header = "Miles/(US) gallon")
 
 # Align content to right & resize
-datagrid(iris) \%>\%
+datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = "Sepal.Length",
+    vars = "mpg",
     align = "right",
     resizable = TRUE
   )
 
 # Hide a column
-datagrid(iris) \%>\%
+datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = "Sepal.Length",
+    vars = "mpg",
     hidden = TRUE
   )
 
 
 # Set options for 2 columns
-datagrid(iris) \%>\%
+datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = c("Sepal.Length", "Petal.Length"),
-    header = c("Length of Sepal", "Length of Petal")
+    vars = c("mpg", "cyl"),
+    header = c("Miles/(US) gallon", "Number of cylinders")
   )
 
 
