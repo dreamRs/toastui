@@ -34,7 +34,7 @@ grid_cells_style(
 
 \item{expr}{An expression giving position of row. Must return a logical vector.}
 
-\item{column}{Name of column (variable name) to identify cells to style.}
+\item{column}{Name of column (variable name) where to apply style.}
 
 \item{background}{Background color.}
 

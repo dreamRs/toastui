@@ -22,7 +22,7 @@ function rescale(x, from, to) {
 
 // Custom renderers
 
-class CustomBarRenderer {
+class DatagridBarRenderer {
   constructor(props) {
     const el = document.createElement("div");
     const bar = document.createElement("div");
@@ -63,7 +63,7 @@ class CustomBarRenderer {
 }
 
 
-class CustomButtonRenderer {
+class DatagridButtonRenderer {
   constructor(props) {
     const el = document.createElement("button");
     const width = props.columnInfo.renderer.options.width;
@@ -240,8 +240,8 @@ HTMLWidgets.widget({
             });
           });
         }
-        
-        // Edit 
+
+        // Edit
         if (HTMLWidgets.shinyMode) {
           if (x.hasOwnProperty("updateEditOnClick")) {
             const editButton = document.getElementById(x.updateEditOnClick);
@@ -261,7 +261,7 @@ HTMLWidgets.widget({
           }
         }
       },
-      
+
       getWidget: function() {
         return grid;
       },

@@ -1,5 +1,7 @@
 
-#' Set grid row style
+#' @title Set grid row style
+#'
+#' @description Apply styles to an entire row identified by an expression.
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.
@@ -31,12 +33,12 @@ grid_row_style <- function(grid,
     stop("grid_row_style: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
-    class <- paste0("datagrid-row-", sample.int(1e12, 1))
+    class <- paste0("datagrid-row-", genId())
   }
   styles <- make_styles(c(
     list(
       background = background,
-      color = color, 
+      color = color,
       fontWeight = fontWeight,
       ...
     ), cssProperties
@@ -57,13 +59,13 @@ grid_row_style <- function(grid,
 
 
 #' @title Set grid cell(s) style
-#' 
+#'
 #' @description Customize cell(s) appearance with CSS
 #'  according to an expression in the data used in the grid.
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
 #' @param expr An expression giving position of row. Must return a logical vector.
-#' @param column Name of column (variable name) to identify cells to style.
+#' @param column Name of column (variable name) where to apply style.
 #' @param background Background color.
 #' @param color Text color.
 #' @param fontWeight Font weight, you can use \code{"bold"} for example.
@@ -83,7 +85,7 @@ grid_cell_style <- function(grid,
                             expr,
                             column,
                             background = NULL,
-                            color = NULL, 
+                            color = NULL,
                             fontWeight = NULL,
                             ...,
                             class = NULL,
@@ -118,12 +120,12 @@ grid_cell_style <- function(grid,
     stop("grid_cell_style: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
-    class <- paste0("datagrid-cell-", sample.int(1e12, 1))
+    class <- paste0("datagrid-cell-", genId())
   }
   styles <- make_styles(c(
     list(
       background = background,
-      color = color, 
+      color = color,
       fontWeight = fontWeight,
       ...
     ), cssProperties
@@ -170,7 +172,7 @@ grid_cells_style <- function(grid,
     which(x) - 1
   })
   if (is.null(class)) {
-    class <- paste0("datagrid-cells-", sample.int(1e12, 1))
+    class <- paste0("datagrid-cells-", genId())
   }
   styles <- make_styles(c(
     list(
@@ -217,7 +219,7 @@ grid_cells_style <- function(grid,
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
-#' 
+#'
 #' @importFrom htmlwidgets JS
 #'
 #' @example examples/ex-grid_colorbar.R
@@ -233,7 +235,7 @@ grid_colorbar <- function(grid,
   stopifnot(is.character(column) & length(column) == 1)
   if (!column %in% grid$x$colnames) {
     stop(
-      "grid_colorbar: invalid 'column' supplied, can't find in data.", 
+      "grid_colorbar: invalid 'column' supplied, can't find in data.",
       call. = FALSE
     )
   }
@@ -246,9 +248,9 @@ grid_colorbar <- function(grid,
     suffix <- ""
   grid_columns(
     grid = grid,
-    vars = column, 
+    vars = column,
     renderer = list(
-      type = htmlwidgets::JS("CustomBarRenderer"),
+      type = htmlwidgets::JS("DatagridBarRenderer"),
       options = list(
         bar_bg = bar_bg,
         color = color,
@@ -260,4 +262,68 @@ grid_colorbar <- function(grid,
     )
   )
 }
+
+
+
+
+
+#' @title Set column style
+#'
+#' @description Apply styles to a column according to CSS properties
+#'  declared by expression based on data passed to grid..
+#'
+#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param column Name of column (variable name) where to apply style.
+#' @param background Background color.
+#' @param color Text color.
+#' @param fontWeight Font weight, you can use \code{"bold"} for example.
+#' @param ... Other CSS properties.
+#'
+#' @return A \code{datagrid} htmlwidget.
+#' @export
+#'
+#' @importFrom rlang enexprs eval_tidy exec
+#'
+#' @example examples/ex-grid_column_style.R
+grid_column_style <- function(grid,
+                              column,
+                              background = NULL,
+                              color = NULL,
+                              fontWeight = NULL,
+                              ...) {
+  check_grid(grid, "grid_column_style")
+  props <- lapply(
+    X = enexprs(
+      background = background,
+      color = color,
+      fontWeight = fontWeight,
+      ...
+    ),
+    FUN = eval_tidy,
+    data = grid$x$data_df
+  )
+  props <- as.data.frame(dropNulls(props))
+  props$datagridRowKey <- seq_len(nrow(grid$x$data_df))
+  lprops <- split(props, props[, setdiff(names(props), "datagridRowKey"), drop = FALSE])
+  for (i in seq_along(lprops)) {
+    props_ <- lprops[[i]]
+    lprops_ <- lapply(
+      X = props_[, setdiff(names(props_), "datagridRowKey"), drop = FALSE],
+      FUN = unique
+    )
+    args <- c(
+      list(
+        grid = grid,
+        expr = props$datagridRowKey %in% props_$datagridRowKey,
+        column = column
+      ),
+      lprops_
+    )
+    grid <- exec("grid_cell_style", !!!args)
+  }
+  return(grid)
+}
+
+
+
 

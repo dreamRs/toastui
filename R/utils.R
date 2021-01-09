@@ -19,6 +19,11 @@ make_styles <- function(styles, class) {
   sprintf(".%s{%s}", class, styles)
 }
 
+genId <- function(bytes = 12) {
+  paste(format(as.hexmode(sample(256, bytes, replace = TRUE) - 1), width = 2), collapse = "")
+}
+
+
 
 # Functions to create JSON parameters -------------------------------------
 
@@ -176,7 +181,7 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
 #' @return A \code{htmlwidgetProxy} \code{htmlwidget} object.
 #' @noRd
 .call_proxy <- function(proxy, name, ...) {
-  if (!"htmlwidgetProxy" %in% class(proxy)) 
+  if (!"htmlwidgetProxy" %in% class(proxy))
     stop("This function must be used with a htmlwidgetProxy object", call. = FALSE)
   proxy$session$sendCustomMessage(
     type = sprintf("proxy-toastui-%s", name),
@@ -185,7 +190,7 @@ nchar_cols <- function(data, min_width = 70, add_header = 10) {
   proxy
 }
 .call_proxy2 <- function(proxy, name, l) {
-  if (!"htmlwidgetProxy" %in% class(proxy)) 
+  if (!"htmlwidgetProxy" %in% class(proxy))
     stop("This function must be used with a htmlwidgetProxy object", call. = FALSE)
   proxy$session$sendCustomMessage(
     type = sprintf("proxy-toastui-%s", name),

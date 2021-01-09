@@ -36,7 +36,7 @@ grid_row_style(
 A \code{datagrid} htmlwidget.
 }
 \description{
-Set grid row style
+Apply styles to an entire row identified by an expression.
 }
 \examples{
 library(toastui)
@@ -50,13 +50,11 @@ datagrid(mtcars) \%>\%
 datagrid(mtcars) \%>\%
   grid_row_style(
     vs == 0,
-    column = "vs",
     background = "#E41A1C80",
     color = "#FFF"
   ) \%>\%
   grid_row_style(
     vs == 1,
-    column = "vs",
     background = "#377EB880"
   )
 
@@ -67,7 +65,6 @@ my_var <- "disp"
 datagrid(mtcars) \%>\%
   grid_row_style(
     !!sym(my_var) > 180,
-    column = "disp",
     background = "#F781BE"
   )
 

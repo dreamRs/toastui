@@ -19,9 +19,9 @@
 #' @importFrom utils modifyList
 #'
 #' @export
-#' 
+#'
 #' @return A \code{datagrid} htmlwidget.
-#' 
+#'
 #' @example examples/ex-datagrid.R
 datagrid <- function(data, ...,
                      sortable = TRUE,
@@ -38,7 +38,7 @@ datagrid <- function(data, ...,
   theme <- match.arg(theme)
 
   filters_type <- simple_filters(data)
-  
+
   if (!is.vector(colnames)) {
     colnames <- names(data)
   } else if (!identical(length(colnames), ncol(data))) {
@@ -119,14 +119,14 @@ datagrid <- function(data, ...,
     )
   )
   if (identical(colwidths, "auto")) {
-    widget <- grid_columns(
-      grid = widget,
-      minWidth = nchar_cols(
-        data = data,
-        add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
-      ),
-      whiteSpace = "pre-line"
-    )
+    # widget <- grid_columns(
+    #   grid = widget,
+    #   minWidth = nchar_cols(
+    #     data = data,
+    #     add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
+    #   ),
+    #   whiteSpace = "pre-line"
+    # )
   } else if (is.numeric(colwidths)) {
     widget <- grid_columns(
       grid = widget,
@@ -140,8 +140,8 @@ datagrid <- function(data, ...,
 #' @importFrom htmltools tags
 datagrid_html <- function(id, style, class, ...) {
   tags$div(
-    id = id, 
-    class = class, 
+    id = id,
+    class = class,
     style = style,
     style = "margin-bottom: 15px;",
     tags$div(

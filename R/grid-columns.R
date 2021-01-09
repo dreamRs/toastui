@@ -175,7 +175,7 @@ grid_col_button <- function(grid,
   stopifnot(is.character(column) & length(column) == 1)
   if (!column %in% grid$x$colnames) {
     stop(
-      "grid_colorbar: invalid 'column' supplied, can't find in data.", 
+      "grid_colorbar: invalid 'column' supplied, can't find in data.",
       call. = FALSE
     )
   }
@@ -192,7 +192,7 @@ grid_col_button <- function(grid,
     vars = column,
     ...,
     renderer = list(
-      type = JS("CustomButtonRenderer"),
+      type = JS("DatagridButtonRenderer"),
       options = dropNulls(list(
         status = status,
         width = btn_width,
