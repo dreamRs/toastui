@@ -11,7 +11,7 @@ datagrid(
   pagination = NULL,
   filters = FALSE,
   colnames = NULL,
-  colwidths = "auto",
+  colwidths = "fit",
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
@@ -32,9 +32,9 @@ datagrid(
 \item{colnames}{Alternative colnames to be displayed in the header.}
 
 \item{colwidths}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
-or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.}
+or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.}
 
-\item{theme}{Set styles for the entire table.}
+\item{theme}{Predefined theme to be used.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 
@@ -52,6 +52,11 @@ library(toastui)
 
 # default usage
 datagrid(rolling_stones_50)
+
+# Column's width alternatives (default is "fit")
+datagrid(rolling_stones_50, colwidths = "guess")
+datagrid(rolling_stones_50, colwidths = "auto")
+datagrid(rolling_stones_50, colwidths = NULL)
 
 # disable sorting
 datagrid(rolling_stones_50, sortable = FALSE)

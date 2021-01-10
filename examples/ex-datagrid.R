@@ -3,6 +3,11 @@ library(toastui)
 # default usage
 datagrid(rolling_stones_50)
 
+# Column's width alternatives (default is "fit")
+datagrid(rolling_stones_50, colwidths = "guess")
+datagrid(rolling_stones_50, colwidths = "auto")
+datagrid(rolling_stones_50, colwidths = NULL)
+
 # disable sorting
 datagrid(rolling_stones_50, sortable = FALSE)
 

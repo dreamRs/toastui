@@ -10,8 +10,8 @@
 #' @param filters Logical, allow to filter columns.
 #' @param colnames Alternative colnames to be displayed in the header.
 #' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
-#'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and have equal width columns.
-#' @param theme Set styles for the entire table.
+#'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.
+#' @param theme Predefined theme to be used.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -28,7 +28,7 @@ datagrid <- function(data, ...,
                      pagination = NULL,
                      filters = FALSE,
                      colnames = NULL,
-                     colwidths = "auto",
+                     colwidths = "fit",
                      theme = c("clean", "striped", "default"),
                      width = NULL,
                      height = NULL,
@@ -113,23 +113,41 @@ datagrid <- function(data, ...,
       viewer.suppress = FALSE,
       knitr.figure = FALSE,
       knitr.defaultWidth = "100%",
-      knitr.defaultHeight = if (!is.null(pagination)) "auto" else "600px",
+      knitr.defaultHeight = `if`(identical(options$bodyHeight, "auto"), "auto", "600px"),
       browser.fill = TRUE,
       browser.external = TRUE
     )
   )
-  if (identical(colwidths, "auto")) {
-    # widget <- grid_columns(
-    #   grid = widget,
-    #   minWidth = nchar_cols(
-    #     data = data,
-    #     add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
-    #   ),
-    #   whiteSpace = "pre-line"
-    # )
-  } else if (is.numeric(colwidths)) {
+  if (identical(colwidths, "guess")) {
     widget <- grid_columns(
       grid = widget,
+      minWidth = nchar_cols(
+        data = data,
+        add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
+      ),
+      whiteSpace = "normal",
+      renderer = list(
+        styles = list(
+          wordBreak = "normal"
+        )
+      )
+    )
+  } else if (identical(colwidths, "fit")) {
+    widget <- grid_columns(
+      grid = widget,
+      vars = names(data),
+      width = NULL,
+      whiteSpace = "normal",
+      renderer = list(
+        styles = list(
+          wordBreak = "normal"
+        )
+      )
+    )
+  } else {
+    widget <- grid_columns(
+      grid = widget,
+      vars = names(data),
       width = colwidths
     )
   }
