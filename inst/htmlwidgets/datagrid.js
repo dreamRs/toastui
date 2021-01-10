@@ -25,23 +25,42 @@ function rescale(x, from, to) {
 class DatagridBarRenderer {
   constructor(props) {
     const el = document.createElement("div");
+    const barContainer = document.createElement("div");
     const bar = document.createElement("div");
+    const label = document.createElement("span");
 
-    const { bar_bg, color, background } = props.columnInfo.renderer.options;
+    const { color, background, label_outside, label_width, height, border_radius } = props.columnInfo.renderer.options;
 
-    el.style.background = background;
-    el.style.margin = "0 5px 0 5px";
+    el.style.display = "flex";
+    el.style.alignItems = "center";
 
-    bar.style.background = bar_bg;
-    bar.style.color = color;
-    bar.style.height = "20px";
-    bar.style.lineHeight = "20px";
-    bar.style.paddingLeft = "3px";
-    bar.style.minWidth = "6px";
-    bar.style.fontWeight = "bold";
+    barContainer.style.flexGrow = 1;
+    if (label_outside) {
+      barContainer.style.marginLeft = "6px";
+    } else {
+      barContainer.style.marginLeft = "3px";
+    }
+    barContainer.style.marginLeft = "3px";
+    barContainer.style.height = height;
+    barContainer.style.lineHeight = height;
+    barContainer.style.backgroundColor = background;
+    barContainer.style.borderRadius = border_radius;
 
-    el.appendChild(bar);
+    bar.style.height = "100%";
+    bar.style.borderRadius = border_radius;
 
+    if (label_outside) {
+      label.style.width = label_width;
+    } else {
+      label.style.width = 0;
+    }
+    label.style.textAlign = "right";
+
+    el.appendChild(label);
+    barContainer.appendChild(bar);
+    el.appendChild(barContainer);
+
+    this.label = label;
     this.bar = bar;
     this.el = el;
     this.render(props);
@@ -52,13 +71,26 @@ class DatagridBarRenderer {
   }
 
   render(props) {
+    console.log(props);
     const prefix = props.columnInfo.renderer.options.prefix;
     const suffix = props.columnInfo.renderer.options.suffix;
     const from = props.columnInfo.renderer.options.from;
+    var barBg = props.columnInfo.renderer.options.bar_bg;
+    if (typeof barBg == "object") {
+      barBg = barBg[props.rowKey];
+    }
+    const color = props.columnInfo.renderer.options.color;
+    const labelOutside = props.columnInfo.renderer.options.label_outside;
     const to = [0, 100];
     var width = rescale(props.value, from, to);
+    this.bar.style.background = barBg;
+    this.bar.style.color = color;
     this.bar.style.width = String(width) + "%";
-    this.bar.innerHTML = prefix + String(props.value) + suffix;
+    if (labelOutside) {
+      this.label.innerHTML = prefix + String(props.value) + suffix;
+    } else {
+      this.bar.innerHTML = prefix + String(props.value) + suffix;
+    }
   }
 }
 

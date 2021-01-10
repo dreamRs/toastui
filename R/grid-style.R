@@ -230,7 +230,11 @@ grid_colorbar <- function(grid,
                           background = "#ECEFF4",
                           from = NULL,
                           prefix = NULL,
-                          suffix = NULL) {
+                          suffix = NULL,
+                          label_outside = FALSE,
+                          label_width = "20px",
+                          border_radius = "0px",
+                          height = "16px") {
   check_grid(grid, "grid_colorbar")
   stopifnot(is.character(column) & length(column) == 1)
   if (!column %in% grid$x$colnames) {
@@ -257,7 +261,11 @@ grid_colorbar <- function(grid,
         background = background,
         from = from,
         prefix = prefix,
-        suffix = suffix
+        suffix = suffix,
+        label_outside = label_outside,
+        label_width = label_width,
+        height = height,
+        border_radius = border_radius
       )
     )
   )
