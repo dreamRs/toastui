@@ -21,27 +21,62 @@ library(toastui)
 
 ## Usage
 
-Create a table:
+Create a table from a `data.frame` with `datagrid()`:
 
-```{r}
+```{r default-usage}
 datagrid(rolling_stones_50)
 ```
 
-```{r}
-datagrid(rolling_stones_50, colwidths = NULL) %>% 
-  grid_columns(whiteSpace = "pre-line")
+
+
+## Column sizing
+
+Default column width above is `"fit"`, to (try to) fit container width (depending on the number of columns), other alternatives are:
+
+* `"guess`: to guess minimum width according to content and column names.
+* `"auto"`: to set width accordingto content, excluding column names.
+* `NULL`: to do nothing and use default behavior.
+
+```{r colwidth-alternatives}
+datagrid(rolling_stones_50, colwidths = "guess")
+datagrid(rolling_stones_50, colwidths = "auto")
+datagrid(rolling_stones_50, colwidths = NULL)
 ```
 
-
-```{r}
-datagrid(rolling_stones_50) %>% 
-  grid_columns(resizable = TRUE)
-```
-
+It's also possible to set width in pixel for columns with `grid_columns()`, here we set width for first two variables to 150px:
 
 ```{r}
 datagrid(rolling_stones_50) %>% 
   grid_columns(vars = c("Number", "Year"), width = 150)
+```
+
+
+## Height
+
+Default height of table created is 600px (in markdown and shiny), you can use a different value by using:
+
+```{r height}
+datagrid(rolling_stones_50, height = "300px")
+```
+
+To display all rows in table use `bodyHeight` argument:
+
+```{r body-heigh}
+datagrid(rolling_stones_50, bodyHeight = "auto")
+```
+
+
+
+
+An other solution to control row displayed is to use pagination.
+
+
+## Pagination
+
+Activate pagination by indicating the number of rows to display:
+
+```{r}
+datagrid(rolling_stones_50, pagination = 8)
 ```
 
 
@@ -78,12 +113,24 @@ datagrid(rolling_stones_50) %>%
 ```
 
 
-## Pagination
+## Editor
 
-Activat pagination by indicating the number of rows to display:
+You can edit data in table and retrieve back results in Shiny, double click on any cell to see different options:
 
 ```{r}
-datagrid(rolling_stones_50, pagination = 8)
+edit <- data.frame(
+  Text = month.name,
+  Select = month.name,
+  Checkbox = month.abb,
+  Radio = month.name,
+  Month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m")
+)
+datagrid(edit) %>% 
+  grid_editor("Text", type = "text") %>% 
+  grid_editor("Select", type = "select", choices = month.name) %>% 
+  grid_editor("Checkbox", type = "checkbox", choices = month.abb) %>% 
+  grid_editor("Radio", type = "radio", choices = month.name) %>% 
+  grid_editor_date("Month", type = "month", format = "yyyy-MM")
 ```
 
 
@@ -93,7 +140,7 @@ datagrid(rolling_stones_50, pagination = 8)
 Group columns under a common label:
 
 ```{r}
-datagrid(head(iris)) %>%
+datagrid(head(iris), bodyHeight = "auto") %>%
   grid_complex_header(
     "Sepal" = c("Sepal.Length", "Sepal.Width"),
     "Petal" = c("Petal.Length", "Petal.Width")
@@ -101,4 +148,5 @@ datagrid(head(iris)) %>%
 ```
 
 
+## Style
 
