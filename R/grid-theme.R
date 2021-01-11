@@ -1,11 +1,9 @@
 
-#' @title Modify theme options
+#' @title Set global theme options
 #'
-#' @description Properties to customize grid theme, each argument
-#'  is a list of parameters, see full list here :
+#' @description Properties to customize grid theme, see full list here :
 #'  \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param outline.border Color of the table outline.
 #' @param outline.showVerticalBorder Whether vertical outlines of the table are visible.
 #' @param selection.background Background color of a selection layer.
@@ -61,66 +59,66 @@
 #' @param cell.invalid.background background color of invalid cells.
 #' @param cell.invalid.text text color of invalid cells.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return No return value.
 #' @export
 #'
+#' @name datagrid-theme
+#'
 #' @example examples/ex-theme.R
-grid_theme <- function(grid,
-                       selection.background = NULL,
-                       selection.border = NULL,
-                       scrollbar.border = NULL,
-                       scrollbar.background = NULL,
-                       scrollbar.emptySpace = NULL,
-                       scrollbar.thumb = NULL,
-                       scrollbar.active = NULL,
-                       outline.border = NULL,
-                       outline.showVerticalBorder = NULL,
-                       frozenBorder.border = NULL,
-                       area.header.border = NULL,
-                       area.header.background = NULL,
-                       area.body.background = NULL,
-                       area.summary.border = NULL,
-                       area.summary.background = NULL,
-                       row.even.background = NULL,
-                       row.even.text = NULL,
-                       row.odd.background = NULL,
-                       row.odd.text = NULL,
-                       row.dummy.background = NULL,
-                       row.hover.background = NULL,
-                       cell.normal.background = NULL,
-                       cell.normal.border = NULL,
-                       cell.normal.text = NULL,
-                       cell.normal.showVerticalBorder = NULL,
-                       cell.normal.showHorizontalBorder = NULL,
-                       cell.header.background = NULL,
-                       cell.header.border = NULL,
-                       cell.header.text = NULL,
-                       cell.header.showVerticalBorder = NULL,
-                       cell.header.showHorizontalBorder = NULL,
-                       cell.rowHeader.background = NULL,
-                       cell.rowHeader.border = NULL,
-                       cell.rowHeader.text = NULL,
-                       cell.rowHeader.showVerticalBorder = NULL,
-                       cell.rowHeader.showHorizontalBorder = NULL,
-                       cell.summary.background = NULL,
-                       cell.summary.border = NULL,
-                       cell.summary.text = NULL,
-                       cell.summary.showVerticalBorder = NULL,
-                       cell.summary.showHorizontalBorder = NULL,
-                       cell.selectedHeader.background = NULL,
-                       cell.selectedRowHeader.background = NULL,
-                       cell.focused.border = NULL,
-                       cell.focused.background = NULL,
-                       cell.focusedInactive.border = NULL,
-                       cell.required.background = NULL,
-                       cell.required.text = NULL,
-                       cell.editable.background = NULL,
-                       cell.editable.text = NULL,
-                       cell.disabled.background = NULL,
-                       cell.disabled.text = NULL,
-                       cell.invalid.background = NULL,
-                       cell.invalid.text = NULL) {
-  check_grid(grid, "grid_theme")
+set_grid_theme <- function(selection.background = NULL,
+                           selection.border = NULL,
+                           scrollbar.border = NULL,
+                           scrollbar.background = NULL,
+                           scrollbar.emptySpace = NULL,
+                           scrollbar.thumb = NULL,
+                           scrollbar.active = NULL,
+                           outline.border = NULL,
+                           outline.showVerticalBorder = NULL,
+                           frozenBorder.border = NULL,
+                           area.header.border = NULL,
+                           area.header.background = NULL,
+                           area.body.background = NULL,
+                           area.summary.border = NULL,
+                           area.summary.background = NULL,
+                           row.even.background = NULL,
+                           row.even.text = NULL,
+                           row.odd.background = NULL,
+                           row.odd.text = NULL,
+                           row.dummy.background = NULL,
+                           row.hover.background = NULL,
+                           cell.normal.background = NULL,
+                           cell.normal.border = NULL,
+                           cell.normal.text = NULL,
+                           cell.normal.showVerticalBorder = NULL,
+                           cell.normal.showHorizontalBorder = NULL,
+                           cell.header.background = NULL,
+                           cell.header.border = NULL,
+                           cell.header.text = NULL,
+                           cell.header.showVerticalBorder = NULL,
+                           cell.header.showHorizontalBorder = NULL,
+                           cell.rowHeader.background = NULL,
+                           cell.rowHeader.border = NULL,
+                           cell.rowHeader.text = NULL,
+                           cell.rowHeader.showVerticalBorder = NULL,
+                           cell.rowHeader.showHorizontalBorder = NULL,
+                           cell.summary.background = NULL,
+                           cell.summary.border = NULL,
+                           cell.summary.text = NULL,
+                           cell.summary.showVerticalBorder = NULL,
+                           cell.summary.showHorizontalBorder = NULL,
+                           cell.selectedHeader.background = NULL,
+                           cell.selectedRowHeader.background = NULL,
+                           cell.focused.border = NULL,
+                           cell.focused.background = NULL,
+                           cell.focusedInactive.border = NULL,
+                           cell.required.background = NULL,
+                           cell.required.text = NULL,
+                           cell.editable.background = NULL,
+                           cell.editable.text = NULL,
+                           cell.disabled.background = NULL,
+                           cell.disabled.text = NULL,
+                           cell.invalid.background = NULL,
+                           cell.invalid.text = NULL) {
   options <- list_(
     selection = list_(
       background = selection.background,
@@ -218,10 +216,14 @@ grid_theme <- function(grid,
       )
     )
   )
-  .widget_options2(
-    grid, name_opt = "themeOptions",
-    l = options, modify_x = TRUE
-  )
+  options("datagrid.theme" = options)
+}
+
+#' @export
+#'
+#' @rdname datagrid-theme
+reset_grid_theme <- function() {
+  options("datagrid.theme" = list())
 }
 
 # # To create list above
