@@ -87,6 +87,8 @@ datagrid <- function(data, ...,
     options = options,
     theme = theme,
     themeOptions = getOption("datagrid.theme", default = list()),
+    language = getOption("datagrid.language", default = "en"),
+    languageOptions = getOption("datagrid.language.options", default = list()),
     filters = filters,
     rowAttributes = list(),
     updateEditOnClick = NULL

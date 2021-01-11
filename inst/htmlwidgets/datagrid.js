@@ -183,6 +183,7 @@ HTMLWidgets.widget({
         // Generate the grid
         grid = new tui.Grid(options);
         tui.Grid.applyTheme(x.theme, x.themeOptions);
+        tui.Grid.setLanguage(x.language, x.languageOptions);
 
         /*
         // Apply focus on entire row
