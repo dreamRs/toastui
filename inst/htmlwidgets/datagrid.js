@@ -40,7 +40,7 @@ class DatagridBarRenderer {
     } else {
       barContainer.style.marginLeft = "3px";
     }
-    barContainer.style.marginLeft = "3px";
+    barContainer.style.marginRight = "3px";
     barContainer.style.height = height;
     barContainer.style.lineHeight = height;
     barContainer.style.backgroundColor = background;

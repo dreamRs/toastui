@@ -154,13 +154,19 @@ datagrid(head(iris), bodyHeight = "auto") %>%
 data.frame(
   rn = rownames(mtcars),
   mpg = mtcars$mpg,
-  check.names = FALSE
+  disp = mtcars$disp
 ) %>% 
-  datagrid(colnames = c("Automobile", "Miles/(US) gallon")) %>%
+  datagrid(
+    colnames = c("Automobile", "Miles/(US) gallon", "Displacement (cu.in.)")
+  ) %>%
   grid_colorbar(
     column = "mpg",
     label_outside = TRUE,
     label_width = "25px"
+  ) %>%
+  grid_colorbar(
+    column = "disp",
+    bar_bg = "#BF616A"
   )
 ```
 
