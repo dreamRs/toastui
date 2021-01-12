@@ -134,6 +134,27 @@ datagrid(edit) %>%
 ```
 
 
+## Selection
+
+In Shiny applications, you can select multiple rows with checkbox, single row with radio button or select cells by holding and selecting an area.
+
+```{r selection}
+# Checkbox
+datagrid(rolling_stones_50) %>%
+  grid_selection_row(
+    inputId = "sel_check",
+    type = "checkbox"
+  )
+
+# Radio
+datagrid(rolling_stones_50) %>%
+  grid_selection_row(
+    inputId = "sel_radio",
+    type = "radio"
+  )
+```
+
+
 
 ## Group columns
 
@@ -148,7 +169,9 @@ datagrid(head(iris), bodyHeight = "auto") %>%
 ```
 
 
-## Color bar
+## Styling grid
+
+### Color bar
 
 ```{r colorbar}
 data.frame(
@@ -171,5 +194,4 @@ data.frame(
 ```
 
 
-## Style
 

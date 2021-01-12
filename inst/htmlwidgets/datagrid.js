@@ -3,6 +3,11 @@
  * @author Victor Perrier
  */
 
+/*jshint
+  esversion: 6
+*/
+/*global tui, HTMLWidgets, Shiny */
+
 // Utility functions
 
 function addStyle(styles) {
@@ -29,7 +34,14 @@ class DatagridBarRenderer {
     const bar = document.createElement("div");
     const label = document.createElement("span");
 
-    const { color, background, label_outside, label_width, height, border_radius } = props.columnInfo.renderer.options;
+    const {
+      color,
+      background,
+      label_outside,
+      label_width,
+      height,
+      border_radius
+    } = props.columnInfo.renderer.options;
 
     el.style.display = "flex";
     el.style.alignItems = "center";
@@ -71,7 +83,6 @@ class DatagridBarRenderer {
   }
 
   render(props) {
-    console.log(props);
     const prefix = props.columnInfo.renderer.options.prefix;
     const suffix = props.columnInfo.renderer.options.suffix;
     const from = props.columnInfo.renderer.options.from;
@@ -93,7 +104,6 @@ class DatagridBarRenderer {
     }
   }
 }
-
 
 class DatagridButtonRenderer {
   constructor(props) {
@@ -136,29 +146,28 @@ class DatagridButtonRenderer {
   }
 }
 
-
 class DatagridRadioRenderer {
   constructor(props) {
     const { grid, rowKey } = props;
 
-    const label = document.createElement('label');
-    label.className = 'datagrid-radio';
-    label.setAttribute('for', String(rowKey));
+    const label = document.createElement("label");
+    label.className = "datagrid-radio";
+    label.setAttribute("for", String(rowKey));
 
-    const hiddenInput = document.createElement('input');
-    hiddenInput.className = 'datagrid-radio-hidden';
+    const hiddenInput = document.createElement("input");
+    hiddenInput.className = "datagrid-radio-hidden";
     hiddenInput.id = String(rowKey);
     hiddenInput.style.cursor = "pointer";
 
-    const customInput = document.createElement('span');
-    customInput.className = 'datagrid-radio-input';
+    const customInput = document.createElement("span");
+    customInput.className = "datagrid-radio-input";
     customInput.style.cursor = "pointer";
 
     label.appendChild(hiddenInput);
     label.appendChild(customInput);
 
-    hiddenInput.type = 'radio';
-    hiddenInput.addEventListener('change', () => {
+    hiddenInput.type = "radio";
+    hiddenInput.addEventListener("change", () => {
       if (hiddenInput.checked) {
         grid.uncheckAll();
         grid.check(rowKey);
@@ -177,13 +186,12 @@ class DatagridRadioRenderer {
   }
 
   render(props) {
-    const hiddenInput = this.el.querySelector('.datagrid-radio-hidden');
+    const hiddenInput = this.el.querySelector(".datagrid-radio-hidden");
     const checked = Boolean(props.value);
 
     hiddenInput.checked = checked;
   }
 }
-
 
 // HTMLWidgets bindings
 
@@ -327,7 +335,7 @@ HTMLWidgets.widget({
         if (HTMLWidgets.shinyMode) {
           if (x.hasOwnProperty("updateEditOnClick")) {
             const editButton = document.getElementById(x.updateEditOnClick);
-            editButton.addEventListener("click", function (event) {
+            editButton.addEventListener("click", function(event) {
               Shiny.setInputValue(el.id + "_data:datagridEdit", {
                 data: grid.getData(),
                 colnames: x.colnames
@@ -358,7 +366,6 @@ HTMLWidgets.widget({
   }
 });
 
-
 // From Friss tuto (https://github.com/FrissAnalytics/shinyJsTutorials/blob/master/tutorials/tutorial_03.Rmd)
 function getWidget(id) {
   // Get the HTMLWidgets object
@@ -374,19 +381,18 @@ function getWidget(id) {
   return widgetObj;
 }
 
-
 if (HTMLWidgets.shinyMode) {
   Shiny.addCustomMessageHandler("proxy-toastui-grid-addrows", function(obj) {
     var grid = getWidget(obj.id);
     if (typeof grid != "undefined") {
       const data = [];
-        for (let i = 0; i < obj.data.nrow; i += 1) {
-          const row = {};
-          for (let j = 0; j < obj.data.ncol; j += 1) {
-            row[obj.data.colnames[j]] = obj.data.data[j][i];
-          }
-          data.push(row);
+      for (let i = 0; i < obj.data.nrow; i += 1) {
+        const row = {};
+        for (let j = 0; j < obj.data.ncol; j += 1) {
+          row[obj.data.colnames[j]] = obj.data.data[j][i];
         }
+        data.push(row);
+      }
       grid.appendRows(data, true);
     }
   });
