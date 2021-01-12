@@ -1,18 +1,18 @@
 library(toastui)
 
 datagrid(mtcars) %>%
-  grid_row_style(
+  grid_style_row(
     mpg > 19,
     background = "#F781BE"
   )
 
 datagrid(mtcars) %>%
-  grid_row_style(
+  grid_style_row(
     vs == 0,
     background = "#E41A1C80",
     color = "#FFF"
   ) %>%
-  grid_row_style(
+  grid_style_row(
     vs == 1,
     background = "#377EB880"
   )
@@ -22,7 +22,7 @@ datagrid(mtcars) %>%
 library(rlang)
 my_var <- "disp"
 datagrid(mtcars) %>%
-  grid_row_style(
+  grid_style_row(
     !!sym(my_var) > 180,
     background = "#F781BE"
   )

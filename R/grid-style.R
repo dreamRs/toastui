@@ -17,8 +17,8 @@
 #'
 #' @importFrom rlang enquo eval_tidy
 #'
-#' @example examples/ex-grid_row_style.R
-grid_row_style <- function(grid,
+#' @example examples/ex-grid_style_row.R
+grid_style_row <- function(grid,
                            expr,
                            background = NULL,
                            color = NULL,
@@ -27,10 +27,10 @@ grid_row_style <- function(grid,
                            class = NULL,
                            cssProperties = NULL) {
   expr <- enquo(expr)
-  check_grid(grid, "grid_row_style")
+  check_grid(grid, "grid_style_row")
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (!is.logical(rowKey))
-    stop("grid_row_style: expr must evaluate to a logical vector!")
+    stop("grid_style_row: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
     class <- paste0("datagrid-row-", genId())
@@ -80,8 +80,8 @@ grid_row_style <- function(grid,
 #'
 #' @importFrom rlang enquo eval_tidy as_function
 #'
-#' @example examples/ex-grid_cell_style.R
-grid_cell_style <- function(grid,
+#' @example examples/ex-grid_style_cell.R
+grid_style_cell <- function(grid,
                             expr,
                             column,
                             background = NULL,
@@ -90,9 +90,9 @@ grid_cell_style <- function(grid,
                             ...,
                             class = NULL,
                             cssProperties = NULL) {
-  check_grid(grid, "grid_cell_style")
+  check_grid(grid, "grid_style_cell")
   if (!is.character(column) | length(column) != 1)
-    stop("grid_cell_style: column must be a character of length one.")
+    stop("grid_style_cell: column must be a character of length one.")
   expr <- enquo(expr)
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (is.list(rowKey)) {
@@ -106,7 +106,7 @@ grid_cell_style <- function(grid,
     if (!is.null(class))
       class <- rep(class, times = length(rowKey))
     for (i in seq_along(rowKey)) {
-      grid <- grid_cell_style(
+      grid <- grid_style_cell(
         grid = grid,
         expr = rowKey[[i]],
         column = column,
@@ -117,7 +117,7 @@ grid_cell_style <- function(grid,
     return(grid)
   }
   if (!is.logical(rowKey))
-    stop("grid_cell_style: expr must evaluate to a logical vector!")
+    stop("grid_style_cell: expr must evaluate to a logical vector!")
   rowKey <- which(rowKey) - 1
   if (is.null(class)) {
     class <- paste0("datagrid-cell-", genId())
@@ -150,7 +150,7 @@ grid_cell_style <- function(grid,
 #' @export
 #'
 #' @rdname grid-cell-style
-grid_cells_style <- function(grid,
+grid_style_cells <- function(grid,
                              fun,
                              columns,
                              background = NULL,
@@ -158,16 +158,16 @@ grid_cells_style <- function(grid,
                              ...,
                              class = NULL,
                              cssProperties = NULL) {
-  check_grid(grid, "grid_cells_style")
+  check_grid(grid, "grid_style_cells")
   if (!is.character(columns))
-    stop("grid_cell_style: column must be character.", call. = FALSE)
+    stop("grid_style_cell: column must be character.", call. = FALSE)
   fun <- as_function(fun)
   rowKeys <- lapply(
     X = grid$x$data_df[, columns, drop = FALSE],
     FUN = fun
   )
   if (!all(vapply(rowKeys, is.logical, logical(1))))
-    stop("grid_cells_style: fun must evaluate to a logical vector!", call. = FALSE)
+    stop("grid_style_cells: fun must evaluate to a logical vector!", call. = FALSE)
   rowKeys <- lapply(rowKeys, function(x) {
     which(x) - 1
   })
@@ -292,14 +292,14 @@ grid_colorbar <- function(grid,
 #'
 #' @importFrom rlang enexprs eval_tidy exec
 #'
-#' @example examples/ex-grid_column_style.R
-grid_column_style <- function(grid,
+#' @example examples/ex-grid_style_column.R
+grid_style_column <- function(grid,
                               column,
                               background = NULL,
                               color = NULL,
                               fontWeight = NULL,
                               ...) {
-  check_grid(grid, "grid_column_style")
+  check_grid(grid, "grid_style_column")
   props <- lapply(
     X = enexprs(
       background = background,
@@ -327,7 +327,7 @@ grid_column_style <- function(grid,
       ),
       lprops_
     )
-    grid <- exec("grid_cell_style", !!!args)
+    grid <- exec("grid_style_cell", !!!args)
   }
   return(grid)
 }

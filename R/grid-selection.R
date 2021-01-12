@@ -3,7 +3,7 @@
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
-#' @param label Display label in header row.
+#' @param type Type of selection: \code{"checkbox"} (multiple rows) or \code{"radio"} (unique row).
 #' @param return Value that will be accessible via \code{input} :
 #'  a \code{data.frame} with selected row(s) or just the index of rows.
 #' @param width Width of the column.
@@ -11,22 +11,34 @@
 #' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
-#' @example examples/ex-grid_row_selection.R
-grid_row_selection <- function(grid, 
-                               inputId, 
-                               label = NULL,
+#' @example examples/ex-grid_selection_row.R
+grid_selection_row <- function(grid,
+                               inputId,
+                               type = c("checkbox", "radio"),
                                return = c("data", "index"),
                                width = NULL) {
   check_grid(grid, "grid_row_selection")
   return <- match.arg(return)
+  type <- match.arg(type)
   if (!is.null(grid$x$rowSelection)) {
     stop("grid_row_selection: you can only have one type of selection at the same time.")
   }
-  config <- dropNulls(list(
-    type = "checkbox",
-    header = label,
-    width = width
-  ))
+  if (identical(type, "checkbox")) {
+    config <- dropNulls(list(
+      type = "checkbox",
+      header = NULL,
+      width = width
+    ))
+  } else {
+    config <- dropNulls(list(
+      type = 'checkbox',
+      header = "<div></div>",
+      renderer = list(
+        type = htmlwidgets::JS("DatagridRadioRenderer")
+      ),
+      width = width
+    ))
+  }
   if (is.null(grid$x$options$rowHeaders)) {
     grid$x$options$rowHeaders <- list(config)
   } else {
@@ -37,8 +49,7 @@ grid_row_selection <- function(grid,
   }
   grid$x$rowSelection <- list(
     id = inputId,
-    returnValue = return,
-    label = label
+    returnValue = return
   )
   return(grid)
 }

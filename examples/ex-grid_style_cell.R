@@ -1,7 +1,7 @@
 library(toastui)
 
 datagrid(mtcars) %>%
-  grid_cell_style(
+  grid_style_cell(
     mpg > 19,
     column = "mpg",
     background = "#F781BE",
@@ -10,13 +10,13 @@ datagrid(mtcars) %>%
 
 
 datagrid(mtcars) %>%
-  grid_cell_style(
+  grid_style_cell(
     vs == 0,
     column = "vs",
     background = "#E41A1C80",
     color = "#FFF"
   ) %>%
-  grid_cell_style(
+  grid_style_cell(
     vs == 1,
     column = "vs",
     background = "#377EB880"
@@ -27,7 +27,7 @@ datagrid(mtcars) %>%
 library(rlang)
 my_var <- "disp"
 datagrid(mtcars) %>%
-  grid_cell_style(
+  grid_style_cell(
     !!sym(my_var) > 180,
     column = "disp",
     background = "#F781BE"
@@ -44,19 +44,19 @@ vars <- c("GNP.deflator", "GNP",
           "Unemployed", "Armed.Forces",
           "Population", "Year", "Employed")
 datagrid(cor_longley[, c("Var", vars)]) %>%
-  grid_cells_style(
+  grid_style_cells(
     fun = ~ . > 0.9,
     columns = vars,
     background = "#053061",
     color = "#FFF"
   ) %>%
-  grid_cells_style(
+  grid_style_cells(
     fun = ~ . > 0 & . <= 0.9,
     columns = vars,
     background = "#539dc8",
     color = "#FFF"
   ) %>%
-  grid_cells_style(
+  grid_style_cells(
     fun = ~ . < 0,
     columns = vars,
     background = "#b51f2e",
