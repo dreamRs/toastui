@@ -15,7 +15,7 @@
     } else {
       unlist(lapply(data$selected, `[[`, "rowKey")) + 1
     }
-  })
+  }, force = TRUE)
   registerInputHandler("datagridCellSelection", function(data, ...) {
     if (is.null(data) || is.null(data$selected))
       return(NULL)
@@ -25,7 +25,7 @@
       rows = c(start[1], end[1]),
       cols = c(start[2], end[2])
     )
-  })
+  }, force = TRUE)
   registerInputHandler("datagridEdit", function(data, ...) {
     if (is.null(data) || is.null(data$data))
       return(NULL)
@@ -33,9 +33,10 @@
       X = data$data,
       FUN = function(x) {
         x <- x[names(x) %in% data$colnames]
-        as.data.frame(x)
+        x[sapply(x, is.null)] <- NA
+        as.data.frame(x, stringsAsFactors = FALSE)
       }
     ))
-  })
+  }, force = TRUE)
 }
 
