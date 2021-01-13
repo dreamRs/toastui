@@ -2,12 +2,13 @@
 title: "Tables with datagrid()"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{datagridr}
+  %\VignetteIndexEntry{datagrid}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
+options(rmarkdown.html_vignette.check_title = FALSE)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -194,4 +195,53 @@ data.frame(
 ```
 
 
+## Theme
+
+It's possible to customize theme used to create tables, theme is set globally and will be applied to all table created after its declaration.
+In a rmarkdown document (like this one), theme is unique for all tables, click buttons to switch between a custom theme and the default one, you will see that all tables are styled.
+
+```{r theme, eval=FALSE}
+set_grid_theme(
+  row.even.background = "#ddebf7",
+  cell.normal.border = "#9bc2e6",
+  cell.normal.showVerticalBorder = TRUE,
+  cell.normal.showHorizontalBorder = TRUE,
+  cell.header.background = "#5b9bd5",
+  cell.header.text = "#FFF",
+  cell.selectedHeader.background = "#013ADF",
+  cell.focused.border = "#013ADF"
+)
+
+datagrid(rolling_stones_50)
+```
+
+```{r, echo=FALSE}
+library(htmltools)
+tags$div(
+  tags$button(
+    class = "btn btn-default",
+    id = "apply-theme-custom",
+    "Apply custom theme"
+  ),
+  tags$button(
+    class = "btn btn-default",
+    id = "apply-theme-default",
+    "Back to default theme"
+  )
+)
+```
+
+```{js, echo=FALSE}
+document.querySelector('#apply-theme-custom').addEventListener('click', function() {
+  const options = {"selection":{},"scrollbar":{},"outline":{},"frozenBorder":{},"area":{"header":{},"body":{},"summary":{}},"row":{"odd":{},"even":{"background":"#ddebf7"},"dummy":{},"hover":{}},"cell":{"normal":{"border":"#9bc2e6","showVerticalBorder":true,"showHorizontalBorder":true},"header":{"background":"#5b9bd5","text":"#FFF"},"rowHeader":{"border":"#9bc2e6","showVerticalBorder":true,"showHorizontalBorder":true},"summary":{},"selectedHeader":{"background":"#013ADF"},"selectedRowHeader":{},"focused":{"border":"#013ADF"},"focusedInactive":{},"required":{},"editable":{},"disabled":{},"invalid":{}}};
+  tui.Grid.applyTheme('clean', options);
+});
+document.querySelector('#apply-theme-default').addEventListener('click', function() {
+  tui.Grid.applyTheme('clean', {});
+});
+```
+
+```{r, echo=FALSE}
+datagrid(rolling_stones_50)
+```
 
