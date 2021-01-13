@@ -1,26 +1,4 @@
 
-#' Grid editor options
-#'
-#' @param grid A table created with \code{\link{datagrid}}.
-#' @param editingEvent If set to \code{"click"}, editable cell in
-#'  the view-mode will be changed to edit-mode by a single click.
-#' @param updateOnClick Use an \code{actionButton} inputId to send
-#'  edited data to the server only on click.
-#'
-#' @return A \code{datagrid} htmlwidget.
-#' @export
-#'
-#' @examples
-grid_editor_opts <- function(grid,
-                             editingEvent = c("dblclick", "click"),
-                             updateOnClick = NULL) {
-  check_grid(grid, "grid_editor_opts")
-  grid$x$options$editingEvent <- match.arg(editingEvent)
-  grid$x$updateEditOnClick <- updateOnClick
-  return(grid)
-}
-
-
 #' @title Grid editor for columns
 #' 
 #' @description Allow to edit content of columns with different inputs,
@@ -36,9 +14,11 @@ grid_editor_opts <- function(grid,
 #' @return A \code{datagrid} htmlwidget.
 #' @export
 #' 
+#' @name grid-editor
+#' 
 #' @seealso \code{\link{grid_editor_date}} for a date picker.
 #'
-#' @example examples/ex-grid_editor.R
+#' @example examples/ex-grid_editor-shiny.R
 grid_editor <- function(grid,
                         column,
                         type = c("text", "checkbox", "select", "radio", "password"),
@@ -74,6 +54,33 @@ grid_editor <- function(grid,
   }
 }
 
+
+
+
+#' @param grid A table created with \code{\link{datagrid}}.
+#' @param editingEvent If set to \code{"click"}, editable cell in
+#'  the view-mode will be changed to edit-mode by a single click.
+#' @param updateOnClick Use an \code{actionButton} inputId to send
+#'  edited data to the server only on click.
+#' @param session Shiny session.
+#'
+#' @export
+#' 
+#' @rdname grid-editor
+#' 
+#' @importFrom shiny getDefaultReactiveDomain
+#'
+grid_editor_opts <- function(grid,
+                             editingEvent = c("dblclick", "click"),
+                             updateOnClick = NULL,
+                             session = shiny::getDefaultReactiveDomain()) {
+  check_grid(grid, "grid_editor_opts")
+  grid$x$options$editingEvent <- match.arg(editingEvent)
+  if (!is.null(session)) 
+    updateOnClick <- session$ns(updateOnClick)
+  grid$x$updateEditOnClick <- updateOnClick
+  return(grid)
+}
 
 
 
