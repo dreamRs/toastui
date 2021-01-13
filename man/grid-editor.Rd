@@ -9,8 +9,9 @@
 grid_editor(
   grid,
   column,
-  type = c("text", "checkbox", "select", "radio", "password"),
-  choices = NULL
+  type = c("text", "number", "checkbox", "select", "radio", "password"),
+  choices = NULL,
+  validation = validateOpts()
 )
 
 grid_editor_opts(
@@ -25,7 +26,7 @@ grid_editor_opts(
 
 \item{column}{Column for which to activate the editable content.}
 
-\item{type}{Type of editor: \code{"text"}, \code{"checkbox"},
+\item{type}{Type of editor: \code{"text"}, \code{"number"}, \code{"checkbox"},
 \code{"select"}, \code{"radio"} or \code{"password"}.}
 
 \item{choices}{Vector of choices, required for \code{"checkbox"},
@@ -38,6 +39,8 @@ the view-mode will be changed to edit-mode by a single click.}
 edited data to the server only on click.}
 
 \item{session}{Shiny session.}
+
+\item{validateOpts}{Rules to validate content edited, see \code{\link{validateOpts}}.}
 }
 \value{
 A \code{datagrid} htmlwidget.

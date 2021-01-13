@@ -1,30 +1,38 @@
 
 #' @title Grid editor for columns
-#' 
+#'
 #' @description Allow to edit content of columns with different inputs,
 #'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param column Column for which to activate the editable content.
-#' @param type Type of editor: \code{"text"}, \code{"checkbox"},
+#' @param type Type of editor: \code{"text"}, \code{"number"}, \code{"checkbox"},
 #'  \code{"select"}, \code{"radio"} or \code{"password"}.
 #' @param choices Vector of choices, required for \code{"checkbox"},
 #'  \code{"select"} and \code{"radio"} type.
+#' @param validateOpts Rules to validate content edited, see \code{\link{validateOpts}}.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
-#' 
+#'
 #' @name grid-editor
-#' 
+#'
 #' @seealso \code{\link{grid_editor_date}} for a date picker.
 #'
 #' @example examples/ex-grid_editor-shiny.R
 grid_editor <- function(grid,
                         column,
-                        type = c("text", "checkbox", "select", "radio", "password"),
-                        choices = NULL) {
+                        type = c("text", "number", "checkbox", "select", "radio", "password"),
+                        choices = NULL,
+                        validation = validateOpts()) {
   check_grid(grid, "grid_editor")
   type <- match.arg(type)
+  if (identical(type, "number")) {
+    type <- "text"
+    validation$type <- "number"
+  }
+  if (length(validation) < 1)
+    validation <- NULL
   if (type %in% c("checkbox", "select", "radio") & is.null(choices))
     stop("grid_editor: choices must be specified for checkbox, select and radio types", call. = FALSE)
   if (type %in% c("text", "password")) {
@@ -33,7 +41,8 @@ grid_editor <- function(grid,
       vars = column,
       editor = list(
         type = type
-      )
+      ),
+      validation = validation
     )
   } else if (type %in% c("checkbox", "select", "radio")) {
     grid_columns(
@@ -49,7 +58,8 @@ grid_editor <- function(grid,
             }
           )
         )
-      )
+      ),
+      validation = validation
     )
   }
 }
@@ -65,9 +75,9 @@ grid_editor <- function(grid,
 #' @param session Shiny session.
 #'
 #' @export
-#' 
+#'
 #' @rdname grid-editor
-#' 
+#'
 #' @importFrom shiny getDefaultReactiveDomain
 #'
 grid_editor_opts <- function(grid,
@@ -76,7 +86,7 @@ grid_editor_opts <- function(grid,
                              session = shiny::getDefaultReactiveDomain()) {
   check_grid(grid, "grid_editor_opts")
   grid$x$options$editingEvent <- match.arg(editingEvent)
-  if (!is.null(session)) 
+  if (!is.null(session))
     updateOnClick <- session$ns(updateOnClick)
   grid$x$updateEditOnClick <- updateOnClick
   return(grid)
@@ -85,9 +95,51 @@ grid_editor_opts <- function(grid,
 
 
 
+#' @title Validation options
+#'
+#' @description Validate columns' content with rules, useful when content is editable.
+#'
+#' @param required If set to \code{TRUE}, the data of the column will be checked to be not empty.
+#' @param type Type of data, can be \code{"string"} or \code{"number"}.
+#' @param min For numeric values, the minimum acceptable value.
+#' @param max For numeric values, the maximum acceptable value.
+#' @param regExp A regular expression to validate content.
+#' @param unique If set to \code{TRUE}, check the uniqueness on the data of the column.
+#' @param jsfun A \code{JS} function to validate content.
+#'
+#' @return A \code{datagrid} htmlwidget.
+#' @export
+#'
+#' @importFrom htmlwidgets JS
+#'
+#' @return
+#' @export
+#'
+#' @example examples/ex-grid_validation.R
+validateOpts <- function(required = NULL,
+                         type = NULL,
+                         min = NULL,
+                         max = NULL,
+                         regExp = NULL,
+                         unique = NULL,
+                         jsfun = NULL) {
+  if (!is.null(regExp)) {
+    regExp <- JS(paste0("/", regExp, "/"))
+  }
+  dropNulls(list(
+    required = required,
+    dataType = type,
+    min = min,
+    max = max,
+    regExp = regExp,
+    unique = unique,
+    validatorFn = jsfun
+  ))
+}
+
 
 #' @title Grid editor for date/time columns
-#' 
+#'
 #' @description Allow to edit content of columns with a calendar and time picker,
 #'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 #'
@@ -99,7 +151,7 @@ grid_editor_opts <- function(grid,
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
-#' 
+#'
 #' @seealso \code{\link{grid_editor}} for normal inputs.
 #'
 #' @example examples/ex-grid_editor_date.R

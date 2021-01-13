@@ -1,48 +1,23 @@
 library(toastui)
 
-dat <- data.frame(
-  number = c("a", 2:10),
-  character = c("A", "B", "C", character(7)),
-  "min=0 & max=100" = sample(1:150, 10),
-  email = c("victor@mail.com", "victor"),
-  check.names = FALSE
+validate <- data.frame(
+  col_text = c("a", "b", "a", NA, "c"),
+  col_number = sample(1:10, 5),
+  col_mail = c("victor@mail.com", "victor", NA, "victor@mail", "victor.fr")
 )
 
-
-datagrid(dat) %>% 
+datagrid(validate) %>%
   grid_editor(
-    column = "number",
-    type = "text"
-  ) %>% 
-  grid_validation(
-    column = "number", 
-    type = "number"
-  ) %>% 
-  grid_editor(
-    column = "character",
-    type = "text"
-  ) %>% 
-  grid_validation(
-    column = "character", 
-    type = "string", 
-    required = TRUE
-  ) %>% 
-  grid_editor(
-    column = "min=0 & max=100",
-    type = "text"
-  ) %>% 
-  grid_validation(
-    column = "min=0 & max=100", 
-    type = "number",
-    min = 0, max = 100
+    "col_text", type = "text",
+    validation = validateOpts(required = TRUE, unique = TRUE)
   ) %>%
   grid_editor(
-    column = "email",
-    type = "text"
+    "col_number", type = "number",
+    validation = validateOpts(min = 0, max = 5)
   ) %>%
-  grid_validation(
-    column = "email",
-    type = "string",
-    regExp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+  grid_editor(
+    "col_mail", type = "text",
+    validation = validateOpts(
+      regExp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+    )
   )
-

@@ -114,25 +114,58 @@ datagrid(rolling_stones_50) %>%
 ```
 
 
-## Editor
+## Edit content
+
+### Editor options
 
 You can edit data in table and retrieve back results in Shiny, double click on any cell to see different options:
 
 ```{r}
 edit <- data.frame(
-  Text = month.name,
-  Select = month.name,
-  Checkbox = month.abb,
-  Radio = month.name,
-  Month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m")
+  col_text = month.name,
+  col_select = month.name,
+  col_checkbox = month.abb,
+  col_radio = month.name,
+  col_month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m")
 )
-datagrid(edit) %>% 
-  grid_editor("Text", type = "text") %>% 
-  grid_editor("Select", type = "select", choices = month.name) %>% 
-  grid_editor("Checkbox", type = "checkbox", choices = month.abb) %>% 
-  grid_editor("Radio", type = "radio", choices = month.name) %>% 
-  grid_editor_date("Month", type = "month", format = "yyyy-MM")
+datagrid(edit, bodyHeight = "auto") %>% 
+  grid_editor("col_text", type = "text") %>% 
+  grid_editor("col_select", type = "select", choices = month.name) %>% 
+  grid_editor("col_checkbox", type = "checkbox", choices = month.abb) %>% 
+  grid_editor("col_radio", type = "radio", choices = month.name) %>% 
+  grid_editor_date("col_month", type = "month", format = "yyyy-MM")
 ```
+
+
+### Validation
+
+When grid is editable you can set some rules to validate what values user can enter:
+
+```{r validation}
+validate <- data.frame(
+  col_text = c("a", "b", "a", NA, "c"),
+  col_number = sample(1:10, 5),
+  col_mail = c("victor@mail.com", "victor", NA, "victor@mail", "victor.fr")
+)
+
+datagrid(validate, bodyHeight = "auto") %>%
+  grid_editor(
+    "col_text", type = "text",
+    validation = validateOpts(required = TRUE, unique = TRUE)
+  ) %>%
+  grid_editor(
+    "col_number", type = "number",
+    validation = validateOpts(min = 0, max = 5)
+  ) %>%
+  grid_editor(
+    "col_mail", type = "text",
+    validation = validateOpts(
+      regExp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+    )
+  )
+```
+
+
 
 
 ## Selection
