@@ -91,7 +91,8 @@ datagrid <- function(data, ...,
     languageOptions = getOption("datagrid.language.options", default = list()),
     filters = filters,
     rowAttributes = list(),
-    updateEditOnClick = NULL
+    updateEditOnClick = NULL,
+    validationInput = FALSE
   ))
 
   # create widget

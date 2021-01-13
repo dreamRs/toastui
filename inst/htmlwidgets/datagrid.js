@@ -333,6 +333,11 @@ HTMLWidgets.widget({
 
         // Edit
         if (HTMLWidgets.shinyMode) {
+          if (x.validationInput) {
+            grid.on("editingFinish", function(ev) {
+              Shiny.setInputValue(el.id + "_validation:datagridValidation", grid.validate());
+            });
+          }
           if (x.hasOwnProperty("updateEditOnClick")) {
             const editButton = document.getElementById(x.updateEditOnClick);
             if (editButton === null) {

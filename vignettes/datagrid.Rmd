@@ -136,6 +136,8 @@ datagrid(edit, bodyHeight = "auto") %>%
   grid_editor_date("col_month", type = "month", format = "yyyy-MM")
 ```
 
+In Shiny, retrieve data edited with `input$<outputId>_data`.
+
 
 ### Validation
 
@@ -165,7 +167,7 @@ datagrid(validate, bodyHeight = "auto") %>%
   )
 ```
 
-
+In Shiny, retrieve validation errors with `input$<outputId>_validation`.
 
 
 ## Selection

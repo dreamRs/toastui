@@ -31,8 +31,11 @@ grid_editor <- function(grid,
     type <- "text"
     validation$type <- "number"
   }
-  if (length(validation) < 1)
+  if (length(validation) < 1) {
     validation <- NULL
+  } else {
+    grid$x$validationInput <- TRUE
+  }
   if (type %in% c("checkbox", "select", "radio") & is.null(choices))
     stop("grid_editor: choices must be specified for checkbox, select and radio types", call. = FALSE)
   if (type %in% c("text", "password")) {
@@ -115,7 +118,7 @@ grid_editor_opts <- function(grid,
 #' @return
 #' @export
 #'
-#' @example examples/ex-grid_validation.R
+#' @example examples/ex-grid_validation-shiny.R
 validateOpts <- function(required = NULL,
                          type = NULL,
                          min = NULL,

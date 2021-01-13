@@ -38,5 +38,22 @@
       }
     ))
   }, force = TRUE)
+  registerInputHandler("datagridValidation", function(data, ...) {
+    if (is.null(data))
+      return(NULL)
+    do.call("rbind", lapply(
+      X = data,
+      FUN = function(x) {
+        data.frame(
+          row = x$rowKey + 1,
+          column = vapply(x$errors, FUN = `[[`, "columnName", FUN.VALUE = character(1)),
+          error = vapply(x$errors, FUN = function(x) {
+            x$errorInfo[[1]]$code
+          }, FUN.VALUE = character(1)),
+          stringsAsFactors = FALSE
+        )
+      }
+    ))
+  }, force = TRUE)
 }
 
