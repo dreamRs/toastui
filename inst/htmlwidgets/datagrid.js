@@ -332,8 +332,13 @@ HTMLWidgets.widget({
         }
 
         // Edit
-        if (HTMLWidgets.shinyMode) {
-          if (x.validationInput) {
+        if (HTMLWidgets.shinyMode & x.editorInput === true) {
+          Shiny.setInputValue(el.id + "_data:datagridEdit", {
+            data: grid.getData(),
+            colnames: x.colnames
+          });
+          if (x.validationInput === true) {
+            Shiny.setInputValue(el.id + "_validation:datagridValidation", grid.validate());
             grid.on("editingFinish", function(ev) {
               Shiny.setInputValue(el.id + "_validation:datagridValidation", grid.validate());
             });

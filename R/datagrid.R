@@ -101,7 +101,8 @@ datagrid <- function(data, ...,
     filters = filters,
     rowAttributes = list(),
     updateEditOnClick = NULL,
-    validationInput = FALSE
+    validationInput = FALSE,
+    editorInput = FALSE
   ))
 
   # create widget
