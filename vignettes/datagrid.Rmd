@@ -192,17 +192,45 @@ datagrid(rolling_stones_50) %>%
 
 
 
-## Group columns
+## Row & Column groups
 
 Group columns under a common label:
 
-```{r}
-datagrid(head(iris), bodyHeight = "auto") %>%
+```{r col-groups}
+datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
+  grid_columns(
+    vars = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
+    header = c("North America", "Europe", "Japan", "Other")
+  ) %>%
   grid_complex_header(
-    "Sepal" = c("Sepal.Length", "Sepal.Width"),
-    "Petal" = c("Petal.Length", "Petal.Width")
+    "Sales"= c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales")
   )
 ```
+
+
+Group rows with common values:
+
+```{r row-groups}
+datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
+  grid_row_merge(vars = "Publisher")
+```
+
+
+
+## Summary
+
+Add a summary area to the bottom of the grid to display statistics computed on column:
+
+```{r summary-area}
+datagrid(ps3_games[, c(1, 5:8)], colwidths = "guess") %>% 
+  grid_summary(
+    column = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
+    stat = "sum",
+    label = "Total: "
+  )
+```
+
+
 
 
 ## Styling grid
