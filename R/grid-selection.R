@@ -17,11 +17,11 @@ grid_selection_row <- function(grid,
                                type = c("checkbox", "radio"),
                                return = c("data", "index"),
                                width = NULL) {
-  check_grid(grid, "grid_row_selection")
+  check_grid(grid, "grid_selection_row")
   return <- match.arg(return)
   type <- match.arg(type)
   if (!is.null(grid$x$rowSelection)) {
-    stop("grid_row_selection: you can only have one type of selection at the same time.")
+    stop("grid_selection_row: you can only have one type of selection at the same time.")
   }
   if (identical(type, "checkbox")) {
     config <- dropNulls(list(
