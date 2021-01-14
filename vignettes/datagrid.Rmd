@@ -237,25 +237,73 @@ datagrid(ps3_games[, c(1, 5:8)], colwidths = "guess") %>%
 
 ### Color bar
 
+Add a color bar depending on the value in a cell
+
 ```{r colorbar}
-data.frame(
-  rn = rownames(mtcars),
-  mpg = mtcars$mpg,
-  disp = mtcars$disp
-) %>% 
-  datagrid(
-    colnames = c("Automobile", "Miles/(US) gallon", "Displacement (cu.in.)")
-  ) %>%
+datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
   grid_colorbar(
-    column = "mpg",
+    column = "NA_Sales",
     label_outside = TRUE,
-    label_width = "25px"
+    label_width = "30px"
   ) %>%
   grid_colorbar(
-    column = "disp",
-    bar_bg = "#BF616A"
+    column = "EU_Sales",
+    bar_bg = "#BF616A",
+    height = "20px"
   )
 ```
+
+
+### Color cells
+
+Add custom CSS styles to cells identified by an expression:
+
+```{r style-cells}
+datagrid(ps3_games[, c(1, 4, 5:6)], colwidths = "guess") %>%
+  grid_style_cell(
+    startsWith(Name, "Call of"),
+    column = "Name",
+    background = "#F781BE",
+    fontWeight = "bold"
+  )
+```
+
+
+### Color rows
+
+in the same way you can apply styles to an antire row:
+
+```{r style-rows}
+datagrid(ps3_games[, c(1, 4, 5:6)], colwidths = "guess") %>%
+  grid_style_row(
+    Publisher == "Electronic Arts",
+    background = "#ff4747",
+    color = "white"
+  )
+```
+
+
+### Color columns
+
+Set styles on an entire columns based on its values, here for exemple we use `scales::col_numeric()` to create a color gradient:
+
+```{r style-columns}
+library(scales)
+datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
+  grid_style_column(
+    column = "NA_Sales",
+    background = col_numeric("Blues", domain = c(0, 10))(NA_Sales),
+    fontWeight = "bold",
+    color = ifelse(NA_Sales > 5, "white", "black")
+  ) %>%
+  grid_style_column(
+    column = "EU_Sales",
+    background = col_numeric("Blues", domain = c(0, 10))(EU_Sales),
+    fontWeight = "bold",
+    color = ifelse(EU_Sales > 5, "white", "black")
+  )
+```
+
 
 
 ## Theme

@@ -91,6 +91,9 @@ datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5, 6, 7, 8)], colwidths =
     "Sales"= c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales")
   )
 
+datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
+  grid_row_merge(vars = "Publisher")
+
 
 datagrid(ps3_games[, c(1, 5, 6, 7, 8)], colwidths = "guess") %>% 
   grid_summary(

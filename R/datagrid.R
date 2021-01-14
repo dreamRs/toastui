@@ -86,7 +86,16 @@ datagrid <- function(data, ...,
     colnames = names(data),
     options = options,
     theme = theme,
-    themeOptions = getOption("datagrid.theme", default = list()),
+    themeOptions = getOption(
+      x = "datagrid.theme",
+      default = list(
+        cell = list(
+          normal = list(
+            showHorizontalBorder = TRUE
+          )
+        )
+      )
+    ),
     language = getOption("datagrid.language", default = "en"),
     languageOptions = getOption("datagrid.language.options", default = list()),
     filters = filters,

@@ -100,7 +100,7 @@ class DatagridBarRenderer {
     if (labelOutside) {
       this.label.innerHTML = prefix + String(props.value) + suffix;
     } else {
-      this.bar.innerHTML = prefix + String(props.value) + suffix;
+      this.bar.innerHTML = "&nbsp;" + prefix + String(props.value) + suffix;
     }
   }
 }
