@@ -62,4 +62,20 @@
 
 
 
-
+#' Top 20 PS3 games
+#'
+#' This dataset contains 20 PS3 video games with sales.
+#'
+#' @format A \code{data.frame} with 20 rows and 8 variables:
+#' \describe{
+#'   \item{Name}{Name of the game}
+#'   \item{Year}{Year of the game's release}
+#'   \item{Genre}{Genre of the game}
+#'   \item{Publisher}{Publisher of the game}
+#'   \item{NA_Sales}{Sales in North America (in millions)}
+#'   \item{EU_Sales}{Sales in Europe (in millions)}
+#'   \item{JP_Sales}{Sales in Japan (in millions)}
+#'   \item{Other_Sales}{Sales in the rest of the world (in millions)}
+#' }
+#' @source GregorySmith on Kaggle (\url{https://www.kaggle.com/gregorut/videogamesales})
+"ps3_games"
