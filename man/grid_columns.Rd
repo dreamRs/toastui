@@ -100,7 +100,12 @@ datagrid(mtcars[, 1:5]) \%>\%
 datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
     vars = "mpg",
-    align = "right",
+    align = "left",
+    resizable = TRUE
+  ) \%>\%
+  grid_columns(
+    vars = "cyl",
+    align = "left",
     resizable = TRUE
   )
 

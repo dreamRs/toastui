@@ -85,7 +85,7 @@ datagrid <- function(data, ...,
     data_df = data,
     nrow = nrow(data),
     ncol = ncol(data),
-    data = unname(data),
+    data = data,
     colnames = names(data),
     options = options,
     theme = theme,
@@ -118,6 +118,7 @@ datagrid <- function(data, ...,
     elementId = elementId,
     preRenderHook = function(widget) {
       widget$x$data_df <- NULL
+      widget$x$data <- unname(widget$x$data)
       widget
     },
     sizingPolicy = sizingPolicy(

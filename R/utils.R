@@ -30,6 +30,8 @@ get_align <- function(data) {
     FUN = function(x) {
       if (inherits(x, c("numeric", "integer", "Date", "POSIXct"))) {
         "right"
+      } else if (inherits(x, "logical")) {
+        "center"
       } else {
         "left"
       }
@@ -37,6 +39,13 @@ get_align <- function(data) {
     FUN.VALUE = character(1), 
     USE.NAMES = FALSE
   )
+}
+
+is_tag <- function(x) {
+  if (inherits(x, c("shiny.tag", "shiny.tag.list")))
+    return(TRUE)
+  x <- lapply(x, inherits, what = c("shiny.tag", "shiny.tag.list"))
+  any(unlist(x, use.names = FALSE))
 }
 
 
@@ -88,7 +97,7 @@ maxnchar <- function(x) {
   } else if (inherits(x, "factor")) {
     max(nchar(levels(x), keepNA = FALSE), na.rm = TRUE)
   } else {
-    0
+    max(nchar(as.character(x), keepNA = FALSE), na.rm = TRUE)
   }
 }
 nchar_cols <- function(data, min_width = 70, add_header = 12) {
