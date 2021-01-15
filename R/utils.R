@@ -14,9 +14,13 @@ to_hyphen <- function(x) {
 
 make_styles <- function(styles, class) {
   styles <- dropNulls(styles)
-  styles <- sprintf("%s:%s !important", to_hyphen(names(styles)), unlist(styles, use.names = FALSE))
-  styles <- paste(styles, collapse = ";")
-  sprintf(".%s{%s}", class, styles)
+  styles <- sprintf("%s:%s !important;", to_hyphen(names(styles)), unlist(styles, use.names = FALSE))
+  styles <- paste(styles, collapse = " ")
+  if (is.null(class)) {
+    return(styles)
+  } else {
+    sprintf(".%s{%s}", class, styles)
+  }
 }
 
 genId <- function(bytes = 12) {
@@ -36,7 +40,7 @@ get_align <- function(data) {
         "left"
       }
     },
-    FUN.VALUE = character(1), 
+    FUN.VALUE = character(1),
     USE.NAMES = FALSE
   )
 }
@@ -45,6 +49,13 @@ is_tag <- function(x) {
   if (inherits(x, c("shiny.tag", "shiny.tag.list")))
     return(TRUE)
   x <- lapply(x, inherits, what = c("shiny.tag", "shiny.tag.list"))
+  any(unlist(x, use.names = FALSE))
+}
+
+is_htmlwidget <- function(x) {
+  if (inherits(x, "htmlwidget"))
+    return(TRUE)
+  x <- lapply(x, inherits, what = "htmlwidget")
   any(unlist(x, use.names = FALSE))
 }
 

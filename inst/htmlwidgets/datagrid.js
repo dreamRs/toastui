@@ -129,9 +129,12 @@ class DatagridFormatRenderer {
 }
 
 
-class DatagridSparklineRenderer {
+class DatagridHTMLRenderer {
   constructor(props) {
     const el = document.createElement("div");
+    const options = props.columnInfo.renderer.options;
+    el.style.padding = options.padding;
+    el.style.cssText = options.styles;
     this.el = el;
     this.render(props);
   }
@@ -142,11 +145,11 @@ class DatagridSparklineRenderer {
 
   render(props) {
 
-    var widgets = props.columnInfo.renderer.options.widgets;
-    if (typeof widgets == "object") {
-      widgets = widgets[props.rowKey];
+    var rendered = props.columnInfo.renderer.options.rendered;
+    if (typeof rendered == "object") {
+      rendered = rendered[props.rowKey];
     }
-    this.el.innerHTML = widgets;
+    this.el.innerHTML = rendered;
     setTimeout(function() {
       window.HTMLWidgets.staticRender();
     }, 10);
