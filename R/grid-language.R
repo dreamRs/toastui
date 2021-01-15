@@ -9,10 +9,13 @@
 #' @example examples/ex-language.R
 set_grid_lang <- function(display.noData = "No data",
                           display.loadingData = "Loading data...",
-                          display.resizeHandleGuide = paste(
-                            "You can change the width of the column by mouse drag",
-                            "and initialize the width by double-clicking."
-                          )) {
+                          display.resizeHandleGuide = NULL) {
+  if (is.null(display.resizeHandleGuide)) {
+    display.resizeHandleGuide <- paste(
+      "You can change the width of the column by mouse drag",
+      "and initialize the width by double-clicking."
+    )
+  }
   language <- list(
     display = list(
       noData = display.noData,

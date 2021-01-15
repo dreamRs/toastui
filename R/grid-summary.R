@@ -4,6 +4,7 @@
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param column Name of column (variable name) for which to add a summary.
 #' @param stat Statistic to display: \code{"sum"}, \code{"min"}, \code{"max"} or \code{"avg"}. Can be several values.
+#' @param digits Number of digits to display.
 #' @param label Label to display next to statistic.
 #' @param sep Separator between several statistics.
 #' @param position The position of the summary area: \code{"bottom"} or \code{"top"}.

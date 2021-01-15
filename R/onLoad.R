@@ -1,5 +1,6 @@
 
 #' @importFrom shiny registerInputHandler
+#' @importFrom utils type.convert
 .onLoad <- function(...) {
   registerInputHandler("datagridRowSelection", function(data, ...) {
     if (is.null(data) || is.null(data$selected))

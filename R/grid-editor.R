@@ -10,7 +10,7 @@
 #'  \code{"select"}, \code{"radio"} or \code{"password"}.
 #' @param choices Vector of choices, required for \code{"checkbox"},
 #'  \code{"select"} and \code{"radio"} type.
-#' @param validateOpts Rules to validate content edited, see \code{\link{validateOpts}}.
+#' @param validation Rules to validate content edited, see \code{\link{validateOpts}}.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export

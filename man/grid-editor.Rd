@@ -32,6 +32,8 @@ grid_editor_opts(
 \item{choices}{Vector of choices, required for \code{"checkbox"},
 \code{"select"} and \code{"radio"} type.}
 
+\item{validation}{Rules to validate content edited, see \code{\link{validateOpts}}.}
+
 \item{editingEvent}{If set to \code{"click"}, editable cell in
 the view-mode will be changed to edit-mode by a single click.}
 
@@ -39,8 +41,6 @@ the view-mode will be changed to edit-mode by a single click.}
 edited data to the server only on click.}
 
 \item{session}{Shiny session.}
-
-\item{validateOpts}{Rules to validate content edited, see \code{\link{validateOpts}}.}
 }
 \value{
 A \code{datagrid} htmlwidget.

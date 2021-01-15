@@ -1,5 +1,4 @@
-
-
+library(toastui)
 set_grid_lang(display.noData = "Pas de donn\u00e9es")
 
 datagrid(data.frame(

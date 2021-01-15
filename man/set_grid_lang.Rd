@@ -7,9 +7,7 @@
 set_grid_lang(
   display.noData = "No data",
   display.loadingData = "Loading data...",
- 
-    display.resizeHandleGuide = paste("You can change the width of the column by mouse drag",
-    "and initialize the width by double-clicking.")
+  display.resizeHandleGuide = NULL
 )
 }
 \arguments{
@@ -22,8 +20,7 @@ No return value.
 Set grid language options
 }
 \examples{
-
-
+library(toastui)
 set_grid_lang(display.noData = "Pas de donn\u00e9es")
 
 datagrid(data.frame(
