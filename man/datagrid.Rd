@@ -12,6 +12,7 @@ datagrid(
   filters = FALSE,
   colnames = NULL,
   colwidths = "fit",
+  align = "auto",
   theme = c("clean", "striped", "default"),
   width = NULL,
   height = NULL,
@@ -33,6 +34,9 @@ datagrid(
 
 \item{colwidths}{Width for the columns, can be \code{"auto"} (width is determined by column's content)
 or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.}
+
+\item{align}{Aligment for columns content: \code{"auto"} (numeric and date on right, other on left), \code{"right"},
+\code{"center"} or \code{"left"}. Use \code{NULL} to ignore.}
 
 \item{theme}{Predefined theme to be used.}
 

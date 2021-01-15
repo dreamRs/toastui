@@ -24,6 +24,21 @@ genId <- function(bytes = 12) {
 }
 
 
+get_align <- function(data) {
+  vapply(
+    X = data,
+    FUN = function(x) {
+      if (inherits(x, c("numeric", "integer", "Date", "POSIXct"))) {
+        "right"
+      } else {
+        "left"
+      }
+    },
+    FUN.VALUE = character(1), 
+    USE.NAMES = FALSE
+  )
+}
+
 
 # Functions to create JSON parameters -------------------------------------
 

@@ -11,6 +11,8 @@
 #' @param colnames Alternative colnames to be displayed in the header.
 #' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
 #'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.
+#' @param align Aligment for columns content: \code{"auto"} (numeric and date on right, other on left), \code{"right"},
+#'  \code{"center"} or \code{"left"}. Use \code{NULL} to ignore. 
 #' @param theme Predefined theme to be used.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
@@ -29,6 +31,7 @@ datagrid <- function(data, ...,
                      filters = FALSE,
                      colnames = NULL,
                      colwidths = "fit",
+                     align = "auto",
                      theme = c("clean", "striped", "default"),
                      width = NULL,
                      height = NULL,
@@ -132,6 +135,20 @@ datagrid <- function(data, ...,
       browser.external = TRUE
     )
   )
+  if (!is.null(align)) {
+    align <- match.arg(align, choices = c("auto", "left", "right", "center"))
+    if (identical(align, "auto")) {
+      widget <- grid_columns(
+        grid = widget,
+        align = get_align(data)
+      )
+    } else {
+      widget <- grid_columns(
+        grid = widget,
+        align = align
+      )
+    }
+  }
   if (identical(colwidths, "guess")) {
     widget <- grid_columns(
       grid = widget,
