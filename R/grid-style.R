@@ -216,6 +216,11 @@ grid_style_cells <- function(grid,
 #' @param background Background of the cell.
 #' @param from Range of values of the variable to represent as a color bar.
 #' @param prefix,suffix String to put in front of or after the value.
+#' @param label_outside Show label outside of the color bar.
+#' @param label_width Width of label in case it's displayed outside the color bar.
+#' @param border_radius Border radius of color bar.
+#' @param height Height in pixel of color bar.
+#' @param align Alignment of label if it is displayed inside the color bar.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
@@ -234,8 +239,10 @@ grid_colorbar <- function(grid,
                           label_outside = FALSE,
                           label_width = "20px",
                           border_radius = "0px",
-                          height = "16px") {
+                          height = "16px",
+                          align = c("left", "center", "right")) {
   check_grid(grid, "grid_colorbar")
+  align <- match.arg(align)
   stopifnot(is.character(column) & length(column) == 1)
   if (!column %in% grid$x$colnames) {
     stop(
@@ -253,6 +260,7 @@ grid_colorbar <- function(grid,
   grid_columns(
     grid = grid,
     vars = column,
+    align = align,
     renderer = list(
       type = htmlwidgets::JS("DatagridBarRenderer"),
       options = list(

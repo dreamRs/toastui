@@ -16,7 +16,8 @@ grid_colorbar(
   label_outside = FALSE,
   label_width = "20px",
   border_radius = "0px",
-  height = "16px"
+  height = "16px",
+  align = c("left", "center", "right")
 )
 }
 \arguments{
@@ -33,6 +34,16 @@ grid_colorbar(
 \item{from}{Range of values of the variable to represent as a color bar.}
 
 \item{prefix, suffix}{String to put in front of or after the value.}
+
+\item{label_outside}{Show label outside of the color bar.}
+
+\item{label_width}{Width of label in case it's displayed outside the color bar.}
+
+\item{border_radius}{Border radius of color bar.}
+
+\item{height}{Height in pixel of color bar.}
+
+\item{align}{Alignment of label if it is displayed inside the color bar.}
 }
 \value{
 A \code{datagrid} htmlwidget.
