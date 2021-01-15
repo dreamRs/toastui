@@ -129,6 +129,32 @@ class DatagridFormatRenderer {
 }
 
 
+class DatagridSparklineRenderer {
+  constructor(props) {
+    const el = document.createElement("div");
+    this.el = el;
+    this.render(props);
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  render(props) {
+
+    var widgets = props.columnInfo.renderer.options.widgets;
+    if (typeof widgets == "object") {
+      widgets = widgets[props.rowKey];
+    }
+    this.el.innerHTML = widgets;
+    setTimeout(function() {
+      window.HTMLWidgets.staticRender();
+    }, 10);
+  }
+}
+
+
+
 class DatagridButtonRenderer {
   constructor(props) {
     const el = document.createElement("button");

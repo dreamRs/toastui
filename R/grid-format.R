@@ -14,7 +14,7 @@
 grid_format <- function(grid,
                         column,
                         formatter) {
-  check_grid(grid, "grid_column_format")
+  check_grid(grid, "grid_format")
   stopifnot(is.character(column) & length(column) == 1)
   if (is.function(formatter)) {
     data_fmt <- grid$x$data
