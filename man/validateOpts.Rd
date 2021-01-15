@@ -75,7 +75,6 @@ server <- function(input, output, session) {
   })
 
   output$validation <- renderPrint({
-    check <<- input$grid_validation
     input$grid_validation
   })
 

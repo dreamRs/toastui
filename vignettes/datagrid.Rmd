@@ -130,7 +130,7 @@ data <- data.frame(
 )
 
 library(scales)
-datagrid(data, colwidths = "fit") %>% 
+datagrid(data, colwidths = "fit", bodyHeight = "auto") %>% 
   grid_format(
     "col_percentage", label_percent(accuracy = 1)
   ) %>%
@@ -158,6 +158,16 @@ datagrid(data, colwidths = "fit") %>%
         }
       )
     }
+  )
+```
+
+It's also possible to format column with a JavaScript function:
+
+```{r format-js}
+datagrid(data, colwidths = "fit", bodyHeight = "auto") %>% 
+  grid_format(
+    column = "col_percentage",
+    formatter = JS("function(obj) {return (obj.value*100).toFixed(0) + '%';}")
   )
 ```
 
@@ -216,7 +226,38 @@ datagrid(validate, bodyHeight = "auto") %>%
   )
 ```
 
-In Shiny, retrieve validation errors with `input$<outputId>_validation`.
+In Shiny, retrieve validation errors with `input$<outputId>_validation`, example above will return:
+
+```{r validation-results, echo=FALSE}
+structure(
+  list(
+    row = c(1, 1, 2, 3, 3, 4, 4, 5),
+    column = c(
+      "col_text",
+      "col_number",
+      "col_mail",
+      "col_text",
+      "col_number",
+      "col_text",
+      "col_mail",
+      "col_mail"
+    ),
+    error = c(
+      "UNIQUE",
+      "MAX",
+      "REGEXP",
+      "UNIQUE",
+      "MAX",
+      "REQUIRED",
+      "REGEXP",
+      "REGEXP"
+    )
+  ),
+  row.names = c(NA,-8L),
+  class = "data.frame"
+)
+```
+
 
 
 ## Selection
