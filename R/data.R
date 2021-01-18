@@ -30,6 +30,8 @@
 #' @source Gibs on Kaggle (\url{https://www.kaggle.com/notgibs/500-greatest-albums-of-all-time-rolling-stone})
 "rolling_stones_50"
 
+
+
 #' Information on population, region, area size, infant mortality and more.
 #'
 #' Data about countries of the world.
@@ -79,3 +81,19 @@
 #' }
 #' @source GregorySmith on Kaggle (\url{https://www.kaggle.com/gregorut/videogamesales})
 "ps3_games"
+
+
+
+#' Meteorological for Le Bourget Station
+#'
+#' This dataset contains temperature and relative humidity for year 2020.
+#'
+#' @format A \code{data.frame} with 12 rows and 3 variables:
+#' \describe{
+#'   \item{month}{Month of the year}
+#'   \item{temp}{List column containing data.frame with 2 column "date  and"temp"}
+#'   \item{rh}{List column containing data.frame with 2 column "date  and"rh"}
+#' }
+#' @source Data collected with package stationaRy from NOAA
+"met_paris"
+
