@@ -1,13 +1,13 @@
 
 #' @title Render HTMLwidgets in Grid
-#' 
+#'
 #' @description Create small charts in a column.
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
 #' @param column Column data are stored and where to render widgets.
 #' @param renderer A \code{function} that will create an HTMLwidget.
 #' @param height Height of the row (applies to all table).
-#' @param styles A \code{list} of CSS parameters to apply to the cells where widgets are rendered. 
+#' @param styles A \code{list} of CSS parameters to apply to the cells where widgets are rendered.
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
@@ -61,12 +61,4 @@ grid_sparkline <- function(grid,
       )
     )
   )
-}
-
-#' @importFrom htmltools resolveDependencies
-add_dependencies <- function(widget, dependencies) {
-  widget$dependencies <- htmltools::resolveDependencies(
-    c(widget$dependencies, dependencies)
-  )
-  widget
 }

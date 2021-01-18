@@ -60,6 +60,16 @@ is_htmlwidget <- function(x) {
 }
 
 
+#' @importFrom htmltools resolveDependencies
+add_dependencies <- function(widget, dependencies) {
+  widget$dependencies <- resolveDependencies(
+    c(widget$dependencies, dependencies)
+  )
+  widget
+}
+
+
+
 # Functions to create JSON parameters -------------------------------------
 
 # dropNulls

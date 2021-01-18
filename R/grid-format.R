@@ -7,8 +7,9 @@
 #'
 #' @return A \code{datagrid} htmlwidget.
 #' @export
-#' 
-#' @importFrom htmltools resolveDependencies findDependencies
+#'
+#' @importFrom htmltools findDependencies
+#' @importFrom htmlwidgets JS
 #'
 #' @example examples/ex-grid_format.R
 grid_format <- function(grid,
@@ -20,20 +21,15 @@ grid_format <- function(grid,
     data_fmt <- grid$x$data
     formatted <- formatter(data_fmt[[column]])
     if (is_tag(formatted)) {
-      dependencies <- resolveDependencies(findDependencies(formatted))
-      if (length(dependencies) > 0) {
-        grid$dependencies <- c(
-          grid$dependencies,
-          dependencies
-        )
-      }
+      dependencies <- findDependencies(formatted)
+      grid <- add_dependencies(grid, dependencies)
       formatted <- lapply(formatted, as.character)
     }
     grid_columns(
       grid = grid,
       vars = column,
       renderer = list(
-        type = htmlwidgets::JS("DatagridFormatRenderer"),
+        type = JS("DatagridFormatRenderer"),
         options = list(
           formatted = unlist(formatted, use.names = FALSE)
         )
