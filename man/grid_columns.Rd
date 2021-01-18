@@ -29,7 +29,7 @@ grid_columns(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link{datagrid}}.}
 
 \item{vars}{Name(s) of column in the data used in \code{\link{datagrid}}.}
 

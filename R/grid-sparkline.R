@@ -1,16 +1,20 @@
 
-#' Title
+#' @title Render HTMLwidgets in Grid
+#' 
+#' @description Create small charts in a column.
 #'
-#' @param grid
-#' @param column
-#' @param renderer
+#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param column Column data are stored and where to render widgets.
+#' @param renderer A \code{function} that will create an HTMLwidget.
+#' @param height Height of the row (applies to all table).
+#' @param styles A \code{list} of CSS parameters to apply to the cells where widgets are rendered. 
 #'
-#' @return
+#' @return A \code{datagrid} htmlwidget.
 #' @export
 #'
 #' @importFrom htmltools as.tags findDependencies validateCssUnit
 #'
-#' @examples
+#' @example examples/ex-grid_sparkline.R
 grid_sparkline <- function(grid,
                            column,
                            renderer,
@@ -18,6 +22,10 @@ grid_sparkline <- function(grid,
                            styles = NULL) {
   check_grid(grid, "grid_sparkline")
   height <- validateCssUnit(height)
+  if (!is.function(renderer))
+    stop("grid_sparkline: `renderer` must be a function", call. = FALSE)
+  if (!is.character(column) | length(column) != 1)
+    stop("grid_sparkline: `column` must be a character of length one.", call. = FALSE)
   rendered <- lapply(
     X = grid$x$data_df[[column]],
     FUN = renderer
@@ -44,11 +52,11 @@ grid_sparkline <- function(grid,
   grid_columns(
     grid = grid,
     vars = column,
+    className = "datagrid-sparkline-cell",
     renderer = list(
       type = htmlwidgets::JS("DatagridHTMLRenderer"),
       options = list(
         rendered = unlist(rendered, use.names = FALSE),
-        padding = "4px 5px",
         styles = styles
       )
     )

@@ -3,7 +3,7 @@
 #'
 #' @description Set options for one or several specific column.
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A grid created with \code{\link{datagrid}}.
 #' @param vars Name(s) of column in the data used in \code{\link{datagrid}}.
 #' @param header The header of the column to be shown on the header.
 #' @param ellipsis If set to true, ellipsis will be used for overflowing content.

@@ -92,7 +92,7 @@ grid_style_cell <- function(grid,
                             cssProperties = NULL) {
   check_grid(grid, "grid_style_cell")
   if (!is.character(column) | length(column) != 1)
-    stop("grid_style_cell: column must be a character of length one.")
+    stop("grid_style_cell: `column` must be a character of length one.", call. = FALSE)
   expr <- enquo(expr)
   rowKey <- eval_tidy(expr, data = grid$x$data_df)
   if (is.list(rowKey)) {

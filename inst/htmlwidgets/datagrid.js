@@ -133,7 +133,6 @@ class DatagridHTMLRenderer {
   constructor(props) {
     const el = document.createElement("div");
     const options = props.columnInfo.renderer.options;
-    el.style.padding = options.padding;
     el.style.cssText = options.styles;
     this.el = el;
     this.render(props);
@@ -144,7 +143,6 @@ class DatagridHTMLRenderer {
   }
 
   render(props) {
-
     var rendered = props.columnInfo.renderer.options.rendered;
     if (typeof rendered == "object") {
       rendered = rendered[props.rowKey];
@@ -258,6 +256,7 @@ HTMLWidgets.widget({
 
     return {
       renderValue: function(x) {
+        addStyle(".datagrid-sparkline-cell {overflow: visible !important;}");
         if (typeof grid !== "undefined") {
           grid.destroy();
           el.innerHTML = "";
