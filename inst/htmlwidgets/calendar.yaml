@@ -1,0 +1,28 @@
+dependencies:
+  - name: tui-code-snippet
+    version: 1.5.2
+    src: htmlwidgets/lib/tui-code-snippet2
+    script: tui-code-snippet.min.js
+  - name: tui-time-picker
+    version: 2.0.3
+    src: htmlwidgets/lib/tui-time-picker
+    script: tui-time-picker.min.js
+    stylesheet: tui-time-picker.min.css
+  - name: tui-date-picker
+    version: 4.1.0
+    src: htmlwidgets/lib/tui-date-picker
+    script: tui-date-picker.min.js
+    stylesheet: tui-date-picker.min.css
+  - name: tui-calendar
+    version: 1.12.3
+    src: htmlwidgets/lib/tui-calendar
+    script: tui-calendar.min.js
+    stylesheet: tui-calendar.min.css
+  - name: moment
+    version: 2.24.0
+    src: htmlwidgets/lib/moment
+    script: moment.min.js
+  - name: bttn
+    version: 0.2.4
+    src: htmlwidgets/lib/bttn
+    stylesheet: bttn.min.css

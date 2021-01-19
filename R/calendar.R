@@ -1,0 +1,206 @@
+
+#' @title Create an interactive calendar
+#'
+#' @description Build interactive calendar with the JavaScript tui-calendar library.
+#'
+#' @param defaultView Default view of calendar. The default value is 'week',
+#'  other possible values are 'month' and 'day'.
+#' @param defaultDate Default date for displaying calendar.
+#' @param taskView Show the milestone and task in weekly, daily view.
+#'  The default value is true. If the value is a vector, it can be 'milestone', 'task'.
+#' @param scheduleView Show the all day and time grid in weekly, daily view.
+#'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
+#' @param useDetailPopup Logical. Display a pop-up on click with detailled informations about schedules.
+#' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
+#' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
+#' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param bttnOpts Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.
+#' @param width A numeric input in pixels.
+#' @param height A numeric input in pixels.
+#' @param elementId Use an explicit element ID for the widget.
+#'
+#' @importFrom htmlwidgets createWidget sizingPolicy
+#'
+#' @export
+calendar <- function(defaultView = c("month", "week", "day"),
+                     defaultDate = NULL,
+                     taskView = FALSE,
+                     scheduleView = TRUE,
+                     useDetailPopup = TRUE,
+                     useCreationPopup = FALSE,
+                     readOnly = TRUE,
+                     useNav = FALSE,
+                     bttnOpts = bttn_options(),
+                     width = NULL,
+                     height = NULL,
+                     elementId = NULL) {
+
+  x = dropNulls(list(
+    options = list(
+      defaultView = match.arg(defaultView),
+      taskView = taskView,
+      scheduleView = scheduleView,
+      useDetailPopup = useDetailPopup,
+      useCreationPopup = useCreationPopup,
+      isReadOnly = readOnly,
+      usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
+    ),
+    schedules = list(),
+    useNav = isTRUE(useNav),
+    defaultDate = defaultDate,
+    events = list(),
+    bttnOpts = bttnOpts
+  ))
+
+  dependencies <- NULL
+  if (isTRUE(useNav)) {
+    dependencies <- list(
+      rmarkdown::html_dependency_font_awesome()
+    )
+  }
+
+  htmlwidgets::createWidget(
+    name = "calendar",
+    x = x,
+    width = width,
+    height = height,
+    dependencies = dependencies,
+    package = "toastui",
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      defaultWidth = "100%",
+      defaultHeight = "100%",
+      viewer.defaultHeight = "100%",
+      viewer.defaultWidth = "100%",
+      knitr.figure = FALSE,
+      knitr.defaultWidth = "100%",
+      knitr.defaultHeight = "600px",
+      browser.fill = TRUE,
+      viewer.suppress = FALSE,
+      browser.external = TRUE
+    )
+  )
+}
+
+#' @importFrom htmltools tagList tags
+calendar_html <- function(id, style, class, ...) {
+  tagList(
+    tags$div(
+      id = paste0(id, "_menu"),
+      tags$span(
+        id = paste0(id, "_menu_navi"),
+        tags$button(
+          type = "button",
+          class = "btn bttn-no-outline action-button",
+          id = paste0(id, "_today"),
+          "Today"
+        ),
+        tags$button(
+          type="button", class = "btn bttn-no-outline action-button",
+          id = paste0(id, "_prev"),
+          tags$i(class = "fa fa-chevron-left")
+        ),
+        tags$button(
+          type="button", class = "btn bttn-no-outline action-button",
+          id = paste0(id, "_next"),
+          tags$i(class = "fa fa-chevron-right")
+        )
+      ),
+      tags$span(id = paste0(id, "_renderRange"), class = "render-range")
+    ),
+    tags$br(),
+    tags$div(id = id, style = style, class = class, ...)
+  )
+}
+
+
+
+
+
+#' Options for buttons displayed above calendar
+#'
+#' @param today_label Text to display on today button.
+#' @param prev_label Text to display on prev button.
+#' @param next_label Text to display on next button.
+#' @param class Class to add to buttons.
+#' @param bg Background color.
+#' @param color Text color.
+#'
+#' @note Buttons are generated with the following CSS library : \url{http://bttn.surge.sh/},
+#'  where you can find available options for \code{class} argument.
+#'
+#' @return a \code{list}.
+#' @export
+#'
+#' @importFrom htmltools tags doRenderTags
+#'
+#' @examples
+#' # Use another button style
+#' calendar(
+#'   defaultView = "month", useNav = TRUE,
+#'   bttnOpts = bttn_options(
+#'     class = "bttn-stretch bttn-sm bttn-warning"
+#'   )
+#' )
+#'
+#' # Custom colors (background and text)
+#' calendar(
+#'   defaultView = "month", useNav = TRUE,
+#'   bttnOpts = bttn_options(bg = "#FE2E2E", color = "#FFF")
+#' )
+#'
+#' # both
+#' calendar(
+#'   defaultView = "month", useNav = TRUE,
+#'   bttnOpts = bttn_options(
+#'     bg = "#04B431", color = "#FFF",
+#'     class = "bttn-float bttn-md"
+#'   )
+#' )
+bttn_options <- function(today_label = "Today",
+                         prev_label = tags$i(class = "fa fa-chevron-left"),
+                         next_label = tags$i(class = "fa fa-chevron-right"),
+                         class = "bttn-jelly bttn-sm bttn-primary",
+                         bg = NULL, color = NULL) {
+  dropNulls(list(
+    today_label = doRenderTags(today_label),
+    prev_label = doRenderTags(prev_label),
+    next_label = doRenderTags(next_label),
+    class = paste0(" ", class),
+    bg = bg, color = color
+  ))
+}
+
+
+
+
+
+#' Shiny bindings for calendar
+#'
+#' Output and render functions for using calendar within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a calendar
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name calendar-shiny
+#'
+#' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
+#'
+#' @export
+calendarOutput <- function(outputId, width = "100%", height = "600px"){
+  shinyWidgetOutput(outputId, "calendar", width, height, package = "toastui")
+}
+
+#' @rdname calendar-shiny
+#' @export
+renderCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  shinyRenderWidget(expr, calendarOutput, env, quoted = TRUE)
+}
