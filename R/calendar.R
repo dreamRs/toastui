@@ -3,7 +3,8 @@
 #'
 #' @description Build interactive calendar with the JavaScript tui-calendar library.
 #'
-#' @param defaultView Default view of calendar. The default value is 'week',
+#' @param data
+#' @param view Default view of calendar. The default value is 'week',
 #'  other possible values are 'month' and 'day'.
 #' @param defaultDate Default date for displaying calendar.
 #' @param taskView Show the milestone and task in weekly, daily view.
@@ -15,14 +16,20 @@
 #' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
 #' @param bttnOpts Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.
-#' @param width A numeric input in pixels.
-#' @param height A numeric input in pixels.
+#' @param width,height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget sizingPolicy
+#' @importFrom htmltools findDependencies
+#' @importFrom shiny icon
 #'
 #' @export
-calendar <- function(defaultView = c("month", "week", "day"),
+#'
+#' @return A \code{calendar} htmlwidget.
+#'
+#' @example examples/ex-calendar.R
+calendar <- function(data = NULL,
+                     view = c("month", "week", "day"),
                      defaultDate = NULL,
                      taskView = FALSE,
                      scheduleView = TRUE,
@@ -37,7 +44,7 @@ calendar <- function(defaultView = c("month", "week", "day"),
 
   x = dropNulls(list(
     options = list(
-      defaultView = match.arg(defaultView),
+      defaultView = match.arg(view),
       taskView = taskView,
       scheduleView = scheduleView,
       useDetailPopup = useDetailPopup,
@@ -54,12 +61,10 @@ calendar <- function(defaultView = c("month", "week", "day"),
 
   dependencies <- NULL
   if (isTRUE(useNav)) {
-    dependencies <- list(
-      rmarkdown::html_dependency_font_awesome()
-    )
+    dependencies <- findDependencies(icon("home"))
   }
 
-  htmlwidgets::createWidget(
+  cal <- createWidget(
     name = "calendar",
     x = x,
     width = width,
@@ -67,7 +72,7 @@ calendar <- function(defaultView = c("month", "week", "day"),
     dependencies = dependencies,
     package = "toastui",
     elementId = elementId,
-    sizingPolicy = htmlwidgets::sizingPolicy(
+    sizingPolicy = sizingPolicy(
       defaultWidth = "100%",
       defaultHeight = "100%",
       viewer.defaultHeight = "100%",
@@ -80,6 +85,10 @@ calendar <- function(defaultView = c("month", "week", "day"),
       browser.external = TRUE
     )
   )
+  if (!is.null(data)) {
+    cal <- cal_schedules(cal, data)
+  }
+  return(cal)
 }
 
 #' @importFrom htmltools tagList tags
@@ -123,8 +132,9 @@ calendar_html <- function(id, style, class, ...) {
 #' @param prev_label Text to display on prev button.
 #' @param next_label Text to display on next button.
 #' @param class Class to add to buttons.
-#' @param bg Background color.
-#' @param color Text color.
+#' @param bg,color Background and text colors.
+#' @param fmt_date Format for the date displayed next to the buttons,
+#'  use moment.js date format (see\url{https://momentjs.com/docs/#/displaying/})
 #'
 #' @note Buttons are generated with the following CSS library : \url{http://bttn.surge.sh/},
 #'  where you can find available options for \code{class} argument.
@@ -133,11 +143,12 @@ calendar_html <- function(id, style, class, ...) {
 #' @export
 #'
 #' @importFrom htmltools tags doRenderTags
+#' @importFrom shiny icon
 #'
 #' @examples
 #' # Use another button style
 #' calendar(
-#'   defaultView = "month", useNav = TRUE,
+#'   useNav = TRUE,
 #'   bttnOpts = bttn_options(
 #'     class = "bttn-stretch bttn-sm bttn-warning"
 #'   )
@@ -145,29 +156,31 @@ calendar_html <- function(id, style, class, ...) {
 #'
 #' # Custom colors (background and text)
 #' calendar(
-#'   defaultView = "month", useNav = TRUE,
+#'   useNav = TRUE,
 #'   bttnOpts = bttn_options(bg = "#FE2E2E", color = "#FFF")
 #' )
 #'
 #' # both
 #' calendar(
-#'   defaultView = "month", useNav = TRUE,
+#'   useNav = TRUE,
 #'   bttnOpts = bttn_options(
 #'     bg = "#04B431", color = "#FFF",
 #'     class = "bttn-float bttn-md"
 #'   )
 #' )
 bttn_options <- function(today_label = "Today",
-                         prev_label = tags$i(class = "fa fa-chevron-left"),
-                         next_label = tags$i(class = "fa fa-chevron-right"),
-                         class = "bttn-jelly bttn-sm bttn-primary",
-                         bg = NULL, color = NULL) {
+                         prev_label = icon("chevron-left"),
+                         next_label = icon("chevron-right"),
+                         class = "bttn-bordered bttn-sm bttn-primary",
+                         bg = NULL, color = NULL,
+                         fmt_date = "YYYY-MM-DD") {
   dropNulls(list(
     today_label = doRenderTags(today_label),
     prev_label = doRenderTags(prev_label),
     next_label = doRenderTags(next_label),
     class = paste0(" ", class),
-    bg = bg, color = color
+    bg = bg, color = color,
+    fmt_date = fmt_date
   ))
 }
 

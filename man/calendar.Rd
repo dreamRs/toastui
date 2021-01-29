@@ -5,7 +5,8 @@
 \title{Create an interactive calendar}
 \usage{
 calendar(
-  defaultView = c("month", "week", "day"),
+  data = NULL,
+  view = c("month", "week", "day"),
   defaultDate = NULL,
   taskView = FALSE,
   scheduleView = TRUE,
@@ -20,7 +21,7 @@ calendar(
 )
 }
 \arguments{
-\item{defaultView}{Default view of calendar. The default value is 'week',
+\item{view}{Default view of calendar. The default value is 'week',
 other possible values are 'month' and 'day'.}
 
 \item{defaultDate}{Default date for displaying calendar.}
@@ -41,12 +42,29 @@ The default value is false. If the value is a vector, it can be 'allday', 'time'
 
 \item{bttnOpts}{Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.}
 
-\item{width}{A numeric input in pixels.}
-
-\item{height}{A numeric input in pixels.}
+\item{width, height}{A numeric input in pixels.}
 
 \item{elementId}{Use an explicit element ID for the widget.}
 }
+\value{
+A \code{calendar} htmlwidget.
+}
 \description{
 Build interactive calendar with the JavaScript tui-calendar library.
+}
+\examples{
+
+# Default: monthly view
+calendar()
+
+# Weekly view
+calendar(view = "week")
+
+# Or only day:
+calendar(view = "day")
+
+
+# Add schedules data
+ex_data <- cal_demo_data()
+calendar(ex_data)
 }

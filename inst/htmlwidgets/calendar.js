@@ -6,7 +6,7 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
     var Calendar = tui.Calendar;
-    var cal, renderRange;
+    var cal, renderRange, formatNav = "YYYY-MM-DD";
 
     return {
       renderValue: function(x) {
@@ -34,11 +34,12 @@ HTMLWidgets.widget({
 
         // Navigation button
         if (x.useNav) {
+          formatNav = x.bttnOpts.fmt_date;
           renderRange = document.getElementById(el.id + "_renderRange");
           renderRange.innerHTML =
-            dateToYMD(cal.getDateRangeStart()) +
+            formatDateNav(cal.getDateRangeStart(), formatNav) +
             " - " +
-            dateToYMD(cal.getDateRangeEnd());
+            formatDateNav(cal.getDateRangeEnd(), formatNav);
 
           var prev = document.getElementById(el.id + "_prev");
           prev.className += x.bttnOpts.class;
@@ -192,9 +193,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.prev();
           renderRange.innerHTML =
-            dateToYMD(cal.getDateRangeStart()) +
+            formatDateNav(cal.getDateRangeStart(), formatNav) +
             " - " +
-            dateToYMD(cal.getDateRangeEnd());
+            formatDateNav(cal.getDateRangeEnd(), formatNav);
         }
       },
 
@@ -202,9 +203,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.next();
           renderRange.innerHTML =
-            dateToYMD(cal.getDateRangeStart()) +
+            formatDateNav(cal.getDateRangeStart(), formatNav) +
             " - " +
-            dateToYMD(cal.getDateRangeEnd());
+            formatDateNav(cal.getDateRangeEnd(), formatNav);
         }
       },
 
@@ -212,9 +213,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.today();
           renderRange.innerHTML =
-            dateToYMD(cal.getDateRangeStart()) +
+            formatDateNav(cal.getDateRangeStart(), formatNav) +
             " - " +
-            dateToYMD(cal.getDateRangeEnd());
+            formatDateNav(cal.getDateRangeEnd(), formatNav);
         }
       },
 
@@ -240,11 +241,8 @@ function get_widget(id) {
   return widgetObj;
 }
 
-function dateToYMD(date) {
-  var d = date.getDate();
-  var m = date.getMonth() + 1; //Month from 0 to 11
-  var y = date.getFullYear();
-  return "" + y + "-" + (m <= 9 ? "0" + m : m) + "-" + (d <= 9 ? "0" + d : d);
+function formatDateNav(calDate, fmt) {
+  return moment(calDate._date).format(fmt);
 }
 
 if (HTMLWidgets.shinyMode) {

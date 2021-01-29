@@ -6,11 +6,12 @@
 \usage{
 bttn_options(
   today_label = "Today",
-  prev_label = tags$i(class = "fa fa-chevron-left"),
-  next_label = tags$i(class = "fa fa-chevron-right"),
-  class = "bttn-jelly bttn-sm bttn-primary",
+  prev_label = icon("chevron-left"),
+  next_label = icon("chevron-right"),
+  class = "bttn-bordered bttn-sm bttn-primary",
   bg = NULL,
-  color = NULL
+  color = NULL,
+  fmt_date = "YYYY-MM-DD"
 )
 }
 \arguments{
@@ -22,9 +23,10 @@ bttn_options(
 
 \item{class}{Class to add to buttons.}
 
-\item{bg}{Background color.}
+\item{bg, color}{Background and text colors.}
 
-\item{color}{Text color.}
+\item{fmt_date}{Format for the date displayed next to the buttons,
+use moment.js date format (see\url{https://momentjs.com/docs/#/displaying/})}
 }
 \value{
 a \code{list}.
@@ -39,7 +41,7 @@ Buttons are generated with the following CSS library : \url{http://bttn.surge.sh
 \examples{
 # Use another button style
 calendar(
-  defaultView = "month", useNav = TRUE,
+  useNav = TRUE,
   bttnOpts = bttn_options(
     class = "bttn-stretch bttn-sm bttn-warning"
   )
@@ -47,13 +49,13 @@ calendar(
 
 # Custom colors (background and text)
 calendar(
-  defaultView = "month", useNav = TRUE,
+  useNav = TRUE,
   bttnOpts = bttn_options(bg = "#FE2E2E", color = "#FFF")
 )
 
 # both
 calendar(
-  defaultView = "month", useNav = TRUE,
+  useNav = TRUE,
   bttnOpts = bttn_options(
     bg = "#04B431", color = "#FFF",
     class = "bttn-float bttn-md"

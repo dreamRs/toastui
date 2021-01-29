@@ -7,6 +7,15 @@ check_grid <- function(grid, fun = NULL) {
   }
 }
 
+check_cal <- function(cal, fun = NULL) {
+  if(!inherits(cal, "calendar")){
+    stop(paste(c(
+      fun, "cal must be an object built with calendar()."
+    ), collapse = ": "), call. = FALSE)
+  }
+}
+
+
 
 to_hyphen <- function(x) {
   tolower(gsub("([A-Z])", "-\\1", x))
