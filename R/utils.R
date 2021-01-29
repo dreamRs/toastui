@@ -154,8 +154,8 @@ nchar_cols <- function(data, min_width = 70, add_header = 12) {
 #' @noRd
 .widget_options <- function(widget, name_opt, ..., modify_x = FALSE) {
 
-  if(!inherits(widget, "datagrid")){
-    stop("grid must be an object built with datagrid().")
+  if(!inherits(widget, "htmlwidget")){
+    stop("widget must be an htmlwidget.")
   }
 
   if (isTRUE(modify_x)) {
