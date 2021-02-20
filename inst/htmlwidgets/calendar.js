@@ -246,7 +246,7 @@ function formatDateNav(calDate, fmt) {
 }
 
 if (HTMLWidgets.shinyMode) {
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-nav", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-nav", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       if (obj.data.where == "prev") {
@@ -268,37 +268,37 @@ if (HTMLWidgets.shinyMode) {
       });
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-view", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-view", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.changeView(obj.data.view, true);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-create", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-create", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.createSchedules(obj.data.schedule);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-delete", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-delete", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.deleteSchedule(obj.data.id, obj.data.calendarId);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-update", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-update", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.updateSchedule(obj.data.id, obj.data.calendarId, obj.data.schedule);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-clear", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-clear", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.clear(obj.data.immediately);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-tui-calendar-options", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-options", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.setOptions(obj.data.options);
