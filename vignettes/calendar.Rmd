@@ -1,0 +1,106 @@
+---
+title: "Calendars"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Calendars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(toastui)
+```
+
+
+## Usage
+
+Create interactive calendars with:
+
+```{r, eval=FALSE}
+calendar()
+```
+
+You can display calendars in interactive R Markdown documents or Shiny applications:
+
+* R Markdown: display calendars that you can navigate and click on schedules to display extra informations
+* Shiny: display calendars where you can edit, update and drag-and-drop schedules.
+
+
+## Monthly calendar
+
+Create a monthly calendar:
+
+* `cal_demo_data()` return a `data.frame` with schedules example
+* `useNav = TRUE`: add naviagetion button to change th emonth displayed
+* `cal_month_options()`: global options for calendar
+* `cal_props()` set properties for schedules groups
+
+```{r}
+calendar(cal_demo_data(), useNav = TRUE) %>%
+  cal_month_options(
+    startDayOfWeek  = 1, 
+    narrowWeekend = TRUE
+  ) %>% 
+  cal_props(
+    list(
+      id = 1,
+      name = "PERSO",
+      color = "white",
+      bgColor = "steelblue",
+      borderColor = "steelblue"
+    ),
+    list(
+      id = 2,
+      name = "WORK",
+      color = "white",
+      bgColor = "forestgreen",
+      borderColor = "forestgreen"
+    )
+  )
+```
+
+
+
+## Weekly calendars
+
+```{r}
+calendar(cal_demo_data("week"), view = "week") %>% 
+  cal_week_options(
+    startDayOfWeek = 1,
+    workweek = TRUE
+  ) %>% 
+  cal_props(
+    list(
+      id = 1,
+      name = "COURSES",
+      color = "white",
+      bgColor = "steelblue",
+      borderColor = "steelblue"
+    ),
+    list(
+      id = 2,
+      name = "WORK",
+      color = "white",
+      bgColor = "forestgreen",
+      borderColor = "forestgreen"
+    ),
+    list(
+      id = 3,
+      name = "WORK",
+      color = "firebrick",
+      bgColor = "white",
+      borderColor = "firebrick"
+    )
+  )
+```
+
+
+
+

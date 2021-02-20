@@ -3,7 +3,8 @@
 calendar(cal_demo_data()) %>%
   cal_props(
     list(
-      id = 1, name = "PERSO",
+      id = 1,
+      name = "PERSO",
       color = "white",
       bgColor = "steelblue",
       borderColor = "steelblue"
