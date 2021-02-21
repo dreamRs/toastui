@@ -274,7 +274,7 @@ if (HTMLWidgets.shinyMode) {
       cal.changeView(obj.data.view, true);
     }
   });
-  Shiny.addCustomMessageHandler("proxy-toastui-calendar-create", function(obj) {
+  Shiny.addCustomMessageHandler("proxy-toastui-calendar-add", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
       cal.createSchedules(obj.data.schedule);
