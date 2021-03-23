@@ -7,9 +7,9 @@
 \format{
 A \code{data.frame} with 12 rows and 3 variables:
 \describe{
-  \item{month}{Month of the year}
-  \item{temp}{List column containing data.frame with 2 column "date  and"temp"}
-  \item{rh}{List column containing data.frame with 2 column "date  and"rh"}
+\item{month}{Month of the year}
+\item{temp}{List column containing data.frame with 2 column "date  and"temp"}
+\item{rh}{List column containing data.frame with 2 column "date  and"rh"}
 }
 }
 \source{

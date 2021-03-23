@@ -9,7 +9,7 @@ calendar(view = "week")
 calendar(view = "day")
 
 # Add navigation buttons
-calendar(useNav = TRUE)
+calendar(useNavigation = TRUE)
 
 # Add schedules data
 ex_data <- cal_demo_data()

@@ -16,29 +16,66 @@ cal_proxy_update(proxy, value)
 \arguments{
 \item{proxy}{A \code{\link{calendar_proxy}} \code{htmlwidget} object.}
 
-\item{start}{The start time.}
-
-\item{end}{The end time.}
-
-\item{title}{The schedule title.}
-
-\item{body}{The schedule body text which is text/plain.}
-
-\item{id}{An id for the schedule.}
-
-\item{calendarId}{An id for the calendar.}
-
-\item{category}{The schedule type ('milestone', 'task', allday', 'time').}
-
-\item{...}{Additionnal arguments passed to the JavaScript method.}
-
-\item{.list}{A \code{list} with same information as above, useful
-with \code{input$<outputId>_<add/update/delete>_schedule}.}
+\item{value}{A \code{list} with schedules data.}
 }
 \value{
 No value.
 }
 \description{
 These functions allow to create new schedule(s), update existing
- ones and delete schedule in a calendar within the server in a Shiny application.
+ones and delete schedule in a calendar within the server in a Shiny application.
+}
+\note{
+Those functions are intended to be used with corresponding input value:
+\itemize{
+\item \verb{input$<outputId>_add}: triggered when a schedule is added on calendar via creation popup.
+\item \verb{input$<outputId>_update}: triggered when an existing schedule is edited.
+\item \verb{input$<outputId>_deleted}: triggered when a schedule is deleted.
+}
+}
+\examples{
+library(shiny)
+library(toastui)
+
+ui <- fluidPage(
+  tags$h2("Add, Update and Delete schedule interactively"),
+
+  tags$p(
+    "Click on the calendar to create a new schedule",
+    "then you will be able to edit or delete it."
+  ),
+
+  calendarOutput("my_calendar")
+)
+
+server <- function(input, output) {
+
+  output$my_calendar <- renderCalendar({
+    cal <- calendar(
+      defaultDate = Sys.Date(),
+      useNavigation = TRUE,
+      isReadOnly = FALSE,
+      useCreationPopup = TRUE
+    )
+  })
+
+  observeEvent(input$my_calendar_add, {
+    str(input$my_calendar_add)
+    cal_proxy_add("my_calendar", input$my_calendar_add)
+  })
+
+  observeEvent(input$my_calendar_update, {
+    str(input$my_calendar_update)
+    cal_proxy_update("my_calendar", input$my_calendar_update)
+  })
+
+  observeEvent(input$my_calendar_delete, {
+    str(input$my_calendar_delete)
+    cal_proxy_delete("my_calendar", input$my_calendar_delete)
+  })
+
+}
+
+if (interactive())
+  shinyApp(ui = ui, server = server)
 }

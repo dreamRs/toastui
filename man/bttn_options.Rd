@@ -36,7 +36,7 @@ Options for buttons displayed above calendar
 }
 \note{
 Buttons are generated with the following CSS library : \url{http://bttn.surge.sh/},
- where you can find available options for \code{class} argument.
+where you can find available options for \code{class} argument.
 }
 \examples{
 # Use another button style

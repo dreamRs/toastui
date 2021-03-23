@@ -179,7 +179,7 @@ No return value.
 }
 \description{
 Properties to customize grid theme, see full list here :
- \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
+\url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
 }
 \examples{
 library(toastui)

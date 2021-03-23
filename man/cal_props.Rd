@@ -20,6 +20,7 @@ A \code{calendar} htmlwidget.
 Define calendar properties for grouping schedules under common theme.
 }
 \examples{
+library(toastui)
 
 # Define theme for schedules
 calendar(cal_demo_data()) \%>\%

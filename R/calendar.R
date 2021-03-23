@@ -3,7 +3,7 @@
 #'
 #' @description Build interactive calendar with the JavaScript tui-calendar library.
 #'
-#' @param data
+#' @param data A \code{data.frame} with schedules data, see \code{\link{cal_demo_data}}.
 #' @param view Default view of calendar. The default value is 'week',
 #'  other possible values are 'month' and 'day'.
 #' @param defaultDate Default date for displaying calendar.
@@ -13,9 +13,9 @@
 #'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
 #' @param useDetailPopup Logical. Display a pop-up on click with detailled informations about schedules.
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
-#' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
-#' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
-#' @param bttnOpts Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.
+#' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
+#' @param useNavigation Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param bttnOpts Options tu customize buttons (only if \code{useNavigation = TRUE}), see \code{\link{bttn_options}}.
 #' @param width,height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -35,8 +35,8 @@ calendar <- function(data = NULL,
                      scheduleView = TRUE,
                      useDetailPopup = TRUE,
                      useCreationPopup = FALSE,
-                     readOnly = TRUE,
-                     useNav = FALSE,
+                     isReadOnly = TRUE,
+                     useNavigation = FALSE,
                      bttnOpts = bttn_options(),
                      width = NULL,
                      height = NULL,
@@ -49,18 +49,18 @@ calendar <- function(data = NULL,
       scheduleView = scheduleView,
       useDetailPopup = useDetailPopup,
       useCreationPopup = useCreationPopup,
-      isReadOnly = readOnly,
+      isReadOnly = isReadOnly,
       usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
     ),
     schedules = list(),
-    useNav = isTRUE(useNav),
+    useNav = isTRUE(useNavigation),
     defaultDate = defaultDate,
     events = list(),
     bttnOpts = bttnOpts
   ))
 
   dependencies <- NULL
-  if (isTRUE(useNav)) {
+  if (isTRUE(useNavigation)) {
     dependencies <- findDependencies(icon("home"))
   }
 

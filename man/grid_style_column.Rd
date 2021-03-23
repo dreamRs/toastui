@@ -31,7 +31,7 @@ A \code{datagrid} htmlwidget.
 }
 \description{
 Apply styles to a column according to CSS properties
- declared by expression based on data passed to grid..
+declared by expression based on data passed to grid..
 }
 \examples{
 

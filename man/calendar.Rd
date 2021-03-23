@@ -12,8 +12,8 @@ calendar(
   scheduleView = TRUE,
   useDetailPopup = TRUE,
   useCreationPopup = FALSE,
-  readOnly = TRUE,
-  useNav = FALSE,
+  isReadOnly = TRUE,
+  useNavigation = FALSE,
   bttnOpts = bttn_options(),
   width = NULL,
   height = NULL,
@@ -21,6 +21,8 @@ calendar(
 )
 }
 \arguments{
+\item{data}{A \code{data.frame} with schedules data, see \code{\link{cal_demo_data}}.}
+
 \item{view}{Default view of calendar. The default value is 'week',
 other possible values are 'month' and 'day'.}
 
@@ -36,11 +38,11 @@ The default value is false. If the value is a vector, it can be 'allday', 'time'
 
 \item{useCreationPopup}{Logical. Allow user to create schedules with a pop-up.}
 
-\item{readOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
+\item{isReadOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
 
-\item{useNav}{Add navigation buttons to got to previous or next period, or return to 'today'.}
+\item{useNavigation}{Add navigation buttons to got to previous or next period, or return to 'today'.}
 
-\item{bttnOpts}{Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.}
+\item{bttnOpts}{Options tu customize buttons (only if \code{useNavigation = TRUE}), see \code{\link{bttn_options}}.}
 
 \item{width, height}{A numeric input in pixels.}
 
@@ -64,7 +66,7 @@ calendar(view = "week")
 calendar(view = "day")
 
 # Add navigation buttons
-calendar(useNav = TRUE)
+calendar(useNavigation = TRUE)
 
 # Add schedules data
 ex_data <- cal_demo_data()

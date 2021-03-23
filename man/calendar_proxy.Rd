@@ -15,7 +15,7 @@ automatically).}
 default value will suffice.}
 }
 \value{
-a `calendar_proxy` object.
+a \code{calendar_proxy} object.
 }
 \description{
 Proxy for calendar htmlwidget

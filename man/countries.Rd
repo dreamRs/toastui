@@ -6,28 +6,28 @@
 \title{Information on population, region, area size, infant mortality and more.}
 \format{
 A \code{data.frame} with 227 rows and 20 variables:
-  \describe{
-    \item{\code{Country}}{a character vector}
-    \item{\code{Region}}{a character vector}
-    \item{\code{Population}}{a numeric vector}
-    \item{\samp{Area (sq. mi.)}}{a numeric vector}
-    \item{\samp{Pop. Density (per sq. mi.)}}{a numeric vector}
-    \item{\samp{Coastline (coast/area ratio)}}{a numeric vector}
-    \item{\samp{Net migration}}{a numeric vector}
-    \item{\samp{Infant mortality (per 1000 births)}}{a numeric vector}
-    \item{\samp{GDP ($ per capita)}}{a numeric vector}
-    \item{\samp{Literacy (\%)}}{a numeric vector}
-    \item{\samp{Phones (per 1000)}}{a numeric vector}
-    \item{\samp{Arable (\%)}}{a numeric vector}
-    \item{\samp{Crops (\%)}}{a numeric vector}
-    \item{\samp{Other (\%)}}{a numeric vector}
-    \item{\code{Climate}}{a numeric vector}
-    \item{\code{Birthrate}}{a numeric vector}
-    \item{\code{Deathrate}}{a numeric vector}
-    \item{\code{Agriculture}}{a numeric vector}
-    \item{\code{Industry}}{a numeric vector}
-    \item{\code{Service}}{a numeric vector}
-  }
+\describe{
+\item{\code{Country}}{a character vector}
+\item{\code{Region}}{a character vector}
+\item{\code{Population}}{a numeric vector}
+\item{\samp{Area (sq. mi.)}}{a numeric vector}
+\item{\samp{Pop. Density (per sq. mi.)}}{a numeric vector}
+\item{\samp{Coastline (coast/area ratio)}}{a numeric vector}
+\item{\samp{Net migration}}{a numeric vector}
+\item{\samp{Infant mortality (per 1000 births)}}{a numeric vector}
+\item{\samp{GDP ($ per capita)}}{a numeric vector}
+\item{\samp{Literacy (\%)}}{a numeric vector}
+\item{\samp{Phones (per 1000)}}{a numeric vector}
+\item{\samp{Arable (\%)}}{a numeric vector}
+\item{\samp{Crops (\%)}}{a numeric vector}
+\item{\samp{Other (\%)}}{a numeric vector}
+\item{\code{Climate}}{a numeric vector}
+\item{\code{Birthrate}}{a numeric vector}
+\item{\code{Deathrate}}{a numeric vector}
+\item{\code{Agriculture}}{a numeric vector}
+\item{\code{Industry}}{a numeric vector}
+\item{\code{Service}}{a numeric vector}
+}
 }
 \source{
 fernandol on Kaggle (\url{https://www.kaggle.com/fernandol/countries-of-the-world})

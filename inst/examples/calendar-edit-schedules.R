@@ -27,8 +27,8 @@ server <- function(input, output) {
   output$my_calendar <- renderCalendar({
     cal <- calendar(
       defaultDate = Sys.Date(),
-      useNav = TRUE,
-      readOnly = FALSE,
+      useNavigation = TRUE,
+      isReadOnly = FALSE,
       useCreationPopup = TRUE
     ) %>%
       cal_month_options(narrowWeekend = TRUE) %>%
@@ -39,7 +39,7 @@ server <- function(input, output) {
         body = "What is R?",
         start = paste(Sys.Date(), "08:00:00"),
         end = paste(Sys.Date(), "12:30:00"),
-        category = "time"
+        category = "allday"
       )
   })
 

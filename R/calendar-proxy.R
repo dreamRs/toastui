@@ -132,16 +132,12 @@ cal_proxy_view <- function(proxy, view) {
 #'  ones and delete schedule in a calendar within the server in a Shiny application.
 #'
 #' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
-#' @param start The start time.
-#' @param end The end time.
-#' @param title The schedule title.
-#' @param body The schedule body text which is text/plain.
-#' @param id An id for the schedule.
-#' @param calendarId An id for the calendar.
-#' @param category The schedule type ('milestone', 'task', allday', 'time').
-#' @param ... Additionnal arguments passed to the JavaScript method.
-#' @param .list A \code{list} with same information as above, useful
-#'  with \code{input$<outputId>_<add/update/delete>_schedule}.
+#' @param value A \code{list} with schedules data.
+#'
+#' @note Those functions are intended to be used with corresponding input value:
+#'   * `input$<outputId>_add`: triggered when a schedule is added on calendar via creation popup.
+#'   * `input$<outputId>_update`: triggered when an existing schedule is edited.
+#'   * `input$<outputId>_deleted`: triggered when a schedule is deleted.
 #'
 #' @export
 #'
@@ -149,6 +145,7 @@ cal_proxy_view <- function(proxy, view) {
 #'
 #' @name proxy-schedule
 #'
+#' @example examples/ex-proxy-schedule.R
 cal_proxy_add <- function(proxy, value) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
@@ -157,6 +154,9 @@ cal_proxy_add <- function(proxy, value) {
     stop("cal_proxy_add: value must be a list", call. = FALSE)
   if (is.null(value$id)) {
     value$id <- paste0("shd_", genId(4))
+  }
+  if (is.null(value$calendarId)) {
+    value$calendarId <- paste0("clnd_", genId(4))
   }
   .call_proxy(
     proxy = proxy,
@@ -233,8 +233,8 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #'
 #' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
 #' @param ... Options for the calendar, you can use arguments from \code{\link{calendar}},
-#'  \code{\link{set_month_options}} (under the form \code{month = list(...)}),
-#'  \code{\link{set_week_options}} (under the form \code{week = list(...)})
+#'  \code{\link{cal_month_options}} (under the form \code{month = list(...)}),
+#'  \code{\link{cal_week_options}} (under the form \code{week = list(...)})
 #'
 #' @export
 #'

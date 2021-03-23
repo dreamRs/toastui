@@ -38,12 +38,12 @@ You can display calendars in interactive R Markdown documents or Shiny applicati
 Create a monthly calendar:
 
 * `cal_demo_data()` return a `data.frame` with schedules example
-* `useNav = TRUE`: add naviagetion button to change th emonth displayed
+* `useNavigation = TRUE`: add naviagetion button to change th emonth displayed
 * `cal_month_options()`: global options for calendar
 * `cal_props()` set properties for schedules groups
 
 ```{r}
-calendar(cal_demo_data(), useNav = TRUE) %>%
+calendar(cal_demo_data(), useNavigation = TRUE) %>%
   cal_month_options(
     startDayOfWeek  = 1, 
     narrowWeekend = TRUE
@@ -95,7 +95,7 @@ calendar(cal_demo_data("week"), view = "week") %>%
       id = 3,
       name = "WORK",
       color = "firebrick",
-      bgColor = "white",
+      bgColor = "#D8D8D8",
       borderColor = "firebrick"
     )
   )

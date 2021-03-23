@@ -4,7 +4,7 @@
 \name{toastui}
 \alias{toastui}
 \title{HTMLwidget interface to the
- \href{https://ui.toast.com/}{TOASTUI} javascript libraries.}
+\href{https://ui.toast.com/}{TOASTUI} javascript libraries.}
 \description{
 Create interactive tables, calendars and charts with one package.
 }
