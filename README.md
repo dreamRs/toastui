@@ -7,10 +7,10 @@ The goal of toastui is to ...
 
 ## Installation
 
-You can install the released version of toastui from [CRAN](https://CRAN.R-project.org) with:
+You can install toastui from GitHub with:
 
 ``` r
-install.packages("toastui")
+remotes::install_github("dreamRs/toastui")
 ```
 
 ## Example
