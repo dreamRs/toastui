@@ -179,7 +179,8 @@ bttn_options <- function(today_label = "Today",
     prev_label = doRenderTags(prev_label),
     next_label = doRenderTags(next_label),
     class = paste0(" ", class),
-    bg = bg, color = color,
+    bg = bg,
+    color = color,
     fmt_date = fmt_date
   ))
 }

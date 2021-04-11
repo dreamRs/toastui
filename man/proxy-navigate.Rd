@@ -47,13 +47,26 @@ ui <- fluidPage(
     inputId = "today",
     label = "Today"
   ),
-  calendarOutput(outputId = "my_calendar")
+  fluidRow(
+    column(
+      width = 9,
+      calendarOutput(outputId = "my_calendar")
+    ),
+    column(
+      width = 3,
+      verbatimTextOutput("result")
+    )
+  )
 )
 
 server <- function(input, output, session) {
 
   output$my_calendar <- renderCalendar({
     calendar()
+  })
+
+  output$result <- renderPrint({
+    input$my_calendar_dates
   })
 
   observeEvent(input$prev_date, cal_proxy_prev("my_calendar"))
