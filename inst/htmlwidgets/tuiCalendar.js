@@ -1,6 +1,6 @@
 /*global HTMLWidgets, tui, moment, Shiny */
 HTMLWidgets.widget({
-  name: "calendar",
+  name: "tuiCalendar",
 
   type: "output",
 

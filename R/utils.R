@@ -1,6 +1,6 @@
 
 check_grid <- function(grid, fun = NULL) {
-  if(!inherits(grid, "datagrid")){
+  if(!inherits(grid, "tuiGrid")){
     stop(paste(c(
       fun, "grid must be an object built with datagrid()."
     ), collapse = ": "), call. = FALSE)
@@ -8,7 +8,7 @@ check_grid <- function(grid, fun = NULL) {
 }
 
 check_cal <- function(cal, fun = NULL) {
-  if(!inherits(cal, "calendar")){
+  if(!inherits(cal, "tuiCalendar")){
     stop(paste(c(
       fun, "cal must be an object built with calendar()."
     ), collapse = ": "), call. = FALSE)

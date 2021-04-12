@@ -65,7 +65,7 @@ calendar <- function(data = NULL,
   }
 
   cal <- createWidget(
-    name = "calendar",
+    name = "tuiCalendar",
     x = x,
     width = width,
     height = height,
@@ -73,6 +73,7 @@ calendar <- function(data = NULL,
     package = "toastui",
     elementId = elementId,
     sizingPolicy = sizingPolicy(
+      padding = 0,
       defaultWidth = "100%",
       defaultHeight = "100%",
       viewer.defaultHeight = "100%",
@@ -92,7 +93,7 @@ calendar <- function(data = NULL,
 }
 
 #' @importFrom htmltools tagList tags
-calendar_html <- function(id, style, class, ...) {
+tuiCalendar_html <- function(id, style, class, ...) {
   tagList(
     tags$div(
       id = paste0(id, "_menu"),
