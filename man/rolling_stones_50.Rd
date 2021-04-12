@@ -7,12 +7,12 @@
 \format{
 A \code{data.frame} with 50 rows and 6 variables:
 \describe{
-  \item{Number}{Position on the list}
-  \item{Year}{Year of release}
-  \item{Album}{Album name}
-  \item{Artist}{Artist name}
-  \item{Genre}{Genre name}
-  \item{Subgenre}{Subgenre name}
+\item{Number}{Position on the list}
+\item{Year}{Year of release}
+\item{Album}{Album name}
+\item{Artist}{Artist name}
+\item{Genre}{Genre name}
+\item{Subgenre}{Subgenre name}
 }
 }
 \source{

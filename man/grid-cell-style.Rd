@@ -57,7 +57,7 @@ A \code{datagrid} htmlwidget.
 }
 \description{
 Customize cell(s) appearance with CSS
- according to an expression in the data used in the grid.
+according to an expression in the data used in the grid.
 }
 \examples{
 library(toastui)

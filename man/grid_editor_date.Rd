@@ -28,7 +28,7 @@ A \code{datagrid} htmlwidget.
 }
 \description{
 Allow to edit content of columns with a calendar and time picker,
- then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
+then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 }
 \examples{
 library(toastui)

@@ -19,6 +19,7 @@ Imports:
     magrittr,
     rlang
 RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
 Suggests: 
     apexcharter,
     knitr,
