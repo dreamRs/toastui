@@ -247,7 +247,7 @@ class DatagridRadioRenderer {
 // HTMLWidgets bindings
 
 HTMLWidgets.widget({
-  name: "tuiGrid",
+  name: "datagrid",
 
   type: "output",
 

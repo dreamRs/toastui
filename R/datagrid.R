@@ -110,7 +110,7 @@ datagrid <- function(data, ...,
 
   # create widget
   widget <- createWidget(
-    name = "tuiGrid",
+    name = "datagrid",
     x = x,
     width = width,
     height = height,
@@ -188,7 +188,7 @@ datagrid <- function(data, ...,
 
 
 #' @importFrom htmltools tags
-tuiGrid_html <- function(id, style, class, ...) {
+datagrid_html <- function(id, style, class, ...) {
   tags$div(
     id = id,
     class = class,

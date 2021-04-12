@@ -29,7 +29,7 @@ calendar()
 
 You can display calendars in interactive R Markdown documents or Shiny applications:
 
-* R Markdown: display calendars that you can navigate and click on schedules to display extra informations
+* R Markdown: display calendars that you can navigate and click on schedules to display extra information.
 * Shiny: display calendars where you can edit, update and drag-and-drop schedules.
 
 
@@ -38,9 +38,9 @@ You can display calendars in interactive R Markdown documents or Shiny applicati
 Create a monthly calendar:
 
 * `cal_demo_data()` return a `data.frame` with schedules example
-* `useNavigation = TRUE`: add naviagetion button to change th emonth displayed
+* `useNavigation = TRUE`: add navigation buttons to change the month displayed
 * `cal_month_options()`: global options for calendar
-* `cal_props()` set properties for schedules groups
+* `cal_props()`: set properties for schedules groups (background and text color ...)
 
 ```{r}
 calendar(cal_demo_data(), useNavigation = TRUE) %>%

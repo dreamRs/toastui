@@ -65,7 +65,7 @@ calendar <- function(data = NULL,
   }
 
   cal <- createWidget(
-    name = "tuiCalendar",
+    name = "calendar",
     x = x,
     width = width,
     height = height,
@@ -93,7 +93,7 @@ calendar <- function(data = NULL,
 }
 
 #' @importFrom htmltools tagList tags
-tuiCalendar_html <- function(id, style, class, ...) {
+calendar_html <- function(id, style, class, ...) {
   tagList(
     tags$div(
       id = paste0(id, "_menu"),
