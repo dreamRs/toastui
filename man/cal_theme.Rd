@@ -13,6 +13,9 @@ cal_theme(cal, ..., .list = NULL)
 
 \item{.list}{Alternative to \code{...} for using a list.}
 }
+\value{
+A \code{calendar} htmlwidget object.
+}
 \description{
 Full configuration for theme.
 "common" prefix is for entire calendar. "common" properties can be overriden by "week", "month".

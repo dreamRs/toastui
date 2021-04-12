@@ -60,6 +60,7 @@ cal_events <- function(cal,
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig}
 #'
 #' @export
+#' @return A \code{calendar} htmlwidget object.
 #'
 #'
 #' @examples
@@ -88,15 +89,16 @@ cal_theme <- function(cal, ..., .list = NULL) {
 #' @description Template JS functions to support customer renderer
 #'
 #' @param cal A \code{calendar} object.
-#' @param milestoneTitle The milestone title (at left column) template function
-#' @param taskTitle The task title (at left column) template function
-#' @param alldayTitle The allday title (at left column) template function
+#' @param milestoneTitle The milestone title (at left column) template function.
+#' @param taskTitle The task title (at left column) template function.
+#' @param alldayTitle The allday title (at left column) template function.
 #' @param ... Additionals arguments, see online documentation.
-#' @param title Text to use as title.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template}
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template}.
+#'  All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}. 
 #'
 #' @export
+#' @return A \code{calendar} htmlwidget object.
 #'
 #'
 #' @examples

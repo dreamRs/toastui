@@ -15,21 +15,23 @@ cal_template(
 \arguments{
 \item{cal}{A \code{calendar} object.}
 
-\item{milestoneTitle}{The milestone title (at left column) template function}
+\item{milestoneTitle}{The milestone title (at left column) template function.}
 
-\item{taskTitle}{The task title (at left column) template function}
+\item{taskTitle}{The task title (at left column) template function.}
 
-\item{alldayTitle}{The allday title (at left column) template function}
+\item{alldayTitle}{The allday title (at left column) template function.}
 
 \item{...}{Additionals arguments, see online documentation.}
-
-\item{title}{Text to use as title.}
+}
+\value{
+A \code{calendar} htmlwidget object.
 }
 \description{
 Template JS functions to support customer renderer
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template}
+Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template}.
+All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}.
 }
 \examples{
 calendar(view = "week", taskView = TRUE) \%>\%
