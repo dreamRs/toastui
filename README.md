@@ -1,9 +1,10 @@
 # toastui
 
+> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid), [Calendar](https://ui.toast.com/tui-calendar) and [Chart](https://ui.toast.com/tui-chart).
+
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of toastui is to ...
 
 ## Installation
 
@@ -17,7 +18,7 @@ remotes::install_github("dreamRs/toastui")
 
 Interactive tables with data editing, filtering, sorting, and more. See documentation and examples:
 
-
+![](man/figures/grid.png)
 
 Edit mode example:
 
