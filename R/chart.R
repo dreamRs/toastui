@@ -17,7 +17,7 @@ chart <- function(data,
   if (is.null(width))
     options$chart$width <- "auto"
   createWidget(
-    name = "tui-chart",
+    name = "chart",
     x = list(
       config = list(
         type = paste0(type, "Chart"),

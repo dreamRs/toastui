@@ -6,10 +6,10 @@
 /*jshint
   esversion: 6
 */
-/*global tui, HTMLWidgets, Shiny */
+/*global toastui, HTMLWidgets, Shiny */
 
 HTMLWidgets.widget({
-  name: "tui-chart",
+  name: "chart",
 
   type: "output",
 
