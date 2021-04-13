@@ -53,8 +53,8 @@ calendar(cal_demo_data(), useNavigation = TRUE) %>%
       id = 1,
       name = "PERSO",
       color = "white",
-      bgColor = "steelblue",
-      borderColor = "steelblue"
+      bgColor = "firebrick",
+      borderColor = "firebrick"
     ),
     list(
       id = 2,

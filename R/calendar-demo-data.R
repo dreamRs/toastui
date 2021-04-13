@@ -37,15 +37,43 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
       ),
       list(
         calendarId = 1, title = "Week-end", body = "Week-end with friends", recurrenceRule = NA,
-        start = get_day_month("6")[2],
-        end = get_day_month("7")[2],
+        start = as.character(get_day_month("6")[2]),
+        end = as.character(get_day_month("7")[2]),
         category = "allday", location = NA,
         bgColor = NA, color = NA, borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Training", body = "Learn programming", recurrenceRule = NA,
-        start = get_day_month("2")[2],
-        end = get_day_month("4")[2],
+        calendarId = 2, title = "Project 1", body = "Coding cool stuff", recurrenceRule = NA,
+        start = as.character(get_day_month("1")[1]),
+        end = as.character(get_day_month("1")[1] + 1),
+        category = "allday", location = NA,
+        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+      ),
+      list(
+        calendarId = 2, title = "Project 2", body = "Coding cool stuff", recurrenceRule = NA,
+        start = as.character(get_day_month("2")[1]),
+        end = as.character(get_day_month("2")[1] + 3),
+        category = "allday", location = NA,
+        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+      ),
+      list(
+        calendarId = 2, title = "Project 3", body = "Coding cool stuff", recurrenceRule = NA,
+        start = format(Sys.Date(), format = "%Y-%m-29"),
+        end = format(Sys.Date(), format = "%Y-%m-29"),
+        category = "allday", location = NA,
+        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+      ),
+      list(
+        calendarId = 2, title = "Training 1", body = "Learn programming", recurrenceRule = NA,
+        start = as.character(get_day_month("2")[2]),
+        end = as.character(get_day_month("2")[2] + 3),
+        category = "allday", location = NA,
+        bgColor = NA, color = NA, borderColor = NA
+      ),
+      list(
+        calendarId = 2, title = "Training 2", body = "Learn programming", recurrenceRule = NA,
+        start = as.character(get_day_month("2")[3]),
+        end = as.character(get_day_month("2")[3] + 2),
         category = "allday", location = NA,
         bgColor = NA, color = NA, borderColor = NA
       ),
@@ -144,7 +172,7 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
 
 get_day_month <- function(day = "6") {
   days <- seq(from = as.Date(format(Sys.Date(), format = "%Y-%m-01")), by = "days", length.out = 30)
-  as.character(days)[format(days, format = "%u") == day]
+  days[format(days, format = "%u") == day]
 }
 
 get_day_week <- function(day) {
