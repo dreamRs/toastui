@@ -29,5 +29,5 @@ Edit mode example:
 
 Interactive daily, weekly or monthly calendar. See documentation and examples:
 
-![](man/figures/calendar.png)
-
+![](man/figures/calendar-month.png)
+![](man/figures/calendar-week.png)
