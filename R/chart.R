@@ -98,6 +98,8 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     serie_name <- rlang::as_label(mapping$y)
   if (type %in% c("bar", "column")) {
     construct_serie_bar(mapdata, serie_name)
+  } else if (type %in% "treemap") {
+    construct_serie_treemap(mapdata, setdiff(names(mapdata), "colorValue"))
   }
 }
 
@@ -132,6 +134,37 @@ construct_serie_bar <- function(data, serie_name) {
   }
 }
 
+construct_serie_treemap <- function(data, levels, ...) {
+  list(series = construct_tree(data, levels, ...))
+}
 
-
+construct_tree <- function(data, levels, ...) {
+  args <- list(...)
+  data <- as.data.frame(data)
+  if (!all(levels %in% names(data)))
+    stop("All levels must be valid variables in data", call. = FALSE)
+  data[levels] <- lapply(data[levels], as.character)
+  lapply(
+    X = unique(data[[levels[1]]][!is.na(data[[levels[1]]])]),
+    FUN = function(var) {
+      dat <- data[data[[levels[1]]] == var, , drop = FALSE]
+      args_level <- args[[levels[1]]]
+      if (length(levels) == 1) {
+        c(list(label = var, data = nrow(dat), colorValue = sum(dat$colorValue)), args_level)
+      } else {
+        c(
+          list(
+            label = var,
+            children = construct_tree(
+              data = dat,
+              levels = levels[-1],
+              ...
+            )
+          ),
+          args_level
+        )
+      }
+    }
+  )
+}
 
