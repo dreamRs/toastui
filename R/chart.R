@@ -79,7 +79,9 @@ chart <- function(data,
 #' caes(x = month, y = value)
 #' caes(x = month, y = value, fill = city)
 caes <- function(x, y, ...) {
-  enquos(x = x, y = y, ..., .ignore_empty = "all")
+  exprs <- enquos(x = x, y = y, ..., .ignore_empty = "all")
+  names(exprs)[names(exprs) == "color"] <- "colour"
+  exprs
 }
 
 
@@ -102,6 +104,8 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     construct_serie_treemap(mapdata, setdiff(names(mapdata), "colorValue"))
   } else if (type %in% "heatmap") {
     construct_serie_heatmap(mapdata)
+  } else if (type %in% "scatter") {
+    construct_serie_scatter(mapdata, serie_name)
   }
 }
 
@@ -194,4 +198,40 @@ construct_serie_heatmap <- function(data) {
 }
 
 
+
+# Scatter / bubble ----
+construct_serie_scatter <- function(data, serie_name) {
+  if (is.null(data$colour)) {
+    list(
+      series = list(list(
+        name = serie_name,
+        data = unname(apply(
+          X = data[, c("x", "y")], 
+          MARGIN = 1, 
+          FUN = function(x) {
+            setNames(as.list(x), c("x", "y"))
+          }
+        ))
+      ))
+    )
+  } else {
+    list(
+      series = lapply(
+        X = unique(data$colour),
+        FUN = function(x) {
+          list(
+            name = x,
+            data = unname(apply(
+              X = data[data$colour == x, c("x", "y")], 
+              MARGIN = 1, 
+              FUN = function(x) {
+                setNames(as.list(x), c("x", "y"))
+              }
+            ))
+          )
+        }
+      )
+    )
+  }
+}
 
