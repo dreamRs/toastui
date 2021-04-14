@@ -106,6 +106,8 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     construct_serie_heatmap(mapdata)
   } else if (type %in% "scatter") {
     construct_serie_scatter(mapdata, serie_name)
+  } else if (type %in% "pie") {
+    construct_serie_pie(mapdata, serie_name)
   }
 }
 
@@ -233,5 +235,24 @@ construct_serie_scatter <- function(data, serie_name) {
       )
     )
   }
+}
+
+
+
+# Pie ----
+
+construct_serie_pie <- function(data, serie_name) {
+  list(
+    categories = list(serie_name),
+    series = unname(apply(
+      X = data[, c("x", "y")], 
+      MARGIN = 1, 
+      FUN = function(x) {
+        x <- setNames(as.list(x), c("name", "data"))
+        x$data <- as.numeric(x$data)
+        x
+      }
+    ))
+  )
 }
 
