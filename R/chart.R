@@ -100,9 +100,13 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     construct_serie_bar(mapdata, serie_name)
   } else if (type %in% "treemap") {
     construct_serie_treemap(mapdata, setdiff(names(mapdata), "colorValue"))
+  } else if (type %in% "heatmap") {
+    construct_serie_heatmap(mapdata)
   }
 }
 
+
+# Bar / column ----
 construct_serie_bar <- function(data, serie_name) {
   if (is.null(data$fill)) {
     list(
@@ -134,6 +138,8 @@ construct_serie_bar <- function(data, serie_name) {
   }
 }
 
+
+# Treemap ----
 construct_serie_treemap <- function(data, levels, ...) {
   list(series = construct_tree(data, levels, ...))
 }
@@ -167,4 +173,25 @@ construct_tree <- function(data, levels, ...) {
     }
   )
 }
+
+
+# Heatmap ----
+
+construct_serie_heatmap <- function(data) {
+  categories <- list(
+    x = unique(data$x),
+    y = unique(data$y)
+  )
+  list(
+    categories = categories,
+    series = lapply(
+      X = categories$y,
+      FUN = function(x) {
+        data$fill[data$y == x]
+      }
+    )
+  )
+}
+
+
 
