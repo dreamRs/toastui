@@ -43,7 +43,7 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     construct_serie_scatter(mapdata, serie_name)
   } else if (type %in% "pie") {
     construct_serie_pie(mapdata, serie_name)
-  } else if (type %in% "line") {
+  } else if (type %in% c("line", "area")) {
     construct_serie_line(mapdata, serie_name)
   }
 }

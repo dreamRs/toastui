@@ -8,7 +8,7 @@ chart(
   data,
   mapping = NULL,
   type = c("column", "bar", "area", "line", "scatter", "bubble", "boxPlot", "heatmap",
-    "treemap", "radialBar", "pie"),
+    "treemap", "radialBar", "pie", "gauge"),
   ...,
   options = list(),
   height = NULL,
