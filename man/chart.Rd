@@ -34,7 +34,7 @@ chart(
 \item{elementId}{}
 }
 \value{
-A \code{chart} htmlwidget.
+A `chart` htmlwidget.
 }
 \description{
 Interactive charts

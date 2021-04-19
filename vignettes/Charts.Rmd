@@ -1,0 +1,82 @@
+---
+title: "Charts"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Charts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(toastui)
+library(ggplot2)
+library(dplyr)
+```
+
+
+## Bars / columns
+
+```{r columns}
+count(mpg, class) %>% 
+  chart(aes(class, n), type = "column")
+```
+
+
+```{r columns-dodge}
+count(mpg, class, year) %>% 
+  chart(aes(class, n, fill = year), type = "column")
+```
+
+
+## Scatter
+
+```{r scatter}
+chart(mpg, aes(displ, hwy), type = "scatter")
+```
+
+
+## Lines / Areas
+
+
+## Heatmap
+
+```{r heatmap}
+txhousing %>% 
+  filter(city == "Houston") %>%
+  chart(aes(month, year, fill = sales), type = "heatmap")
+```
+
+
+
+## Treemap
+
+
+```{r treemap}
+chart(mpg, aes(manufacturer, model), "treemap") %>% 
+  chart_options(
+    series = list(
+      dataLabels = list(visible = TRUE)
+    )
+  )
+```
+
+
+```{r treemap-values}
+txhousing %>% 
+  filter(year == 2015) %>% 
+  group_by(city) %>% 
+  summarise(sales = sum(sales)) %>% 
+  chart(aes(city, value = sales, colorValue = sales), type = "treemap")
+```
+
+
+
+## Gauge
+
