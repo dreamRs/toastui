@@ -10,8 +10,10 @@
 #' @param width 
 #' @param elementId 
 #'
-#' @return A \code{chart} htmlwidget.
+#' @return A `chart` htmlwidget.
 #' @export
+#' 
+#' @importFrom rlang has_name as_label
 #'
 #' @example examples/ex-chart.R
 chart <- function(data,
@@ -34,6 +36,15 @@ chart <- function(data,
     options$chart$width <- "auto"
   if (!is.null(mapping)) {
     data <- construct_serie(data, mapping, type)
+  }
+  if (has_name(mapping, "colourValue") & is.null(options$series$useColorValue)) {
+    options$series$useColorValue <- TRUE
+  }
+  if (is.null(options$xAxis$title) & !is.null(mapping$x)) {
+    options$xAxis$title <- as_label(mapping$x)
+  }
+  if (is.null(options$yAxis$title) & !is.null(mapping$y)) {
+    options$yAxis$title <- as_label(mapping$y)
   }
   createWidget(
     name = "chart",
