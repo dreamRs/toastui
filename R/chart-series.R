@@ -22,6 +22,7 @@ caes <- function(x, y, ...) {
 
 
 #' @importFrom rlang eval_tidy as_label
+#' @importFrom stats complete.cases
 construct_serie <- function(data, mapping, type, serie_name = NULL) {
   data <- as.data.frame(data)
   mapdata <- lapply(mapping, rlang::eval_tidy, data = data)

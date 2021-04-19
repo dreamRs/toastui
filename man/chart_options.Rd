@@ -4,10 +4,10 @@
 \alias{chart_options}
 \title{Chart options}
 \usage{
-chart_options(chart, ...)
+chart_options(.chart, ...)
 }
 \arguments{
-\item{chart}{A \code{chart} htmlwidget.}
+\item{.chart}{A \code{chart} htmlwidget.}
 
 \item{...}{Named list of options, options depends on chart's type,
 see common options [here](https://github.com/nhn/tui.chart/blob/main/docs/en/common-chart-options.md).}
@@ -17,4 +17,10 @@ A \code{chart} htmlwidget.
 }
 \description{
 Chart options
+}
+\examples{
+chart(mtcars, caes(x = mpg, y = wt), type = "scatter") \%>\% 
+  chart_options(
+    chart = list(title = "A scatter chart")
+  )
 }
