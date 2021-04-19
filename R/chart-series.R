@@ -16,6 +16,7 @@
 caes <- function(x, y, ...) {
   exprs <- enquos(x = x, y = y, ..., .ignore_empty = "all")
   names(exprs)[names(exprs) == "color"] <- "colour"
+  names(exprs)[names(exprs) == "colorValue"] <- "colourValue"
   exprs
 }
 
@@ -36,10 +37,10 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
   if (type %in% c("bar", "column")) {
     construct_serie_bar(mapdata, serie_name)
   } else if (type %in% "treemap") {
-    construct_serie_treemap(mapdata, setdiff(names(mapdata), "colorValue"))
+    construct_serie_treemap(mapdata)
   } else if (type %in% "heatmap") {
     construct_serie_heatmap(mapdata)
-  } else if (type %in% "scatter") {
+  } else if (type %in% c("scatter", "bubble")) {
     construct_serie_scatter(mapdata, serie_name)
   } else if (type %in% "pie") {
     construct_serie_pie(mapdata, serie_name)
@@ -83,7 +84,8 @@ construct_serie_bar <- function(data, serie_name) {
 
 
 # Treemap ----
-construct_serie_treemap <- function(data, levels, ...) {
+construct_serie_treemap <- function(data, ...) {
+  levels <- setdiff(names(data), c("value", "colourValue"))
   list(series = construct_tree(data, levels, ...))
 }
 
@@ -99,7 +101,12 @@ construct_tree <- function(data, levels, ...) {
       dat <- data[data[[levels[1]]] == var, , drop = FALSE]
       args_level <- args[[levels[1]]]
       if (length(levels) == 1) {
-        c(list(label = var, data = nrow(dat), colorValue = sum(dat$colorValue)), args_level)
+        if (is.null(data$value)) {
+          value <- nrow(dat)
+        } else {
+          value <- sum(dat$value, na.rm = TRUE)
+        }
+        c(list(label = var, data = value, colorValue = sum(dat$colourValue)), args_level)
       } else {
         c(
           list(
@@ -143,17 +150,20 @@ construct_serie_scatter <- function(data, serie_name) {
   if (is.null(data$colour)) {
     data$colour <- serie_name
   }
+  if (!is.null(data$size))
+    data$r <- data$size
   list(
     series = lapply(
       X = unique(data$colour),
       FUN = function(x) {
+        nm <- intersect(names(data), c("x", "y", "r"))
         list(
           name = x,
           data = unname(apply(
-            X = data[data$colour == x, c("x", "y")], 
+            X = data[data$colour == x, nm], 
             MARGIN = 1, 
             FUN = function(x) {
-              setNames(as.list(x), c("x", "y"))
+              setNames(as.list(x), nm)
             }
           ))
         )
