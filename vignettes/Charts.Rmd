@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, warning=FALSE, message=FALSE}
 library(toastui)
 library(ggplot2)
 library(dplyr)
@@ -79,4 +79,20 @@ txhousing %>%
 
 
 ## Gauge
+
+```{r gauge}
+chart(list(Speed = 80), type = "gauge", height = "500px") %>% 
+  chart_options(
+    circularAxis = list(scale = list(min = 0, max = 90), title = "km/h"),
+    series = list(angleRange = list(start = 225, end = 135)),
+    plot = list(
+      bands = list(
+        list(range = c(0, 20), color = "#55bf3b"),
+        list(range = c(20, 50), color = "#dddf0d"),
+        list(range = c(50, 90), color = "#df5353")
+      )
+    ),
+    theme = list(plot = list(bands = list(barWidth = 40)))
+  )
+```
 

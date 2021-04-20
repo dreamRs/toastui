@@ -34,6 +34,8 @@ chart <- function(data,
     options$chart$height <- "auto"
   if (is.null(width))
     options$chart$width <- "auto"
+  if (identical(type, "gauge"))
+    mapping <- list()
   if (!is.null(mapping)) {
     data <- construct_serie(data, mapping, type)
   }

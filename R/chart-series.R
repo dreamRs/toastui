@@ -47,6 +47,10 @@ construct_serie <- function(data, mapping, type, serie_name = NULL) {
     construct_serie_pie(mapdata, serie_name)
   } else if (type %in% c("line", "area")) {
     construct_serie_line(mapdata, serie_name)
+  } else if (type %in% "gauge") {
+    construct_serie_gauge(data, serie_name)
+  } else {
+    stop("chart: type not implemented.")
   }
 }
 
@@ -215,3 +219,19 @@ construct_serie_line <- function(data, serie_name) {
     )
   )
 }
+
+
+
+# Gauge ----
+
+#' @importFrom rlang is_list have_name
+construct_serie_gauge <- function(data, serie_name = NULL) {
+  data <- as.list(data)
+  if (!is_list(data) || !have_name(data) || length(data) != 1) {
+    stop("For gauge type, data must be a named list of length 1", call. = FALSE)
+  }
+  list(
+    series = list(list(name = names(data), data = list(data[[1]])))
+  )
+}
+
