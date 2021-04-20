@@ -4,7 +4,7 @@
 #' @param grid A grid created with \code{\link{datagrid}}.
 #' @param vars Variable(s) in which merge consecutives rows.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom stats setNames

@@ -36,7 +36,7 @@
 #'
 #' @note Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_columns.R
@@ -121,7 +121,7 @@ grid_columns <- function(grid, vars,
 #' @param frozenBorderWidth The value of frozen border width.
 #'  When the frozen columns are created by "frozenCount" option, the frozen border width set.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_columns_opts.R
@@ -158,7 +158,7 @@ grid_columns_opts <- function(grid,
 #' @param btn_width Button's width.
 #' @param ... Further arguments passed to \code{\link{grid_columns}}.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_col_button.R

@@ -12,7 +12,7 @@
 #'  \code{"select"} and \code{"radio"} type.
 #' @param validation Rules to validate content edited, see \code{\link{validateOpts}}.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @name grid-editor
@@ -112,7 +112,7 @@ grid_editor_opts <- function(grid,
 #' @param unique If set to \code{TRUE}, check the uniqueness on the data of the column.
 #' @param jsfun A \code{JS} function to validate content.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom htmlwidgets JS
@@ -154,7 +154,7 @@ validateOpts <- function(required = NULL,
 #' @param type Type of selection: date, month or year.
 #' @param timepicker Add a timepicker.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @seealso \code{\link{grid_editor}} for normal inputs.

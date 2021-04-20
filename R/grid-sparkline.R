@@ -9,7 +9,7 @@
 #' @param height Height of the row (applies to all table).
 #' @param styles A \code{list} of CSS parameters to apply to the cells where widgets are rendered.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom htmltools as.tags findDependencies validateCssUnit

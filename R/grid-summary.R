@@ -10,7 +10,7 @@
 #' @param position The position of the summary area: \code{"bottom"} or \code{"top"}.
 #' @param height The height of the summary area.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_summary.R

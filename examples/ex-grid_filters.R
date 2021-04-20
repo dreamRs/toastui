@@ -20,7 +20,7 @@ datagrid(data) %>%
     type = "select"
   ) %>%
   grid_filters(columns = "date") %>%
-  grid_filters(vars = "number")
+  grid_filters(columns = "number")
 
 
 # Filter all variables

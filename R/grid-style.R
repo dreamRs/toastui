@@ -12,7 +12,7 @@
 #' @param class CSS class to apply to the row.
 #' @param cssProperties Alternative to specify CSS properties with a named list.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom rlang enquo eval_tidy
@@ -73,7 +73,7 @@ grid_style_row <- function(grid,
 #' @param class CSS class to apply to the row.
 #' @param cssProperties Alternative to specify CSS properties with a named list.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @name grid-cell-style
@@ -222,7 +222,7 @@ grid_style_cells <- function(grid,
 #' @param height Height in pixel of color bar.
 #' @param align Alignment of label if it is displayed inside the color bar.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom htmlwidgets JS
@@ -295,7 +295,7 @@ grid_colorbar <- function(grid,
 #' @param fontWeight Font weight, you can use \code{"bold"} for example.
 #' @param ... Other CSS properties.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom rlang enexprs eval_tidy exec

@@ -5,7 +5,7 @@
 #' @param column Name of the column to format.
 #' @param formatter Either an R function or a JavaScript function wraped in \code{JS}.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @importFrom htmltools findDependencies

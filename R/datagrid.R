@@ -22,7 +22,7 @@
 #'
 #' @export
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #'
 #' @example examples/ex-datagrid.R
 datagrid <- function(data, ...,

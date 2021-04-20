@@ -8,7 +8,7 @@
 #'  a \code{data.frame} with selected row(s) or just the index of rows.
 #' @param width Width of the column.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_selection_row.R
@@ -61,7 +61,7 @@ grid_selection_row <- function(grid,
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param selectionUnit The unit of selection on grid.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_cell_selection.R
@@ -83,7 +83,7 @@ grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row"))
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @example examples/ex-grid_click.R

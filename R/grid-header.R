@@ -15,7 +15,7 @@
 #' @param ... Named arguments to merge columns under a common header,
 #'  e.g. \code{newcol = c("col1", "col2")}.
 #'
-#' @return A \code{datagrid} htmlwidget.
+#' @return A `datagrid` htmlwidget.
 #' @export
 #'
 #' @name grid-header
