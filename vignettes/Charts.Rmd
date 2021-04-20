@@ -44,6 +44,17 @@ chart(mpg, aes(displ, hwy), type = "scatter")
 
 ## Lines / Areas
 
+```{r line}
+chart(economics, aes(date, psavert), type = "line")
+```
+
+```{r lines}
+economics_long %>% 
+  filter(variable %in% c("psavert", "uempmed")) %>% 
+  chart(caes(date, value, color = variable), type = "line")
+```
+
+
 
 ## Heatmap
 
