@@ -36,3 +36,12 @@ Interactive daily, weekly or monthly calendar. See documentation and examples:
 * Weekly view:
 
 ![](man/figures/calendar-week.png)
+
+
+## Chart
+
+Interactive charts:
+
+![](man/figures/chart-heatmap.png)
+![](man/figures/chart-treemap.png)
+
