@@ -23,6 +23,13 @@ check_chart <- function(chart, fun = as.character(sys.call(sys.parent()))[1L]) {
   }
 }
 
+check_grid_column <- function(grid, column, fun = as.character(sys.call(sys.parent()))[1L]) {
+  var_diff <- setdiff(column, grid$x$colnames)
+  if (length(var_diff) > 0) {
+    stop(fun, ": Variable(s) ", paste(var_diff, collapse = ", "),
+         " are not valid columns in data passed to datagrid()", call. = FALSE)
+  }
+}
 
 to_hyphen <- function(x) {
   tolower(gsub("([A-Z])", "-\\1", x))

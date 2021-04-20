@@ -69,7 +69,7 @@ server <- function(input, output, session) {
   output$grid2 <- renderDatagrid({
     editgrid %>%
       grid_editor_opts(
-        updateOnClick = "update2"
+        actionButtonId = "update2"
       )
   })
   

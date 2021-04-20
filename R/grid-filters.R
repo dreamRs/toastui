@@ -25,7 +25,7 @@ simple_filters <- function(data) {
 #' Set filters options
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
-#' @param vars Name(s) of column in the data used in \code{\link{datagrid}}.
+#' @param columns Name(s) of column in the data used in \code{\link{datagrid}}.
 #' @param showApplyBtn Apply filters only when button is pressed.
 #' @param showClearBtn Reset the filter that has already been applied.
 #' @param operator Multi-option filter, the operator used against multiple rules : \code{"OR"} or \code{"AND"}.
@@ -36,34 +36,31 @@ simple_filters <- function(data) {
 #' @export
 #'
 #' @example examples/ex-filters.R
-grid_filters <- function(grid, vars,
+grid_filters <- function(grid, 
+                         columns,
                          showApplyBtn = NULL,
                          showClearBtn = NULL,
                          operator = NULL,
                          format = "yyyy-MM-dd",
                          type = "auto") {
-  check_grid(grid, "grid_filters")
-  var_diff <- setdiff(vars, grid$x$colnames)
-  if (length(var_diff) > 0) {
-    stop("Variable(s) ", paste(var_diff, collapse = ", "),
-         " are not valid columns in data passed to datagrid()")
-  }
+  check_grid(grid)
+  check_grid_column(grid, columns)
   type <- match.arg(type, several.ok = TRUE, choices = c("auto", "text", "date", "number", "select"))
-  l_var <- length(vars)
+  n_col <- length(columns)
   if (!is.null(showApplyBtn))
-    showApplyBtn <- rep_len(x = showApplyBtn, length.out = l_var)
+    showApplyBtn <- rep_len(x = showApplyBtn, length.out = n_col)
   if (!is.null(showClearBtn))
-    showClearBtn <- rep_len(x = showClearBtn, length.out = l_var)
+    showClearBtn <- rep_len(x = showClearBtn, length.out = n_col)
   if (!is.null(operator))
-    operator <- rep_len(x = operator, length.out = l_var)
+    operator <- rep_len(x = operator, length.out = n_col)
   if (!is.null(type))
-    type <- rep_len(x = type, length.out = l_var)
+    type <- rep_len(x = type, length.out = n_col)
   filters_type <- simple_filters(grid$x$data_df)
-  for (variable in vars) {
-    i <- which(grid$x$colnames == variable)
-    j <- which(vars == variable)
+  for (column in columns) {
+    i <- which(grid$x$colnames == column)
+    j <- which(columns == column)
     if (identical(type[j], "auto")) {
-      type[j] <- filters_type[[variable]]
+      type[j] <- filters_type[[column]]
     }
     filtering <- dropNulls(list(
       type = type[j],

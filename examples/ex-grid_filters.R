@@ -10,21 +10,21 @@ data <- data.frame(
 
 datagrid(data) %>%
   grid_filters(
-    vars = "month.abb",
+    columns = "month.abb",
     showApplyBtn = TRUE,
     showClearBtn = TRUE,
     type = "text"
   ) %>%
   grid_filters(
-    vars = "month.name",
+    columns = "month.name",
     type = "select"
   ) %>%
-  grid_filters(vars = "date") %>%
+  grid_filters(columns = "date") %>%
   grid_filters(vars = "number")
 
 
 # Filter all variables
 datagrid(rolling_stones_500) %>%
-  grid_filters(vars = names(rolling_stones_500))
+  grid_filters(columns = names(rolling_stones_500))
 # or
 datagrid(rolling_stones_500, filters = TRUE)

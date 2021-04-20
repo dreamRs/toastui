@@ -17,7 +17,7 @@ grid_editor(
 grid_editor_opts(
   grid,
   editingEvent = c("dblclick", "click"),
-  updateOnClick = NULL,
+  actionButtonId = NULL,
   session = shiny::getDefaultReactiveDomain()
 )
 }
@@ -37,8 +37,9 @@ grid_editor_opts(
 \item{editingEvent}{If set to \code{"click"}, editable cell in
 the view-mode will be changed to edit-mode by a single click.}
 
-\item{updateOnClick}{Use an \code{actionButton} inputId to send
-edited data to the server only on click.}
+\item{actionButtonId}{Use an \code{actionButton} inputId to send
+edited data to the server only when this button is clicked.
+This allows not to send all the changes made by the user to the server.}
 
 \item{session}{Shiny session.}
 }
@@ -121,7 +122,7 @@ server <- function(input, output, session) {
   output$grid2 <- renderDatagrid({
     editgrid \%>\%
       grid_editor_opts(
-        updateOnClick = "update2"
+        actionButtonId = "update2"
       )
   })
   

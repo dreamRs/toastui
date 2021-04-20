@@ -74,8 +74,9 @@ grid_editor <- function(grid,
 #' @param grid A table created with \code{\link{datagrid}}.
 #' @param editingEvent If set to \code{"click"}, editable cell in
 #'  the view-mode will be changed to edit-mode by a single click.
-#' @param updateOnClick Use an \code{actionButton} inputId to send
-#'  edited data to the server only on click.
+#' @param actionButtonId Use an \code{actionButton} inputId to send
+#'  edited data to the server only when this button is clicked. 
+#'  This allows not to send all the changes made by the user to the server.
 #' @param session Shiny session.
 #'
 #' @export
@@ -86,13 +87,13 @@ grid_editor <- function(grid,
 #'
 grid_editor_opts <- function(grid,
                              editingEvent = c("dblclick", "click"),
-                             updateOnClick = NULL,
+                             actionButtonId = NULL,
                              session = shiny::getDefaultReactiveDomain()) {
   check_grid(grid, "grid_editor_opts")
   grid$x$options$editingEvent <- match.arg(editingEvent)
   if (!is.null(session))
-    updateOnClick <- session$ns(updateOnClick)
-  grid$x$updateEditOnClick <- updateOnClick
+    actionButtonId <- session$ns(actionButtonId)
+  grid$x$updateEditOnClick <- actionButtonId
   return(grid)
 }
 
