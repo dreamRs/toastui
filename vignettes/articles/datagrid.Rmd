@@ -185,14 +185,16 @@ edit <- data.frame(
   col_select = month.name,
   col_checkbox = month.abb,
   col_radio = month.name,
-  col_month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m")
+  col_month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m"),
+  col_date = as.Date("2020-01-01") + 0:11*31
 )
 datagrid(edit, bodyHeight = "auto") %>% 
   grid_editor("col_text", type = "text") %>% 
   grid_editor("col_select", type = "select", choices = month.name) %>% 
   grid_editor("col_checkbox", type = "checkbox", choices = month.abb) %>% 
   grid_editor("col_radio", type = "radio", choices = month.name) %>% 
-  grid_editor_date("col_month", type = "month", format = "yyyy-MM")
+  grid_editor_date("col_month", type = "month", format = "yyyy-MM") %>% 
+  grid_editor_date("col_date", type = "date")
 ```
 
 In Shiny, retrieve data edited with `input$<outputId>_data`.

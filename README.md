@@ -1,9 +1,10 @@
 # toastui
 
+> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid), [Calendar](https://ui.toast.com/tui-calendar) and [Chart](https://ui.toast.com/tui-chart).
+
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of toastui is to ...
 
 ## Installation
 
@@ -13,12 +14,25 @@ You can install toastui from GitHub with:
 remotes::install_github("dreamRs/toastui")
 ```
 
-## Example
+## Grid
 
-This is a basic example which shows you how to solve a common problem:
+Interactive tables with data editing, filtering, sorting, and more. See documentation and examples:
 
-``` r
-library(toastui)
-## basic example code
-```
+![](man/figures/grid.png)
 
+Edit mode example:
+
+![](man/figures/grid-edit.png)
+
+
+## Calendar
+
+Interactive daily, weekly or monthly calendar. See documentation and examples:
+
+* Monthly view:
+
+![](man/figures/calendar-month.png)
+
+* Weekly view:
+
+![](man/figures/calendar-week.png)

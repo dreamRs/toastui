@@ -1,0 +1,52 @@
+---
+title: "toastui"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{toastui}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(toastui)
+```
+
+[htmlwidgets](https://www.htmlwidgets.org/) to create:
+
+* `datagrid()`: Interactive tables with data editing, filtering, sorting, and more
+* `calendar()`: Interactive daily, weekly or monthly calendar
+* `chart()`: Interactive charts
+
+
+## Grid
+
+Create interactive tables with lot of options to customize content and that you can edit in Shiny applications. Full documentation and examples are available here:
+
+```{r}
+datagrid()
+```
+
+
+
+## Calendar
+
+Create interactive calendars that you can navigate and display schedules. In Shiny you can add, update or delete schedules.
+
+```{r}
+calendar()
+```
+
+
+
+
+
+
+

@@ -49,7 +49,7 @@ A \code{datagrid} htmlwidget.
 }
 \description{
 Create interactive tables : sortable, filterable,
- editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
+editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 }
 \examples{
 library(toastui)

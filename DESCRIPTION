@@ -1,6 +1,6 @@
 Package: toastui
 Title: Interactive Tables, Calendars and Charts for the Web
-Version: 0.0.0.9000
+Version: 0.0.0.9100
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
   person("Fanny", "Meyer", role = "aut"),
@@ -19,6 +19,7 @@ Imports:
     magrittr,
     rlang
 RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
 Suggests: 
     apexcharter,
     knitr,

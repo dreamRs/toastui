@@ -7,14 +7,14 @@
 \format{
 A \code{data.frame} with 20 rows and 8 variables:
 \describe{
-  \item{Name}{Name of the game}
-  \item{Year}{Year of the game's release}
-  \item{Genre}{Genre of the game}
-  \item{Publisher}{Publisher of the game}
-  \item{NA_Sales}{Sales in North America (in millions)}
-  \item{EU_Sales}{Sales in Europe (in millions)}
-  \item{JP_Sales}{Sales in Japan (in millions)}
-  \item{Other_Sales}{Sales in the rest of the world (in millions)}
+\item{Name}{Name of the game}
+\item{Year}{Year of the game's release}
+\item{Genre}{Genre of the game}
+\item{Publisher}{Publisher of the game}
+\item{NA_Sales}{Sales in North America (in millions)}
+\item{EU_Sales}{Sales in Europe (in millions)}
+\item{JP_Sales}{Sales in Japan (in millions)}
+\item{Other_Sales}{Sales in the rest of the world (in millions)}
 }
 }
 \source{
