@@ -60,9 +60,9 @@ Default height of table created is 600px (in markdown and shiny), you can use a 
 datagrid(rolling_stones_50, height = "300px")
 ```
 
-To display all rows in table use `bodyHeight` argument:
+To display all rows in table use `bodyHeight` argument (a bit long, not displayed here):
 
-```{r body-heigh}
+```{r body-heigh, eval=FALSE}
 datagrid(rolling_stones_50, bodyHeight = "auto")
 ```
 

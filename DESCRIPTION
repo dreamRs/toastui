@@ -6,7 +6,7 @@ Authors@R: c(
   person("Fanny", "Meyer", role = "aut"),
   person("NHN FE Development Lab", role = c("cph"), comment = "tui-grid, tui-calendar, tui-chart libraries"))
 Description: Create interactive tables, calendar and charts to integrate in 'shiny' applications or 'rmarkdown' 'HTML' documents.
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends:
