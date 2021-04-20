@@ -22,3 +22,40 @@ chart_options <- function(.chart, ...) {
   )
   .chart
 }
+
+
+#' Chart labs
+#'
+#' @param .chart A \code{chart} htmlwidget.
+#' @param title Text for main title.
+#' @param x Text for x-axis title.
+#' @param y Text for y-axis title.
+#'
+#' @return A \code{chart} htmlwidget.
+#' @export
+#'
+#' @examples
+#' chart(mtcars, caes(x = mpg, y = wt), type = "scatter") %>%
+#'   chart_labs(
+#'     title = "Main title",
+#'     x = "X axis",
+#'     y = "Y axis"
+#'   )
+chart_labs <- function(.chart, title = NULL, x = NULL, y = NULL) {
+  if (!is.null(title)) {
+    .chart$x$config$options$chart$title <- list(
+      text = title
+    )
+  }
+  if (!is.null(x)) {
+    .chart$x$config$options$xAxis$title <- list(
+      text = x
+    )
+  }
+  if (!is.null(y)) {
+    .chart$x$config$options$yAxis$title <- list(
+      text = y
+    )
+  }
+  .chart
+}

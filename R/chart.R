@@ -1,19 +1,19 @@
 
 #' Interactive charts
 #'
-#' @param data 
-#' @param mapping 
-#' @param type 
-#' @param ... 
-#' @param options 
-#' @param height 
-#' @param width 
-#' @param elementId 
+#' @param data A `data.frame` if you used with `mapping` otherwise a configuration `list`.
+#' @param mapping Default list of aesthetic mappings to use for chart if `data` is a `data.frame`.
+#' @param type Type of chart.
+#' @param ... Optional arguments (currently not used).
+#' @param options A `list` of options for the chart.
+#' @param height,width Height and width for the chart.
+#' @param elementId An optional id.
 #'
 #' @return A `chart` htmlwidget.
 #' @export
 #' 
 #' @importFrom rlang has_name as_label
+#' @importFrom htmlwidgets createWidget sizingPolicy
 #'
 #' @example examples/ex-chart.R
 chart <- function(data,
@@ -101,13 +101,13 @@ chart <- function(data,
 #' 
 #' @example examples/shiny-chart.R
 chartOutput <- function(outputId, width = "100%", height = "400px"){
-  htmlwidgets::shinyWidgetOutput(outputId, "chart", width, height, package = "toastui", inline = FALSE)
+  shinyWidgetOutput(outputId, "chart", width, height, package = "toastui", inline = FALSE)
 }
 
 #' @rdname chart-shiny
 #' @export
 renderChart <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
+  shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
 }
 

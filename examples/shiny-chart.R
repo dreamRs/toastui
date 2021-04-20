@@ -1,12 +1,12 @@
 library(toastui)
 library(shiny)
-library(palmerpenguins)
 
 ui <- fluidPage(
   fluidRow(
     column(
       width = 8, offset = 2,
       tags$h2("Chart example"),
+      selectInput("var", "Variable:", names(dimnames(Titanic))),
       chartOutput("mychart1"),
       chartOutput("mychart2")
     )
@@ -16,16 +16,18 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   output$mychart1 <- renderChart({
-    table(species = penguins$species) %>% 
-      chart(caes(species, Freq), type = "column")
+    Titanic %>% 
+      as.data.frame() %>% 
+      aggregate(as.formula(paste("Freq", input$var, sep = "~")), data = ., FUN = sum) %>% 
+      chart(caes(x = !!as.symbol(input$var), y = Freq), type = "column")
   })
   
   output$mychart2 <- renderChart({
-    chart(
-      penguins, 
-      caes(x = bill_length_mm, y = body_mass_g, color = species),
-      type = "scatter"
-    )
+    req(input$var != "Survived")
+    Titanic %>% 
+      as.data.frame() %>% 
+      aggregate(as.formula(paste("Freq ~ Survived", input$var, sep = "+")), data = ., FUN = sum) %>% 
+      chart(caes(x = !!as.symbol(input$var), y = Freq, fill = Survived), type = "column")
   })
 }
 

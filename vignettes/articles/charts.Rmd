@@ -20,6 +20,8 @@ library(ggplot2)
 library(dplyr)
 ```
 
+Interactive charts with [tui-chart](https://ui.toast.com/tui-chart) library. Currently support is minimal since there's a lot of htmlwidgets for creating charts.
+
 
 ## Bars / columns
 

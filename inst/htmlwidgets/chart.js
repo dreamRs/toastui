@@ -21,6 +21,9 @@ HTMLWidgets.widget({
         var type = x.config.type;
         var data = x.config.data;
         var options = x.config.options;
+        if (typeof chart !== "undefined") {
+          chart.destroy();
+        }
         chart = toastui.Chart[type]({ el, data, options });
       },
 

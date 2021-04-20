@@ -17,21 +17,19 @@ chart(
 )
 }
 \arguments{
-\item{data}{}
+\item{data}{A `data.frame` if you used with `mapping` otherwise a configuration `list`.}
 
-\item{mapping}{}
+\item{mapping}{Default list of aesthetic mappings to use for chart if `data` is a `data.frame`.}
 
-\item{type}{}
+\item{type}{Type of chart.}
 
-\item{...}{}
+\item{...}{Optional arguments (currently not used).}
 
-\item{options}{}
+\item{options}{A `list` of options for the chart.}
 
-\item{height}{}
+\item{height, width}{Height and width for the chart.}
 
-\item{width}{}
-
-\item{elementId}{}
+\item{elementId}{An optional id.}
 }
 \value{
 A `chart` htmlwidget.
