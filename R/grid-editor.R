@@ -42,7 +42,7 @@ grid_editor <- function(grid,
   if (type %in% c("text", "password")) {
     grid_columns(
       grid = grid,
-      vars = column,
+      columns = column,
       editor = list(
         type = type
       ),
@@ -51,7 +51,7 @@ grid_editor <- function(grid,
   } else if (type %in% c("checkbox", "select", "radio")) {
     grid_columns(
       grid = grid,
-      vars = column,
+      columns = column,
       editor = list(
         type = type,
         options = list(
@@ -183,7 +183,7 @@ grid_editor_date <- function(grid,
   }
   grid_columns(
     grid = grid,
-    vars = column,
+    columns = column,
     editor = list(
       type = "datePicker",
       options = options

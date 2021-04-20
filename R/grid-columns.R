@@ -4,7 +4,7 @@
 #' @description Set options for one or several specific column.
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
-#' @param vars Name(s) of column in the data used in \code{\link{datagrid}}.
+#' @param columns Name(s) of column in the data used in \code{\link{datagrid}}.
 #' @param header The header of the column to be shown on the header.
 #' @param ellipsis If set to true, ellipsis will be used for overflowing content.
 #' @param align Horizontal alignment of the column content. Available values are 'left', 'center', 'right'.
@@ -40,7 +40,8 @@
 #' @export
 #'
 #' @example examples/ex-grid_columns.R
-grid_columns <- function(grid, vars,
+grid_columns <- function(grid, 
+                         columns,
                          header = NULL,
                          ellipsis = NULL,
                          align = NULL,
@@ -60,14 +61,10 @@ grid_columns <- function(grid, vars,
                          onAfterChange = NULL,
                          whiteSpace = NULL,
                          ...) {
-  check_grid(grid, "grid_columns")
-  if (missing(vars))
-    vars <- grid$x$colnames
-  var_diff <- setdiff(vars, grid$x$colnames)
-  if (length(var_diff) > 0) {
-    stop("Variable(s) ", paste(var_diff, collapse = ", "),
-         " are not valid columns in data passed to datagrid()")
-  }
+  check_grid(grid)
+  if (missing(columns))
+    columns <- grid$x$colnames
+  check_grid_column(grid, columns)
   config <- dropNulls(list(
     header = header,
     ellipsis = ellipsis,
@@ -89,12 +86,12 @@ grid_columns <- function(grid, vars,
     whiteSpace = whiteSpace,
     ...
   ))
-  config <- rep_list(config, length(vars))
-  for (variable in vars) {
-    i <- which(grid$x$colnames == variable)
-    j <- which(vars == variable)
+  config <- rep_list(config, length(columns))
+  for (column in columns) {
+    i <- which(grid$x$colnames == column)
+    j <- which(columns == column)
     colOpts <- lapply(config, `[[`, j)
-    colOpts$name <- variable
+    colOpts$name <- column
     if (!is.null(grid$x$options$columns[[i]])) {
       grid$x$options$columns[[i]] <- modifyList(
         x = grid$x$options$columns[[i]],
@@ -173,12 +170,7 @@ grid_col_button <- function(grid,
   check_grid(grid, "grid_col_button")
   status <- match.arg(status)
   stopifnot(is.character(column) & length(column) == 1)
-  if (!column %in% grid$x$colnames) {
-    stop(
-      "grid_colorbar: invalid 'column' supplied, can't find in data.",
-      call. = FALSE
-    )
-  }
+  check_grid_column(grid, column)
   if (!is.null(icon)) {
     icon_deps <- htmltools::findDependencies(icon)
     grid$dependencies <- c(
@@ -189,7 +181,7 @@ grid_col_button <- function(grid,
   }
   grid_columns(
     grid = grid,
-    vars = column,
+    columns = column,
     ...,
     renderer = list(
       type = JS("DatagridButtonRenderer"),

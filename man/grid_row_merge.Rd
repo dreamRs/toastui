@@ -4,12 +4,12 @@
 \alias{grid_row_merge}
 \title{Merge rows}
 \usage{
-grid_row_merge(grid, vars)
+grid_row_merge(grid, columns)
 }
 \arguments{
 \item{grid}{A grid created with \code{\link{datagrid}}.}
 
-\item{vars}{Variable(s) in which merge consecutives rows.}
+\item{columns}{column(s) in which merge consecutive rows.}
 }
 \value{
 A \code{datagrid} htmlwidget.
@@ -20,12 +20,12 @@ Merge rows
 \examples{
 library(toastui)
 
-datagrid(mtcars[, 1:5]) \%>\%
-  grid_row_merge(vars = "cyl")
+datagrid(mtcars[order(mtcars$cyl), 1:5]) \%>\%
+  grid_row_merge(columns = "cyl")
 
 datagrid(mtcars[, 1:8]) \%>\%
-  grid_row_merge(vars = "cyl") \%>\%
-  grid_row_merge(vars = "vs")
+  grid_row_merge(columns = "cyl") \%>\%
+  grid_row_merge(columns = "vs")
 
 
 

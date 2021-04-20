@@ -259,7 +259,7 @@ grid_colorbar <- function(grid,
     suffix <- ""
   grid_columns(
     grid = grid,
-    vars = column,
+    columns = column,
     align = align,
     renderer = list(
       type = htmlwidgets::JS("DatagridBarRenderer"),

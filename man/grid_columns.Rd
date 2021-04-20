@@ -6,7 +6,7 @@
 \usage{
 grid_columns(
   grid,
-  vars,
+  columns,
   header = NULL,
   ellipsis = NULL,
   align = NULL,
@@ -31,7 +31,7 @@ grid_columns(
 \arguments{
 \item{grid}{A grid created with \code{\link{datagrid}}.}
 
-\item{vars}{Name(s) of column in the data used in \code{\link{datagrid}}.}
+\item{columns}{Name(s) of column in the data used in \code{\link{datagrid}}.}
 
 \item{header}{The header of the column to be shown on the header.}
 

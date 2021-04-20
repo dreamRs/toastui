@@ -2,7 +2,7 @@
 #' Add summary area to grid
 #'
 #' @param grid A table created with \code{\link{datagrid}}.
-#' @param column Name of column (variable name) for which to add a summary.
+#' @param columns Name of column (variable name) for which to add a summary.
 #' @param stat Statistic to display: \code{"sum"}, \code{"min"}, \code{"max"} or \code{"avg"}. Can be several values.
 #' @param digits Number of digits to display.
 #' @param label Label to display next to statistic.
@@ -15,7 +15,7 @@
 #'
 #' @example examples/ex-grid_summary.R
 grid_summary <- function(grid,
-                         column,
+                         columns,
                          stat = c("sum", "min", "max", "avg"),
                          digits = 0,
                          label = NULL,
@@ -26,13 +26,12 @@ grid_summary <- function(grid,
   check_grid(grid, "grid_summary")
   stat <- match.arg(stat, several.ok = TRUE)
   position <- match.arg(position)
-  if (!is.character(column) )
-    stop("grid_style_cell: column must be a character vector.")
-  if (length(column) > 1) {
-    for (i in column) {
+  check_grid_column(grid, columns)
+  if (length(columns) > 1) {
+    for (i in columns) {
       grid <- grid_summary(
         grid = grid,
-        column = i,
+        columns = i,
         stat = stat,
         label = label,
         sep = sep,
@@ -57,7 +56,7 @@ grid_summary <- function(grid,
   )
   fun <- JS("function(valueMap) { ", paste0("return ", body, ";"), " }")
   template <- list(template = fun)
-  columnContent <- setNames(list(template), column)
+  columnContent <- setNames(list(template), columns)
   if (is.null(grid$x$options$summary$columnContent)) {
     grid$x$options$summary <- list(
       columnContent = columnContent,

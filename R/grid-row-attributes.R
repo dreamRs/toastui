@@ -2,7 +2,7 @@
 #' Merge rows
 #'
 #' @param grid A grid created with \code{\link{datagrid}}.
-#' @param vars Variable(s) in which merge consecutives rows.
+#' @param columns column(s) in which merge consecutive rows.
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
@@ -10,12 +10,11 @@
 #' @importFrom stats setNames
 #'
 #' @example examples/ex-grid_row_merge.R
-grid_row_merge <- function(grid, vars) {
-  check_grid(grid, "grid_row_merge")
-  if (any(!vars %in% grid$x$colnames))
-    stop("Invalid var(s) name supplied.")
-  for (var in vars) {
-    vec <- grid$x$data_df[[var]]
+grid_row_merge <- function(grid, columns) {
+  check_grid(grid)
+  check_grid_column(grid, columns)
+  for (column in columns) {
+    vec <- grid$x$data_df[[column]]
     lengths <- rle(as.character(vec))$lengths
     starts <- cumsum(c(1, lengths))
     starts <- starts[-length(starts)]
@@ -28,7 +27,7 @@ grid_row_merge <- function(grid, vars) {
             list(
               rowSpan = setNames(
                 list(len),
-                var
+                column
               )
             )
           } else {

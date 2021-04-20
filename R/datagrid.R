@@ -167,7 +167,7 @@ datagrid <- function(data, ...,
   } else if (identical(colwidths, "fit")) {
     widget <- grid_columns(
       grid = widget,
-      vars = names(data),
+      columns = names(data),
       width = NULL,
       whiteSpace = "normal",
       renderer = list(
@@ -179,7 +179,7 @@ datagrid <- function(data, ...,
   } else {
     widget <- grid_columns(
       grid = widget,
-      vars = names(data),
+      columns = names(data),
       width = colwidths
     )
   }

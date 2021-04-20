@@ -27,7 +27,7 @@ grid_format <- function(grid,
     }
     grid_columns(
       grid = grid,
-      vars = column,
+      columns = column,
       renderer = list(
         type = JS("DatagridFormatRenderer"),
         options = list(
@@ -38,7 +38,7 @@ grid_format <- function(grid,
   } else {
     grid_columns(
       grid = grid,
-      vars = column,
+      columns = column,
       formatter = formatter
     )
   }

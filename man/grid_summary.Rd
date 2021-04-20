@@ -6,7 +6,7 @@
 \usage{
 grid_summary(
   grid,
-  column,
+  columns,
   stat = c("sum", "min", "max", "avg"),
   digits = 0,
   label = NULL,
@@ -18,7 +18,7 @@ grid_summary(
 \arguments{
 \item{grid}{A table created with \code{\link{datagrid}}.}
 
-\item{column}{Name of column (variable name) for which to add a summary.}
+\item{columns}{Name of column (variable name) for which to add a summary.}
 
 \item{stat}{Statistic to display: \code{"sum"}, \code{"min"}, \code{"max"} or \code{"avg"}. Can be several values.}
 

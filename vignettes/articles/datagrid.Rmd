@@ -48,7 +48,7 @@ It's also possible to set width in pixel for columns with `grid_columns()`, here
 
 ```{r}
 datagrid(rolling_stones_50) %>% 
-  grid_columns(vars = c("Number", "Year"), width = 150)
+  grid_columns(columns = c("Number", "Year"), width = 150)
 ```
 
 
@@ -106,7 +106,7 @@ You can customize filter type with `grid_filters()`:
 ```{r}
 datagrid(rolling_stones_50) %>% 
   grid_filters(
-    vars = "Artist", 
+    columns = "Artist", 
     showApplyBtn = TRUE, 
     showClearBtn = TRUE, 
     type = "text"
@@ -291,7 +291,7 @@ Group columns under a common label:
 ```{r col-groups}
 datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
   grid_columns(
-    vars = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
+    columns = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
     header = c("North America", "Europe", "Japan", "Other")
   ) %>%
   grid_complex_header(
@@ -304,7 +304,7 @@ Group rows with common values:
 
 ```{r row-groups}
 datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
-  grid_row_merge(vars = "Publisher")
+  grid_row_merge(columns = "Publisher")
 ```
 
 
@@ -409,7 +409,7 @@ datagrid(met_paris) %>%
     "Le Bourget meteorological data" = names(met_paris)
   ) %>%
   grid_columns(
-    vars = "month", width = 150
+    columns = "month", width = 150
   ) %>%
   grid_sparkline(
     column = "temp",

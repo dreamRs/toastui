@@ -51,7 +51,7 @@ grid_sparkline <- function(grid,
   }
   grid_columns(
     grid = grid,
-    vars = column,
+    columns = column,
     className = "datagrid-sparkline-cell",
     renderer = list(
       type = htmlwidgets::JS("DatagridHTMLRenderer"),
