@@ -1,5 +1,5 @@
 
-check_grid <- function(grid, fun = NULL) {
+check_grid <- function(grid, fun = as.character(sys.call(sys.parent()))[1L]) {
   if(!inherits(grid, "datagrid")){
     stop(paste(c(
       fun, "grid must be an object built with datagrid()."
@@ -7,7 +7,7 @@ check_grid <- function(grid, fun = NULL) {
   }
 }
 
-check_cal <- function(cal, fun = NULL) {
+check_cal <- function(cal, fun = as.character(sys.call(sys.parent()))[1L]) {
   if(!inherits(cal, "calendar")){
     stop(paste(c(
       fun, "cal must be an object built with calendar()."
@@ -15,6 +15,13 @@ check_cal <- function(cal, fun = NULL) {
   }
 }
 
+check_chart <- function(chart, fun = as.character(sys.call(sys.parent()))[1L]) {
+  if(!inherits(chart, "chart")){
+    stop(paste(c(
+      fun, "chart must be an object built with chart()."
+    ), collapse = ": "), call. = FALSE)
+  }
+}
 
 
 to_hyphen <- function(x) {

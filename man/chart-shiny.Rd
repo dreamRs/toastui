@@ -54,6 +54,7 @@ server <- function(input, output, session) {
   })
   
   output$mychart2 <- renderChart({
+    req(input$var != "Survived")
     Titanic \%>\% 
       as.data.frame() \%>\% 
       aggregate(as.formula(paste("Freq ~ Survived", input$var, sep = "+")), data = ., FUN = sum) \%>\% 

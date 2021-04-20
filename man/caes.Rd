@@ -10,10 +10,10 @@ caes(x, y, ...)
 \item{x, y, ...}{List of name-value pairs in the form aesthetic = variable.}
 }
 \value{
-a `list` of `quosure`.
+a \code{list} of \code{quosure}.
 }
 \description{
-Low-level version of `ggplot2::aes`.
+Low-level version of \code{ggplot2::aes}.
 }
 \examples{
 caes(x = month, y = value)

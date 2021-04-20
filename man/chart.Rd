@@ -17,22 +17,22 @@ chart(
 )
 }
 \arguments{
-\item{data}{A `data.frame` if you used with `mapping` otherwise a configuration `list`.}
+\item{data}{A \code{data.frame} if you used with \code{mapping} otherwise a configuration \code{list}.}
 
-\item{mapping}{Default list of aesthetic mappings to use for chart if `data` is a `data.frame`.}
+\item{mapping}{Default list of aesthetic mappings to use for chart if \code{data} is a \code{data.frame}.}
 
 \item{type}{Type of chart.}
 
 \item{...}{Optional arguments (currently not used).}
 
-\item{options}{A `list` of options for the chart.}
+\item{options}{A \code{list} of options for the chart.}
 
 \item{height, width}{Height and width for the chart.}
 
 \item{elementId}{An optional id.}
 }
 \value{
-A `chart` htmlwidget.
+A \code{chart} htmlwidget.
 }
 \description{
 Interactive charts

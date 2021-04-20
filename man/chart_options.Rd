@@ -10,7 +10,7 @@ chart_options(.chart, ...)
 \item{.chart}{A \code{chart} htmlwidget.}
 
 \item{...}{Named list of options, options depends on chart's type,
-see common options [here](https://github.com/nhn/tui.chart/blob/main/docs/en/common-chart-options.md).}
+see common options \href{https://github.com/nhn/tui.chart/blob/main/docs/en/common-chart-options.md}{here}.}
 }
 \value{
 A \code{chart} htmlwidget.

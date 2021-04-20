@@ -16,6 +16,7 @@
 #'     chart = list(title = "A scatter chart")
 #'   )
 chart_options <- function(.chart, ...) {
+  check_chart(.chart)
   .chart$x$config$options <- modifyList(
     x = .chart$x$config$options, 
     val = list(...)
@@ -42,6 +43,7 @@ chart_options <- function(.chart, ...) {
 #'     y = "Y axis"
 #'   )
 chart_labs <- function(.chart, title = NULL, x = NULL, y = NULL) {
+  check_chart(.chart)
   if (!is.null(title)) {
     .chart$x$config$options$chart$title <- list(
       text = title
