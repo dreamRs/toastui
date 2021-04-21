@@ -214,7 +214,8 @@ cal_proxy_update <- function(proxy, value) {
 #' @export
 #'
 #' @return No value.
-#'
+#' 
+#' @example examples/cal-proxy-clear.R
 cal_proxy_clear <- function(proxy, immediately = TRUE) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)

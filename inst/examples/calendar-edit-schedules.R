@@ -120,9 +120,11 @@ server <- function(input, output) {
   # Update the calendar
 
   observeEvent(input$my_calendar_add, {
-    # Add an id
+    # Update count and add ID
     new_count <- schedule_count() + 1
-    cal_proxy_add("my_calendar", input$my_calendar_add)
+    new_schedule <- input$my_calendar_add
+    new_schedule$id <- paste0("schedule_", new_count)
+    cal_proxy_add("my_calendar", new_schedule)
     schedule_count(new_count)
   })
 

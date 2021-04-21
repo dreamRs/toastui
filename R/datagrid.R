@@ -219,13 +219,15 @@ datagrid_html <- function(id, style, class, ...) {
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
+#' 
+#' @example examples/shiny-datagrid.R
 datagridOutput <- function(outputId, width = "100%", height = "400px"){
-  htmlwidgets::shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)
+  shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)
 }
 
 #' @rdname datagrid-shiny
 #' @export
 renderDatagrid <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
+  shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
 }

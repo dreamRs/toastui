@@ -38,8 +38,8 @@ grid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
 #' @return No value.
 #' @export
 #'
-#' @example examples/ex-proxy_grid_addrow.R
-proxy_grid_addrow <- function(proxy, data) {
+#' @example examples/grid-prox-addrow.R
+grid_proxy_addrow <- function(proxy, data) {
   data <- as.data.frame(data)
   if (is.character(proxy)) {
     proxy <- grid_proxy(proxy)

@@ -209,6 +209,8 @@ bttn_options <- function(today_label = "Today",
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
+#' 
+#' @example examples/shiny-calendar.R
 calendarOutput <- function(outputId, width = "100%", height = "600px"){
   shinyWidgetOutput(outputId, "calendar", width, height, package = "toastui")
 }

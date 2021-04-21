@@ -64,7 +64,7 @@
 #'
 #' @name datagrid-theme
 #'
-#' @example examples/ex-theme.R
+#' @example examples/grid-theme.R
 set_grid_theme <- function(selection.background = NULL,
                            selection.border = NULL,
                            scrollbar.border = NULL,

@@ -84,20 +84,20 @@ datagrid(meteo) %>%
     "Monastir" = grep("_monastir$", names(meteo), value = TRUE)
   ) %>%
   grid_columns(
-    vars = "month", 
+    columns = "month", 
     header = "Month",
     width = 120
   ) %>%
   grid_columns(
-    vars = c("temp_min_paris", "temp_min_monastir"),
+    columns = c("temp_min_paris", "temp_min_monastir"),
     header = "Min"
   ) %>%
   grid_columns(
-    vars = c("temp_max_paris", "temp_max_monastir"),
+    columns = c("temp_max_paris", "temp_max_monastir"),
     header = "Max"
   ) %>%
   grid_columns(
-    vars = c("temp_paris", "temp_monastir"), 
+    columns = c("temp_paris", "temp_monastir"), 
     header = "Temperature",
     width = 200
   ) %>%
