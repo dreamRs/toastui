@@ -105,7 +105,6 @@ class DatagridBarRenderer {
   }
 }
 
-
 class DatagridFormatRenderer {
   constructor(props) {
     const el = document.createElement("div");
@@ -119,7 +118,6 @@ class DatagridFormatRenderer {
   }
 
   render(props) {
-
     var formatted = props.columnInfo.renderer.options.formatted;
     if (typeof formatted == "object") {
       formatted = formatted[props.rowKey];
@@ -127,7 +125,6 @@ class DatagridFormatRenderer {
     this.el.innerHTML = formatted;
   }
 }
-
 
 class DatagridHTMLRenderer {
   constructor(props) {
@@ -153,8 +150,6 @@ class DatagridHTMLRenderer {
     }, 10);
   }
 }
-
-
 
 class DatagridButtonRenderer {
   constructor(props) {
@@ -241,6 +236,37 @@ class DatagridRadioRenderer {
     const checked = Boolean(props.value);
 
     hiddenInput.checked = checked;
+  }
+}
+
+class DatagridSliderEditor {
+  constructor(props) {
+    const el = document.createElement("input");
+    const { min, max } = props.columnInfo.editor.options;
+
+    el.type = "range";
+    el.min = String(min);
+    el.max = String(max);
+    el.style.width = "100%";
+    el.value = String(props.value);
+
+    this.el = el;
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  getValue() {
+    return this.el.value;
+  }
+
+  mounted() {
+    this.el.select();
+  }
+  
+  render(props) {
+    this.el.value = String(props.value);
   }
 }
 
@@ -384,15 +410,21 @@ HTMLWidgets.widget({
         }
 
         // Edit
-        if (HTMLWidgets.shinyMode & x.editorInput === true) {
+        if (HTMLWidgets.shinyMode & (x.editorInput === true)) {
           Shiny.setInputValue(el.id + "_data:datagridEdit", {
             data: grid.getData(),
             colnames: x.colnames
           });
           if (x.validationInput === true) {
-            Shiny.setInputValue(el.id + "_validation:datagridValidation", grid.validate());
+            Shiny.setInputValue(
+              el.id + "_validation:datagridValidation",
+              grid.validate()
+            );
             grid.on("editingFinish", function(ev) {
-              Shiny.setInputValue(el.id + "_validation:datagridValidation", grid.validate());
+              Shiny.setInputValue(
+                el.id + "_validation:datagridValidation",
+                grid.validate()
+              );
             });
           }
           if (x.hasOwnProperty("updateEditOnClick")) {
