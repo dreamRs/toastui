@@ -24,6 +24,8 @@ Suggests:
     apexcharter,
     knitr,
     rmarkdown,
-    scales
+    scales,
+    ggplot2,
+    dplyr
 VignetteBuilder: knitr
 URL: https://dreamrs.github.io/toastui
