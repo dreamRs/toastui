@@ -3,6 +3,8 @@
 > R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid), [Calendar](https://ui.toast.com/tui-calendar) and [Chart](https://ui.toast.com/tui-chart).
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/dreamRs/toastui/workflows/R-CMD-check/badge.svg)](https://github.com/dreamRs/toastui/actions)
 <!-- badges: end -->
 
 
