@@ -19,6 +19,11 @@ knitr::opts_chunk$set(
 library(toastui)
 ```
 
+<style>
+table {
+  display: table !important;
+}
+</style>
 
 ## Usage
 
@@ -411,7 +416,7 @@ datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
 
 You can embed sparkline charts in a grid, using an HTMLwidget capable of generating such type of charts. Here we use a nested `data.frame`, with `data.frame` inside list columns, then we use a function taking one of these data.frames to generate a chart.
 
-```{r sparkline, eval=FALSE}
+```{r sparkline}
 library(apexcharter)
 datagrid(met_paris) %>%
   grid_complex_header(
