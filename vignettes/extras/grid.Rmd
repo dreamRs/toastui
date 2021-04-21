@@ -1,8 +1,8 @@
 ---
-title: "Tables with datagrid()"
+title: "Grid"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{datagrid}
+  %\VignetteIndexEntry{Grid}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -35,14 +35,23 @@ datagrid(rolling_stones_50)
 Default column width above is `"fit"`, to (try to) fit container width (depending on the number of columns), other alternatives are:
 
 * `"guess`: to guess minimum width according to content and column names.
-* `"auto"`: to set width accordingto content, excluding column names.
+
+```{r colwidth-guess}
+datagrid(rolling_stones_50, colwidths = "guess")
+```
+
+* `"auto"`: to set width according to content, excluding column names.
+
+```{r colwidth-auto}
+datagrid(rolling_stones_50, colwidths = "auto")
+```
+
 * `NULL`: to do nothing and use default behavior.
 
-```{r colwidth-alternatives}
-datagrid(rolling_stones_50, colwidths = "guess")
-datagrid(rolling_stones_50, colwidths = "auto")
+```{r colwidth-null}
 datagrid(rolling_stones_50, colwidths = NULL)
 ```
+
 
 It's also possible to set width in pixel for columns with `grid_columns()`, here we set width for first two variables to 150px:
 
@@ -402,7 +411,7 @@ datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
 
 You can embed sparkline charts in a grid, using an HTMLwidget capable of generating such type of charts. Here we use a nested `data.frame`, with `data.frame` inside list columns, then we use a function taking one of these data.frames to generate a chart.
 
-```{r sparkline}
+```{r sparkline, eval=FALSE}
 library(apexcharter)
 datagrid(met_paris) %>%
   grid_complex_header(

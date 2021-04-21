@@ -1,8 +1,8 @@
 ---
-title: "Charts"
+title: "Chart"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Charts}
+  %\VignetteIndexEntry{Chart}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

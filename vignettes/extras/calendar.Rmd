@@ -1,8 +1,8 @@
 ---
-title: "Calendars"
+title: "Calendar"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Calendars}
+  %\VignetteIndexEntry{Calendar}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -68,7 +68,7 @@ calendar(cal_demo_data(), useNavigation = TRUE) %>%
 
 
 
-## Weekly calendars
+## Weekly calendar
 
 ```{r}
 calendar(cal_demo_data("week"), view = "week") %>% 
