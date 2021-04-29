@@ -15,12 +15,12 @@ Interactive and editable tables with \href{https://ui.toast.com/tui-grid/}{tui-g
 
 \section{Calendars}{
 
-Interactive and editable calendars with \href{https://ui.toast.com/tui-calendar/}{tui-calendar}, see .
+Interactive and editable calendars with \href{https://ui.toast.com/tui-calendar/}{tui-calendar}, see \code{\link{calendar}}.
 }
 
 \section{Charts}{
 
-Interactive charts with \href{https://ui.toast.com/tui-chart/}{tui-chart}, see .
+Interactive charts with \href{https://ui.toast.com/tui-chart/}{tui-chart}, see \code{\link{chart}}.
 }
 
 \author{

@@ -20,7 +20,7 @@ dependencies:
     stylesheet: dist/tui-calendar.min.css
     all_files: false
   - name: moment
-    version: 2.24.0
+    version: 2.29.1
     src: htmlwidgets/assets/moment
     script: moment.min.js
   - name: bttn
