@@ -1,23 +1,24 @@
 dependencies:
   - name: tui-code-snippet
     version: 1.5.2
-    src: htmlwidgets/assets/tui-code-snippet2
-    script: tui-code-snippet.min.js
+    src: htmlwidgets/assets/tui-calendar/node_modules/tui-code-snippet
+    script: dist/tui-code-snippet.min.js
   - name: tui-time-picker
     version: 2.0.3
     src: htmlwidgets/assets/tui-time-picker
-    script: tui-time-picker.min.js
-    stylesheet: tui-time-picker.min.css
+    script: dist/tui-time-picker.min.js
+    stylesheet: dist/tui-time-picker.min.css
   - name: tui-date-picker
-    version: 4.1.0
+    version: 4.2.0
     src: htmlwidgets/assets/tui-date-picker
-    script: tui-date-picker.min.js
-    stylesheet: tui-date-picker.min.css
+    script: dist/tui-date-picker.min.js
+    stylesheet: dist/tui-date-picker.min.css
   - name: tui-calendar
-    version: 1.12.3
+    version: 1.13.0
     src: htmlwidgets/assets/tui-calendar
-    script: tui-calendar.min.js
-    stylesheet: tui-calendar.min.css
+    script: dist/tui-calendar.min.js
+    stylesheet: dist/tui-calendar.min.css
+    all_files: false
   - name: moment
     version: 2.24.0
     src: htmlwidgets/assets/moment

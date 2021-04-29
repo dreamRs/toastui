@@ -1,6 +1,6 @@
 dependencies:
   - name: tui-chart
-    version: 4.3.1
-    src: htmlwidgets/assets/tui-chart
-    script: toastui-chart.min.js
-    stylesheet: toastui-chart.min.css
+    version: 4.3.2
+    src: htmlwidgets/assets/@toast-ui/chart
+    script: dist/toastui-chart.min.js
+    stylesheet: dist/toastui-chart.min.css

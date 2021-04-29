@@ -7,3 +7,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^node_modules$
+^package\.json$
+^package-lock\.json$

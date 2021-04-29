@@ -12,7 +12,7 @@
 
 You can install toastui from GitHub with:
 
-``` r
+```r
 remotes::install_github("dreamRs/toastui")
 ```
 
