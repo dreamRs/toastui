@@ -153,15 +153,20 @@ cal_proxy_add <- function(proxy, value) {
   if (!is.list(value))
     stop("cal_proxy_add: value must be a list", call. = FALSE)
   if (is.null(value$id)) {
-    value$id <- paste0("shd_", genId(4))
+    value$id <- paste0("shd_", genId(4, length(value[[1]])))
   }
   if (is.null(value$calendarId)) {
-    value$calendarId <- paste0("clnd_", genId(4))
+    value$calendarId <- paste0("clnd_", genId(4, length(value[[1]])))
+  }
+  if (is.data.frame(value)) {
+    value <- apply(value, 1, as.list)
+  } else {
+    value <- list(value)
   }
   .call_proxy(
     proxy = proxy,
     name = "calendar-add",
-    schedule = list(value)
+    schedule = value
   )
 }
 
