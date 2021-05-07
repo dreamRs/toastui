@@ -10,7 +10,7 @@ ui <- fluidPage(
       width = 4,
       actionButton(
         inputId = "add", 
-        label = "Add multiples schedule"
+        label = "Add multiple schedules"
       ),
       actionButton(
         inputId = "clear", 

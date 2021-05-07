@@ -36,6 +36,8 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           install.packages("pkgdown", type = "binary")
+          install.packages("dplyr", type = "binary")
+          install.packages("ggplot2", type = "binary")
         shell: Rscript {0}
 
       - name: Install package
