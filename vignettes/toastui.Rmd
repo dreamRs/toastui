@@ -28,11 +28,15 @@ library(toastui)
 
 ## Grid
 
-Create interactive tables with lot of options to customize content and that you can edit in Shiny applications. Full documentation and examples are available here:
+Create interactive tables with lot of options to customize content and that you can edit in Shiny applications.
 
-```{r}
-datagrid()
+```{r grid}
+datagrid(rolling_stones_50)
 ```
+
+![](figures/grid.png)
+
+&#8680; [See full documentation and interactive examples](https://dreamrs.github.io/toastui/articles/extras/grid.html)
 
 
 
@@ -40,13 +44,25 @@ datagrid()
 
 Create interactive calendars that you can navigate and display schedules. In Shiny you can add, update or delete schedules.
 
-```{r}
-calendar()
+```{r calendar}
+calendar(cal_demo_data())
 ```
 
+![](figures/calendar.png)
+
+&#8680; [See full documentation and interactive examples](https://dreamrs.github.io/toastui/articles/extras/calendar.html)
 
 
 
+## Chart
 
+Create interactive charts:
 
+```{r chart}
+chart(mtcars, caes(mpg, disp, color = cyl), type = "scatter")
+```
+
+![](figures/chart.png)
+
+&#8680; [See full documentation and interactive examples](https://dreamrs.github.io/toastui/articles/extras/chart.html)
 
