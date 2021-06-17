@@ -10,7 +10,7 @@
     <loc>https://dreamrs.github.io/toastui/reference/caes.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_demo_data.html</loc>
+    <loc>https://dreamrs.github.io/toastui/reference/cal-demo-data.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/cal_events.html</loc>
@@ -47,6 +47,9 @@
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/calendar.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/reference/calendar_properties.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/calendar_proxy.html</loc>

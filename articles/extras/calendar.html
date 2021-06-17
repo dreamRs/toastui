@@ -91,7 +91,9 @@
 <script src="calendar_files/tui-calendar-1.13.0/dist/tui-calendar.min.js"></script><script src="calendar_files/moment-2.29.1/moment.min.js"></script><link href="calendar_files/bttn-0.2.4/bttn.min.css" rel="stylesheet">
 <script src="calendar_files/calendar-binding-0.1.1.9200/calendar.js"></script><link href="calendar_files/font-awesome-5.13.0/css/all.min.css" rel="stylesheet">
 <link href="calendar_files/font-awesome-5.13.0/css/v4-shims.min.css" rel="stylesheet">
-<div class="row">
+<link href="calendar_files/tui-pagination-3.4.0/dist/tui-pagination.min.css" rel="stylesheet">
+<script src="calendar_files/tui-pagination-3.4.0/dist/tui-pagination.min.js"></script><link href="calendar_files/tui-grid-4.17.0/dist/tui-grid.min.css" rel="stylesheet">
+<script src="calendar_files/tui-grid-4.17.0/dist/tui-grid.min.js"></script><script src="calendar_files/datagrid-binding-0.1.1.9200/datagrid.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Calendar</h1>
@@ -124,7 +126,7 @@
 <p>Create a monthly calendar:</p>
 <ul>
 <li>
-<code><a href="../../reference/cal_demo_data.html">cal_demo_data()</a></code> return a <code>data.frame</code> with schedules example</li>
+<code><a href="../../reference/cal-demo-data.html">cal_demo_data()</a></code> return a <code>data.frame</code> with schedules example</li>
 <li>
 <code>useNavigation = TRUE</code>: add navigation buttons to change the month displayed</li>
 <li>
@@ -133,88 +135,118 @@
 <code><a href="../../reference/cal_props.html">cal_props()</a></code>: set properties for schedules groups (background and text color …)</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal_demo_data.html">cal_demo_data</a></span><span class="op">(</span><span class="op">)</span>, useNavigation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal-demo-data.html">cal_demo_data</a></span><span class="op">(</span><span class="op">)</span>, useNavigation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../../reference/cal_month_options.html">cal_month_options</a></span><span class="op">(</span>
     startDayOfWeek  <span class="op">=</span> <span class="fl">1</span>, 
     narrowWeekend <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../../reference/cal_props.html">cal_props</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-      id <span class="op">=</span> <span class="fl">1</span>,
-      name <span class="op">=</span> <span class="st">"PERSO"</span>,
-      color <span class="op">=</span> <span class="st">"white"</span>,
-      bgColor <span class="op">=</span> <span class="st">"firebrick"</span>,
-      borderColor <span class="op">=</span> <span class="st">"firebrick"</span>
-    <span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-      id <span class="op">=</span> <span class="fl">2</span>,
-      name <span class="op">=</span> <span class="st">"WORK"</span>,
-      color <span class="op">=</span> <span class="st">"white"</span>,
-      bgColor <span class="op">=</span> <span class="st">"forestgreen"</span>,
-      borderColor <span class="op">=</span> <span class="st">"forestgreen"</span>
-    <span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
-<div id="htmlwidget-9c429dc22776f5a7c073_menu">
-<span id="htmlwidget-9c429dc22776f5a7c073_menu_navi">
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9c429dc22776f5a7c073_today">Today</button>
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9c429dc22776f5a7c073_prev">
+  <span class="fu"><a href="../../reference/cal_props.html">cal_props</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal-demo-data.html">cal_demo_props</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div id="htmlwidget-6c04c7065c9269cd4d35_menu">
+<span id="htmlwidget-6c04c7065c9269cd4d35_menu_navi">
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-6c04c7065c9269cd4d35_today">Today</button>
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-6c04c7065c9269cd4d35_prev">
 <i class="fa fa-chevron-left"></i>
 </button>
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9c429dc22776f5a7c073_next">
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-6c04c7065c9269cd4d35_next">
 <i class="fa fa-chevron-right"></i>
 </button>
 </span>
-<span id="htmlwidget-9c429dc22776f5a7c073_renderRange" class="render-range"></span>
+<span id="htmlwidget-6c04c7065c9269cd4d35_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-9c429dc22776f5a7c073" style="width:100%;height:600px;" class="calendar html-widget" width="100%" height="600px"></div>
-<script type="application/json" data-for="htmlwidget-9c429dc22776f5a7c073">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false,"month":{"startDayOfWeek":1,"narrowWeekend":true},"calendars":[{"id":1,"name":"PERSO","color":"white","bgColor":"firebrick","borderColor":"firebrick"},{"id":2,"name":"WORK","color":"white","bgColor":"forestgreen","borderColor":"forestgreen"}]},"schedules":[{"category":"time","dueDateClass":"","id":"schedule976a69639c64496c8ad2d7f4","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-05 20:00:00","end":"2021-06-05 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulec3f96f61d68e7f2081ce4f2d","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-12 20:00:00","end":"2021-06-12 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule39a5fcb29e53d3c9f0f1baa1","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-19 20:00:00","end":"2021-06-19 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduleea752071431c0389d6cbaad3","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2021-06-12","end":"2021-06-13","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule072ab6a6cfc049c3a84ff398","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-07","end":"2021-06-08","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule54a467295e0cad90ce4544dd","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-01","end":"2021-06-04","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule1ac5780801bdf0bd876dc27c","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-29","end":"2021-06-29","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule0e328aba3124882260aabc9c","calendarId":"2","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2021-06-08","end":"2021-06-11","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduled024da113c54962b6532d2b9","calendarId":"2","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2021-06-15","end":"2021-06-17","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"scheduledd5073bbe982ad491ce28c10","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2021-06-20 14:00:00","end":"2021-06-20 17:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule3a509f2ace5b50d35c221757","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2021-06-24 12:00:00","end":"2021-06-24 14:00:00","location":"Some restaurant","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule12e187e4be8d01100126f56b","calendarId":"2","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2021-06-27","end":"2021-06-28","location":"Conference center","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule4d643b403b362aa103bda62a","calendarId":"3","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2021-06-03","end":"2021-06-03","location":null,"bgColor":"firebrick","color":"#FAFAFA","borderColor":"firebrick"}],"useNav":true,"events":[],"bttnOpts":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD"}},"evals":[],"jsHooks":[]}</script>
+<br><div id="htmlwidget-6c04c7065c9269cd4d35" style="width:100%;height:600px;" class="calendar html-widget" width="100%" height="600px"></div>
+<script type="application/json" data-for="htmlwidget-6c04c7065c9269cd4d35">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false,"month":{"startDayOfWeek":1,"narrowWeekend":true},"calendars":[{"id":"1","name":"PERSO","color":"#000","bgColor":"#c6d19d","borderColor":"forestgreen"},{"id":"2","name":"WORK","color":"#000","bgColor":"#F5A9A9","borderColor":"firebrick"},{"id":"3","name":"COURSES","color":"#000","bgColor":"#c6e2f6","borderColor":"#3b7cc6"}]},"schedules":[{"category":"time","dueDateClass":"","id":"schedule0f56286a9c9fca9c874fc877","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-05 20:00:00","end":"2021-06-05 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulee887df2112a76328b712c6a7","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-12 20:00:00","end":"2021-06-12 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule74a16cebb006fd802ea4e8ac","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-06-19 20:00:00","end":"2021-06-19 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule832d75d25fc55d7032407a53","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2021-06-12","end":"2021-06-13","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulec0eab90e620e3e35ee2c6e6c","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-07","end":"2021-06-08","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule8558b71c27539844b8821f0b","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-01","end":"2021-06-04","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"scheduleb0521aa060127f3d15e728bc","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-06-29","end":"2021-06-29","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedulebdb54cde6c8cd3f69cc0e9b4","calendarId":"2","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2021-06-08","end":"2021-06-11","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule92abe6e14d8052605ee3f3cd","calendarId":"2","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2021-06-15","end":"2021-06-17","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule407055e6e6c825bb500110ac","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2021-06-20 14:00:00","end":"2021-06-20 17:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule4d1e2b9df0dd50c8c1950921","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2021-06-24 12:00:00","end":"2021-06-24 14:00:00","location":"Some restaurant","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulef4ec1367b1f51600e112ebf4","calendarId":"2","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2021-06-27","end":"2021-06-28","location":"Conference center","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduleca5606ea16dffa198e9ae222","calendarId":"4","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2021-06-03","end":"2021-06-03","location":null,"bgColor":"#FAFAFA","color":"#FF0000","borderColor":"#FF0000"}],"useNav":true,"events":[],"bttnOpts":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD"}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="weekly-calendar" class="section level2">
 <h2 class="hasAnchor">
 <a href="#weekly-calendar" class="anchor"></a>Weekly calendar</h2>
+<p>Create a weekly calendar:</p>
+<ul>
+<li>
+<code><a href="../../reference/cal-demo-data.html">cal_demo_data("week")</a></code> return a <code>data.frame</code> with schedules example for week</li>
+<li>
+<code>view = "week"</code>: activate week view for calendar</li>
+<li>
+<code>defaultDate = Sys.Date()</code>: force calendar to show the specified date (otherwise it shows the current date)</li>
+<li>
+<code><a href="../../reference/cal_week_options.html">cal_week_options()</a></code>: global options for calendar</li>
+<li>
+<code><a href="../../reference/cal_props.html">cal_props()</a></code>: set properties for schedules groups (background and text color …)</li>
+</ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal_demo_data.html">cal_demo_data</a></span><span class="op">(</span><span class="st">"week"</span><span class="op">)</span>, view <span class="op">=</span> <span class="st">"week"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal-demo-data.html">cal_demo_data</a></span><span class="op">(</span><span class="st">"week"</span><span class="op">)</span>, view <span class="op">=</span> <span class="st">"week"</span>, defaultDate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../../reference/cal_week_options.html">cal_week_options</a></span><span class="op">(</span>
     startDayOfWeek <span class="op">=</span> <span class="fl">1</span>,
     workweek <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../../reference/cal_props.html">cal_props</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-      id <span class="op">=</span> <span class="fl">1</span>,
-      name <span class="op">=</span> <span class="st">"COURSES"</span>,
-      color <span class="op">=</span> <span class="st">"white"</span>,
-      bgColor <span class="op">=</span> <span class="st">"steelblue"</span>,
-      borderColor <span class="op">=</span> <span class="st">"steelblue"</span>
-    <span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-      id <span class="op">=</span> <span class="fl">2</span>,
-      name <span class="op">=</span> <span class="st">"WORK"</span>,
-      color <span class="op">=</span> <span class="st">"white"</span>,
-      bgColor <span class="op">=</span> <span class="st">"forestgreen"</span>,
-      borderColor <span class="op">=</span> <span class="st">"forestgreen"</span>
-    <span class="op">)</span>,
-    <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
-      id <span class="op">=</span> <span class="fl">3</span>,
-      name <span class="op">=</span> <span class="st">"WORK"</span>,
-      color <span class="op">=</span> <span class="st">"firebrick"</span>,
-      bgColor <span class="op">=</span> <span class="st">"#D8D8D8"</span>,
-      borderColor <span class="op">=</span> <span class="st">"firebrick"</span>
-    <span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
-<div id="htmlwidget-3a93f999974a5a780efe_menu">
-<span id="htmlwidget-3a93f999974a5a780efe_menu_navi">
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-3a93f999974a5a780efe_today">Today</button>
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-3a93f999974a5a780efe_prev">
+  <span class="fu"><a href="../../reference/cal_props.html">cal_props</a></span><span class="op">(</span><span class="fu"><a href="../../reference/cal-demo-data.html">cal_demo_props</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div id="htmlwidget-b234139f0e9f086f1137_menu">
+<span id="htmlwidget-b234139f0e9f086f1137_menu_navi">
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-b234139f0e9f086f1137_today">Today</button>
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-b234139f0e9f086f1137_prev">
 <i class="fa fa-chevron-left"></i>
 </button>
-<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-3a93f999974a5a780efe_next">
+<button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-b234139f0e9f086f1137_next">
 <i class="fa fa-chevron-right"></i>
 </button>
 </span>
-<span id="htmlwidget-3a93f999974a5a780efe_renderRange" class="render-range"></span>
+<span id="htmlwidget-b234139f0e9f086f1137_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-3a93f999974a5a780efe" style="width:100%;height:600px;" class="calendar html-widget" width="100%" height="600px"></div>
-<script type="application/json" data-for="htmlwidget-3a93f999974a5a780efe">{"x":{"options":{"defaultView":"week","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false,"week":{"startDayOfWeek":1,"workweek":true},"calendars":[{"id":1,"name":"COURSES","color":"white","bgColor":"steelblue","borderColor":"steelblue"},{"id":2,"name":"WORK","color":"white","bgColor":"forestgreen","borderColor":"forestgreen"},{"id":3,"name":"WORK","color":"firebrick","bgColor":"#D8D8D8","borderColor":"firebrick"}]},"schedules":[{"category":"time","dueDateClass":"","id":"schedule9c429dc22776f5a7c0733a93","calendarId":"1","title":"Course 1","body":"Learn something interesting","start":"2021-06-14 8:00:00","end":"2021-06-14 12:00:00"},{"category":"time","dueDateClass":"","id":"schedulef999974a5a780efe51796a16","calendarId":"1","title":"Course 2","body":"Learn something interesting","start":"2021-06-14 14:00:00","end":"2021-06-14 18:00:00"},{"category":"time","dueDateClass":"","id":"schedule0fa4d03f7784bfba0f5a31f4","calendarId":"1","title":"Course 3","body":"Learn something interesting","start":"2021-06-16 08:00:00","end":"2021-06-16 11:00:00"},{"category":"time","dueDateClass":"","id":"schedule462ed369bd39ac8f51020e70","calendarId":"1","title":"Course 4","body":"Learn something interesting","start":"2021-06-17 16:00:00","end":"2021-06-17 19:00:00"},{"category":"time","dueDateClass":"","id":"scheduleac1d22dc1667d6921ef3df11","calendarId":"2","title":"Lunch","body":"Work lunch","start":"2021-06-15 12:00:00","end":"2021-06-15 14:00:00"},{"category":"time","dueDateClass":"","id":"schedule99a479929b64311979776159","calendarId":"3","title":"Sport","body":"Make some exercise","start":"2021-06-17 07:00:00","end":"2021-06-17 09:00:00"},{"category":"time","dueDateClass":"","id":"schedule31d511813a8dc6685118f6d1","calendarId":"3","title":"Movie","body":"Go watch a cool movie","start":"2021-06-16 18:00:00","end":"2021-06-16 21:00:00"},{"category":"allday","dueDateClass":"","id":"schedule74bb0a37ff94098b8708b699","calendarId":"3","title":"Day off","body":"Take some rest","start":"2021-06-18","end":"2021-06-18"}],"useNav":false,"events":[],"bttnOpts":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD"}},"evals":[],"jsHooks":[]}</script>
+<br><div id="htmlwidget-b234139f0e9f086f1137" style="width:100%;height:600px;" class="calendar html-widget" width="100%" height="600px"></div>
+<script type="application/json" data-for="htmlwidget-b234139f0e9f086f1137">{"x":{"options":{"defaultView":"week","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false,"week":{"startDayOfWeek":1,"workweek":true},"calendars":[{"id":"1","name":"PERSO","color":"#000","bgColor":"#c6d19d","borderColor":"forestgreen"},{"id":"2","name":"WORK","color":"#000","bgColor":"#F5A9A9","borderColor":"firebrick"},{"id":"3","name":"COURSES","color":"#000","bgColor":"#c6e2f6","borderColor":"#3b7cc6"}]},"schedules":[{"category":"time","dueDateClass":"","id":"schedule6c04c7065c9269cd4d35b234","calendarId":"3","title":"Course 1","body":"Learn something interesting","start":"2021-06-14 8:00:00","end":"2021-06-14 12:00:00"},{"category":"time","dueDateClass":"","id":"schedule139f0e9f086f11370a522e68","calendarId":"3","title":"Course 2","body":"Learn something interesting","start":"2021-06-14 14:00:00","end":"2021-06-14 18:00:00"},{"category":"time","dueDateClass":"","id":"schedule1cf109cba736de341029d70c","calendarId":"3","title":"Course 3","body":"Learn something interesting","start":"2021-06-16 08:00:00","end":"2021-06-16 11:00:00"},{"category":"time","dueDateClass":"","id":"schedulec60f579ecd2e92a510936734","calendarId":"3","title":"Course 4","body":"Learn something interesting","start":"2021-06-17 16:00:00","end":"2021-06-17 19:00:00"},{"category":"time","dueDateClass":"","id":"schedule6435a24a12547c6f6e9c0b30","calendarId":"2","title":"Lunch","body":"Work lunch","start":"2021-06-15 12:00:00","end":"2021-06-15 14:00:00"},{"category":"time","dueDateClass":"","id":"schedule0a7b34652564be6c37cc6ce5","calendarId":"2","title":"Meeting","body":"Work meeting","start":"2021-06-15 16:00:00","end":"2021-06-15 18:30:00"},{"category":"time","dueDateClass":"","id":"schedule35736e8f46610457495f2f3e","calendarId":"1","title":"Sport","body":"Make some exercise","start":"2021-06-17 07:00:00","end":"2021-06-17 09:00:00"},{"category":"time","dueDateClass":"","id":"scheduleeeee69efd2a02a50187743c0","calendarId":"1","title":"Movie","body":"Go watch a cool movie","start":"2021-06-16 18:00:00","end":"2021-06-16 21:00:00"},{"category":"allday","dueDateClass":"","id":"schedule9a2d137bcb5bd659b8842a83","calendarId":"1","title":"Day off","body":"Take some rest","start":"2021-06-18","end":"2021-06-18"}],"useNav":false,"defaultDate":"2021-06-17","events":[],"bttnOpts":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD"}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="schedules" class="section level2">
+<h2 class="hasAnchor">
+<a href="#schedules" class="anchor"></a>Schedules</h2>
+<p>To add schedules into a calendar who can pass a <code>data.frame</code> as first argument to <code><a href="../../reference/calendar.html">calendar()</a></code>, or use <code><a href="../../reference/cal_schedules.html">cal_schedules()</a></code> :</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Define directly schedules properties</span>
+<span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../../reference/cal_schedules.html">cal_schedules</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"My schedule"</span>,
+    start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-03 00:00:00"</span><span class="op">)</span>,
+    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-17 00:00:00"</span><span class="op">)</span>
+  <span class="op">)</span>
+
+<span class="co"># Or you can use a data.frame</span>
+<span class="va">my_calendar_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  title <span class="op">=</span> <span class="st">"My schedule"</span>,
+  start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-03 00:00:00"</span><span class="op">)</span>,
+  end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-17 00:00:00"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../../reference/cal_schedules.html">cal_schedules</a></span><span class="op">(</span>
+    <span class="va">my_calendar_data</span>
+  <span class="op">)</span></code></pre></div>
+<p>Properties for schedules are described in table below:</p>
+<div class="datagrid html-widget" id="htmlwidget-0a522e681cf109cba736" style="width:100%;height:600px; margin-bottom: 15px;">
+<div id="htmlwidget-0a522e681cf109cba736-container" class="datagrid html-widget" style="width:100%;height:600px;" width="100%" height="600px"></div>
+</div>
+<script type="application/json" data-for="htmlwidget-0a522e681cf109cba736">{"x":{"nrow":26,"ncol":3,"data":[["id","calendarId","title","body","start","end","goingDuration","comingDuration","isAllDay","category","dueDateClass","location","attendees","recurrenceRule","isPending","isFocused","isVisible","isReadOnly","isPrivate","color","bgColor","dragBgColor","borderColor","customStyle","raw","state"],["[ string ]","string","[ string ]","[ string ]","[ stringTZDate ]","[ stringTZDate ]","[ number ]","[ number ]","[ boolean ]","[ string ]","[ string ]","[ string ]","[ Array ]","[ string ]","[ boolean ]","[ boolean ]","[ boolean ]","[ boolean ]","[ boolean ]","[ string ]","[ string ]","[ string ]","[ string ]","[ string ]","[ any ]","[ string ]"],["The unique schedule id depends on calendar id","The unique calendar id","The schedule title","The schedule body text which is text/plain","The start time. It's 'string' for input. It's 'TZDate' for output like event handler.","The end time. It's 'string' for input. It's 'TZDate' for output like event handler.","The travel time: Going duration minutes","The travel time: Coming duration minutes","The all day schedule","The schedule type('milestone', 'task', allday', 'time')","The task schedule type string                                  (any string value is ok and mandatory if category is 'task')","The location","The attendees","The recurrence rule","The in progress flag to do something like network job(The schedule will be transparent.)","The focused schedule flag","The schedule visibility flag","The schedule read-only flag","The private schedule","The schedule text color","The schedule background color","The schedule background color when dragging it","The schedule left border color","The schedule's custom css class","The user data","The schedule's state ('busy', 'free')"]],"colnames":["Name","Type","Description"],"options":{"columns":[{"header":"Name","name":"Name","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal","fontWeight":"bold"}},"width":150},{"header":"Type","name":"Type","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal"}},"width":150},{"header":"Description","name":"Description","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal"}}}],"bodyHeight":"fitToParent","rowHeight":"auto"},"theme":"clean","themeOptions":{"cell":{"normal":{"showHorizontalBorder":true}}},"language":"en","languageOptions":[],"filters":false,"rowAttributes":[],"validationInput":false,"editorInput":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="calendar-properties" class="section level2">
+<h2 class="hasAnchor">
+<a href="#calendar-properties" class="anchor"></a>Calendar properties</h2>
+<p>Calendar properties can be used to set common appearance to a group of schedules with the same <code>calendarId</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../../reference/calendar.html">calendar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../../reference/cal_schedules.html">cal_schedules</a></span><span class="op">(</span>
+    title <span class="op">=</span> <span class="st">"My schedule"</span>,
+    calendarId <span class="op">=</span> <span class="fl">123</span>, <span class="co"># &lt;-- set a calendarId</span>
+    start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-03 00:00:00"</span><span class="op">)</span>,
+    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-17 00:00:00"</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../../reference/cal_props.html">cal_props</a></span><span class="op">(</span>
+    id <span class="op">=</span> <span class="fl">123</span>, <span class="co"># &lt;-- reference to schedules' calendarId</span>
+    name <span class="op">=</span> <span class="st">"My Calendar"</span>,
+    color <span class="op">=</span> <span class="st">"white"</span>,
+    bgColor <span class="op">=</span> <span class="st">"darkorange"</span>,
+    borderColor <span class="op">=</span> <span class="st">"darkorange"</span>
+  <span class="op">)</span></code></pre></div>
+<p>Properties for calendars are described in table below:</p>
+<div class="datagrid html-widget" id="htmlwidget-de341029d70cc60f579e" style="width:100%;height:auto; margin-bottom: 15px;">
+<div id="htmlwidget-de341029d70cc60f579e-container" class="datagrid html-widget" style="width:100%;height:auto;" width="100%" height="auto"></div>
+</div>
+<script type="application/json" data-for="htmlwidget-de341029d70cc60f579e">{"x":{"nrow":6,"ncol":3,"data":[["id","name","color","bgColor","borderColor","dragBgColor"],["stringnumber","string","string","string","string","string"],["The calendar id","The calendar name","The text color when schedule is displayed","The background color schedule is displayed","The color of left border or bullet point when schedule is displayed","The background color when schedule dragging"]],"colnames":["Name","Type","Description"],"options":{"columns":[{"header":"Name","name":"Name","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal","fontWeight":"bold"}},"width":150},{"header":"Type","name":"Type","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal"}},"width":150},{"header":"Description","name":"Description","sortable":true,"align":"left","whiteSpace":"normal","renderer":{"styles":{"wordBreak":"normal"}}}],"bodyHeight":"auto","rowHeight":"auto"},"theme":"clean","themeOptions":{"cell":{"normal":{"showHorizontalBorder":true}}},"language":"en","languageOptions":[],"filters":false,"rowAttributes":[],"validationInput":false,"editorInput":false},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
