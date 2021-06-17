@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Construct aesthetic mappings — caes • toastui</title>
+<title>Schedules properties — schedules_properties • toastui</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Construct aesthetic mappings — caes" />
-<meta property="og:description" content="Low-level version of ggplot2::aes." />
+<meta property="og:title" content="Schedules properties — schedules_properties" />
+<meta property="og:description" content="This dataset contains properties that can be use to create schedules in calendar." />
 
 
 
@@ -129,61 +129,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Construct aesthetic mappings</h1>
-    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/chart-series.R'><code>R/chart-series.R</code></a></small>
-    <div class="hidden name"><code>caes.Rd</code></div>
+    <h1>Schedules properties</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>schedules_properties.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Low-level version of <code><a href='https://ggplot2.tidyverse.org/reference/aes.html'>ggplot2::aes</a></code>.</p>
+    <p>This dataset contains properties that can be use to create schedules in <code><a href='calendar.html'>calendar</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>caes</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>schedules_properties</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x, y, ...</th>
-      <td><p>List of name-value pairs in the form aesthetic = variable.</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a <code>list</code> of <code>quosure</code>.</p>
+    <p>A <code>data.frame</code> with 26 rows and 3 variables:</p><dl>
+<dt>Name</dt><dd><p>Name of property</p></dd>
+<dt>Type</dt><dd><p>Type</p></dd>
+<dt>Description</dt><dd><p>Description</p></dd>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>caes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>month</span>, y <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;list_of&lt;quosure&gt;&gt;
-#&gt; 
-#&gt; $x
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^month</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7fed5af216c0</span>
-#&gt; 
-#&gt; $y
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^value</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7fed5af216c0</span>
-#&gt; </div><div class='input'><span class='fu'>caes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>month</span>, y <span class='op'>=</span> <span class='va'>value</span>, fill <span class='op'>=</span> <span class='va'>city</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;list_of&lt;quosure&gt;&gt;
-#&gt; 
-#&gt; $x
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^month</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7fed5af216c0</span>
-#&gt; 
-#&gt; $y
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^value</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7fed5af216c0</span>
-#&gt; 
-#&gt; $fill
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^city</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7fed5af216c0</span>
-#&gt; </div></pre>
+</dl>
+
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>Toast UI documentation (<a href='https://nhn.github.io/tui.calendar/latest/Schedule'>https://nhn.github.io/tui.calendar/latest/Schedule</a>)</p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
