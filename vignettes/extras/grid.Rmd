@@ -90,7 +90,7 @@ An other solution to control row displayed is to use pagination.
 
 Activate pagination by indicating the number of rows to display:
 
-```{r}
+```{r pagination}
 datagrid(rolling_stones_50, pagination = 8)
 ```
 
@@ -98,10 +98,20 @@ datagrid(rolling_stones_50, pagination = 8)
 
 ## Sort
 
-Sort is activated by default, you can desactivate like this:
+Sort is enabled by default, you can diable it like this:
 
-```{r}
+```{r sort}
 datagrid(rolling_stones_50, sortable = FALSE)
+```
+
+To enable sorting on a specific set of columns, use `grid_columns()`:
+
+```{r sort-specific, eval=FALSE}
+datagrid(rolling_stones_50, sortable = FALSE) %>% 
+  grid_columns(
+    columns = 1:2, 
+    sortable = TRUE
+  )
 ```
 
 
@@ -110,14 +120,14 @@ datagrid(rolling_stones_50, sortable = FALSE)
 
 You can allow filtering rows in the table with:
 
-```{r}
+```{r filter}
 datagrid(rolling_stones_50, filters = TRUE)
 ```
 
 
 You can customize filter type with `grid_filters()`:
 
-```{r}
+```{r filter-specific}
 datagrid(rolling_stones_50) %>% 
   grid_filters(
     columns = "Artist", 
@@ -193,7 +203,7 @@ datagrid(data, colwidths = "fit", bodyHeight = "auto") %>%
 
 You can edit data in table and retrieve back results in Shiny, double click on any cell to see different options:
 
-```{r}
+```{r edit}
 edit <- data.frame(
   col_text = month.name,
   col_select = month.name,
