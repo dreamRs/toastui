@@ -26,7 +26,7 @@ grid_summary <- function(grid,
   check_grid(grid, "grid_summary")
   stat <- match.arg(stat, several.ok = TRUE)
   position <- match.arg(position)
-  check_grid_column(grid, columns)
+  columns <- check_grid_column(grid, columns)
   if (length(columns) > 1) {
     for (i in columns) {
       grid <- grid_summary(

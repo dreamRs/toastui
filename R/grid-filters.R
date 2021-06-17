@@ -44,7 +44,7 @@ grid_filters <- function(grid,
                          format = "yyyy-MM-dd",
                          type = "auto") {
   check_grid(grid)
-  check_grid_column(grid, columns)
+  columns <- check_grid_column(grid, columns)
   type <- match.arg(type, several.ok = TRUE, choices = c("auto", "text", "date", "number", "select"))
   n_col <- length(columns)
   if (!is.null(showApplyBtn))

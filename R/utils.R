@@ -24,14 +24,18 @@ check_chart <- function(chart, fun = as.character(sys.call(sys.parent()))[1L]) {
 }
 
 check_grid_column <- function(grid, column, fun = as.character(sys.call(sys.parent()))[1L]) {
+  if (is.numeric(column)) {
+    column <- grid$x$colnames[column]
+  }
   if (!is.character(column)) {
-    stop(fun, ": column(s) must be a character vector.", call. = FALSE)
+    stop(fun, ": column(s) must be a character vector or a numeric indice.", call. = FALSE)
   }
   var_diff <- setdiff(column, grid$x$colnames)
   if (length(var_diff) > 0) {
     stop(fun, ": Variable(s) ", paste(var_diff, collapse = ", "),
          " are not valid columns in data passed to datagrid()", call. = FALSE)
   }
+  return(column)
 }
 
 to_hyphen <- function(x) {

@@ -12,7 +12,7 @@
 #' @example examples/ex-grid_row_merge.R
 grid_row_merge <- function(grid, columns) {
   check_grid(grid)
-  check_grid_column(grid, columns)
+  columns <- check_grid_column(grid, columns)
   for (column in columns) {
     vec <- grid$x$data_df[[column]]
     lengths <- rle(as.character(vec))$lengths

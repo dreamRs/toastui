@@ -64,7 +64,7 @@ grid_columns <- function(grid,
   check_grid(grid)
   if (missing(columns))
     columns <- grid$x$colnames
-  check_grid_column(grid, columns)
+  columns <- check_grid_column(grid, columns)
   config <- dropNulls(list(
     header = header,
     ellipsis = ellipsis,
@@ -170,7 +170,7 @@ grid_col_button <- function(grid,
   check_grid(grid, "grid_col_button")
   status <- match.arg(status)
   stopifnot(is.character(column) & length(column) == 1)
-  check_grid_column(grid, column)
+  column <- check_grid_column(grid, column)
   if (!is.null(icon)) {
     icon_deps <- htmltools::findDependencies(icon)
     grid$dependencies <- c(
