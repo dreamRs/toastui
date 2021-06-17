@@ -319,6 +319,9 @@ grid_style_column <- function(grid,
     data = grid$x$data_df
   )
   props <- as.data.frame(dropNulls(props))
+  if (identical(nrow(props), 1L)) {
+    props <- props[rep(1, times = nrow(grid$x$data_df)), , drop = FALSE]
+  }
   props$datagridRowKey <- seq_len(nrow(grid$x$data_df))
   lprops <- split(props, props[, setdiff(names(props), "datagridRowKey"), drop = FALSE])
   for (i in seq_along(lprops)) {
