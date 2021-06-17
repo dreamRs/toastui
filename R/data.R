@@ -97,3 +97,18 @@
 #' @source Data collected with package stationaRy from NOAA
 "met_paris"
 
+
+
+#' Schedules properties
+#'
+#' This dataset contains properties that can be use to create schedules in \code{\link{calendar}}.
+#'
+#' @format A \code{data.frame} with 26 rows and 3 variables:
+#' \describe{
+#'   \item{Name}{Name of property}
+#'   \item{Type}{Type}
+#'   \item{Description}{Description}
+#' }
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule})
+"schedules_properties"
+
