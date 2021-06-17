@@ -1,15 +1,22 @@
 
-#' Create demo schedules data
+#' @title Calendar demo data
+#' 
+#' @description Create calendar demo data for schedules and properties
 #'
 #' @param view Calendar view for which to use the data.
 #'
 #' @return a \code{data.frame}.
 #' @export
+#' 
+#' @name cal-demo-data
 #'
 #' @examples
 #'
 #' # Monthly schedule
 #' cal_demo_data("month")
+#' 
+#' #' # Weekly schedule
+#' cal_demo_data("week")
 cal_demo_data <- function(view = c("month", "week", "day")) {
   view <- match.arg(view)
   if (identical(view, "month")) {
@@ -99,38 +106,38 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
         bgColor = NA, color = NA, borderColor = NA
       ),
       list(
-        calendarId = 3, title = "Mum birthday", body = "Dont forget!!!", recurrenceRule = NA,
+        calendarId = 4, title = "Mum birthday", body = "Dont forget!!!", recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-03"),
         end = format(Sys.Date(), format = "%Y-%m-03"),
         category = "allday", location = NA,
-        bgColor = "firebrick", color = "#FAFAFA", borderColor = "firebrick"
+        bgColor = "#FAFAFA", color = "#FF0000", borderColor = "#FF0000"
       )
     )
   } else if (identical(view, "week")) {
     schedules <- list(
       list(
-        calendarId = 1,
+        calendarId = 3,
         title = "Course 1", body = "Learn something interesting",
         start = format(get_day_week(1), format = "%Y-%m-%d 8:00:00"),
         end = format(get_day_week(1), format = "%Y-%m-%d 12:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = 3,
         title = "Course 2", body = "Learn something interesting",
         start = format(get_day_week(1), format = "%Y-%m-%d 14:00:00"),
         end = format(get_day_week(1), format = "%Y-%m-%d 18:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = 3,
         title = "Course 3", body = "Learn something interesting",
         start = format(get_day_week(3), format = "%Y-%m-%d 08:00:00"),
         end = format(get_day_week(3), format = "%Y-%m-%d 11:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = 3,
         title = "Course 4", body = "Learn something interesting",
         start = format(get_day_week(4), format = "%Y-%m-%d 16:00:00"),
         end = format(get_day_week(4), format = "%Y-%m-%d 19:00:00"),
@@ -144,21 +151,28 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = 2,
+        title = "Meeting", body = "Work meeting",
+        start = format(get_day_week(2), format = "%Y-%m-%d 16:00:00"),
+        end = format(get_day_week(2), format = "%Y-%m-%d 18:30:00"),
+        category = "time"
+      ),
+      list(
+        calendarId = 1,
         title = "Sport", body = "Make some exercise",
         start = format(get_day_week(4), format = "%Y-%m-%d 07:00:00"),
         end = format(get_day_week(4), format = "%Y-%m-%d 09:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = 1,
         title = "Movie", body = "Go watch a cool movie",
         start = format(get_day_week(3), format = "%Y-%m-%d 18:00:00"),
         end = format(get_day_week(3), format = "%Y-%m-%d 21:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = 1,
         title = "Day off", body = "Take some rest",
         start = format(get_day_week(5), format = "%Y-%m-%d"),
         end = format(get_day_week(5), format = "%Y-%m-%d"),
@@ -181,6 +195,33 @@ get_day_week <- function(day) {
 
 
 
-
-
+#' @export
+#' 
+#' @rdname cal-demo-data
+cal_demo_props <- function() {
+  props <- list(
+    list(
+      id = 1,
+      name = "PERSO",
+      color = "#000",
+      bgColor = "#c6d19d",
+      borderColor = "forestgreen"
+    ),
+    list(
+      id = 2,
+      name = "WORK",
+      color = "#000",
+      bgColor = "#F5A9A9",
+      borderColor = "firebrick"
+    ),
+    list(
+      id = 3,
+      name = "COURSES",
+      color = "#000",
+      bgColor = "#c6e2f6", 
+      borderColor = "#3b7cc6"
+    )
+  )
+  do.call("rbind", lapply(props, as.data.frame))
+}
 

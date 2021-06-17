@@ -112,3 +112,17 @@
 #' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule})
 "schedules_properties"
 
+
+#' Calendar properties
+#'
+#' This dataset contains properties that can be used to set calendars properties in \code{\link{cal_props}}.
+#'
+#' @format A \code{data.frame} with 6 rows and 3 variables:
+#' \describe{
+#'   \item{Name}{Name of property}
+#'   \item{Type}{Type}
+#'   \item{Description}{Description}
+#' }
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps})
+"calendar_properties"
+
