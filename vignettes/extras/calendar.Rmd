@@ -23,7 +23,7 @@ library(toastui)
 
 Create interactive calendars with:
 
-```{r, eval=FALSE}
+```{r usage, eval=FALSE}
 calendar()
 ```
 
@@ -42,65 +42,122 @@ Create a monthly calendar:
 * `cal_month_options()`: global options for calendar
 * `cal_props()`: set properties for schedules groups (background and text color ...)
 
-```{r}
+```{r monthly}
 calendar(cal_demo_data(), useNavigation = TRUE) %>%
   cal_month_options(
     startDayOfWeek  = 1, 
     narrowWeekend = TRUE
   ) %>% 
-  cal_props(
-    list(
-      id = 1,
-      name = "PERSO",
-      color = "white",
-      bgColor = "firebrick",
-      borderColor = "firebrick"
-    ),
-    list(
-      id = 2,
-      name = "WORK",
-      color = "white",
-      bgColor = "forestgreen",
-      borderColor = "forestgreen"
-    )
-  )
+  cal_props(cal_demo_props())
 ```
 
 
 
 ## Weekly calendar
 
-```{r}
-calendar(cal_demo_data("week"), view = "week") %>% 
+Create a weekly calendar:
+
+* `cal_demo_data("week")` return a `data.frame` with schedules example for week
+* `view = "week"`: activate week view for calendar
+* `defaultDate = Sys.Date()`: force calendar to show the specified date (otherwise it shows the current date)
+* `cal_week_options()`: global options for calendar
+* `cal_props()`: set properties for schedules groups (background and text color ...)
+
+```{r weekly}
+calendar(cal_demo_data("week"), view = "week", defaultDate = Sys.Date()) %>% 
   cal_week_options(
     startDayOfWeek = 1,
     workweek = TRUE
   ) %>% 
-  cal_props(
-    list(
-      id = 1,
-      name = "COURSES",
-      color = "white",
-      bgColor = "steelblue",
-      borderColor = "steelblue"
-    ),
-    list(
-      id = 2,
-      name = "WORK",
-      color = "white",
-      bgColor = "forestgreen",
-      borderColor = "forestgreen"
-    ),
-    list(
-      id = 3,
-      name = "WORK",
-      color = "firebrick",
-      bgColor = "#D8D8D8",
-      borderColor = "firebrick"
+  cal_props(cal_demo_props())
+```
+
+
+
+## Schedules
+
+To add schedules into a calendar who can pass a `data.frame` as first argument to `calendar()`, or use `cal_schedules()` :
+
+```{r schedules, eval=FALSE}
+# Define directly schedules properties
+calendar() %>%
+  cal_schedules(
+    title = "My schedule",
+    start = format(Sys.Date(), "%Y-%m-03 00:00:00"),
+    end = format(Sys.Date(), "%Y-%m-17 00:00:00")
+  )
+
+# Or you can use a data.frame
+my_calendar_data <- data.frame(
+  title = "My schedule",
+  start = format(Sys.Date(), "%Y-%m-03 00:00:00"),
+  end = format(Sys.Date(), "%Y-%m-17 00:00:00")
+)
+calendar() %>%
+  cal_schedules(
+    my_calendar_data
+  )
+```
+
+Properties for schedules are described in table below:
+
+```{r schedules-properties, echo=FALSE}
+datagrid(schedules_properties) %>% 
+  grid_columns(
+    column = "Name", 
+    width = 150,
+    renderer = list(
+      styles = list(
+        fontWeight = "bold"
+      )
     )
+  ) %>% 
+  grid_columns(
+    column = "Type", 
+    width = 150
   )
 ```
 
 
 
+## Calendar properties
+
+Calendar properties can be used to set common appearance to a group of schedules with the same `calendarId`. 
+
+```{r props, eval=FALSE}
+calendar() %>%
+  cal_schedules(
+    title = "My schedule",
+    calendarId = 123, # <-- set a calendarId
+    start = format(Sys.Date(), "%Y-%m-03 00:00:00"),
+    end = format(Sys.Date(), "%Y-%m-17 00:00:00")
+  ) %>% 
+  cal_props(
+    id = 123, # <-- reference to schedules' calendarId
+    name = "My Calendar",
+    color = "white",
+    bgColor = "darkorange",
+    borderColor = "darkorange"
+  )
+```
+
+
+Properties for calendars are described in table below:
+
+```{r calendar-properties, echo=FALSE}
+datagrid(calendar_properties, bodyHeight = "auto") %>% 
+  grid_columns(
+    column = "Name", 
+    width = 150,
+    renderer = list(
+      styles = list(
+        fontWeight = "bold"
+      )
+    )
+  ) %>% 
+  grid_columns(
+    column = "Type", 
+    width = 150
+  )
+```
 
