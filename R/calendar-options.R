@@ -97,3 +97,73 @@ cal_month_options <- function(cal,
   )
 }
 
+
+
+
+
+
+
+
+#' @title Calendar Timezone
+#'
+#' @description Set a custom time zone. You can add secondary timezone in the weekly/daily view.
+#'
+#' @param cal A \code{calendar} object.
+#' @param timezoneName timezone name (time zone names of the IANA time zone database, such as 'Asia/Seoul', 'America/New_York').
+#'  Basically, it will calculate the offset using 'Intl.DateTimeFormat' with the value of the this property entered.
+#' @param displayLabel The display label of your timezone at weekly/daily view(e.g. 'GMT+09:00')
+#' @param tooltip The tooltip(e.g. 'Seoul')
+#' @param extra_zones A \code{list} with additional timezones to be shown in left timegrid of weekly/daily view.
+#' @param offsetCalculator Javascript function. If you define the 'offsetCalculator' property, the offset calculation is done with this function.
+#' 
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone}
+#' 
+#' @return A \code{calendar} htmlwidget.
+#' @export
+#'
+#' @examples
+#' library(toastui)
+#' calendar(view = "week", defaultDate = "2021-06-18") %>% 
+#'   cal_schedules(
+#'     title = "My schedule",
+#'     start = "2021-06-18T10:00:00",
+#'     end = "2021-06-18T17:00:00",
+#'     category = "time"
+#'   ) %>% 
+#'   # Set primary timezone and add secondary timezone
+#'   cal_timezone(
+#'     timezoneName = "Europe/Paris",
+#'     displayLabel = "GMT+02:00",
+#'     tooltip = "Paris",
+#'     extra_zones = list(
+#'       list(
+#'         timezoneName = "Asia/Seoul",
+#'         displayLabel = "GMT+09:00",
+#'         tooltip = "Seoul"
+#'       )
+#'     )
+#'   )
+cal_timezone <- function(cal, 
+                         timezoneName = NULL,
+                         displayLabel = NULL,
+                         tooltip = NULL,
+                         extra_zones = NULL, 
+                         offsetCalculator = NULL) {
+  check_cal(cal, "cal_timezone")
+  zones <- list(
+    dropNulls(list(
+      timezoneName = timezoneName, 
+      displayLabel = displayLabel, 
+      tooltip = tooltip
+    ))
+  )
+  if (!is.null(extra_zones)) {
+    zones <- c(zones, extra_zones)
+  }
+  .widget_options(
+    widget = cal,
+    name_opt = "timezone",
+    zones = zones,
+    offsetCalculator = offsetCalculator
+  )
+}
