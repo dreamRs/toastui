@@ -22,7 +22,9 @@ dependencies:
   - name: moment
     version: 2.29.1
     src: htmlwidgets/assets/moment
-    script: moment.min.js
+    script: 
+      - moment.min.js
+      - moment-timezone.min.js
   - name: bttn
     version: 0.2.4
     src: htmlwidgets/assets/bttn
