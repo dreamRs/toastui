@@ -87,7 +87,7 @@ A \code{datagrid} htmlwidget.
 Set options for one or several specific column.
 }
 \note{
-Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
+Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid/}.
 }
 \examples{
 library(toastui)

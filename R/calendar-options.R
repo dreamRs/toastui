@@ -13,7 +13,7 @@
 #' @param hourStart Numeric. Can limit of render hour start.
 #' @param hourEnd Numeric. Can limit of render hour end.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/WeekOptions}
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/WeekOptions/}
 #'
 #' @export
 #'
@@ -62,7 +62,7 @@ cal_week_options <- function(cal,
 #' @param grid List of parameters, see online documentation.
 #' @param scheduleFilter List of parameters, see online documentation.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/MonthOptions}
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/MonthOptions/}
 #'
 #' @export
 #'
@@ -116,7 +116,7 @@ cal_month_options <- function(cal,
 #' @param extra_zones A \code{list} with additional timezones to be shown in left timegrid of weekly/daily view.
 #' @param offsetCalculator Javascript function. If you define the 'offsetCalculator' property, the offset calculation is done with this function.
 #' 
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone}
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone/}
 #' 
 #' @return A \code{calendar} htmlwidget.
 #' @export

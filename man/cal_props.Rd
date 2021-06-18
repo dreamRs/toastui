@@ -11,7 +11,7 @@ cal_props(cal, ...)
 
 \item{...}{Either named arguments to use as calendar properties or a
 \code{data.frame} with rows as calendars and columns as properties.
-See \url{https://nhn.github.io/tui.calendar/latest/CalendarProps} for options.}
+See \url{https://nhn.github.io/tui.calendar/latest/CalendarProps/} for options.}
 }
 \value{
 A \code{calendar} htmlwidget.

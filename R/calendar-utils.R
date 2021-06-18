@@ -57,7 +57,7 @@ cal_events <- function(cal,
 #' @param ... Named arguments to customize appearance with CSS. See online documentation for full list of options.
 #' @param .list Alternative to \code{...} for using a list.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig}
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig/}
 #'
 #' @export
 #' @return A \code{calendar} htmlwidget object.
@@ -94,7 +94,7 @@ cal_theme <- function(cal, ..., .list = NULL) {
 #' @param alldayTitle The allday title (at left column) template function.
 #' @param ... Additionals arguments, see online documentation.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template}.
+#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template/}.
 #'  All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}. 
 #'
 #' @export

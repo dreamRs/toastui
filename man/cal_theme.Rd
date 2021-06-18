@@ -23,7 +23,7 @@ Full configuration for theme.
 "month" prefix is for monthly view.
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig}
+Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig/}
 }
 \examples{
 calendar(view = "month") \%>\%

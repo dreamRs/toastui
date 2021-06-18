@@ -13,7 +13,7 @@ A \code{data.frame} with 26 rows and 3 variables:
 }
 }
 \source{
-Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule})
+Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule/})
 }
 \usage{
 schedules_properties

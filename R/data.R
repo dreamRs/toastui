@@ -109,7 +109,7 @@
 #'   \item{Type}{Type}
 #'   \item{Description}{Description}
 #' }
-#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule})
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule/})
 "schedules_properties"
 
 
@@ -123,6 +123,6 @@
 #'   \item{Type}{Type}
 #'   \item{Description}{Description}
 #' }
-#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps})
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps/})
 "calendar_properties"
 

@@ -13,7 +13,7 @@ A \code{data.frame} with 6 rows and 3 variables:
 }
 }
 \source{
-Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps})
+Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps/})
 }
 \usage{
 calendar_properties

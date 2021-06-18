@@ -4,7 +4,7 @@
 #'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
 #'
 #' @param data A \code{data.frame} or something convertible in \code{data.frame}.
-#' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.
+#' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid/}.
 #' @param sortable Logical, allow to sort columns.
 #' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
 #' @param filters Logical, allow to filter columns.

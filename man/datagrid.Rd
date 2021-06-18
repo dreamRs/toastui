@@ -22,7 +22,7 @@ datagrid(
 \arguments{
 \item{data}{A \code{data.frame} or something convertible in \code{data.frame}.}
 
-\item{...}{Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid}.}
+\item{...}{Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid/}.}
 
 \item{sortable}{Logical, allow to sort columns.}
 

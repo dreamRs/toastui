@@ -1,6 +1,6 @@
 # toastui
 
-> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid), [Calendar](https://ui.toast.com/tui-calendar) and [Chart](https://ui.toast.com/tui-chart).
+> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid/), [Calendar](https://ui.toast.com/tui-calendar/) and [Chart](https://ui.toast.com/tui-chart/).
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)

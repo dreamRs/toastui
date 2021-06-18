@@ -34,7 +34,7 @@
 #'  the text line is broken by fitting to the column's width and new line characters.
 #' @param ... Additional parameters.
 #'
-#' @note Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid}.
+#' @note Documentation come from \url{https://nhn.github.io/tui.grid/latest/Grid/}.
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
