@@ -307,13 +307,14 @@ HTMLWidgets.widget({
     return {
       renderValue: function(x) {
         addStyle(".datagrid-sparkline-cell {overflow: visible !important;}");
+        var container = document.getElementById(el.id + "-container");
         if (typeof grid !== "undefined") {
           grid.destroy();
-          el.innerHTML = "";
+          container.innerHTML = "";
         }
 
         var options = x.options;
-        options.el = document.getElementById(el.id + "-container");
+        options.el = container;
 
         var rowAttributes = x.rowAttributes;
 
