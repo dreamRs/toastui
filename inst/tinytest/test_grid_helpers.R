@@ -110,3 +110,20 @@ expect_inherits(grid_, "datagrid")
 
 
 
+# theme -------------------------------------------------------------------
+
+set_grid_theme(selection.background = "TEST")
+theme <- getOption("datagrid.theme")
+expect_inherits(theme, "list")
+expect_identical(theme$selection$background, "TEST")
+reset_grid_theme()
+expect_true(length(getOption("datagrid.theme")) < 1)
+
+
+
+# language ----------------------------------------------------------------
+
+set_grid_lang(display.noData = "TEST")
+lang <- getOption("datagrid.language.options")
+expect_inherits(lang, "list")
+expect_identical(lang$display$noData, "TEST")
