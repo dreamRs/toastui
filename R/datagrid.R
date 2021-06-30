@@ -25,7 +25,7 @@
 #' @return A `datagrid` htmlwidget.
 #'
 #' @example examples/ex-datagrid.R
-datagrid <- function(data, ...,
+datagrid <- function(data = list(), ...,
                      sortable = TRUE,
                      pagination = NULL,
                      filters = FALSE,

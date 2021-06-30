@@ -16,7 +16,7 @@
 #' @importFrom htmlwidgets createWidget sizingPolicy
 #'
 #' @example examples/ex-chart.R
-chart <- function(data,
+chart <- function(data = list(),
                   mapping = NULL, 
                   type = c("column", "bar", "area", "line",
                            "scatter", "bubble", "boxPlot", 
@@ -28,6 +28,10 @@ chart <- function(data,
                   width = NULL, 
                   elementId = NULL) {
   type <- match.arg(type)
+  if (length(data) < 1) {
+    data <- list(categories = list(), series = list())
+    mapping <- NULL
+  }
   if (!is.list(options))
     stop("options must be a list")
   if (is.null(height))
