@@ -8,10 +8,10 @@
 #'  other possible values are 'month' and 'day'.
 #' @param defaultDate Default date for displaying calendar.
 #' @param taskView Show the milestone and task in weekly, daily view.
-#'  The default value is true. If the value is a vector, it can be 'milestone', 'task'.
+#'  The default value is \code{FALSE}. If the value is a vector, it can be \code{"milestone"}, \code{"task"}.
 #' @param scheduleView Show the all day and time grid in weekly, daily view.
-#'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
-#' @param useDetailPopup Logical. Display a pop-up on click with detailled informations about schedules.
+#'  The default value is \code{TRUE}. If the value is a vector, it can be \code{"allday"}, \code{"time"}.
+#' @param useDetailPopup Logical. Display a pop-up on click with detailed informations about schedules.
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param useNavigation Add navigation buttons to got to previous or next period, or return to 'today'.
@@ -42,11 +42,11 @@ calendar <- function(data = NULL,
                      height = NULL,
                      elementId = NULL) {
 
-  x = dropNulls(list(
+  x <- list_(
     options = list(
       defaultView = match.arg(view),
-      taskView = taskView,
-      scheduleView = scheduleView,
+      taskView = list1(taskView),
+      scheduleView = list1(scheduleView),
       useDetailPopup = useDetailPopup,
       useCreationPopup = useCreationPopup,
       isReadOnly = isReadOnly,
@@ -57,7 +57,7 @@ calendar <- function(data = NULL,
     defaultDate = defaultDate,
     events = list(),
     bttnOpts = bttnOpts
-  ))
+  )
 
   dependencies <- NULL
   if (isTRUE(useNavigation)) {

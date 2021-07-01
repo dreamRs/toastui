@@ -5,7 +5,7 @@
 \title{Interactive tables with tui-grid}
 \usage{
 datagrid(
-  data,
+  data = list(),
   ...,
   sortable = TRUE,
   pagination = NULL,

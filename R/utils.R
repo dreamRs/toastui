@@ -121,6 +121,8 @@ list_ <- function(...) {
 list1 <- function(x) {
   if (is.null(x))
     return(NULL)
+  if (is.logical(x))
+    return(x)
   if (length(x) == 1 & !is.list(x)) {
     list(x)
   } else {

@@ -5,7 +5,7 @@
 \title{Interactive charts}
 \usage{
 chart(
-  data,
+  data = list(),
   mapping = NULL,
   type = c("column", "bar", "area", "line", "scatter", "bubble", "boxPlot", "heatmap",
     "treemap", "radialBar", "pie", "gauge"),
