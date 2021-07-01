@@ -313,7 +313,12 @@ if (HTMLWidgets.shinyMode) {
   Shiny.addCustomMessageHandler("proxy-toastui-calendar-delete", function(obj) {
     var cal = get_widget(obj.id);
     if (typeof cal != "undefined") {
-      cal.deleteSchedule(obj.data.id, obj.data.calendarId);
+      console.log(obj.data);
+      var scheduleId = obj.data.scheduleId;
+      var calendarId = obj.data.calendarId;
+      for (let i = 0; i < scheduleId.length; i += 1) {
+        cal.deleteSchedule(scheduleId[i], calendarId[i]);
+      }
     }
   });
   Shiny.addCustomMessageHandler("proxy-toastui-calendar-update", function(obj) {

@@ -76,9 +76,9 @@ server <- function(input, output, session) {
   
   observeEvent(input$delete, {
     calendarProxy("my_calendar") %>% 
-      cal_proxy_delete(calendarId = "a", id = input$id) %>% # to be sure, we remove from all calendars
-      cal_proxy_delete(calendarId = "b", id = input$id) %>% 
-      cal_proxy_delete(calendarId = "c", id = input$id)
+      cal_proxy_delete(list(calendarId = "a", id = input$id)) %>% # to be sure, we remove from all calendars
+      cal_proxy_delete(list(calendarId = "b", id = input$id)) %>% 
+      cal_proxy_delete(list(calendarId = "c", id = input$id))
   })
   
 }

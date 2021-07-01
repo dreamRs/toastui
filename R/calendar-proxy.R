@@ -154,12 +154,16 @@ cal_proxy_add <- function(proxy, value) {
     stop("cal_proxy_add: value must be a list", call. = FALSE)
   if (is.null(value$id)) {
     value$id <- paste0("shd_", genId(4, length(value[[1]])))
+  } else {
+    value$id <- as.character(value$id)
   }
   if (is.null(value$calendarId)) {
     value$calendarId <- paste0("clnd_", genId(4, length(value[[1]])))
+  } else {
+    value$calendarId <- as.character(value$calendarId)
   }
   if (is.data.frame(value)) {
-    value <- apply(value, 1, as.list)
+    value <- rows_to_list(value)
   } else {
     value <- list(value)
   }
@@ -180,8 +184,8 @@ cal_proxy_delete <- function(proxy, value) {
   .call_proxy(
     proxy = proxy,
     name = "calendar-delete",
-    calendarId = value$calendarId,
-    id = value$id
+    calendarId = list1(as.character(value$calendarId)),
+    scheduleId = list1(as.character(value$id))
   )
 }
 

@@ -10,6 +10,8 @@
       calendarId = "1"
     )
   )
+  schedule$calendarId <- as.character(schedule$calendarId)
+  schedule$id <- as.character(schedule$id)
   widget$x$schedules <- append(
     x = widget$x$schedules,
     values = list(schedule)
@@ -34,12 +36,11 @@ cal_schedules <- function(cal, ...) {
   check_cal(cal, "cal_schedules")
   args <- list(...)
   if (inherits(args[[1]], "data.frame")) {
-    df <- as.data.frame(args[[1]])
-    df <- apply(X = df, MARGIN = 1, FUN = as.list)
-    for (i in seq_along(df)) {
+    schedules <- rows_to_list(args[[1]])
+    for (i in seq_along(schedules)) {
       cal <- .add_schedule(
         widget = cal,
-        schedule = df[[i]]
+        schedule = schedules[[i]]
       )
     }
     return(cal)

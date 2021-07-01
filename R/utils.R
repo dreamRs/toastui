@@ -140,6 +140,15 @@ rep_list <- function(l, n) {
   })
 }
 
+rows_to_list <- function(data) {
+  data <- as.data.frame(data)
+  l <- lapply(split(data, seq_len(nrow(data))), as.list)
+  names(l) <- NULL
+  return(l)
+}
+
+
+
 
 
 # Guess columns size ------------------------------------------------------

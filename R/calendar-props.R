@@ -25,12 +25,11 @@ cal_props <- function(cal, ...) {
   check_cal(cal, "cal_props")
   args <- list(...)
   if (inherits(args[[1]], "data.frame")) {
-    df <- as.data.frame(args[[1]])
-    df <- apply(X = df, MARGIN = 1, FUN = as.list)
-    for (i in seq_along(df)) {
+    props <- rows_to_list(args[[1]])
+    for (i in seq_along(props)) {
       cal <- .add_calendar(
         widget = cal,
-        calendar = df[[i]]
+        calendar = props[[i]]
       )
     }
     return(cal)
