@@ -71,14 +71,14 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
         bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
       ),
       list(
-        calendarId = 2, title = "Training 1", body = "Learn programming", recurrenceRule = NA,
+        calendarId = 3, title = "Training 1", body = "Learn programming", recurrenceRule = NA,
         start = as.character(get_day_month("2")[2]),
         end = as.character(get_day_month("2")[2] + 3),
         category = "allday", location = NA,
         bgColor = NA, color = NA, borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Training 2", body = "Learn programming", recurrenceRule = NA,
+        calendarId = 3, title = "Training 2", body = "Learn programming", recurrenceRule = NA,
         start = as.character(get_day_month("2")[3]),
         end = as.character(get_day_month("2")[3] + 2),
         category = "allday", location = NA,
@@ -99,7 +99,7 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
         bgColor = NA, color = NA, borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Conference", body = "Cool R conference", recurrenceRule = NA,
+        calendarId = 3, title = "Conference", body = "Cool R conference", recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-27"),
         end = format(Sys.Date(), format = "%Y-%m-28"),
         category = "allday", location = "Conference center",

@@ -261,3 +261,27 @@ cal_proxy_options <- function(proxy, ...) {
   )
 }
 
+
+#' @title Toggle schedules visibility with Proxy
+#'
+#' @description This function allow to show or hide schedules based on their calendar's ID.
+#'
+#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param calendarId One or several calendar IDs to toggle.
+#' @param toHide Logical, show or hide schedules with provided calendar IDs.
+#'
+#' @return No value.
+#' @export
+#'
+#' @example examples/cal-proxy-toggle.R
+cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {
+  if (is.character(proxy)) {
+    proxy <- calendar_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "calendar-toggle",
+    calendarId = list1(as.character(calendarId)), 
+    toHide = isTRUE(toHide)
+  )
+}

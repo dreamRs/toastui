@@ -1,6 +1,7 @@
 # toastui 0.1.2.9000
 
 * New function `cal_timezone()` to set calendar timezone.
+* New function `cal_proxy_toggle()` to show / hide schedules based on calendar ID.
 
 
 
