@@ -65,10 +65,11 @@ server <- function(input, output, session) {
         draggable = FALSE,
         width = "300px",
         tags$div(
-          style = "width: 250px; position: relative; background: #FFF; padding: 10px; box-shadow: 0px 0.2em 0.4em rgb(0, 0, 0, 0.8); border-radius: 5px;",
+          style = "background: #FFF; padding: 10px; box-shadow: 0px 0.2em 0.4em rgb(0, 0, 0, 0.8); border-radius: 5px;",
           actionLink(
             inputId = "close_calendar_panel", 
-            label = NULL, icon = icon("close"), 
+            label = NULL, 
+            icon = icon("close"), 
             style = "position: absolute; top: 5px; right: 5px;"
           ),
           tags$br(),
