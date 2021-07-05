@@ -4,12 +4,12 @@ dependencies:
     src: htmlwidgets/assets/tui-code-snippet
     script: dist/tui-code-snippet.min.js
   - name: tui-time-picker
-    version: 2.0.3
+    version: 2.1.2
     src: htmlwidgets/assets/tui-time-picker
     script: dist/tui-time-picker.min.js
     stylesheet: dist/tui-time-picker.min.css
   - name: tui-date-picker
-    version: 4.2.0
+    version: 4.2.1
     src: htmlwidgets/assets/tui-date-picker
     script: dist/tui-date-picker.min.js
     stylesheet: dist/tui-date-picker.min.css

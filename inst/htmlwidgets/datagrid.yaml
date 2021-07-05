@@ -1,21 +1,21 @@
 dependencies:
   - name: tui-pagination
-    version: 3.4.0
+    version: 3.4.1
     src: htmlwidgets/assets/tui-pagination
     script: dist/tui-pagination.min.js
     stylesheet: dist/tui-pagination.min.css
   - name: tui-time-picker
-    version: 2.0.3
+    version: 2.1.2
     src: htmlwidgets/assets/tui-time-picker
     script: dist/tui-time-picker.min.js
     stylesheet: dist/tui-time-picker.min.css
   - name: tui-date-picker
-    version: 4.2.0
+    version: 4.2.1
     src: htmlwidgets/assets/tui-date-picker
     script: dist/tui-date-picker.min.js
     stylesheet: dist/tui-date-picker.min.css
   - name: tui-grid
-    version: 4.17.0
+    version: 4.18.0
     src: htmlwidgets/assets/tui-grid
     script: dist/tui-grid.min.js
     stylesheet: dist/tui-grid.min.css
