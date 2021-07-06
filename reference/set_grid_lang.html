@@ -144,7 +144,19 @@
     <pre class="usage"><span class='fu'>set_grid_lang</span><span class='op'>(</span>
   display.noData <span class='op'>=</span> <span class='st'>"No data"</span>,
   display.loadingData <span class='op'>=</span> <span class='st'>"Loading data..."</span>,
-  display.resizeHandleGuide <span class='op'>=</span> <span class='cn'>NULL</span>
+  display.resizeHandleGuide <span class='op'>=</span> <span class='st'>"You can change the width... [truncated]"</span>,
+  filter.contains <span class='op'>=</span> <span class='st'>"Contains"</span>,
+  filter.eq <span class='op'>=</span> <span class='st'>"Equals"</span>,
+  filter.ne <span class='op'>=</span> <span class='st'>"Not equals"</span>,
+  filter.start <span class='op'>=</span> <span class='st'>"Starts with"</span>,
+  filter.end <span class='op'>=</span> <span class='st'>"Ends with"</span>,
+  filter.after <span class='op'>=</span> <span class='st'>"After"</span>,
+  filter.afterEq <span class='op'>=</span> <span class='st'>"After or Equal"</span>,
+  filter.before <span class='op'>=</span> <span class='st'>"Before"</span>,
+  filter.beforeEq <span class='op'>=</span> <span class='st'>"Before or Equal"</span>,
+  filter.apply <span class='op'>=</span> <span class='st'>"Apply"</span>,
+  filter.clear <span class='op'>=</span> <span class='st'>"Clear"</span>,
+  filter.selectAll <span class='op'>=</span> <span class='st'>"Select All"</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -152,7 +164,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>display.noData, display.loadingData, display.resizeHandleGuide</th>
-      <td><p>Language options.</p></td>
+      <td><p>Display language options.</p></td>
+    </tr>
+    <tr>
+      <th>filter.contains, filter.eq, filter.ne, filter.start, filter.end, filter.after, filter.afterEq, filter.before, filter.beforeEq, filter.apply, filter.clear, filter.selectAll</th>
+      <td><p>Filter language options.</p></td>
     </tr>
     </table>
 
@@ -162,13 +178,46 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span>
+
+<span class='co'># Change text displayed when no data in grid</span>
 <span class='fu'>set_grid_lang</span><span class='op'>(</span>display.noData <span class='op'>=</span> <span class='st'>"Pas de donn\u00e9es"</span><span class='op'>)</span>
+<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
-  variable_1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
-  variable_2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>
-<span class='op'>)</span><span class='op'>)</span>
+<span class='co'># change text for filters</span>
+<span class='fu'>set_grid_lang</span><span class='op'>(</span>
+  <span class='co'># Text</span>
+  filter.contains <span class='op'>=</span> <span class='st'>"Contient"</span>,
+  filter.eq <span class='op'>=</span> <span class='st'>"Egal \u00e0"</span>,
+  filter.ne <span class='op'>=</span> <span class='st'>"Diff\u00e9rent de"</span>,
+  filter.start <span class='op'>=</span> <span class='st'>"Commence par"</span>,
+  filter.end <span class='op'>=</span> <span class='st'>"Fini par"</span>,
+  <span class='co'># Date</span>
+  filter.after <span class='op'>=</span> <span class='st'>"Apr\u00e8s"</span>,
+  filter.afterEq <span class='op'>=</span> <span class='st'>"Apr\u00e8s ou \u00e9gal \u00e0"</span>,
+  filter.before <span class='op'>=</span> <span class='st'>"Avant"</span>,
+  filter.beforeEq <span class='op'>=</span> <span class='st'>"Avant ou \u00e9gal \u00e0"</span>,
+  <span class='co'># Buttons</span>
+  filter.apply <span class='op'>=</span> <span class='st'>"Appliquer"</span>,
+  filter.clear <span class='op'>=</span> <span class='st'>"Supprimer"</span>,
+  <span class='co'># Select</span>
+  filter.selectAll <span class='op'>=</span> <span class='st'>"Tout s\u00e9lectionner"</span>
+<span class='op'>)</span>
 
+<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>rolling_stones_50</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='grid_filters.html'>grid_filters</a></span><span class='op'>(</span>
+    columns <span class='op'>=</span> <span class='st'>"Artist"</span>, 
+    type <span class='op'>=</span> <span class='st'>"text"</span>,
+    showApplyBtn <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    showClearBtn <span class='op'>=</span> <span class='cn'>TRUE</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='grid_filters.html'>grid_filters</a></span><span class='op'>(</span>
+    columns <span class='op'>=</span> <span class='st'>"Genre"</span>, 
+    type <span class='op'>=</span> <span class='st'>"select"</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='grid_filters.html'>grid_filters</a></span><span class='op'>(</span>
+    columns <span class='op'>=</span> <span class='st'>"Year"</span>, 
+    type <span class='op'>=</span> <span class='st'>"date"</span>
+  <span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
