@@ -94,17 +94,17 @@ library(toastui)
 
 # New header label
 datagrid(mtcars[, 1:5]) \%>\%
-  grid_columns(vars = "mpg", header = "Miles/(US) gallon")
+  grid_columns(columns = "mpg", header = "Miles/(US) gallon")
 
 # Align content to right & resize
 datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = "mpg",
+    columns = "mpg",
     align = "left",
     resizable = TRUE
   ) \%>\%
   grid_columns(
-    vars = "cyl",
+    columns = "cyl",
     align = "left",
     resizable = TRUE
   )
@@ -112,7 +112,7 @@ datagrid(mtcars[, 1:5]) \%>\%
 # Hide a column
 datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = "mpg",
+    columns = "mpg",
     hidden = TRUE
   )
 
@@ -120,7 +120,7 @@ datagrid(mtcars[, 1:5]) \%>\%
 # Set options for 2 columns
 datagrid(mtcars[, 1:5]) \%>\%
   grid_columns(
-    vars = c("mpg", "cyl"),
+    columns = c("mpg", "cyl"),
     header = c("Miles/(US) gallon", "Number of cylinders")
   )
 

@@ -61,7 +61,7 @@ datagrid(iris) \%>\%
 # or use the full form to use more options
 datagrid(iris) \%>\%
   grid_columns(
-    vars = c("Petal.Length", "Petal.Width"),
+    columns = c("Petal.Length", "Petal.Width"),
     header = c("Length", "Width")
   ) \%>\%
   grid_header(

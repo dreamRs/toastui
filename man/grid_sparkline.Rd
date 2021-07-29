@@ -45,7 +45,7 @@ spark$data <- lapply(
 # Create the grid
 datagrid(spark) \%>\%
   grid_columns(
-    vars = "month", width = 150
+    columns = "month", width = 150
   ) \%>\%
   grid_sparkline(
     column = "data",

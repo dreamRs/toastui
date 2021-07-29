@@ -33,7 +33,7 @@ Set options for all columns.
 \examples{
 library(toastui)
 
-#â€— Set minimal width for columns
+# Set minimal width for columns
 datagrid(countries) \%>\%
   grid_columns_opts(
     minWidth = 140
