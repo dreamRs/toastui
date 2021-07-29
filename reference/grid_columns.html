@@ -275,17 +275,17 @@ the text line is broken by fitting to the column's width and new line characters
 
 <span class='co'># New header label</span>
 <span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_columns</span><span class='op'>(</span>vars <span class='op'>=</span> <span class='st'>"mpg"</span>, header <span class='op'>=</span> <span class='st'>"Miles/(US) gallon"</span><span class='op'>)</span>
+  <span class='fu'>grid_columns</span><span class='op'>(</span>columns <span class='op'>=</span> <span class='st'>"mpg"</span>, header <span class='op'>=</span> <span class='st'>"Miles/(US) gallon"</span><span class='op'>)</span>
 
 <span class='co'># Align content to right &amp; resize</span>
 <span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>grid_columns</span><span class='op'>(</span>
-    vars <span class='op'>=</span> <span class='st'>"mpg"</span>,
+    columns <span class='op'>=</span> <span class='st'>"mpg"</span>,
     align <span class='op'>=</span> <span class='st'>"left"</span>,
     resizable <span class='op'>=</span> <span class='cn'>TRUE</span>
   <span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>grid_columns</span><span class='op'>(</span>
-    vars <span class='op'>=</span> <span class='st'>"cyl"</span>,
+    columns <span class='op'>=</span> <span class='st'>"cyl"</span>,
     align <span class='op'>=</span> <span class='st'>"left"</span>,
     resizable <span class='op'>=</span> <span class='cn'>TRUE</span>
   <span class='op'>)</span>
@@ -293,7 +293,7 @@ the text line is broken by fitting to the column's width and new line characters
 <span class='co'># Hide a column</span>
 <span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>grid_columns</span><span class='op'>(</span>
-    vars <span class='op'>=</span> <span class='st'>"mpg"</span>,
+    columns <span class='op'>=</span> <span class='st'>"mpg"</span>,
     hidden <span class='op'>=</span> <span class='cn'>TRUE</span>
   <span class='op'>)</span>
 
@@ -301,7 +301,7 @@ the text line is broken by fitting to the column's width and new line characters
 <span class='co'># Set options for 2 columns</span>
 <span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>grid_columns</span><span class='op'>(</span>
-    vars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mpg"</span>, <span class='st'>"cyl"</span><span class='op'>)</span>,
+    columns <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mpg"</span>, <span class='st'>"cyl"</span><span class='op'>)</span>,
     header <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Miles/(US) gallon"</span>, <span class='st'>"Number of cylinders"</span><span class='op'>)</span>
   <span class='op'>)</span>
 
