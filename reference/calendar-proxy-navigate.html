@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Toggle schedules visibility with Proxy — cal_proxy_toggle • toastui</title>
+<title>Navigate into a calendar with Proxy — calendar-proxy-navigate • toastui</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Toggle schedules visibility with Proxy — cal_proxy_toggle" />
-<meta property="og:description" content="This function allow to show or hide schedules based on their calendar's ID." />
+<meta property="og:title" content="Navigate into a calendar with Proxy — calendar-proxy-navigate" />
+<meta property="og:description" content="Those functions allow to navigate in the calendar from the server in a Shiny application." />
 
 
 
@@ -132,16 +132,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Toggle schedules visibility with Proxy</h1>
+    <h1>Navigate into a calendar with Proxy</h1>
     <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/calendar-proxy.R'><code>R/calendar-proxy.R</code></a></small>
-    <div class="hidden name"><code>cal_proxy_toggle.Rd</code></div>
+    <div class="hidden name"><code>calendar-proxy-navigate.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function allow to show or hide schedules based on their calendar's ID.</p>
+    <p>Those functions allow to navigate in the calendar from the server in a Shiny application.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='va'>proxy</span>, <span class='va'>calendarId</span>, toHide <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>cal_proxy_next</span><span class='op'>(</span><span class='va'>proxy</span><span class='op'>)</span>
+
+<span class='fu'>cal_proxy_prev</span><span class='op'>(</span><span class='va'>proxy</span><span class='op'>)</span>
+
+<span class='fu'>cal_proxy_today</span><span class='op'>(</span><span class='va'>proxy</span><span class='op'>)</span>
+
+<span class='fu'>cal_proxy_date</span><span class='op'>(</span><span class='va'>proxy</span>, <span class='va'>date</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,12 +157,8 @@
       <td><p>A <code><a href='calendar_proxy.html'>calendar_proxy()</a></code> <code>htmlwidget</code> object.</p></td>
     </tr>
     <tr>
-      <th>calendarId</th>
-      <td><p>One or several calendar IDs to toggle.</p></td>
-    </tr>
-    <tr>
-      <th>toHide</th>
-      <td><p>Logical, show or hide schedules with provided calendar IDs.</p></td>
+      <th>date</th>
+      <td><p>A specific date to navigate to.</p></td>
     </tr>
     </table>
 
@@ -168,8 +170,8 @@
     <div class='dont-index'><p>Other calendar proxy methods: 
 <code><a href='cal_proxy_clear.html'>cal_proxy_clear</a>()</code>,
 <code><a href='cal_proxy_options.html'>cal_proxy_options</a>()</code>,
+<code><a href='cal_proxy_toggle.html'>cal_proxy_toggle</a>()</code>,
 <code><a href='cal_proxy_view.html'>cal_proxy_view</a>()</code>,
-<code><a href='calendar-proxy-navigate.html'>calendar-proxy-navigate</a></code>,
 <code><a href='calendar-proxy-schedule.html'>calendar-proxy-schedule</a></code>,
 <code><a href='calendar_proxy.html'>calendar_proxy</a>()</code></p></div>
 
@@ -178,64 +180,52 @@
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span>
 
 <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
+  <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h2</span><span class='op'>(</span><span class='st'>"Navigate in calendar with actionButtons"</span><span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span>
+    inputId <span class='op'>=</span> <span class='st'>"prev_date"</span>,
+    label <span class='op'>=</span> <span class='st'>"Previous"</span>,
+    icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"chevron-left"</span><span class='op'>)</span>
+  <span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span>
+    inputId <span class='op'>=</span> <span class='st'>"next_date"</span>,
+    label <span class='op'>=</span> <span class='st'>"Next"</span>,
+    icon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/icon.html'>icon</a></span><span class='op'>(</span><span class='st'>"chevron-right"</span><span class='op'>)</span>
+  <span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span>
+    inputId <span class='op'>=</span> <span class='st'>"today"</span>,
+    label <span class='op'>=</span> <span class='st'>"Today"</span>
+  <span class='op'>)</span>,
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidRow</a></span><span class='op'>(</span>
     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
-      width <span class='op'>=</span> <span class='fl'>2</span>,
-      <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h4</span><span class='op'>(</span><span class='st'>"Checkbox logic :"</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/checkboxGroupInput.html'>checkboxGroupInput</a></span><span class='op'>(</span>
-        inputId <span class='op'>=</span> <span class='st'>"calendarId"</span>,
-        label <span class='op'>=</span> <span class='st'>"Calendars to show:"</span>,
-        choices <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-          <span class='st'>"Perso"</span> <span class='op'>=</span> <span class='st'>"1"</span>,
-          <span class='st'>"Work"</span> <span class='op'>=</span> <span class='st'>"2"</span>,
-          <span class='st'>"Courses"</span> <span class='op'>=</span> <span class='st'>"3"</span>
-        <span class='op'>)</span>,
-        selected <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>
-      <span class='op'>)</span>,
-      <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h4</span><span class='op'>(</span><span class='st'>"Button logic :"</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"cal_1"</span>, <span class='st'>"Perso"</span>, class<span class='op'>=</span> <span class='st'>"btn-block"</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"cal_2"</span>, <span class='st'>"Work"</span>, class<span class='op'>=</span> <span class='st'>"btn-block"</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"cal_3"</span>, <span class='st'>"Courses"</span>, class<span class='op'>=</span> <span class='st'>"btn-block"</span><span class='op'>)</span>
+      width <span class='op'>=</span> <span class='fl'>9</span>,
+      <span class='fu'><a href='calendar-shiny.html'>calendarOutput</a></span><span class='op'>(</span>outputId <span class='op'>=</span> <span class='st'>"my_calendar"</span><span class='op'>)</span>
     <span class='op'>)</span>,
     <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/column.html'>column</a></span><span class='op'>(</span>
-      width <span class='op'>=</span> <span class='fl'>10</span>,
-      <span class='va'>tags</span><span class='op'>$</span><span class='fu'>h2</span><span class='op'>(</span><span class='st'>"Show / Hide schedules by calendarId"</span><span class='op'>)</span>,
-      <span class='fu'><a href='calendar-shiny.html'>calendarOutput</a></span><span class='op'>(</span>outputId <span class='op'>=</span> <span class='st'>"cal"</span><span class='op'>)</span>,
-      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/htmlOutput.html'>uiOutput</a></span><span class='op'>(</span><span class='st'>"ui"</span><span class='op'>)</span>
+      width <span class='op'>=</span> <span class='fl'>3</span>,
+      <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/textOutput.html'>verbatimTextOutput</a></span><span class='op'>(</span><span class='st'>"result"</span><span class='op'>)</span>
     <span class='op'>)</span>
   <span class='op'>)</span>
 <span class='op'>)</span>
 
 <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
-  
-  <span class='va'>output</span><span class='op'>$</span><span class='va'>cal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calendar-shiny.html'>renderCalendar</a></span><span class='op'>(</span><span class='op'>{</span>
-    <span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span>view <span class='op'>=</span> <span class='st'>"month"</span>, taskView <span class='op'>=</span> <span class='cn'>TRUE</span>, useDetailPopup <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-      <span class='fu'><a href='cal_props.html'>cal_props</a></span><span class='op'>(</span><span class='fu'><a href='cal-demo-data.html'>cal_demo_props</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-      <span class='fu'><a href='cal_schedules.html'>cal_schedules</a></span><span class='op'>(</span><span class='fu'><a href='cal-demo-data.html'>cal_demo_data</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+  <span class='va'>output</span><span class='op'>$</span><span class='va'>my_calendar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calendar-shiny.html'>renderCalendar</a></span><span class='op'>(</span><span class='op'>{</span>
+    <span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span><span class='op'>)</span>
   <span class='op'>}</span><span class='op'>)</span>
 
-  <span class='co'># With checkbox</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>calendarId</span>, <span class='op'>{</span>
-    <span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='st'>"cal"</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>calendarId</span>, toHide <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-    <span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='st'>"cal"</span>, <span class='fu'><a href='https://rdrr.io/r/base/sets.html'>setdiff</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>calendarId</span><span class='op'>)</span>, toHide <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-  <span class='op'>}</span>, ignoreInit <span class='op'>=</span> <span class='cn'>TRUE</span>, ignoreNULL <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-  
-  <span class='co'># With buttons</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>cal_1</span>, <span class='op'>{</span>
-    <span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='st'>"cal"</span>, <span class='st'>"1"</span>, toHide <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>cal_1</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>)</span>
-  <span class='op'>}</span>, ignoreInit <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>cal_2</span>, <span class='op'>{</span>
-    <span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='st'>"cal"</span>, <span class='st'>"2"</span>, toHide <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>cal_2</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>)</span>
-  <span class='op'>}</span>, ignoreInit <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>cal_3</span>, <span class='op'>{</span>
-    <span class='fu'>cal_proxy_toggle</span><span class='op'>(</span><span class='st'>"cal"</span>, <span class='st'>"3"</span>, toHide <span class='op'>=</span> <span class='va'>input</span><span class='op'>$</span><span class='va'>cal_3</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>1</span><span class='op'>)</span>
-  <span class='op'>}</span>, ignoreInit <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-  
+  <span class='va'>output</span><span class='op'>$</span><span class='va'>result</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPrint.html'>renderPrint</a></span><span class='op'>(</span><span class='op'>{</span>
+    <span class='va'>input</span><span class='op'>$</span><span class='va'>my_calendar_dates</span>
+  <span class='op'>}</span><span class='op'>)</span>
+
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>prev_date</span>, <span class='fu'>cal_proxy_prev</span><span class='op'>(</span><span class='st'>"my_calendar"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>next_date</span>, <span class='fu'>cal_proxy_next</span><span class='op'>(</span><span class='st'>"my_calendar"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>today</span>, <span class='fu'>cal_proxy_today</span><span class='op'>(</span><span class='st'>"my_calendar"</span><span class='op'>)</span><span class='op'>)</span>
+
 <span class='op'>}</span>
+
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span>
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

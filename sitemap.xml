@@ -49,6 +49,12 @@
     <loc>https://dreamrs.github.io/toastui/reference/cal_week_options.html</loc>
   </url>
   <url>
+    <loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.html</loc>
+  </url>
+  <url>
     <loc>https://dreamrs.github.io/toastui/reference/calendar-shiny.html</loc>
   </url>
   <url>
@@ -146,12 +152,6 @@
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/met_paris.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/proxy-navigate.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/proxy-schedule.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/ps3_games.html</loc>
