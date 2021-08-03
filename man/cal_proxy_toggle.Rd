@@ -7,7 +7,7 @@
 cal_proxy_toggle(proxy, calendarId, toHide = TRUE)
 }
 \arguments{
-\item{proxy}{A \code{\link{calendar_proxy}} \code{htmlwidget} object.}
+\item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
 \item{calendarId}{One or several calendar IDs to toggle.}
 
@@ -83,3 +83,13 @@ if (interactive())
   shinyApp(ui, server)
 
 }
+\seealso{
+Other calendar proxy methods: 
+\code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_options}()},
+\code{\link{cal_proxy_view}()},
+\code{\link{calendar-proxy-navigate}},
+\code{\link{calendar-proxy-schedule}},
+\code{\link{calendar_proxy}()}
+}
+\concept{calendar proxy methods}

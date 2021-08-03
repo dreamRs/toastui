@@ -7,12 +7,31 @@
 #' @param session the Shiny session object to which the chart belongs; usually the
 #'   default value will suffice.
 #'
+#' @return a `calendar_proxy` object.
+#' 
+#' @family calendar proxy methods
+#' 
 #' @export
 #'
-#' @return a `calendar_proxy` object.
-#'
 #' @importFrom shiny getDefaultReactiveDomain
-#'
+#' 
+#' @examples 
+#' \dontrun{
+#' 
+#' # Consider having created a calendar widget with
+#' calendarOutput("my_calendar") # UI
+#' output$my_calendar <- renderCalendar({}) # Server
+#' 
+#' # Then you can call proxy methods in observer:
+#' 
+#' # set calendar proxy then call a cal_proxy_* function
+#' calendar_proxy("my_calendar") %>% 
+#'   cal_proxy_today()
+#' 
+#' # or directly
+#' cal_proxy_today("my_calendar")
+#' 
+#' }
 calendar_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
   if (is.null(session)) {
     stop("calendar_proxy must be called from the server function of a Shiny app")
@@ -38,14 +57,15 @@ calendar_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain())
 #'
 #' @description Those functions allow to navigate in the calendar from the server in a Shiny application.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param date A specific date to navigate to.
 #'
 #' @export
 #'
 #' @return No value.
 #'
-#' @name proxy-navigate
+#' @name calendar-proxy-navigate
+#' @family calendar proxy methods
 #'
 #' @example examples/cal-proxy-nav.R
 cal_proxy_next <- function(proxy) {
@@ -60,7 +80,7 @@ cal_proxy_next <- function(proxy) {
 }
 
 #' @export
-#' @rdname proxy-navigate
+#' @rdname calendar-proxy-navigate
 cal_proxy_prev <- function(proxy) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
@@ -73,7 +93,7 @@ cal_proxy_prev <- function(proxy) {
 }
 
 #' @export
-#' @rdname proxy-navigate
+#' @rdname calendar-proxy-navigate
 cal_proxy_today <- function(proxy) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
@@ -86,7 +106,7 @@ cal_proxy_today <- function(proxy) {
 }
 
 #' @export
-#' @rdname proxy-navigate
+#' @rdname calendar-proxy-navigate
 cal_proxy_date <- function(proxy, date) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
@@ -105,12 +125,14 @@ cal_proxy_date <- function(proxy, date) {
 #'
 #' @description This function allow to change the calendar view from the server in a Shiny application.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param view The new view for the calendar: "day", "week" or "month".
 #'
 #' @export
 #'
 #' @return No value.
+#' 
+#' @family calendar proxy methods
 #'
 #' @example examples/cal-proxy-view.R
 cal_proxy_view <- function(proxy, view) {
@@ -131,7 +153,7 @@ cal_proxy_view <- function(proxy, view) {
 #' @description These functions allow to create new schedule(s), update existing
 #'  ones and delete schedule in a calendar within the server in a Shiny application.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param value A \code{list} with schedules data.
 #'
 #' @note Those functions are intended to be used with corresponding input value:
@@ -143,7 +165,8 @@ cal_proxy_view <- function(proxy, view) {
 #'
 #' @return No value.
 #'
-#' @name proxy-schedule
+#' @name calendar-proxy-schedule
+#' @family calendar proxy methods
 #'
 #' @example examples/ex-proxy-schedule.R
 cal_proxy_add <- function(proxy, value) {
@@ -175,7 +198,7 @@ cal_proxy_add <- function(proxy, value) {
 }
 
 
-#' @rdname proxy-schedule
+#' @rdname calendar-proxy-schedule
 #' @export
 cal_proxy_delete <- function(proxy, value) {
   if (is.character(proxy)) {
@@ -189,7 +212,7 @@ cal_proxy_delete <- function(proxy, value) {
   )
 }
 
-#' @rdname proxy-schedule
+#' @rdname calendar-proxy-schedule
 #' @export
 cal_proxy_update <- function(proxy, value) {
   if (is.character(proxy)) {
@@ -217,12 +240,14 @@ cal_proxy_update <- function(proxy, value) {
 #'
 #' @description This function allow to delete all schedules and clear view.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param immediately Render it immediately. Or wait, if you want to add schedule after that for example.
 #'
 #' @export
 #'
 #' @return No value.
+#' 
+#' @family calendar proxy methods
 #' 
 #' @example examples/cal-proxy-clear.R
 cal_proxy_clear <- function(proxy, immediately = TRUE) {
@@ -241,7 +266,7 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #'
 #' @description This function allow to set options for a calendar.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param ... Options for the calendar, you can use arguments from \code{\link{calendar}},
 #'  \code{\link{cal_month_options}} (under the form \code{month = list(...)}),
 #'  \code{\link{cal_week_options}} (under the form \code{week = list(...)})
@@ -249,6 +274,8 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #' @export
 #'
 #' @return No value.
+#' 
+#' @family calendar proxy methods
 #'
 cal_proxy_options <- function(proxy, ...) {
   if (is.character(proxy)) {
@@ -266,12 +293,14 @@ cal_proxy_options <- function(proxy, ...) {
 #'
 #' @description This function allow to show or hide schedules based on their calendar's ID.
 #'
-#' @param proxy A \code{\link{calendar_proxy}} \code{htmlwidget} object.
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param calendarId One or several calendar IDs to toggle.
 #' @param toHide Logical, show or hide schedules with provided calendar IDs.
 #'
 #' @return No value.
 #' @export
+#' 
+#' @family calendar proxy methods
 #'
 #' @example examples/cal-proxy-toggle.R
 cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {

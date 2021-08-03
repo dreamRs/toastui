@@ -7,7 +7,7 @@
 cal_proxy_view(proxy, view)
 }
 \arguments{
-\item{proxy}{A \code{\link{calendar_proxy}} \code{htmlwidget} object.}
+\item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
 \item{view}{The new view for the calendar: "day", "week" or "month".}
 }
@@ -55,3 +55,13 @@ server <- function(input, output, session) {
 if (interactive())
   shinyApp(ui, server)
 }
+\seealso{
+Other calendar proxy methods: 
+\code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_options}()},
+\code{\link{cal_proxy_toggle}()},
+\code{\link{calendar-proxy-navigate}},
+\code{\link{calendar-proxy-schedule}},
+\code{\link{calendar_proxy}()}
+}
+\concept{calendar proxy methods}

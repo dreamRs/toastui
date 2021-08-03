@@ -7,7 +7,7 @@
 cal_proxy_options(proxy, ...)
 }
 \arguments{
-\item{proxy}{A \code{\link{calendar_proxy}} \code{htmlwidget} object.}
+\item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
 \item{...}{Options for the calendar, you can use arguments from \code{\link{calendar}},
 \code{\link{cal_month_options}} (under the form \code{month = list(...)}),
@@ -19,3 +19,13 @@ No value.
 \description{
 This function allow to set options for a calendar.
 }
+\seealso{
+Other calendar proxy methods: 
+\code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_toggle}()},
+\code{\link{cal_proxy_view}()},
+\code{\link{calendar-proxy-navigate}},
+\code{\link{calendar-proxy-schedule}},
+\code{\link{calendar_proxy}()}
+}
+\concept{calendar proxy methods}

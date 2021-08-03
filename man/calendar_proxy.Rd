@@ -20,3 +20,31 @@ a \code{calendar_proxy} object.
 \description{
 Proxy for calendar htmlwidget
 }
+\examples{
+\dontrun{
+
+# Consider having created a calendar widget with
+calendarOutput("my_calendar") # UI
+output$my_calendar <- renderCalendar({}) # Server
+
+# Then you can call proxy methods in observer:
+
+# set calendar proxy then call a cal_proxy_* function
+calendar_proxy("my_calendar") \%>\% 
+  cal_proxy_today()
+
+# or directly
+cal_proxy_today("my_calendar")
+
+}
+}
+\seealso{
+Other calendar proxy methods: 
+\code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_options}()},
+\code{\link{cal_proxy_toggle}()},
+\code{\link{cal_proxy_view}()},
+\code{\link{calendar-proxy-navigate}},
+\code{\link{calendar-proxy-schedule}}
+}
+\concept{calendar proxy methods}

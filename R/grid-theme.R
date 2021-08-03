@@ -2,7 +2,7 @@
 #' @title Set global theme options
 #'
 #' @description Properties to customize grid theme, see full list here :
-#'  \url{https://nhn.github.io/tui.grid/latest/Grid#applyTheme}.
+#'  \url{https://nhn.github.io/tui.grid/latest/Grid/}.
 #'
 #' @param outline.border Color of the table outline.
 #' @param outline.showVerticalBorder Whether vertical outlines of the table are visible.

@@ -7,7 +7,7 @@
 cal_proxy_clear(proxy, immediately = TRUE)
 }
 \arguments{
-\item{proxy}{A \code{\link{calendar_proxy}} \code{htmlwidget} object.}
+\item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
 \item{immediately}{Render it immediately. Or wait, if you want to add schedule after that for example.}
 }
@@ -40,3 +40,13 @@ server <- function(input, output, session) {
 if (interactive())
   shinyApp(ui, server)
 }
+\seealso{
+Other calendar proxy methods: 
+\code{\link{cal_proxy_options}()},
+\code{\link{cal_proxy_toggle}()},
+\code{\link{cal_proxy_view}()},
+\code{\link{calendar-proxy-navigate}},
+\code{\link{calendar-proxy-schedule}},
+\code{\link{calendar_proxy}()}
+}
+\concept{calendar proxy methods}
