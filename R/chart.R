@@ -96,7 +96,9 @@ chart <- function(data = list(),
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
-#'
+#' 
+#' @return Output element that can be included in UI. Render function to create output in server.
+#' 
 #' @name chart-shiny
 #'
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget

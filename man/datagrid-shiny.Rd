@@ -24,6 +24,9 @@ string and have \code{'px'} appended.}
 \item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
 is useful if you want to save an expression in a variable.}
 }
+\value{
+Output element that can be included in UI. Render function to create output in server.
+}
 \description{
 Output and render functions for using \code{\link{datagrid}} within Shiny
 applications and interactive Rmd documents.
