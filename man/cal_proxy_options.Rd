@@ -9,15 +9,61 @@ cal_proxy_options(proxy, ...)
 \arguments{
 \item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
-\item{...}{Options for the calendar, you can use arguments from \code{\link{calendar}},
-\code{\link{cal_month_options}} (under the form \code{month = list(...)}),
-\code{\link{cal_week_options}} (under the form \code{week = list(...)})}
+\item{...}{Options for the calendar, you can use arguments from \code{\link[=calendar]{calendar()}},
+\code{\link[=cal_month_options]{cal_month_options()}} (under the form \code{month = list(...)}),
+\code{\link[=cal_week_options]{cal_week_options()}} (under the form \code{week = list(...)})}
 }
 \value{
 No value.
 }
 \description{
 This function allow to set options for a calendar.
+}
+\examples{
+
+library(shiny)
+library(toastui)
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 4,
+      checkboxInput(
+        inputId = "narrowWeekend",
+        label = "narrowWeekend ?",
+        value = FALSE
+      ),
+      checkboxInput(
+        inputId = "workweek",
+        label = "workweek ?",
+        value = FALSE
+      )
+    ),
+    column(
+      width = 8,
+      calendarOutput("mycal")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  output$mycal <- renderCalendar({
+    calendar(cal_demo_data(), view = "month")
+  })
+  
+  observeEvent(input$narrowWeekend, {
+    cal_proxy_options("mycal", month = list(narrowWeekend = input$narrowWeekend))
+  })
+  
+  observeEvent(input$workweek, {
+    cal_proxy_options("mycal", month = list(workweek = input$workweek))
+  })
+}
+
+if (interactive())
+  shinyApp(ui, server)
+
 }
 \seealso{
 Other calendar proxy methods: 
