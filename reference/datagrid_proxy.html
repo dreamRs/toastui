@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Construct aesthetic mappings — caes • toastui</title>
+<title>Proxy for datagrid htmlwidget — datagrid_proxy • toastui</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Construct aesthetic mappings — caes" />
-<meta property="og:description" content="Low-level version of ggplot2::aes." />
+<meta property="og:title" content="Proxy for datagrid htmlwidget — datagrid_proxy" />
+<meta property="og:description" content="Proxy for datagrid htmlwidget" />
 
 
 
@@ -132,61 +132,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Construct aesthetic mappings</h1>
-    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/chart-series.R'><code>R/chart-series.R</code></a></small>
-    <div class="hidden name"><code>caes.Rd</code></div>
+    <h1>Proxy for datagrid htmlwidget</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/grid-proxy.R'><code>R/grid-proxy.R</code></a></small>
+    <div class="hidden name"><code>datagrid_proxy.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Low-level version of <code><a href='https://ggplot2.tidyverse.org/reference/aes.html'>ggplot2::aes</a></code>.</p>
+    <p>Proxy for datagrid htmlwidget</p>
     </div>
 
-    <pre class="usage"><span class='fu'>caes</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>datagrid_proxy</span><span class='op'>(</span><span class='va'>shinyId</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x, y, ...</th>
-      <td><p>List of name-value pairs in the form aesthetic = variable.</p></td>
+      <th>shinyId</th>
+      <td><p>single-element character vector indicating the output ID of the
+chart to modify (if invoked from a Shiny module, the namespace will be added
+automatically).</p></td>
+    </tr>
+    <tr>
+      <th>session</th>
+      <td><p>the Shiny session object to which the chart belongs; usually the
+default value will suffice.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>list</code> of <code>quosure</code>.</p>
+    <p>A <code>datagrid_proxy</code> object.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other datagrid proxy methods: 
+<code><a href='datagrid_proxy_addrow.html'>datagrid_proxy_addrow</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>caes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>month</span>, y <span class='op'>=</span> <span class='va'>value</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;list_of&lt;quosure&gt;&gt;
-#&gt; 
-#&gt; $x
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^month</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7ffc626681c0</span>
-#&gt; 
-#&gt; $y
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^value</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7ffc626681c0</span>
-#&gt; </div><div class='input'><span class='fu'>caes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>month</span>, y <span class='op'>=</span> <span class='va'>value</span>, fill <span class='op'>=</span> <span class='va'>city</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;list_of&lt;quosure&gt;&gt;
-#&gt; 
-#&gt; $x
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^month</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7ffc626681c0</span>
-#&gt; 
-#&gt; $y
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^value</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7ffc626681c0</span>
-#&gt; 
-#&gt; $fill
-#&gt; <span style='font-weight: bold;'>&lt;quosure&gt;</span>
-#&gt; expr: <span style='color: #0000BB;'>^city</span>
-#&gt; env:  <span style='color: #0000BB;'>0x7ffc626681c0</span>
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+
+<span class='co'># Consider having created a datagrid widget with</span>
+<span class='fu'><a href='datagrid-shiny.html'>datagridOutput</a></span><span class='op'>(</span><span class='st'>"my_grid"</span><span class='op'>)</span> <span class='co'># UI</span>
+<span class='va'>output</span><span class='op'>$</span><span class='va'>my_grid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='datagrid-shiny.html'>renderDatagrid</a></span><span class='op'>(</span><span class='op'>{</span><span class='op'>}</span><span class='op'>)</span> <span class='co'># Server</span>
+
+<span class='co'># Then you can call proxy methods in observer:</span>
+
+<span class='co'># set datagrid proxy then call a cal_proxy_* function</span>
+<span class='fu'>datagrid_proxy</span><span class='op'>(</span><span class='st'>"my_grid"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='datagrid_proxy_addrow.html'>datagrid_proxy_addrow</a></span><span class='op'>(</span><span class='va'>mydata</span><span class='op'>)</span>
+
+<span class='co'># or directly</span>
+<span class='fu'><a href='datagrid_proxy_addrow.html'>datagrid_proxy_addrow</a></span><span class='op'>(</span><span class='st'>"my_grid"</span>, <span class='va'>mydata</span><span class='op'>)</span>
+
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

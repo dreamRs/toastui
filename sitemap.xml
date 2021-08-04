@@ -91,6 +91,12 @@
     <loc>https://dreamrs.github.io/toastui/reference/datagrid.html</loc>
   </url>
   <url>
+    <loc>https://dreamrs.github.io/toastui/reference/datagrid_proxy.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/reference/datagrid_proxy_addrow.html</loc>
+  </url>
+  <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid-cell-style.html</loc>
   </url>
   <url>
@@ -125,12 +131,6 @@
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid_format.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_proxy.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_proxy_addrow.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid_row_merge.html</loc>
