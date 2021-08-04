@@ -12,7 +12,7 @@ cal_proxy_view(proxy, view)
 \item{view}{The new view for the calendar: "day", "week" or "month".}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 This function allow to change the calendar view from the server in a Shiny application.

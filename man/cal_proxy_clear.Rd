@@ -12,7 +12,7 @@ cal_proxy_clear(proxy, immediately = TRUE)
 \item{immediately}{Render it immediately. Or wait, if you want to add schedule after that for example.}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 This function allow to delete all schedules and clear view.

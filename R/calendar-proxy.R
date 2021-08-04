@@ -7,7 +7,7 @@
 #' @param session the Shiny session object to which the chart belongs; usually the
 #'   default value will suffice.
 #'
-#' @return a `calendar_proxy` object.
+#' @return A `calendar_proxy` object.
 #' 
 #' @family calendar proxy methods
 #' 
@@ -62,7 +62,7 @@ calendar_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain())
 #'
 #' @export
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #'
 #' @name calendar-proxy-navigate
 #' @family calendar proxy methods
@@ -130,7 +130,7 @@ cal_proxy_date <- function(proxy, date) {
 #'
 #' @export
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #' 
 #' @family calendar proxy methods
 #'
@@ -163,7 +163,7 @@ cal_proxy_view <- function(proxy, view) {
 #'
 #' @export
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #'
 #' @name calendar-proxy-schedule
 #' @family calendar proxy methods
@@ -245,7 +245,7 @@ cal_proxy_update <- function(proxy, value) {
 #'
 #' @export
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #' 
 #' @family calendar proxy methods
 #' 
@@ -273,7 +273,7 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #'
 #' @export
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #' 
 #' @family calendar proxy methods
 #' 
@@ -298,7 +298,7 @@ cal_proxy_options <- function(proxy, ...) {
 #' @param calendarId One or several calendar IDs to toggle.
 #' @param toHide Logical, show or hide schedules with provided calendar IDs.
 #'
-#' @return No value.
+#' @return A `calendar_proxy` object.
 #' @export
 #' 
 #' @family calendar proxy methods

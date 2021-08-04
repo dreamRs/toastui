@@ -27,7 +27,7 @@ server <- function(input, output, session) {
   value <- reactiveVal(1)
   observeEvent(input$add, {
     row <- value() + 1
-    grid_proxy_addrow(
+    datagrid_proxy_addrow(
       proxy = "grid",
       data = rolling_stones_50[row, ]
     )

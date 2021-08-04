@@ -19,7 +19,7 @@ cal_proxy_update(proxy, value)
 \item{value}{A \code{list} with schedules data.}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 These functions allow to create new schedule(s), update existing

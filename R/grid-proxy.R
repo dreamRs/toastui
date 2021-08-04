@@ -6,11 +6,33 @@
 #'   automatically).
 #' @param session the Shiny session object to which the chart belongs; usually the
 #'   default value will suffice.
-#'
+#' 
+#' @return A `datagrid_proxy` object.
+#' 
+#' @family datagrid proxy methods
+#' 
 #' @export
 #' 
 #' @importFrom shiny getDefaultReactiveDomain
-grid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
+#' 
+#' @examples 
+#' \dontrun{
+#' 
+#' # Consider having created a datagrid widget with
+#' datagridOutput("my_grid") # UI
+#' output$my_grid <- renderDatagrid({}) # Server
+#' 
+#' # Then you can call proxy methods in observer:
+#' 
+#' # set datagrid proxy then call a cal_proxy_* function
+#' datagrid_proxy("my_grid") %>% 
+#'   datagrid_proxy_addrow(mydata)
+#' 
+#' # or directly
+#' datagrid_proxy_addrow("my_grid", mydata)
+#' 
+#' }
+datagrid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
   if (is.null(session)) {
     stop("grid_proxy must be called from the server function of a Shiny app")
   }
@@ -25,24 +47,26 @@ grid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
       id = shinyId,
       x = list()
     ),
-    class = c("datagridProxy", "htmlwidgetProxy")
+    class = c("datagrid_proxy", "htmlwidgetProxy")
   )
 }
 
 
-#' Add rows to a existent \code{datagrid}
+#' Add rows to an existent datagrid
 #'
-#' @param proxy A \code{\link{grid_proxy}} or \code{outputId} of the grid.
-#' @param data \code{data.frame} to append in the grid.
+#' @param proxy A [datagrid_proxy()] or `outputId` of the grid.
+#' @param data `data.frame` to append in the grid.
 #'
-#' @return No value.
+#' @return A `datagrid_proxy` object.
 #' @export
+#' 
+#' @family datagrid proxy methods
 #'
-#' @example examples/grid-prox-addrow.R
-grid_proxy_addrow <- function(proxy, data) {
+#' @example examples/grid-proxy-addrow.R
+datagrid_proxy_addrow <- function(proxy, data) {
   data <- as.data.frame(data)
   if (is.character(proxy)) {
-    proxy <- grid_proxy(proxy)
+    proxy <- datagrid_proxy(proxy)
   }
   .call_proxy(
     proxy = proxy,

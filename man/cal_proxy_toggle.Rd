@@ -14,7 +14,7 @@ cal_proxy_toggle(proxy, calendarId, toHide = TRUE)
 \item{toHide}{Logical, show or hide schedules with provided calendar IDs.}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 This function allow to show or hide schedules based on their calendar's ID.

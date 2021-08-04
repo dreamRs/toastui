@@ -22,7 +22,7 @@ cal_proxy_date(proxy, date)
 \item{date}{A specific date to navigate to.}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 Those functions allow to navigate in the calendar from the server in a Shiny application.

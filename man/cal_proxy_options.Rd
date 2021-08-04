@@ -14,7 +14,7 @@ cal_proxy_options(proxy, ...)
 \code{\link[=cal_week_options]{cal_week_options()}} (under the form \code{week = list(...)})}
 }
 \value{
-No value.
+A \code{calendar_proxy} object.
 }
 \description{
 This function allow to set options for a calendar.
