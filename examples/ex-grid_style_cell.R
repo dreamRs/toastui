@@ -62,15 +62,3 @@ datagrid(cor_longley[, c("Var", vars)]) %>%
     background = "#b51f2e",
     color = "#FFF"
   )
-
-
-
-
-
-
-
-
-
-
-
-

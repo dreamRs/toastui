@@ -160,7 +160,7 @@ grid_style_cells <- function(grid,
                              cssProperties = NULL) {
   check_grid(grid, "grid_style_cells")
   if (!is.character(columns))
-    stop("grid_style_cell: column must be character.", call. = FALSE)
+    stop("grid_style_cells: column must be character.", call. = FALSE)
   fun <- as_function(fun)
   rowKeys <- lapply(
     X = grid$x$data_df[, columns, drop = FALSE],
