@@ -7,6 +7,7 @@
 #' @param complexColumns \code{list}. This options creates new parent
 #'  headers of the multiple columns which includes the headers of
 #'  specified columns, and sets up the hierarchy.
+#' @param columns \code{list}. Options for column's header.
 #' @param align Horizontal alignment of the header content.
 #'  Available values are 'left', 'center', 'right'.
 #' @param valign Vertical alignment of the row header content.
@@ -20,13 +21,14 @@
 #'
 #' @name grid-header
 #'
-#' @example examples/ex-header.R
-grid_header <- function(grid, complexColumns = NULL, align = NULL, valign = NULL, height = NULL) {
+#' @example examples/ex-grid_header.R
+grid_header <- function(grid, complexColumns = NULL, columns = NULL, align = NULL, valign = NULL, height = NULL) {
   check_grid(grid, "grid_header")
   .widget_options2(
     grid, name_opt = "header",
     l = dropNulls(list(
       complexColumns = complexColumns,
+      columns = columns,
       align = align, valign = valign,
       height = height
     ))

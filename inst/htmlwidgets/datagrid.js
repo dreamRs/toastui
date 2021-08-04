@@ -293,6 +293,27 @@ class DatagridSliderRenderer {
   }
 }
 
+class DatagridColumnHeaderHTML {
+  constructor(props) {
+    const columnInfo = props.columnInfo;
+    console.log(columnInfo);
+    const el = document.createElement('div');
+    el.className = "datagrid-header";
+    el.style.padding = "0 5px";
+    el.style.fontWeight = "normal";
+    el.innerHTML = columnInfo.header;
+    this.el = el;
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  render(props) {
+     this.el.innerHTML = props.columnInfo.header;
+  }
+}
+
 
 // HTMLWidgets bindings
 

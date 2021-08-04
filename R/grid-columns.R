@@ -38,6 +38,8 @@
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
+#' 
+#' @importFrom htmltools doRenderTags
 #'
 #' @example examples/ex-grid_columns.R
 grid_columns <- function(grid, 
@@ -92,6 +94,8 @@ grid_columns <- function(grid,
     j <- which(columns == column)
     colOpts <- lapply(config, `[[`, j)
     colOpts$name <- column
+    if (!is.null(colOpts$header))
+      colOpts$header <- htmltools::doRenderTags(colOpts$header)
     if (!is.null(grid$x$options$columns[[i]])) {
       grid$x$options$columns[[i]] <- modifyList(
         x = grid$x$options$columns[[i]],

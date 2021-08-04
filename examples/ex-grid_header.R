@@ -41,5 +41,26 @@ datagrid(iris) %>%
   )
 
 
-
+# Custom HTML in header
+# (not that sorting is incompatible with)
+library(htmltools)
+datagrid(mtcars) %>% 
+  grid_columns(
+    columns = "mpg",
+    minWidth = 120,
+    header = tags$div(
+      tags$b("Miles/(US) gallon"),
+      tags$br(),
+      tags$i("numeric")
+    )
+  ) %>% 
+  grid_header(
+    columns = list(
+      list(
+        name = "mpg",
+        align = "left",
+        renderer = JS("DatagridColumnHeaderHTML")
+      )
+    )
+  )
 

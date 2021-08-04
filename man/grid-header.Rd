@@ -9,6 +9,7 @@
 grid_header(
   grid,
   complexColumns = NULL,
+  columns = NULL,
   align = NULL,
   valign = NULL,
   height = NULL
@@ -22,6 +23,8 @@ grid_complex_header(grid, ..., height = 80)
 \item{complexColumns}{\code{list}. This options creates new parent
 headers of the multiple columns which includes the headers of
 specified columns, and sets up the hierarchy.}
+
+\item{columns}{\code{list}. Options for column's header.}
 
 \item{align}{Horizontal alignment of the header content.
 Available values are 'left', 'center', 'right'.}
@@ -84,6 +87,27 @@ datagrid(iris) \%>\%
   )
 
 
-
+# Custom HTML in header
+# (not that sorting is incompatible with)
+library(htmltools)
+datagrid(mtcars) \%>\% 
+  grid_columns(
+    columns = "mpg",
+    minWidth = 120,
+    header = tags$div(
+      tags$b("Miles/(US) gallon"),
+      tags$br(),
+      tags$i("numeric")
+    )
+  ) \%>\% 
+  grid_header(
+    columns = list(
+      list(
+        name = "mpg",
+        align = "left",
+        renderer = JS("DatagridColumnHeaderHTML")
+      )
+    )
+  )
 
 }
