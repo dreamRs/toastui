@@ -319,11 +319,11 @@ class DatagridColumnHeaderHTML {
 class DatagridColumnHeaderSortHTML {
   constructor(props) {
     const columnInfo = props.columnInfo;
-    console.log(props);
-    var columnName = props.columnInfo.name;
+    console.log(columnInfo);
+    
     const el = document.createElement('div');
     el.className = "datagrid-header";
-    el.style.padding = "0 5px";
+    
     el.style.fontWeight = "normal";
     el.style.cursor = "pointer";
     el.innerHTML = columnInfo.header;
@@ -340,7 +340,9 @@ class DatagridColumnHeaderSortHTML {
         return findIndex(function (item) { return item[propName] === value; }, arr);
     }
     
-    el.addEventListener("click", function() {
+    el.addEventListener("click", function(event) {
+      event.preventDefault();
+      const columnName = props.columnInfo.name;
       const sortState = props.grid.getSortState();
       const columns = sortState.columns;
       const index = findPropIndex('columnName', columnName, columns);
@@ -365,7 +367,8 @@ class DatagridColumnHeaderSortHTML {
   }
 
   render(props) {
-     this.el.innerHTML = props.columnInfo.header;
+    const el = this.el;
+    el.innerHTML = props.columnInfo.header;
   }
 }
 
