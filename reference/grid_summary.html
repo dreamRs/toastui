@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">toastui</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9400</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9410</span>
       </span>
     </div>
 
@@ -149,7 +149,8 @@
   label <span class='op'>=</span> <span class='cn'>NULL</span>,
   sep <span class='op'>=</span> <span class='st'>"&lt;br&gt;"</span>,
   position <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bottom"</span>, <span class='st'>"top"</span><span class='op'>)</span>,
-  height <span class='op'>=</span> <span class='fl'>40</span>
+  height <span class='op'>=</span> <span class='fl'>40</span>,
+  js_function <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -186,6 +187,12 @@
     <tr>
       <th>height</th>
       <td><p>The height of the summary area.</p></td>
+    </tr>
+    <tr>
+      <th>js_function</th>
+      <td><p>JavaScript function to compute the statistic you want.
+Function should have one argument, it will be the values of the column.
+If used, <code>stat</code>, <code>digits</code>, <code>label</code> and <code>sep</code> will be ignored.</p></td>
     </tr>
     </table>
 
