@@ -368,7 +368,7 @@ class DatagridColumnHeaderSortHTML {
 
   render(props) {
     const el = this.el;
-    el.innerHTML = props.columnInfo.header;
+    //el.innerHTML = props.columnInfo.header;
   }
 }
 
