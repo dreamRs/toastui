@@ -12,7 +12,8 @@ grid_summary(
   label = NULL,
   sep = "<br>",
   position = c("bottom", "top"),
-  height = 40
+  height = 40,
+  js_function = NULL
 )
 }
 \arguments{
@@ -31,6 +32,10 @@ grid_summary(
 \item{position}{The position of the summary area: \code{"bottom"} or \code{"top"}.}
 
 \item{height}{The height of the summary area.}
+
+\item{js_function}{JavaScript function to compute the statistic you want.
+Function should have one argument, it will be the values of the column.
+If used, \code{stat}, \code{digits}, \code{label} and \code{sep} will be ignored.}
 }
 \value{
 A \code{datagrid} htmlwidget.
