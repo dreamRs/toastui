@@ -250,7 +250,7 @@ class DatagridSliderEditor {
     el.style.width = "100%";
     el.style.marginTop = "10px";
     el.value = String(props.value);
-    
+
     this.el = el;
   }
 
@@ -265,7 +265,6 @@ class DatagridSliderEditor {
   mounted() {
     this.el.select();
   }
-
 }
 
 class DatagridSliderRenderer {
@@ -279,7 +278,7 @@ class DatagridSliderRenderer {
     el.style.width = "100%";
     el.value = String(props.value);
     el.disabled = true;
-    
+
     this.el = el;
     this.render(props);
   }
@@ -293,12 +292,29 @@ class DatagridSliderRenderer {
   }
 }
 
+class DatagridRowNamesRenderer {
+  constructor(props) {
+    const el = document.createElement("span");
+    var rowNames = props.columnInfo.renderer.options.rowNames;
+    el.innerHTML = rowNames[props.rowKey];
+    this.el = el;
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  render(props) {
+    var rowNames = props.columnInfo.renderer.options.rowNames;
+    this.el.innerHTML = rowNames[props.rowKey];
+  }
+}
 
 class DatagridColumnHeaderHTML {
   constructor(props) {
     const columnInfo = props.columnInfo;
     console.log(columnInfo);
-    const el = document.createElement('div');
+    const el = document.createElement("div");
     el.className = "datagrid-header";
     el.style.padding = "0 5px";
     el.style.fontWeight = "normal";
@@ -311,41 +327,41 @@ class DatagridColumnHeaderHTML {
   }
 
   render(props) {
-     this.el.innerHTML = props.columnInfo.header;
+    this.el.innerHTML = props.columnInfo.header;
   }
 }
-
 
 class DatagridColumnHeaderSortHTML {
   constructor(props) {
     const columnInfo = props.columnInfo;
-    console.log(columnInfo);
-    
-    const el = document.createElement('div');
+
+    const el = document.createElement("div");
     el.className = "datagrid-header";
-    
+
     el.style.fontWeight = "normal";
     el.style.cursor = "pointer";
     el.innerHTML = columnInfo.header;
-    
+
     function findIndex(predicate, arr) {
-        for (var i = 0, len = arr.length; i < len; i += 1) {
-            if (predicate(arr[i])) {
-                return i;
-            }
+      for (var i = 0, len = arr.length; i < len; i += 1) {
+        if (predicate(arr[i])) {
+          return i;
         }
-        return -1;
+      }
+      return -1;
     }
     function findPropIndex(propName, value, arr) {
-        return findIndex(function (item) { return item[propName] === value; }, arr);
+      return findIndex(function(item) {
+        return item[propName] === value;
+      }, arr);
     }
-    
+
     el.addEventListener("click", function(event) {
       event.preventDefault();
       const columnName = props.columnInfo.name;
       const sortState = props.grid.getSortState();
       const columns = sortState.columns;
-      const index = findPropIndex('columnName', columnName, columns);
+      const index = findPropIndex("columnName", columnName, columns);
       const ascending = index !== -1 ? !columns[index].ascending : true;
       props.grid.sort(columnName, ascending);
       const asc = el.querySelector(".datagrid-sort-asc");
@@ -358,7 +374,7 @@ class DatagridColumnHeaderSortHTML {
         desc.style.display = "inline";
       }
     });
-    
+
     this.el = el;
   }
 
@@ -368,10 +384,9 @@ class DatagridColumnHeaderSortHTML {
 
   render(props) {
     const el = this.el;
-    el.innerHTML = props.columnInfo.header;
+    //el.innerHTML = props.columnInfo.header;
   }
 }
-
 
 // HTMLWidgets bindings
 
