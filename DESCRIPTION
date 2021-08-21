@@ -20,13 +20,14 @@ Imports:
     shiny (>= 1.1.0),
     magrittr,
     rlang
-RoxygenNote: 7.1.1
-Roxygen: list(markdown = TRUE)
 Suggests: 
     apexcharter,
     knitr,
     rmarkdown,
-    scales, tinytest
+    scales, 
+    tinytest
 VignetteBuilder: knitr
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
 URL: https://dreamrs.github.io/toastui/
 BugReports: https://github.com/dreamRs/toastui/issues

@@ -10,3 +10,7 @@
 ^node_modules$
 ^package\.json$
 ^package-lock\.json$
+^srcjs$
+^webpack\.dev\.js$
+^webpack\.prod\.js$
+^webpack\.common\.js$

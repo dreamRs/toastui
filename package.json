@@ -1,7 +1,42 @@
 {
-  "dependencies": {
-    "@toast-ui/chart": "^4.3.2",
-    "tui-calendar": "^1.13.0",
-    "tui-grid": "^4.17.0"
+  "dependencies": {},
+  "name": "toastui",
+  "description": "> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid/), [Calendar](https://ui.toast.com/tui-calendar/) and [Chart](https://ui.toast.com/tui-chart/).",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "man": "man",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "none": "webpack --config webpack.dev.js --mode=none",
+    "development": "webpack --config webpack.dev.js",
+    "production": "webpack --config webpack.prod.js",
+    "watch": "webpack --config webpack.dev.js -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamRs/toastui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreamRs/toastui/issues"
+  },
+  "homepage": "https://github.com/dreamRs/toastui#readme",
+  "devDependencies": {
+    "@toast-ui/chart": "^4.3.6",
+    "css-loader": "^6.2.0",
+    "moment": "^2.29.1",
+    "style-loader": "^3.2.1",
+    "tui-calendar": "^1.13.1",
+    "tui-grid": "^4.18.1",
+    "tui-pagination": "^3.4.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-merge": "^5.8.0"
   }
 }
