@@ -39,6 +39,11 @@ export const header = {
   htmlsort: DatagridColumnHeaderSortHTML,
 };
 
+export const applyTheme = Grid.applyTheme;
+//export default function applyTheme(presetName, extOptions)) {
+//  Grid.applyTheme(presetName, extOptions);
+//};
+
 // HTMLWidgets bindings
 
 HTMLWidgets.widget({
