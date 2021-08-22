@@ -46,9 +46,9 @@ HTMLWidgets.widget({
           formatNav = x.bttnOpts.fmt_date;
           renderRange = document.getElementById(el.id + "_renderRange");
           renderRange.innerHTML =
-            formatDateNav(cal.getDateRangeStart(), formatNav) +
+            moment(cal.getDateRangeStart()._date).format(formatNav) +
             " - " +
-            formatDateNav(cal.getDateRangeEnd(), formatNav);
+            moment(cal.getDateRangeEnd()._date).format(formatNav);
 
           var prev = document.getElementById(el.id + "_prev");
           prev.className += x.bttnOpts.class;
@@ -215,9 +215,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.prev();
           renderRange.innerHTML =
-            formatDateNav(cal.getDateRangeStart(), formatNav) +
+            moment(cal.getDateRangeStart()._date).format(formatNav) +
             " - " +
-            formatDateNav(cal.getDateRangeEnd(), formatNav);
+            moment(cal.getDateRangeEnd()._date).format(formatNav);
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
@@ -230,9 +230,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.next();
           renderRange.innerHTML =
-            formatDateNav(cal.getDateRangeStart(), formatNav) +
+            moment(cal.getDateRangeStart()._date).format(formatNav) +
             " - " +
-            formatDateNav(cal.getDateRangeEnd(), formatNav);
+            moment(cal.getDateRangeEnd()._date).format(formatNav);
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
@@ -245,9 +245,9 @@ HTMLWidgets.widget({
         if (cal !== null) {
           cal.today();
           renderRange.innerHTML =
-            formatDateNav(cal.getDateRangeStart(), formatNav) +
+            moment(cal.getDateRangeStart()._date).format(formatNav) +
             " - " +
-            formatDateNav(cal.getDateRangeEnd(), formatNav);
+            moment(cal.getDateRangeEnd()._date).format(formatNav);
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
@@ -263,10 +263,6 @@ HTMLWidgets.widget({
   }
 });
 
-
-function formatDateNav(calDate, fmt) {
-  return moment(calDate._date).format(fmt);
-}
 
 ProxyCalendar();
 

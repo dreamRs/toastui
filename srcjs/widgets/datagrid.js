@@ -6,23 +6,7 @@ import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 
 import { ProxyGrid } from '../modules/proxy-grid';
-
-// Utility functions
-
-function addStyle(styles) {
-  var css = document.createElement("style");
-  css.type = "text/css";
-  if (css.styleSheet) {
-    css.styleSheet.cssText = styles;
-  } else {
-    css.appendChild(document.createTextNode(styles));
-  }
-  document.getElementsByTagName("head")[0].appendChild(css);
-}
-
-function rescale(x, from, to) {
-  return ((x - from[0]) / (from[1] - from[0])) * (to[1] - to[0]) + to[0];
-}
+import { addStyle } from '../modules/utils';
 
 // Custom renderers
 

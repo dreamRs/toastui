@@ -14,3 +14,20 @@ export function getWidget(id) {
 
   return widgetObj;
 }
+
+export function addStyle(styles) {
+  var css = document.createElement("style");
+  css.type = "text/css";
+  if (css.styleSheet) {
+    css.styleSheet.cssText = styles;
+  } else {
+    css.appendChild(document.createTextNode(styles));
+  }
+  document.getElementsByTagName("head")[0].appendChild(css);
+}
+
+export function rescale(x, from, to) {
+  return ((x - from[0]) / (from[1] - from[0])) * (to[1] - to[0]) + to[0];
+}
+
+
