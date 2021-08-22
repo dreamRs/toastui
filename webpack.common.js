@@ -59,6 +59,8 @@ var plugins = [
 var options = {
   entry: entryPoints,
   output: {
+    library: '[name]',
+    libraryTarget:'umd',
     filename: '[name].js',
     path: path.resolve(__dirname, JSON.parse(outputPath)),
   },

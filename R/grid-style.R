@@ -262,7 +262,7 @@ grid_colorbar <- function(grid,
     columns = column,
     align = align,
     renderer = list(
-      type = htmlwidgets::JS("DatagridBarRenderer"),
+      type = htmlwidgets::JS("datagrid.renderer.colorbar"),
       options = list(
         bar_bg = bar_bg,
         color = color,

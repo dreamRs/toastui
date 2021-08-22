@@ -1,5 +1,5 @@
 {
   "widgets": "HTMLWidgets",
-  "2": "Shiny",
+  "shiny": "Shiny",
   "3": "jQuery"
 }
