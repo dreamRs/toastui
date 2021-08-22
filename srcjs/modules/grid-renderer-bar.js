@@ -1,4 +1,4 @@
-import {rescale} from "./utils";
+import { rescale } from "./utils";
 
 export class DatagridBarRenderer {
   constructor(props) {
@@ -13,7 +13,7 @@ export class DatagridBarRenderer {
       label_outside,
       label_width,
       height,
-      border_radius
+      border_radius,
     } = props.columnInfo.renderer.options;
 
     el.style.display = "flex";

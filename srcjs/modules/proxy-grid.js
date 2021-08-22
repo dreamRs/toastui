@@ -1,9 +1,9 @@
-import 'widgets';
+import "widgets";
 import * as utils from "./utils";
 
 export function ProxyGrid() {
   if (HTMLWidgets.shinyMode) {
-    Shiny.addCustomMessageHandler("proxy-toastui-grid-addrows", function(obj) {
+    Shiny.addCustomMessageHandler("proxy-toastui-grid-addrows", function (obj) {
       var grid = utils.getWidget(obj.id);
       if (typeof grid != "undefined") {
         const data = [];

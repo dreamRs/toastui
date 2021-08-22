@@ -1,24 +1,24 @@
-import 'widgets';
-import Calendar from 'tui-calendar';
+import "widgets";
+import Calendar from "tui-calendar";
 import "tui-calendar/dist/tui-calendar.css";
-import 'tui-date-picker/dist/tui-date-picker.css';
-import 'tui-time-picker/dist/tui-time-picker.css';
-import moment from 'moment';
+import "tui-date-picker/dist/tui-date-picker.css";
+import "tui-time-picker/dist/tui-time-picker.css";
+import moment from "moment";
 
-import { ProxyCalendar } from '../modules/proxy-calendar';
+import { ProxyCalendar } from "../modules/proxy-calendar";
 
 HTMLWidgets.widget({
   name: "calendar",
 
   type: "output",
 
-  factory: function(el, width, height) {
+  factory: function (el, width, height) {
     var cal,
       renderRange,
       formatNav = "YYYY-MM-DD";
 
     return {
-      renderValue: function(x) {
+      renderValue: function (x) {
         var menu = document.getElementById(el.id + "_menu");
 
         if (!x.useNav) {
@@ -85,22 +85,24 @@ HTMLWidgets.widget({
 
         if (x.events.hasOwnProperty("beforeCreateSchedule")) {
           if (x.events.beforeCreateSchedule === "auto") {
-            cal.on("beforeCreateSchedule", function(event) {
-              cal.createSchedules([{
-                title: event.title,
-                location: event.location,
-                start: moment(event.start._date).format(),
-                end: moment(event.end._date).format(),
-                isAllDay: event.isAllDay,
-                category: event.isAllDay ? "allday" : "time",
-                calendarId: event.calendarId
-              }]);
+            cal.on("beforeCreateSchedule", function (event) {
+              cal.createSchedules([
+                {
+                  title: event.title,
+                  location: event.location,
+                  start: moment(event.start._date).format(),
+                  end: moment(event.end._date).format(),
+                  isAllDay: event.isAllDay,
+                  category: event.isAllDay ? "allday" : "time",
+                  calendarId: event.calendarId,
+                },
+              ]);
             });
           } else {
             cal.on("beforeCreateSchedule", x.events.beforeCreateSchedule);
           }
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeCreateSchedule", function(event) {
+          cal.on("beforeCreateSchedule", function (event) {
             //console.log(event);
             Shiny.setInputValue(el.id + "_add", {
               title: event.title,
@@ -109,7 +111,7 @@ HTMLWidgets.widget({
               end: moment(event.end._date).format(),
               isAllDay: event.isAllDay,
               category: event.isAllDay ? "allday" : "time",
-              calendarId: event.calendarId
+              calendarId: event.calendarId,
             });
           });
         }
@@ -117,7 +119,7 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("afterRenderSchedule")) {
           cal.on("afterRenderSchedule", x.events.afterRenderSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("afterRenderSchedule", function(event) {
+          cal.on("afterRenderSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_schedules", schedule);
@@ -127,7 +129,7 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("clickSchedule")) {
           cal.on("clickSchedule", x.events.clickSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("clickSchedule", function(event) {
+          cal.on("clickSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_click", schedule);
@@ -137,7 +139,7 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("beforeDeleteSchedule")) {
           cal.on("beforeDeleteSchedule", x.events.beforeDeleteSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeDeleteSchedule", function(event) {
+          cal.on("beforeDeleteSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_delete", {
@@ -148,7 +150,7 @@ HTMLWidgets.widget({
               end: moment(schedule.end._date).format(),
               isAllDay: schedule.isAllDay,
               category: schedule.isAllDay ? "allday" : "time",
-              calendarId: schedule.calendarId
+              calendarId: schedule.calendarId,
             });
           });
         }
@@ -156,7 +158,7 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("beforeUpdateSchedule")) {
           cal.on("beforeUpdateSchedule", x.events.beforeUpdateSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeUpdateSchedule", function(event) {
+          cal.on("beforeUpdateSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             var changes = event.changes;
@@ -176,9 +178,9 @@ HTMLWidgets.widget({
                 end: moment(schedule.end._date).format(),
                 isAllDay: schedule.isAllDay,
                 category: schedule.isAllDay ? "allday" : "time",
-                calendarId: schedule.calendarId
+                calendarId: schedule.calendarId,
               },
-              changes: changes
+              changes: changes,
             });
           });
         }
@@ -202,16 +204,16 @@ HTMLWidgets.widget({
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format()
+            end: moment(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
 
-      getWidget: function() {
+      getWidget: function () {
         return cal;
       },
 
-      clickPrev: function(event) {
+      clickPrev: function (event) {
         if (cal !== null) {
           cal.prev();
           renderRange.innerHTML =
@@ -221,12 +223,12 @@ HTMLWidgets.widget({
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format()
+            end: moment(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
 
-      clickNext: function(event) {
+      clickNext: function (event) {
         if (cal !== null) {
           cal.next();
           renderRange.innerHTML =
@@ -236,12 +238,12 @@ HTMLWidgets.widget({
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format()
+            end: moment(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
 
-      clickToday: function(event) {
+      clickToday: function (event) {
         if (cal !== null) {
           cal.today();
           renderRange.innerHTML =
@@ -251,19 +253,16 @@ HTMLWidgets.widget({
           Shiny.setInputValue(el.id + "_dates", {
             current: moment(cal.getDate()._date).format(),
             start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format()
+            end: moment(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
 
-      resize: function(width, height) {
+      resize: function (width, height) {
         // TODO: code to re-render the widget with a new size
-      }
+      },
     };
-  }
+  },
 });
 
-
 ProxyCalendar();
-
-

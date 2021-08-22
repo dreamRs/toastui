@@ -1,4 +1,4 @@
-import 'widgets';
+import "widgets";
 
 // From Friss tuto (https://github.com/FrissAnalytics/shinyJsTutorials/blob/master/tutorials/tutorial_03.Rmd)
 export function getWidget(id) {
@@ -29,5 +29,3 @@ export function addStyle(styles) {
 export function rescale(x, from, to) {
   return ((x - from[0]) / (from[1] - from[0])) * (to[1] - to[0]) + to[0];
 }
-
-

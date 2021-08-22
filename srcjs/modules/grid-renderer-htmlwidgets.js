@@ -1,4 +1,3 @@
-
 export class DatagridHTMLWidgetsRenderer {
   constructor(props) {
     const el = document.createElement("div");
@@ -18,7 +17,7 @@ export class DatagridHTMLWidgetsRenderer {
       rendered = rendered[props.rowKey];
     }
     this.el.innerHTML = rendered;
-    setTimeout(function() {
+    setTimeout(function () {
       window.HTMLWidgets.staticRender();
     }, 10);
   }

@@ -1,4 +1,3 @@
-
 export class DatagridButtonRenderer {
   constructor(props) {
     const el = document.createElement("button");
@@ -31,7 +30,7 @@ export class DatagridButtonRenderer {
       label = props.columnInfo.renderer.options.icon + " " + label;
     }
     const inputId = props.columnInfo.renderer.options.inputId;
-    this.el.onclick = function() {
+    this.el.onclick = function () {
       if (HTMLWidgets.shinyMode) {
         Shiny.setInputValue(inputId, String(props.value));
       }

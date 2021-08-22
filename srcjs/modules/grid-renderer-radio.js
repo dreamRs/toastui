@@ -1,4 +1,3 @@
-
 export class DatagridRadioRenderer {
   constructor(props) {
     const { grid, rowKey } = props;

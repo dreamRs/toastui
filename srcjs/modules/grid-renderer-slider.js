@@ -1,4 +1,3 @@
-
 export class DatagridSliderRenderer {
   constructor(props) {
     const el = document.createElement("input");

@@ -1,13 +1,12 @@
-import 'widgets';
-import Grid from 'tui-grid';
-import 'tui-grid/dist/tui-grid.min.css';
-import 'tui-pagination/dist/tui-pagination.css';
-import 'tui-date-picker/dist/tui-date-picker.css';
-import 'tui-time-picker/dist/tui-time-picker.css';
+import "widgets";
+import Grid from "tui-grid";
+import "tui-grid/dist/tui-grid.min.css";
+import "tui-pagination/dist/tui-pagination.css";
+import "tui-date-picker/dist/tui-date-picker.css";
+import "tui-time-picker/dist/tui-time-picker.css";
 
-import { ProxyGrid } from '../modules/proxy-grid';
-import { addStyle } from '../modules/utils';
-
+import { ProxyGrid } from "../modules/proxy-grid";
+import { addStyle } from "../modules/utils";
 
 import { DatagridBarRenderer } from "../modules/grid-renderer-bar";
 import { DatagridFormatRenderer } from "../modules/grid-renderer-format";
@@ -23,24 +22,22 @@ export const renderer = {
   button: DatagridButtonRenderer,
   radio: DatagridRadioRenderer,
   slider: DatagridSliderRenderer,
-  rownames: DatagridRowNamesRenderer
+  rownames: DatagridRowNamesRenderer,
 };
-
 
 import { DatagridSliderEditor } from "../modules/grid-editor-slider";
 export const editor = {
-  slider: DatagridSliderEditor
+  slider: DatagridSliderEditor,
 };
 
-
-import { DatagridColumnHeaderHTML, DatagridColumnHeaderSortHTML } from "../modules/grid-header";
+import {
+  DatagridColumnHeaderHTML,
+  DatagridColumnHeaderSortHTML,
+} from "../modules/grid-header";
 export const header = {
   html: DatagridColumnHeaderHTML,
-  htmlsort: DatagridColumnHeaderSortHTML
+  htmlsort: DatagridColumnHeaderSortHTML,
 };
-
-
-
 
 // HTMLWidgets bindings
 
@@ -49,11 +46,11 @@ HTMLWidgets.widget({
 
   type: "output",
 
-  factory: function(el, width, height) {
+  factory: function (el, width, height) {
     var grid;
 
     return {
-      renderValue: function(x) {
+      renderValue: function (x) {
         addStyle(".datagrid-sparkline-cell {overflow: visible !important;}");
         var container = document.getElementById(el.id + "-container");
         if (typeof grid !== "undefined") {
@@ -156,7 +153,7 @@ HTMLWidgets.widget({
             Shiny.setInputValue(x.rowSelection.id + ":datagridRowSelection", {
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
-              returnValue: x.rowSelection.returnValue
+              returnValue: x.rowSelection.returnValue,
             });
           }
           grid.on("checkAll", rowSelection);
@@ -165,19 +162,19 @@ HTMLWidgets.widget({
           grid.on("uncheck", rowSelection);
         }
         if (x.hasOwnProperty("cellSelection") & HTMLWidgets.shinyMode) {
-          grid.on("selection", function(ev) {
+          grid.on("selection", function (ev) {
             Shiny.setInputValue(x.cellSelection.id + ":datagridCellSelection", {
               selected: grid.getSelectionRange(),
               colnames: x.colnames,
-              returnValue: x.cellSelection.returnValue
+              returnValue: x.cellSelection.returnValue,
             });
           });
         }
         if (x.hasOwnProperty("clickEvent") & HTMLWidgets.shinyMode) {
-          grid.on("click", function(ev) {
+          grid.on("click", function (ev) {
             Shiny.setInputValue(x.clickEvent.id, {
               row: ev.rowKey + 1,
-              col: ev.columnName
+              col: ev.columnName,
             });
           });
         }
@@ -186,14 +183,14 @@ HTMLWidgets.widget({
         if (HTMLWidgets.shinyMode & (x.editorInput === true)) {
           Shiny.setInputValue(el.id + "_data:datagridEdit", {
             data: grid.getData(),
-            colnames: x.colnames
+            colnames: x.colnames,
           });
           if (x.validationInput === true) {
             Shiny.setInputValue(
               el.id + "_validation:datagridValidation",
               grid.validate()
             );
-            grid.on("editingFinish", function(ev) {
+            grid.on("editingFinish", function (ev) {
               Shiny.setInputValue(
                 el.id + "_validation:datagridValidation",
                 grid.validate()
@@ -205,39 +202,36 @@ HTMLWidgets.widget({
             if (editButton === null) {
               console.log("datagrid editor updateOnClick: could not find ID.");
             } else {
-              editButton.addEventListener("click", function(event) {
+              editButton.addEventListener("click", function (event) {
                 Shiny.setInputValue(el.id + "_data:datagridEdit", {
                   data: grid.getData(),
-                  colnames: x.colnames
+                  colnames: x.colnames,
                 });
               });
             }
           } else {
-            grid.on("editingFinish", function(ev) {
+            grid.on("editingFinish", function (ev) {
               Shiny.setInputValue(el.id + "_data:datagridEdit", {
                 data: ev.instance.getData(),
-                colnames: x.colnames
+                colnames: x.colnames,
               });
             });
           }
         }
       },
 
-      getWidget: function() {
+      getWidget: function () {
         return grid;
       },
 
-      resize: function(width, height) {
+      resize: function (width, height) {
         // TODO: code to re-render the widget with a new size
         if (typeof grid !== "undefined") {
           grid.refreshLayout();
         }
-      }
+      },
     };
-  }
+  },
 });
 
-
-
 ProxyGrid();
-

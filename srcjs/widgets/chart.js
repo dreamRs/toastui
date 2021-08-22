@@ -1,17 +1,17 @@
-import 'widgets';
-import Chart from '@toast-ui/chart';
-import '@toast-ui/chart/dist/toastui-chart.min.css';
+import "widgets";
+import Chart from "@toast-ui/chart";
+import "@toast-ui/chart/dist/toastui-chart.min.css";
 
 HTMLWidgets.widget({
   name: "chart",
 
   type: "output",
 
-  factory: function(el, width, height) {
+  factory: function (el, width, height) {
     var chart;
 
     return {
-      renderValue: function(x) {
+      renderValue: function (x) {
         var type = x.config.type;
         var data = x.config.data;
         var options = x.config.options;
@@ -21,18 +21,17 @@ HTMLWidgets.widget({
         chart = Chart[type]({ el, data, options });
       },
 
-      getWidget: function() {
+      getWidget: function () {
         return chart;
       },
 
-      resize: function(width, height) {
+      resize: function (width, height) {
         /*
         chart.updateOptions({
           chart: {width: width, height: height}
         });
         */
-      }
+      },
     };
-  }
+  },
 });
-

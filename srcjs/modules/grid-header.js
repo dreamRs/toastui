@@ -1,4 +1,3 @@
-
 export class DatagridColumnHeaderHTML {
   constructor(props) {
     const columnInfo = props.columnInfo;
@@ -40,12 +39,12 @@ export class DatagridColumnHeaderSortHTML {
       return -1;
     }
     function findPropIndex(propName, value, arr) {
-      return findIndex(function(item) {
+      return findIndex(function (item) {
         return item[propName] === value;
       }, arr);
     }
 
-    el.addEventListener("click", function(event) {
+    el.addEventListener("click", function (event) {
       event.preventDefault();
       const columnName = props.columnInfo.name;
       const sortState = props.grid.getSortState();

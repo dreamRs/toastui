@@ -1,10 +1,10 @@
-import 'widgets';
-import moment from 'moment';
+import "widgets";
+import moment from "moment";
 import * as utils from "./utils";
 
 export function ProxyCalendar() {
   if (HTMLWidgets.shinyMode) {
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-nav", function(obj) {
+    Shiny.addCustomMessageHandler("proxy-toastui-calendar-nav", function (obj) {
       var cal = utils.getWidget(obj.id);
       if (typeof cal != "undefined") {
         if (obj.data.where == "prev") {
@@ -22,60 +22,80 @@ export function ProxyCalendar() {
         Shiny.setInputValue(obj.id + "_dates", {
           current: moment(cal.getDate()._date).format(),
           start: moment(cal.getDateRangeStart()._date).format(),
-          end: moment(cal.getDateRangeEnd()._date).format()
+          end: moment(cal.getDateRangeEnd()._date).format(),
         });
       }
     });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-view", function(obj) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        cal.changeView(obj.data.view, true);
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-view",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          cal.changeView(obj.data.view, true);
+        }
       }
-    });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-add", function(obj) {
+    );
+    Shiny.addCustomMessageHandler("proxy-toastui-calendar-add", function (obj) {
       var cal = utils.getWidget(obj.id);
       if (typeof cal != "undefined") {
         cal.createSchedules(obj.data.schedule);
       }
     });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-delete", function(obj) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        var scheduleId = obj.data.scheduleId;
-        var calendarId = obj.data.calendarId;
-        for (let i = 0; i < scheduleId.length; i += 1) {
-          cal.deleteSchedule(scheduleId[i], calendarId[i]);
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-delete",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          var scheduleId = obj.data.scheduleId;
+          var calendarId = obj.data.calendarId;
+          for (let i = 0; i < scheduleId.length; i += 1) {
+            cal.deleteSchedule(scheduleId[i], calendarId[i]);
+          }
         }
       }
-    });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-update", function(obj) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        cal.updateSchedule(obj.data.id, obj.data.calendarId, obj.data.schedule);
-      }
-    });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-clear", function(obj) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        cal.clear(obj.data.immediately);
-      }
-    });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-options", function(
-      obj
-    ) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        cal.setOptions(obj.data.options);
-      }
-    });
-    Shiny.addCustomMessageHandler("proxy-toastui-calendar-toggle", function(obj) {
-      var cal = utils.getWidget(obj.id);
-      if (typeof cal != "undefined") {
-        var calendarId = obj.data.calendarId;
-        for (let i = 0; i < calendarId.length; i += 1) {
-          cal.toggleSchedules(calendarId[i], obj.data.toHide);
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-update",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          cal.updateSchedule(
+            obj.data.id,
+            obj.data.calendarId,
+            obj.data.schedule
+          );
         }
       }
-    });
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-clear",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          cal.clear(obj.data.immediately);
+        }
+      }
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-options",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          cal.setOptions(obj.data.options);
+        }
+      }
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-toggle",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          var calendarId = obj.data.calendarId;
+          for (let i = 0; i < calendarId.length; i += 1) {
+            cal.toggleSchedules(calendarId[i], obj.data.toHide);
+          }
+        }
+      }
+    );
   }
 }

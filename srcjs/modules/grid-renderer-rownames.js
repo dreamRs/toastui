@@ -1,4 +1,3 @@
-
 export class DatagridRowNamesRenderer {
   constructor(props) {
     const el = document.createElement("span");

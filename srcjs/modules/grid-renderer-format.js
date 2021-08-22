@@ -1,4 +1,3 @@
-
 export class DatagridFormatRenderer {
   constructor(props) {
     const el = document.createElement("div");
