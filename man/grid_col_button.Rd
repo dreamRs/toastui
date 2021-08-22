@@ -58,8 +58,6 @@ server <- function(input, output, session) {
   )
 
   output$grid <- renderDatagrid({
-
-
     datagrid(dat) \%>\%
       grid_col_button(
         column = "button1",
