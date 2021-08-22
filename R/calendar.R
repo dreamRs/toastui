@@ -53,10 +53,10 @@ calendar <- function(data = NULL,
       usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
     ),
     schedules = list(),
-    useNav = isTRUE(useNavigation),
+    navigation = isTRUE(useNavigation),
     defaultDate = defaultDate,
     events = list(),
-    bttnOpts = bttnOpts
+    navigationOptions = bttnOpts
   )
 
   dependencies <- NULL
@@ -203,7 +203,7 @@ bttn_options <- function(today_label = "Today",
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
-#'   
+#'
 #' @return Output element that can be included in UI. Render function to create output in server.
 #'
 #' @name calendar-shiny
@@ -211,7 +211,7 @@ bttn_options <- function(today_label = "Today",
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-#' 
+#'
 #' @example examples/shiny-calendar.R
 calendarOutput <- function(outputId, width = "100%", height = "600px"){
   shinyWidgetOutput(outputId, "calendar", width, height, package = "toastui")

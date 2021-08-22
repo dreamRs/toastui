@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 
 import { ProxyCalendar } from "../modules/proxy-calendar";
 
-import { formatDateNav } from "../modules/calendar-utils";
+import { formatDateNav, addNavigation } from "../modules/calendar-utils";
 
 HTMLWidgets.widget({
   name: "calendar",
@@ -23,7 +23,7 @@ HTMLWidgets.widget({
       renderValue: function (x) {
         var menu = document.getElementById(el.id + "_menu");
 
-        if (!x.useNav) {
+        if (!x.navigation) {
           if (menu !== null) {
             menu.parentNode.removeChild(menu);
           }
@@ -43,43 +43,9 @@ HTMLWidgets.widget({
           cal.setDate(x.defaultDate);
         }
 
-        // Navigation button
-        if (x.useNav) {
-          formatNav = x.bttnOpts.fmt_date;
-          renderRange = document.getElementById(el.id + "_renderRange");
-          renderRange.innerHTML = formatDateNav(cal, formatNav);
-
-          var prev = document.getElementById(el.id + "_prev");
-          prev.className += x.bttnOpts.class;
-          prev.innerHTML = x.bttnOpts.prev_label;
-          //var clickPrevEvent = clickPrev(cal, renderRange);
-          prev.removeEventListener("click", this.clickPrev);
-          prev.addEventListener("click", this.clickPrev);
-
-          var next = document.getElementById(el.id + "_next");
-          next.className += x.bttnOpts.class;
-          next.innerHTML = x.bttnOpts.next_label;
-          //var clickNextEvent = clickNext(cal, renderRange);
-          next.removeEventListener("click", this.clickNext);
-          next.addEventListener("click", this.clickNext);
-
-          var today = document.getElementById(el.id + "_today");
-          today.className += x.bttnOpts.class;
-          today.innerHTML = x.bttnOpts.today_label;
-          //var clickTodayEvent = clickToday(cal, renderRange);
-          today.removeEventListener("click", this.clickToday);
-          today.addEventListener("click", this.clickToday);
-
-          if (x.bttnOpts.hasOwnProperty("bg")) {
-            prev.style.background = x.bttnOpts.bg;
-            next.style.background = x.bttnOpts.bg;
-            today.style.background = x.bttnOpts.bg;
-          }
-          if (x.bttnOpts.hasOwnProperty("color")) {
-            prev.style.color = x.bttnOpts.color;
-            next.style.color = x.bttnOpts.color;
-            today.style.color = x.bttnOpts.color;
-          }
+        // Navigation buttons
+        if (x.navigation) {
+          addNavigation(cal, el.id, x.navigationOptions);
         }
 
         if (x.events.hasOwnProperty("beforeCreateSchedule")) {
@@ -210,42 +176,6 @@ HTMLWidgets.widget({
 
       getWidget: function () {
         return cal;
-      },
-
-      clickPrev: function (event) {
-        if (cal !== null) {
-          cal.prev();
-          renderRange.innerHTML = formatDateNav(cal, formatNav);
-          Shiny.setInputValue(el.id + "_dates", {
-            current: dayjs(cal.getDate()._date).format(),
-            start: dayjs(cal.getDateRangeStart()._date).format(),
-            end: dayjs(cal.getDateRangeEnd()._date).format(),
-          });
-        }
-      },
-
-      clickNext: function (event) {
-        if (cal !== null) {
-          cal.next();
-          renderRange.innerHTML = formatDateNav(cal, formatNav);
-          Shiny.setInputValue(el.id + "_dates", {
-            current: dayjs(cal.getDate()._date).format(),
-            start: dayjs(cal.getDateRangeStart()._date).format(),
-            end: dayjs(cal.getDateRangeEnd()._date).format(),
-          });
-        }
-      },
-
-      clickToday: function (event) {
-        if (cal !== null) {
-          cal.today();
-          renderRange.innerHTML = formatDateNav(cal, formatNav);
-          Shiny.setInputValue(el.id + "_dates", {
-            current: dayjs(cal.getDate()._date).format(),
-            start: dayjs(cal.getDateRangeStart()._date).format(),
-            end: dayjs(cal.getDateRangeEnd()._date).format(),
-          });
-        }
       },
 
       resize: function (width, height) {
