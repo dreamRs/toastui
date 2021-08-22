@@ -5,6 +5,8 @@ import 'tui-pagination/dist/tui-pagination.css';
 import 'tui-date-picker/dist/tui-date-picker.css';
 import 'tui-time-picker/dist/tui-time-picker.css';
 
+import { ProxyGrid } from '../modules/proxy-grid';
+
 // Utility functions
 
 function addStyle(styles) {
@@ -580,36 +582,7 @@ HTMLWidgets.widget({
   }
 });
 
-// From Friss tuto (https://github.com/FrissAnalytics/shinyJsTutorials/blob/master/tutorials/tutorial_03.Rmd)
-function getWidget(id) {
-  // Get the HTMLWidgets object
-  var htmlWidgetsObj = HTMLWidgets.find("#" + id);
 
-  // Use the getWidget method we created to get the underlying widget
-  var widgetObj;
 
-  if (typeof htmlWidgetsObj != "undefined") {
-    widgetObj = htmlWidgetsObj.getWidget();
-  }
-
-  return widgetObj;
-}
-
-if (HTMLWidgets.shinyMode) {
-  Shiny.addCustomMessageHandler("proxy-toastui-grid-addrows", function(obj) {
-    var grid = getWidget(obj.id);
-    if (typeof grid != "undefined") {
-      const data = [];
-      for (let i = 0; i < obj.data.nrow; i += 1) {
-        const row = {};
-        for (let j = 0; j < obj.data.ncol; j += 1) {
-          row[obj.data.colnames[j]] = obj.data.data[j][i];
-        }
-        data.push(row);
-      }
-      grid.appendRows(data, true);
-    }
-  });
-}
-
+ProxyGrid();
 
