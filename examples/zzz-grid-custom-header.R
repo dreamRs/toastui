@@ -1,11 +1,11 @@
 
 library(toastui)
-datagrid(iris) %>% 
+datagrid(iris) %>%
   grid_columns(
     columns = "Sepal.Length"
     # , header = "truc</br><span style='font-weight:normal;'>bidule</span><a class='tui-grid-btn-sorting'></a>"
     , header = "character"
-  ) %>% 
+  ) %>%
   grid_header(
     height = 80,
     complexColumns = list(
@@ -29,7 +29,7 @@ datagrid(iris) %>%
 
 library(toastui)
 library(htmltools)
-datagrid(mtcars, theme = "striped", colwidths = "guess") %>% 
+datagrid(mtcars, theme = "striped", colwidths = "guess") %>%
   grid_columns(
     columns = "mpg",
     minWidth = (toastui:::maxnchar("Miles/(US) gallon")*1.3+10)*4,
@@ -44,21 +44,21 @@ datagrid(mtcars, theme = "striped", colwidths = "guess") %>%
         phosphoricons::ph("sort-desc", class = "datagrid-sort-desc", style = "display: none;")
       )
     )
-  ) %>% 
+  ) %>%
   grid_header(
     height = 70,
     columns = list(
       list(
         name = "mpg",
         align = "left",
-        renderer = JS("DatagridColumnHeaderSortHTML")
+        renderer = JS("datagrid.header.htmlsort")
       )
     )
   )
 
 
 
-datagrid(ps3_games[, c(1, 5, 6, 7, 8)], colwidths = "guess", theme = "striped") %>% 
+datagrid(ps3_games[, c(1, 5, 6, 7, 8)], colwidths = "guess", theme = "striped") %>%
   grid_summary(
     column = "Name",
     js_function = JS(
@@ -68,7 +68,7 @@ datagrid(ps3_games[, c(1, 5, 6, 7, 8)], colwidths = "guess", theme = "striped") 
       "}"
     ),
     position = "top"
-  ) %>% 
+  ) %>%
   grid_summary(
     column = "NA_Sales",
     js_function = JS(
@@ -77,7 +77,7 @@ datagrid(ps3_games[, c(1, 5, 6, 7, 8)], colwidths = "guess", theme = "striped") 
       "}"
     ),
     position = "top"
-  )%>% 
+  )%>%
   grid_summary(
     column = "EU_Sales",
     js_function = JS(

@@ -4,12 +4,12 @@ library(toastui)
 datagrid(
   data = mtcars, rowHeaders = list(
     list(
-      type = "rowNum", 
+      type = "rowNum",
       width = 150,
       align = "left",
       header = " ",
       renderer = list(
-        type = JS("DatagridRowNamesRenderer"), 
+        type = JS("datagrid.renderer.rownames"),
         options = list(rowNames = rownames(mtcars))
       )
     )

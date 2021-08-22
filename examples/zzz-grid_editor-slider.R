@@ -13,7 +13,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$grid1 <- renderDatagrid({
     mydata <- data.frame(
       month = month.name,
@@ -22,31 +22,31 @@ server <- function(input, output, session) {
     grid <- datagrid(mydata)
     grid$x$editorInput <- TRUE
     # grid$x$options$editingEvent <- "click"
-    grid %>% 
+    grid %>%
       grid_columns(
         columns = "value",
         editor = list(
-          type = htmlwidgets::JS("DatagridSliderEditor"),
+          type = htmlwidgets::JS("datagrid.editor.slider"),
           options = list(
-            min = 0, 
+            min = 0,
             max = 20
           )
         ),
         renderer = list(
-          type = htmlwidgets::JS("DatagridSliderRenderer"),
+          type = htmlwidgets::JS("datagrid.renderer.slider"),
           options = list(
-            min = 0, 
+            min = 0,
             max = 20
           )
         )
       )
-    
+
   })
-  
+
   output$edited1 <- renderPrint({
     input$grid1_data
   })
-  
+
 }
 
 if (interactive())

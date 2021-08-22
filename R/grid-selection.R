@@ -34,7 +34,7 @@ grid_selection_row <- function(grid,
       type = 'checkbox',
       header = "<div></div>",
       renderer = list(
-        type = htmlwidgets::JS("DatagridRadioRenderer")
+        type = htmlwidgets::JS("datagrid.renderer.radio")
       ),
       width = width
     ))

@@ -10,295 +10,37 @@ import { addStyle } from '../modules/utils';
 
 
 import { DatagridBarRenderer } from "../modules/grid-renderer-bar";
-
+import { DatagridFormatRenderer } from "../modules/grid-renderer-format";
+import { DatagridHTMLWidgetsRenderer } from "../modules/grid-renderer-htmlwidgets";
+import { DatagridButtonRenderer } from "../modules/grid-renderer-button";
+import { DatagridRadioRenderer } from "../modules/grid-renderer-radio";
+import { DatagridSliderRenderer } from "../modules/grid-renderer-slider";
+import { DatagridRowNamesRenderer } from "../modules/grid-renderer-rownames";
 export const renderer = {
-  colorbar: DatagridBarRenderer
+  colorbar: DatagridBarRenderer,
+  format: DatagridFormatRenderer,
+  htmlwidgets: DatagridHTMLWidgetsRenderer,
+  button: DatagridButtonRenderer,
+  radio: DatagridRadioRenderer,
+  slider: DatagridSliderRenderer,
+  rownames: DatagridRowNamesRenderer
+};
+
+
+import { DatagridSliderEditor } from "../modules/grid-editor-slider";
+export const editor = {
+  slider: DatagridSliderEditor
+};
+
+
+import { DatagridColumnHeaderHTML, DatagridColumnHeaderSortHTML } from "../modules/grid-header";
+export const header = {
+  html: DatagridColumnHeaderHTML,
+  htmlsort: DatagridColumnHeaderSortHTML
 };
 
 
 
-class DatagridFormatRenderer {
-  constructor(props) {
-    const el = document.createElement("div");
-    el.style.padding = "4px 5px";
-    this.el = el;
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    var formatted = props.columnInfo.renderer.options.formatted;
-    if (typeof formatted == "object") {
-      formatted = formatted[props.rowKey];
-    }
-    this.el.innerHTML = formatted;
-  }
-}
-
-class DatagridHTMLRenderer {
-  constructor(props) {
-    const el = document.createElement("div");
-    const options = props.columnInfo.renderer.options;
-    el.style.cssText = options.styles;
-    this.el = el;
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    var rendered = props.columnInfo.renderer.options.rendered;
-    if (typeof rendered == "object") {
-      rendered = rendered[props.rowKey];
-    }
-    this.el.innerHTML = rendered;
-    setTimeout(function() {
-      window.HTMLWidgets.staticRender();
-    }, 10);
-  }
-}
-
-class DatagridButtonRenderer {
-  constructor(props) {
-    const el = document.createElement("button");
-    const width = props.columnInfo.renderer.options.width;
-    const status = props.columnInfo.renderer.options.status;
-    el.type = "button";
-    el.style.width = width;
-    el.style.padding = "5px 0";
-    el.style.boxSizing = "border-box";
-    el.classList.add("btn");
-    el.classList.add("btn-sm");
-    el.classList.add("btn-" + status);
-
-    this.el = el;
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    var label;
-    if (props.columnInfo.renderer.options.hasOwnProperty("label")) {
-      label = props.columnInfo.renderer.options.label;
-    } else {
-      label = String(props.value);
-    }
-    if (props.columnInfo.renderer.options.hasOwnProperty("icon")) {
-      label = props.columnInfo.renderer.options.icon + " " + label;
-    }
-    const inputId = props.columnInfo.renderer.options.inputId;
-    this.el.onclick = function() {
-      if (HTMLWidgets.shinyMode) {
-        Shiny.setInputValue(inputId, String(props.value));
-      }
-    };
-    this.el.innerHTML = label;
-  }
-}
-
-class DatagridRadioRenderer {
-  constructor(props) {
-    const { grid, rowKey } = props;
-
-    const label = document.createElement("label");
-    label.className = "datagrid-radio";
-    label.setAttribute("for", String(rowKey));
-
-    const hiddenInput = document.createElement("input");
-    hiddenInput.className = "datagrid-radio-hidden";
-    hiddenInput.id = String(rowKey);
-    hiddenInput.style.cursor = "pointer";
-
-    const customInput = document.createElement("span");
-    customInput.className = "datagrid-radio-input";
-    customInput.style.cursor = "pointer";
-
-    label.appendChild(hiddenInput);
-    label.appendChild(customInput);
-
-    hiddenInput.type = "radio";
-    hiddenInput.addEventListener("change", () => {
-      if (hiddenInput.checked) {
-        grid.uncheckAll();
-        grid.check(rowKey);
-      } else {
-        grid.uncheck(rowKey);
-      }
-    });
-
-    this.el = label;
-
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    const hiddenInput = this.el.querySelector(".datagrid-radio-hidden");
-    const checked = Boolean(props.value);
-
-    hiddenInput.checked = checked;
-  }
-}
-
-class DatagridSliderEditor {
-  constructor(props) {
-    const el = document.createElement("input");
-    const { min, max } = props.columnInfo.editor.options;
-
-    el.type = "range";
-    el.min = String(min);
-    el.max = String(max);
-    el.style.width = "100%";
-    el.style.marginTop = "10px";
-    el.value = String(props.value);
-
-    this.el = el;
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  getValue() {
-    return this.el.value;
-  }
-
-  mounted() {
-    this.el.select();
-  }
-}
-
-class DatagridSliderRenderer {
-  constructor(props) {
-    const el = document.createElement("input");
-    const { min, max } = props.columnInfo.renderer.options;
-
-    el.type = "range";
-    el.min = String(min);
-    el.max = String(max);
-    el.style.width = "100%";
-    el.value = String(props.value);
-    el.disabled = true;
-
-    this.el = el;
-    this.render(props);
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    this.el.value = String(props.value);
-  }
-}
-
-class DatagridRowNamesRenderer {
-  constructor(props) {
-    const el = document.createElement("span");
-    var rowNames = props.columnInfo.renderer.options.rowNames;
-    el.innerHTML = rowNames[props.rowKey];
-    this.el = el;
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    var rowNames = props.columnInfo.renderer.options.rowNames;
-    this.el.innerHTML = rowNames[props.rowKey];
-  }
-}
-
-class DatagridColumnHeaderHTML {
-  constructor(props) {
-    const columnInfo = props.columnInfo;
-    console.log(columnInfo);
-    const el = document.createElement("div");
-    el.className = "datagrid-header";
-    el.style.padding = "0 5px";
-    el.style.fontWeight = "normal";
-    el.innerHTML = columnInfo.header;
-    this.el = el;
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    this.el.innerHTML = props.columnInfo.header;
-  }
-}
-
-class DatagridColumnHeaderSortHTML {
-  constructor(props) {
-    const columnInfo = props.columnInfo;
-
-    const el = document.createElement("div");
-    el.className = "datagrid-header";
-
-    el.style.fontWeight = "normal";
-    el.style.cursor = "pointer";
-    el.innerHTML = columnInfo.header;
-
-    function findIndex(predicate, arr) {
-      for (var i = 0, len = arr.length; i < len; i += 1) {
-        if (predicate(arr[i])) {
-          return i;
-        }
-      }
-      return -1;
-    }
-    function findPropIndex(propName, value, arr) {
-      return findIndex(function(item) {
-        return item[propName] === value;
-      }, arr);
-    }
-
-    el.addEventListener("click", function(event) {
-      event.preventDefault();
-      const columnName = props.columnInfo.name;
-      const sortState = props.grid.getSortState();
-      const columns = sortState.columns;
-      const index = findPropIndex("columnName", columnName, columns);
-      const ascending = index !== -1 ? !columns[index].ascending : true;
-      props.grid.sort(columnName, ascending);
-      const asc = el.querySelector(".datagrid-sort-asc");
-      const desc = el.querySelector(".datagrid-sort-desc");
-      if (ascending) {
-        asc.style.display = "inline";
-        desc.style.display = "none";
-      } else {
-        asc.style.display = "none";
-        desc.style.display = "inline";
-      }
-    });
-
-    this.el = el;
-  }
-
-  getElement() {
-    return this.el;
-  }
-
-  render(props) {
-    const el = this.el;
-    //el.innerHTML = props.columnInfo.header;
-  }
-}
 
 // HTMLWidgets bindings
 

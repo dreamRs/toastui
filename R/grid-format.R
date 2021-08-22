@@ -29,7 +29,7 @@ grid_format <- function(grid,
       grid = grid,
       columns = column,
       renderer = list(
-        type = JS("DatagridFormatRenderer"),
+        type = JS("datagrid.renderer.format"),
         options = list(
           formatted = unlist(formatted, use.names = FALSE)
         )

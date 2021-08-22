@@ -38,11 +38,11 @@
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
-#' 
+#'
 #' @importFrom htmltools doRenderTags
 #'
 #' @example examples/ex-grid_columns.R
-grid_columns <- function(grid, 
+grid_columns <- function(grid,
                          columns,
                          header = NULL,
                          ellipsis = NULL,
@@ -188,7 +188,7 @@ grid_col_button <- function(grid,
     columns = column,
     ...,
     renderer = list(
-      type = JS("DatagridButtonRenderer"),
+      type = JS("datagrid.renderer.button"),
       options = dropNulls(list(
         status = status,
         width = btn_width,
