@@ -29,9 +29,9 @@ grid_columns(
 )
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
-\item{columns}{Name(s) of column in the data used in \code{\link{datagrid}}.}
+\item{columns}{Name(s) of column in the data used in \code{\link[=datagrid]{datagrid()}}.}
 
 \item{header}{The header of the column to be shown on the header.}
 

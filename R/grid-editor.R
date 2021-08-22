@@ -4,7 +4,7 @@
 #' @description Allow to edit content of columns with different inputs,
 #'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param column Column for which to activate the editable content.
 #' @param type Type of editor: \code{"text"}, \code{"number"}, \code{"checkbox"},
 #'  \code{"select"}, \code{"radio"} or \code{"password"}.
@@ -71,7 +71,7 @@ grid_editor <- function(grid,
 
 
 
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param editingEvent If set to \code{"click"}, editable cell in
 #'  the view-mode will be changed to edit-mode by a single click.
 #' @param actionButtonId Use an \code{actionButton} inputId to send
@@ -148,7 +148,7 @@ validateOpts <- function(required = NULL,
 #' @description Allow to edit content of columns with a calendar and time picker,
 #'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param column Column for which to activate the date picker.
 #' @param format Date format, default is \code{"yyyy-MM-dd"}.
 #' @param type Type of selection: date, month or year.

@@ -1,11 +1,11 @@
 
 #' Row selection (in shiny)
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param type Type of selection: \code{"checkbox"} (multiple rows) or \code{"radio"} (unique row).
 #' @param return Value that will be accessible via \code{input} :
-#'  a \code{data.frame} with selected row(s) or just the index of rows.
+#'  a \code{data.frame} with selected row(s) or just the index of selected row(s).
 #' @param width Width of the column.
 #'
 #' @return A `datagrid` htmlwidget.
@@ -57,7 +57,7 @@ grid_selection_row <- function(grid,
 
 #' Cell selection (in shiny)
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param selectionUnit The unit of selection on grid.
 #'
@@ -80,7 +80,7 @@ grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row"))
 
 #' Click event (in shiny)
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param inputId The \code{input} slot that will be used to access the value.
 #'
 #' @return A `datagrid` htmlwidget.

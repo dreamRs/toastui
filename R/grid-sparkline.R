@@ -3,7 +3,7 @@
 #'
 #' @description Create small charts in a column.
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param column Column data are stored and where to render widgets.
 #' @param renderer A \code{function} that will create an HTMLwidget.
 #' @param height Height of the row (applies to all table).

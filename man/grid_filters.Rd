@@ -15,9 +15,9 @@ grid_filters(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
-\item{columns}{Name(s) of column in the data used in \code{\link{datagrid}}.}
+\item{columns}{Name(s) of column in the data used in \code{\link[=datagrid]{datagrid()}}.}
 
 \item{showApplyBtn}{Apply filters only when button is pressed.}
 

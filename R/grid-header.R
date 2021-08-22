@@ -3,7 +3,7 @@
 #'
 #' @description Properties to modify grid's header, like creating grouped header.
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param complexColumns \code{list}. This options creates new parent
 #'  headers of the multiple columns which includes the headers of
 #'  specified columns, and sets up the hierarchy.

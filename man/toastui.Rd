@@ -10,7 +10,7 @@ Create interactive tables, calendars and charts with one package.
 }
 \section{Tables}{
 
-Interactive and editable tables with \href{https://ui.toast.com/tui-grid/}{tui-grid}, see \code{\link{datagrid}}.
+Interactive and editable tables with \href{https://ui.toast.com/tui-grid/}{tui-grid}, see \code{\link[=datagrid]{datagrid()}}.
 }
 
 \section{Calendars}{

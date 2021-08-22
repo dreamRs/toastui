@@ -13,14 +13,14 @@ grid_selection_row(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{inputId}{The \code{input} slot that will be used to access the value.}
 
 \item{type}{Type of selection: \code{"checkbox"} (multiple rows) or \code{"radio"} (unique row).}
 
 \item{return}{Value that will be accessible via \code{input} :
-a \code{data.frame} with selected row(s) or just the index of rows.}
+a \code{data.frame} with selected row(s) or just the index of selected row(s).}
 
 \item{width}{Width of the column.}
 }

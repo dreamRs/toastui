@@ -28,7 +28,7 @@ is useful if you want to save an expression in a variable.}
 Output element that can be included in UI. Render function to create output in server.
 }
 \description{
-Output and render functions for using \code{\link{datagrid}} within Shiny
+Output and render functions for using \code{\link[=datagrid]{datagrid()}} within Shiny
 applications and interactive Rmd documents.
 }
 \examples{

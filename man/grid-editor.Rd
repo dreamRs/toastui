@@ -22,7 +22,7 @@ grid_editor_opts(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{Column for which to activate the editable content.}
 

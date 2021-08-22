@@ -1,7 +1,7 @@
 
 #' Format column content
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param column Name of the column to format.
 #' @param formatter Either an R function or a JavaScript function wraped in \code{JS}.
 #'

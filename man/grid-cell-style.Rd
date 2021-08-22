@@ -30,7 +30,7 @@ grid_style_cells(
 )
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{expr}{An expression giving position of row. Must return a logical vector.}
 

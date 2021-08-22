@@ -202,7 +202,7 @@ datagrid_html <- function(id, style, class, ...) {
 
 #' Shiny bindings for \code{datagrid}
 #'
-#' Output and render functions for using \code{\link{datagrid}} within Shiny
+#' Output and render functions for using [datagrid()] within Shiny
 #' applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from

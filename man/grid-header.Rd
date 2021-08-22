@@ -18,7 +18,7 @@ grid_header(
 grid_complex_header(grid, ..., height = 80)
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{complexColumns}{\code{list}. This options creates new parent
 headers of the multiple columns which includes the headers of
