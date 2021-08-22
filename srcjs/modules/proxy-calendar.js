@@ -1,5 +1,5 @@
 import "widgets";
-import moment from "moment";
+import dayjs from "dayjs";
 import * as utils from "./utils";
 
 export function ProxyCalendar() {
@@ -20,9 +20,9 @@ export function ProxyCalendar() {
           cal.setDate(obj.data.date);
         }
         Shiny.setInputValue(obj.id + "_dates", {
-          current: moment(cal.getDate()._date).format(),
-          start: moment(cal.getDateRangeStart()._date).format(),
-          end: moment(cal.getDateRangeEnd()._date).format(),
+          current: dayjs(cal.getDate()._date).format(),
+          start: dayjs(cal.getDateRangeStart()._date).format(),
+          end: dayjs(cal.getDateRangeEnd()._date).format(),
         });
       }
     });

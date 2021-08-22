@@ -3,9 +3,11 @@ import Calendar from "tui-calendar";
 import "tui-calendar/dist/tui-calendar.css";
 import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
-import moment from "moment";
+import dayjs from "dayjs";
 
 import { ProxyCalendar } from "../modules/proxy-calendar";
+
+import { formatDateNav } from "../modules/calendar-utils";
 
 HTMLWidgets.widget({
   name: "calendar",
@@ -45,10 +47,7 @@ HTMLWidgets.widget({
         if (x.useNav) {
           formatNav = x.bttnOpts.fmt_date;
           renderRange = document.getElementById(el.id + "_renderRange");
-          renderRange.innerHTML =
-            moment(cal.getDateRangeStart()._date).format(formatNav) +
-            " - " +
-            moment(cal.getDateRangeEnd()._date).format(formatNav);
+          renderRange.innerHTML = formatDateNav(cal, formatNav);
 
           var prev = document.getElementById(el.id + "_prev");
           prev.className += x.bttnOpts.class;
@@ -90,8 +89,8 @@ HTMLWidgets.widget({
                 {
                   title: event.title,
                   location: event.location,
-                  start: moment(event.start._date).format(),
-                  end: moment(event.end._date).format(),
+                  start: dayjs(event.start._date).format(),
+                  end: dayjs(event.end._date).format(),
                   isAllDay: event.isAllDay,
                   category: event.isAllDay ? "allday" : "time",
                   calendarId: event.calendarId,
@@ -107,8 +106,8 @@ HTMLWidgets.widget({
             Shiny.setInputValue(el.id + "_add", {
               title: event.title,
               location: event.location,
-              start: moment(event.start._date).format(),
-              end: moment(event.end._date).format(),
+              start: dayjs(event.start._date).format(),
+              end: dayjs(event.end._date).format(),
               isAllDay: event.isAllDay,
               category: event.isAllDay ? "allday" : "time",
               calendarId: event.calendarId,
@@ -146,8 +145,8 @@ HTMLWidgets.widget({
               id: schedule.id,
               title: schedule.title,
               location: schedule.location,
-              start: moment(schedule.start._date).format(),
-              end: moment(schedule.end._date).format(),
+              start: dayjs(schedule.start._date).format(),
+              end: dayjs(schedule.end._date).format(),
               isAllDay: schedule.isAllDay,
               category: schedule.isAllDay ? "allday" : "time",
               calendarId: schedule.calendarId,
@@ -164,18 +163,18 @@ HTMLWidgets.widget({
             var changes = event.changes;
             //cal.updateSchedule(schedule.id, schedule.calendarId, changes);
             if (changes.hasOwnProperty("end")) {
-              changes.end = moment(changes.end._date).format();
+              changes.end = dayjs(changes.end._date).format();
             }
             if (changes.hasOwnProperty("start")) {
-              changes.start = moment(changes.start._date).format();
+              changes.start = dayjs(changes.start._date).format();
             }
             Shiny.setInputValue(el.id + "_update", {
               schedule: {
                 id: schedule.id,
                 title: schedule.title,
                 location: schedule.location,
-                start: moment(schedule.start._date).format(),
-                end: moment(schedule.end._date).format(),
+                start: dayjs(schedule.start._date).format(),
+                end: dayjs(schedule.end._date).format(),
                 isAllDay: schedule.isAllDay,
                 category: schedule.isAllDay ? "allday" : "time",
                 calendarId: schedule.calendarId,
@@ -202,9 +201,9 @@ HTMLWidgets.widget({
 
         if (HTMLWidgets.shinyMode) {
           Shiny.setInputValue(el.id + "_dates", {
-            current: moment(cal.getDate()._date).format(),
-            start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format(),
+            current: dayjs(cal.getDate()._date).format(),
+            start: dayjs(cal.getDateRangeStart()._date).format(),
+            end: dayjs(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
@@ -216,14 +215,11 @@ HTMLWidgets.widget({
       clickPrev: function (event) {
         if (cal !== null) {
           cal.prev();
-          renderRange.innerHTML =
-            moment(cal.getDateRangeStart()._date).format(formatNav) +
-            " - " +
-            moment(cal.getDateRangeEnd()._date).format(formatNav);
+          renderRange.innerHTML = formatDateNav(cal, formatNav);
           Shiny.setInputValue(el.id + "_dates", {
-            current: moment(cal.getDate()._date).format(),
-            start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format(),
+            current: dayjs(cal.getDate()._date).format(),
+            start: dayjs(cal.getDateRangeStart()._date).format(),
+            end: dayjs(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
@@ -231,14 +227,11 @@ HTMLWidgets.widget({
       clickNext: function (event) {
         if (cal !== null) {
           cal.next();
-          renderRange.innerHTML =
-            moment(cal.getDateRangeStart()._date).format(formatNav) +
-            " - " +
-            moment(cal.getDateRangeEnd()._date).format(formatNav);
+          renderRange.innerHTML = formatDateNav(cal, formatNav);
           Shiny.setInputValue(el.id + "_dates", {
-            current: moment(cal.getDate()._date).format(),
-            start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format(),
+            current: dayjs(cal.getDate()._date).format(),
+            start: dayjs(cal.getDateRangeStart()._date).format(),
+            end: dayjs(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
@@ -246,14 +239,11 @@ HTMLWidgets.widget({
       clickToday: function (event) {
         if (cal !== null) {
           cal.today();
-          renderRange.innerHTML =
-            moment(cal.getDateRangeStart()._date).format(formatNav) +
-            " - " +
-            moment(cal.getDateRangeEnd()._date).format(formatNav);
+          renderRange.innerHTML = formatDateNav(cal, formatNav);
           Shiny.setInputValue(el.id + "_dates", {
-            current: moment(cal.getDate()._date).format(),
-            start: moment(cal.getDateRangeStart()._date).format(),
-            end: moment(cal.getDateRangeEnd()._date).format(),
+            current: dayjs(cal.getDate()._date).format(),
+            start: dayjs(cal.getDateRangeStart()._date).format(),
+            end: dayjs(cal.getDateRangeEnd()._date).format(),
           });
         }
       },
