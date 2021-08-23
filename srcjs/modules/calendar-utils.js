@@ -12,11 +12,11 @@ export function formatDateNav(calendar, fmt = "YYYY-MM-DD", sep = " - ") {
   return start + sep + end;
 }
 
-function clickPrev(calendar, renderRange, formatNav) {
+function clickPrev(calendar, renderRange, formatNav, sepNav) {
   return function (event) {
     if (calendar !== null) {
       calendar.prev();
-      renderRange.innerHTML = formatDateNav(calendar, formatNav);
+      renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(el.id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
@@ -26,11 +26,11 @@ function clickPrev(calendar, renderRange, formatNav) {
   };
 }
 
-function clickNext(calendar, renderRange, formatNav) {
+function clickNext(calendar, renderRange, formatNav, sepNav) {
   return function (event) {
     if (calendar !== null) {
       calendar.next();
-      renderRange.innerHTML = formatDateNav(calendar, formatNav);
+      renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(el.id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
@@ -40,11 +40,11 @@ function clickNext(calendar, renderRange, formatNav) {
   };
 }
 
-function clickToday(calendar, renderRange, formatNav) {
+function clickToday(calendar, renderRange, formatNav, sepNav) {
   return function (event) {
     if (calendar !== null) {
       calendar.today();
-      renderRange.innerHTML = formatDateNav(calendar, formatNav);
+      renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(el.id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
@@ -56,35 +56,45 @@ function clickToday(calendar, renderRange, formatNav) {
 
 export function addNavigation(calendar, id, options) {
   var formatNav = options.fmt_date;
+  var sepNav = options.sep_date;
   var renderRange = document.getElementById(id + "_renderRange");
-  renderRange.innerHTML = formatDateNav(calendar, formatNav);
+  renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
 
   var prev = document.getElementById(id + "_prev");
   prev.className += options.class;
   prev.innerHTML = options.prev_label;
   prev.removeEventListener(
     "click",
-    clickPrev(calendar, renderRange, formatNav)
+    clickPrev(calendar, renderRange, formatNav, sepNav)
   );
-  prev.addEventListener("click", clickPrev(calendar, renderRange, formatNav));
+  prev.addEventListener(
+    "click",
+    clickPrev(calendar, renderRange, formatNav, sepNav)
+  );
 
   var next = document.getElementById(id + "_next");
   next.className += options.class;
   next.innerHTML = options.next_label;
   next.removeEventListener(
     "click",
-    clickNext(calendar, renderRange, formatNav)
+    clickNext(calendar, renderRange, formatNav, sepNav)
   );
-  next.addEventListener("click", clickNext(calendar, renderRange, formatNav));
+  next.addEventListener(
+    "click",
+    clickNext(calendar, renderRange, formatNav, sepNav)
+  );
 
   var today = document.getElementById(id + "_today");
   today.className += options.class;
   today.innerHTML = options.today_label;
   today.removeEventListener(
     "click",
-    clickToday(calendar, renderRange, formatNav)
+    clickToday(calendar, renderRange, formatNav, sepNav)
   );
-  today.addEventListener("click", clickToday(calendar, renderRange, formatNav));
+  today.addEventListener(
+    "click",
+    clickToday(calendar, renderRange, formatNav, sepNav)
+  );
 
   if (options.hasOwnProperty("bg")) {
     prev.style.background = options.bg;

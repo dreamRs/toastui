@@ -13,15 +13,16 @@ calendar(
   useDetailPopup = TRUE,
   useCreationPopup = FALSE,
   isReadOnly = TRUE,
-  useNavigation = FALSE,
-  bttnOpts = bttn_options(),
+  navigation = FALSE,
+  navOpts = navigation_options(),
+  ...,
   width = NULL,
   height = NULL,
   elementId = NULL
 )
 }
 \arguments{
-\item{data}{A \code{data.frame} with schedules data, see \code{\link{cal_demo_data}}.}
+\item{data}{A \code{data.frame} with schedules data, see \code{\link[=cal_demo_data]{cal_demo_data()}}.}
 
 \item{view}{Default view of calendar. The default value is 'week',
 other possible values are 'month' and 'day'.}
@@ -40,9 +41,11 @@ The default value is \code{TRUE}. If the value is a vector, it can be \code{"all
 
 \item{isReadOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
 
-\item{useNavigation}{Add navigation buttons to got to previous or next period, or return to 'today'.}
+\item{navigation}{Add navigation buttons to got to previous or next period, or return to 'today'.}
 
-\item{bttnOpts}{Options tu customize buttons (only if \code{useNavigation = TRUE}), see \code{\link{bttn_options}}.}
+\item{navOpts}{Options tu customize buttons (only if \code{navigation = TRUE}), see \code{\link[=navigation_options]{navigation_options()}}.}
+
+\item{...}{Additional arguments passed to JavaScript method.}
 
 \item{width, height}{A numeric input in pixels.}
 
@@ -66,7 +69,7 @@ calendar(view = "week")
 calendar(view = "day")
 
 # Add navigation buttons
-calendar(useNavigation = TRUE)
+calendar(navigation = TRUE)
 
 # Add schedules data
 ex_data <- cal_demo_data()

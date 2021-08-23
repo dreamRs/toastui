@@ -17,9 +17,10 @@ Imports:
     utils,
     htmlwidgets,
     htmltools,
-    shiny (>= 1.1.0),
     magrittr,
-    rlang
+    rlang,
+    shiny (>= 1.1.0),
+    shinyWidgets
 Suggests: 
     apexcharter,
     knitr,
