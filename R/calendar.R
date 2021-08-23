@@ -174,6 +174,16 @@ calendar_html <- function(id, style, class, ...) {
 #'     class = "bttn-float bttn-md"
 #'   )
 #' )
+#' 
+#' 
+#' # Change date format and separator
+#' calendar(
+#'   navigation = TRUE,
+#'   navOpts = navigation_options(
+#'     fmt_date = "DD/MM/YYYY", 
+#'     sep_date = " - "
+#'   )
+#' )
 navigation_options <- function(today_label = "Today",
                                prev_label = icon("chevron-left"),
                                next_label = icon("chevron-right"),

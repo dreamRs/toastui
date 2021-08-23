@@ -64,4 +64,14 @@ calendar(
     class = "bttn-float bttn-md"
   )
 )
+
+
+# Change date format and separator
+calendar(
+  navigation = TRUE,
+  navOpts = navigation_options(
+    fmt_date = "DD/MM/YYYY", 
+    sep_date = " - "
+  )
+)
 }
