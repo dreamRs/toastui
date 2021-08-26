@@ -223,6 +223,28 @@ HTMLWidgets.widget({
             });
           }
         }
+
+        // Drag and drop
+        if (HTMLWidgets.shinyMode & (x.dragInput === true)) {
+          //var rowDragged = -1;
+          grid.on("drag", function (ev) {
+            //rowDragged = ev.rowKey + 1;
+            Shiny.setInputValue(el.id + "_drag", {
+              rowKey: ev.rowKey + 1,
+              targetRowKey: ev.targetRowKey + 1,
+            });
+          });
+          grid.on("drop", function (ev) {
+            Shiny.setInputValue(el.id + "_drop", {
+              rowKey: ev.rowKey + 1,
+              targetRowKey: ev.targetRowKey + 1,
+            });
+            Shiny.setInputValue(el.id + "_data:datagridEdit", {
+              data: ev.instance.getData(),
+              colnames: x.colnames,
+            });
+          });
+        }
       },
 
       getWidget: function () {

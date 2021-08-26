@@ -22,14 +22,14 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$grid <- renderDatagrid({
     datagrid(list(
       "Variable 1" = 1:10,
-      "Varaible 2" = LETTERS[1:10]
+      "Variable 2" = LETTERS[1:10]
     ), draggable = TRUE)
   })
-  
+
   output$drag <- renderPrint({
     input$grid_drag
   })
@@ -39,7 +39,7 @@ server <- function(input, output, session) {
   output$data <- renderPrint({
     input$grid_data
   })
-  
+
 }
 
 shinyApp(ui, server)
