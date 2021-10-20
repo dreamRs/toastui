@@ -1,4 +1,3 @@
-const PrettierPlugin = require('prettier-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 
@@ -54,16 +53,16 @@ loaders.forEach((loader) => {
 
 // placeholder for plugins
 var plugins = [
-  new PrettierPlugin(),
 ];
 
 // define options
 var options = {
   entry: entryPoints,
   output: {
-    library: '[name]',
-    libraryTarget:'umd',
-    filename: '[name].js',
+    library: "[name]",
+    libraryTarget: "umd",
+    filename: "[name].js",
+    hashFunction: "xxhash64",
     path: path.resolve(__dirname, JSON.parse(outputPath)),
   },
   externals: externals,
