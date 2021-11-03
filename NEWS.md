@@ -1,3 +1,10 @@
+# toastui 0.2.0
+
+* Use [packer](https://github.com/JohnCoene/packer) to manage JavaScript source code and dependencies.
+* Updated JavaScript dependencies (tui-calendar 1.14.1, @toast-ui/chart 4.4.1, tui-grid 4.19.2).
+
+
+
 # toastui 0.1.2.9000
 
 * Updated JavaScript dependencies (tui-calendar 1.13.0, @toast-ui/chart 4.3.5, tui-grid 4.18.0).

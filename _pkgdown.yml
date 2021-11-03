@@ -1,8 +1,14 @@
 url: https://dreamrs.github.io/toastui
 
 template:
-  params:
-    bootswatch: flatly
+  bootstrap: 4
+  bootswatch: cosmo
+  bslib:
+    primary: "#112446"
+
+navbar:
+  type: dark
+  bg: primary
 
 authors:
   Victor Perrier:
