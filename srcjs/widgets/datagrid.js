@@ -215,7 +215,7 @@ HTMLWidgets.widget({
               });
             }
           } else {
-            grid.on("editingFinish", function (ev) {
+            grid.on("afterChange", function (ev) { //editingFinish
               Shiny.setInputValue(el.id + "_data:datagridEdit", {
                 data: ev.instance.getData(),
                 colnames: x.colnames,
