@@ -36,7 +36,7 @@ simple_filters <- function(data) {
 #' @export
 #'
 #' @example examples/ex-grid_filters.R
-grid_filters <- function(grid, 
+grid_filters <- function(grid,
                          columns,
                          showApplyBtn = NULL,
                          showClearBtn = NULL,
@@ -64,7 +64,7 @@ grid_filters <- function(grid,
     }
     filtering <- dropNulls(list(
       type = type[j],
-      format = if (type[j] == "date") format,
+      options = if (type[j] == "date") list(format = format),
       showApplyBtn = showApplyBtn[j],
       showClearBtn = showClearBtn[j],
       operator = operator[j]
