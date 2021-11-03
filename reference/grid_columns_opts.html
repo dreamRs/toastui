@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">toastui</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9410</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -154,7 +154,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>grid</th>
-      <td><p>A table created with <code><a href='datagrid.html'>datagrid</a></code>.</p></td>
+      <td><p>A table created with <code><a href='datagrid.html'>datagrid()</a></code>.</p></td>
     </tr>
     <tr>
       <th>minWidth</th>
@@ -180,22 +180,22 @@ When the frozen columns are created by "frozenCount" option, the frozen border w
     <p>A <code>datagrid</code> htmlwidget.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span>
-
-<span class='co'># Set minimal width for columns</span>
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>countries</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_columns_opts</span><span class='op'>(</span>
-    minWidth <span class='op'>=</span> <span class='fl'>140</span>
-  <span class='op'>)</span>
-
-<span class='co'># Freeze two first columns</span>
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>countries</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_columns_opts</span><span class='op'>(</span>
-    minWidth <span class='op'>=</span> <span class='fl'>140</span>,
-    frozenCount <span class='op'>=</span> <span class='fl'>2</span>,
-    frozenBorderWidth <span class='op'>=</span> <span class='fl'>5</span>
-  <span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Set minimal width for columns</span></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>countries</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_columns_opts</span><span class='op'>(</span></span>
+<span class='r-in'>    minWidth <span class='op'>=</span> <span class='fl'>140</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Freeze two first columns</span></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>countries</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_columns_opts</span><span class='op'>(</span></span>
+<span class='r-in'>    minWidth <span class='op'>=</span> <span class='fl'>140</span>,</span>
+<span class='r-in'>    frozenCount <span class='op'>=</span> <span class='fl'>2</span>,</span>
+<span class='r-in'>    frozenBorderWidth <span class='op'>=</span> <span class='fl'>5</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">toastui</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9410</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -188,28 +188,28 @@ Basically, it will calculate the offset using 'Intl.DateTimeFormat' with the val
     <p>Online JavaScript documentation: <a href='https://nhn.github.io/tui.calendar/latest/Timezone/'>https://nhn.github.io/tui.calendar/latest/Timezone/</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span>
-<span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span>view <span class='op'>=</span> <span class='st'>"week"</span>, defaultDate <span class='op'>=</span> <span class='st'>"2021-06-18"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='cal_schedules.html'>cal_schedules</a></span><span class='op'>(</span>
-    title <span class='op'>=</span> <span class='st'>"My schedule"</span>,
-    start <span class='op'>=</span> <span class='st'>"2021-06-18T10:00:00"</span>,
-    end <span class='op'>=</span> <span class='st'>"2021-06-18T17:00:00"</span>,
-    category <span class='op'>=</span> <span class='st'>"time"</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='co'># Set primary timezone and add secondary timezone</span>
-  <span class='fu'>cal_timezone</span><span class='op'>(</span>
-    timezoneName <span class='op'>=</span> <span class='st'>"Europe/Paris"</span>,
-    displayLabel <span class='op'>=</span> <span class='st'>"GMT+02:00"</span>,
-    tooltip <span class='op'>=</span> <span class='st'>"Paris"</span>,
-    extra_zones <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-        timezoneName <span class='op'>=</span> <span class='st'>"Asia/Seoul"</span>,
-        displayLabel <span class='op'>=</span> <span class='st'>"GMT+09:00"</span>,
-        tooltip <span class='op'>=</span> <span class='st'>"Seoul"</span>
-      <span class='op'>)</span>
-    <span class='op'>)</span>
-  <span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span>view <span class='op'>=</span> <span class='st'>"week"</span>, defaultDate <span class='op'>=</span> <span class='st'>"2021-06-18"</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span> </span>
+<span class='r-in'>  <span class='fu'><a href='cal_schedules.html'>cal_schedules</a></span><span class='op'>(</span></span>
+<span class='r-in'>    title <span class='op'>=</span> <span class='st'>"My schedule"</span>,</span>
+<span class='r-in'>    start <span class='op'>=</span> <span class='st'>"2021-06-18T10:00:00"</span>,</span>
+<span class='r-in'>    end <span class='op'>=</span> <span class='st'>"2021-06-18T17:00:00"</span>,</span>
+<span class='r-in'>    category <span class='op'>=</span> <span class='st'>"time"</span></span>
+<span class='r-in'>  <span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span> </span>
+<span class='r-in'>  <span class='co'># Set primary timezone and add secondary timezone</span></span>
+<span class='r-in'>  <span class='fu'>cal_timezone</span><span class='op'>(</span></span>
+<span class='r-in'>    timezoneName <span class='op'>=</span> <span class='st'>"Europe/Paris"</span>,</span>
+<span class='r-in'>    displayLabel <span class='op'>=</span> <span class='st'>"GMT+02:00"</span>,</span>
+<span class='r-in'>    tooltip <span class='op'>=</span> <span class='st'>"Paris"</span>,</span>
+<span class='r-in'>    extra_zones <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>      <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>        timezoneName <span class='op'>=</span> <span class='st'>"Asia/Seoul"</span>,</span>
+<span class='r-in'>        displayLabel <span class='op'>=</span> <span class='st'>"GMT+09:00"</span>,</span>
+<span class='r-in'>        tooltip <span class='op'>=</span> <span class='st'>"Seoul"</span></span>
+<span class='r-in'>      <span class='op'>)</span></span>
+<span class='r-in'>    <span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

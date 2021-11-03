@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">toastui</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9410</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -132,6 +132,18 @@
 <a href="#chart" class="anchor"></a>Chart</h2>
 <p>Interactive charts:</p>
 <p><img src="reference/figures/chart-heatmap.png"><img src="reference/figures/chart-treemap.png"></p>
+</div>
+<div id="development" class="section level2">
+<h2 class="hasAnchor">
+<a href="#development" class="anchor"></a>Development</h2>
+<p>This package uses <a href="https://github.com/JohnCoene/packer">packer</a> to manage JavaScript source code and dependencies. If you want to modify it, you’ll need a working installation of <a href="https://nodejs.org/en/">Node.js</a>.</p>
+<p>After cloning the Git repository, install nodes modules with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">packer</span><span class="fu">::</span><span class="fu">npm_install</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Modify code in <code>srcjs/</code> directory, then run:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">packer</span><span class="fu">::</span><span class="fu">bundle_prod</span><span class="op">(</span><span class="op">)</span> <span class="co"># or packer::bundle_dev()</span></code></pre></div>
+<p>Re-install the package or use <code>pkgload::load_all()</code> to try changes.</p>
 </div>
 </div>
   </div>

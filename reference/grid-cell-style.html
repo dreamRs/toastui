@@ -73,7 +73,7 @@ according to an expression in the data used in the grid." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">toastui</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9410</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -171,7 +171,7 @@ according to an expression in the data used in the grid.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>grid</th>
-      <td><p>A grid created with <code><a href='datagrid.html'>datagrid</a></code>.</p></td>
+      <td><p>A grid created with <code><a href='datagrid.html'>datagrid()</a></code>.</p></td>
     </tr>
     <tr>
       <th>expr</th>
@@ -220,71 +220,71 @@ according to an expression in the data used in the grid.</p>
     <p>A <code>datagrid</code> htmlwidget.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span>
-
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cell</span><span class='op'>(</span>
-    <span class='va'>mpg</span> <span class='op'>&gt;</span> <span class='fl'>19</span>,
-    column <span class='op'>=</span> <span class='st'>"mpg"</span>,
-    background <span class='op'>=</span> <span class='st'>"#F781BE"</span>,
-    fontWeight <span class='op'>=</span> <span class='st'>"bold"</span>
-  <span class='op'>)</span>
-
-
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cell</span><span class='op'>(</span>
-    <span class='va'>vs</span> <span class='op'>==</span> <span class='fl'>0</span>,
-    column <span class='op'>=</span> <span class='st'>"vs"</span>,
-    background <span class='op'>=</span> <span class='st'>"#E41A1C80"</span>,
-    color <span class='op'>=</span> <span class='st'>"#FFF"</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cell</span><span class='op'>(</span>
-    <span class='va'>vs</span> <span class='op'>==</span> <span class='fl'>1</span>,
-    column <span class='op'>=</span> <span class='st'>"vs"</span>,
-    background <span class='op'>=</span> <span class='st'>"#377EB880"</span>
-  <span class='op'>)</span>
-
-
-<span class='co'># Use rlang to use character</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rlang.r-lib.org'>rlang</a></span><span class='op'>)</span>
-<span class='va'>my_var</span> <span class='op'>&lt;-</span> <span class='st'>"disp"</span>
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cell</span><span class='op'>(</span>
-    <span class='op'>!</span><span class='op'>!</span><span class='fu'><a href='https://rlang.r-lib.org/reference/sym.html'>sym</a></span><span class='op'>(</span><span class='va'>my_var</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>180</span>,
-    column <span class='op'>=</span> <span class='st'>"disp"</span>,
-    background <span class='op'>=</span> <span class='st'>"#F781BE"</span>
-  <span class='op'>)</span>
-
-
-
-
-<span class='co'># Style multiple columns</span>
-
-<span class='va'>cor_longley</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>longley</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>cor_longley</span><span class='op'>$</span><span class='va'>Var</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/row.names.html'>row.names</a></span><span class='op'>(</span><span class='va'>cor_longley</span><span class='op'>)</span>
-<span class='va'>vars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GNP.deflator"</span>, <span class='st'>"GNP"</span>,
-          <span class='st'>"Unemployed"</span>, <span class='st'>"Armed.Forces"</span>,
-          <span class='st'>"Population"</span>, <span class='st'>"Year"</span>, <span class='st'>"Employed"</span><span class='op'>)</span>
-<span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>cor_longley</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Var"</span>, <span class='va'>vars</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cells</span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&gt;</span> <span class='fl'>0.9</span>,
-    columns <span class='op'>=</span> <span class='va'>vars</span>,
-    background <span class='op'>=</span> <span class='st'>"#053061"</span>,
-    color <span class='op'>=</span> <span class='st'>"#FFF"</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cells</span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&gt;</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>.</span> <span class='op'>&lt;=</span> <span class='fl'>0.9</span>,
-    columns <span class='op'>=</span> <span class='va'>vars</span>,
-    background <span class='op'>=</span> <span class='st'>"#539dc8"</span>,
-    color <span class='op'>=</span> <span class='st'>"#FFF"</span>
-  <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>grid_style_cells</span><span class='op'>(</span>
-    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&lt;</span> <span class='fl'>0</span>,
-    columns <span class='op'>=</span> <span class='va'>vars</span>,
-    background <span class='op'>=</span> <span class='st'>"#b51f2e"</span>,
-    color <span class='op'>=</span> <span class='st'>"#FFF"</span>
-  <span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dreamrs.github.io/toastui/'>toastui</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cell</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>mpg</span> <span class='op'>&gt;</span> <span class='fl'>19</span>,</span>
+<span class='r-in'>    column <span class='op'>=</span> <span class='st'>"mpg"</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#F781BE"</span>,</span>
+<span class='r-in'>    fontWeight <span class='op'>=</span> <span class='st'>"bold"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cell</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>vs</span> <span class='op'>==</span> <span class='fl'>0</span>,</span>
+<span class='r-in'>    column <span class='op'>=</span> <span class='st'>"vs"</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#E41A1C80"</span>,</span>
+<span class='r-in'>    color <span class='op'>=</span> <span class='st'>"#FFF"</span></span>
+<span class='r-in'>  <span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cell</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='va'>vs</span> <span class='op'>==</span> <span class='fl'>1</span>,</span>
+<span class='r-in'>    column <span class='op'>=</span> <span class='st'>"vs"</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#377EB880"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Use rlang to use character</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rlang.r-lib.org'>rlang</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>my_var</span> <span class='op'>&lt;-</span> <span class='st'>"disp"</span></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cell</span><span class='op'>(</span></span>
+<span class='r-in'>    <span class='op'>!</span><span class='op'>!</span><span class='fu'><a href='https://rlang.r-lib.org/reference/sym.html'>sym</a></span><span class='op'>(</span><span class='va'>my_var</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>180</span>,</span>
+<span class='r-in'>    column <span class='op'>=</span> <span class='st'>"disp"</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#F781BE"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Style multiple columns</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>cor_longley</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>longley</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>cor_longley</span><span class='op'>$</span><span class='va'>Var</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/row.names.html'>row.names</a></span><span class='op'>(</span><span class='va'>cor_longley</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>vars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GNP.deflator"</span>, <span class='st'>"GNP"</span>,</span>
+<span class='r-in'>          <span class='st'>"Unemployed"</span>, <span class='st'>"Armed.Forces"</span>,</span>
+<span class='r-in'>          <span class='st'>"Population"</span>, <span class='st'>"Year"</span>, <span class='st'>"Employed"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='datagrid.html'>datagrid</a></span><span class='op'>(</span><span class='va'>cor_longley</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Var"</span>, <span class='va'>vars</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cells</span><span class='op'>(</span></span>
+<span class='r-in'>    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&gt;</span> <span class='fl'>0.9</span>,</span>
+<span class='r-in'>    columns <span class='op'>=</span> <span class='va'>vars</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#053061"</span>,</span>
+<span class='r-in'>    color <span class='op'>=</span> <span class='st'>"#FFF"</span></span>
+<span class='r-in'>  <span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cells</span><span class='op'>(</span></span>
+<span class='r-in'>    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&gt;</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>.</span> <span class='op'>&lt;=</span> <span class='fl'>0.9</span>,</span>
+<span class='r-in'>    columns <span class='op'>=</span> <span class='va'>vars</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#539dc8"</span>,</span>
+<span class='r-in'>    color <span class='op'>=</span> <span class='st'>"#FFF"</span></span>
+<span class='r-in'>  <span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>grid_style_cells</span><span class='op'>(</span></span>
+<span class='r-in'>    fun <span class='op'>=</span> <span class='op'>~</span> <span class='va'>.</span> <span class='op'>&lt;</span> <span class='fl'>0</span>,</span>
+<span class='r-in'>    columns <span class='op'>=</span> <span class='va'>vars</span>,</span>
+<span class='r-in'>    background <span class='op'>=</span> <span class='st'>"#b51f2e"</span>,</span>
+<span class='r-in'>    color <span class='op'>=</span> <span class='st'>"#FFF"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
