@@ -14,7 +14,7 @@ grid_style_column(
 )
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{Name of column (variable name) where to apply style.}
 

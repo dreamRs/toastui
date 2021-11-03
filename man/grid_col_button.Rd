@@ -16,7 +16,7 @@ grid_col_button(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{The name of the column where to create buttons.}
 
@@ -58,8 +58,6 @@ server <- function(input, output, session) {
   )
 
   output$grid <- renderDatagrid({
-
-
     datagrid(dat) \%>\%
       grid_col_button(
         column = "button1",

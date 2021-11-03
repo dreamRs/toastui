@@ -1,7 +1,7 @@
 
 #' Format column content
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param column Name of the column to format.
 #' @param formatter Either an R function or a JavaScript function wraped in \code{JS}.
 #'
@@ -29,7 +29,7 @@ grid_format <- function(grid,
       grid = grid,
       columns = column,
       renderer = list(
-        type = JS("DatagridFormatRenderer"),
+        type = JS("datagrid.renderer.format"),
         options = list(
           formatted = unlist(formatted, use.names = FALSE)
         )

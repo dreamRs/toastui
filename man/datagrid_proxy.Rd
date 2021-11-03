@@ -30,7 +30,7 @@ output$my_grid <- renderDatagrid({}) # Server
 # Then you can call proxy methods in observer:
 
 # set datagrid proxy then call a cal_proxy_* function
-datagrid_proxy("my_grid") \%>\% 
+datagrid_proxy("my_grid") \%>\%
   datagrid_proxy_addrow(mydata)
 
 # or directly
@@ -40,6 +40,7 @@ datagrid_proxy_addrow("my_grid", mydata)
 }
 \seealso{
 Other datagrid proxy methods: 
-\code{\link{datagrid_proxy_addrow}()}
+\code{\link{grid_proxy_add_row}()},
+\code{\link{grid_proxy_delete_row}()}
 }
 \concept{datagrid proxy methods}

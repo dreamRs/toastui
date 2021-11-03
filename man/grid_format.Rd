@@ -7,7 +7,7 @@
 grid_format(grid, column, formatter)
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{Name of the column to format.}
 

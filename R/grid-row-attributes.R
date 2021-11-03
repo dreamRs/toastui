@@ -1,7 +1,7 @@
 
 #' Merge rows
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param columns column(s) in which merge consecutive rows.
 #'
 #' @return A `datagrid` htmlwidget.

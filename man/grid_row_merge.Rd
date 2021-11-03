@@ -7,7 +7,7 @@
 grid_row_merge(grid, columns)
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{columns}{column(s) in which merge consecutive rows.}
 }

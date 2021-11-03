@@ -3,8 +3,8 @@
 #'
 #' @description Set options for one or several specific column.
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
-#' @param columns Name(s) of column in the data used in \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
+#' @param columns Name(s) of column in the data used in [datagrid()].
 #' @param header The header of the column to be shown on the header.
 #' @param ellipsis If set to true, ellipsis will be used for overflowing content.
 #' @param align Horizontal alignment of the column content. Available values are 'left', 'center', 'right'.
@@ -38,11 +38,11 @@
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
-#' 
+#'
 #' @importFrom htmltools doRenderTags
 #'
 #' @example examples/ex-grid_columns.R
-grid_columns <- function(grid, 
+grid_columns <- function(grid,
                          columns,
                          header = NULL,
                          ellipsis = NULL,
@@ -115,7 +115,7 @@ grid_columns <- function(grid,
 #'
 #' @description Set options for all columns.
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param minWidth Minimum width of each columns.
 #' @param resizable If set to true, resize-handles of each columns will be shown.
 #' @param frozenCount The number of frozen columns.
@@ -150,7 +150,7 @@ grid_columns_opts <- function(grid,
 
 #' Display buttons in grid's column
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param column The name of the column where to create buttons.
 #' @param inputId The \code{input} slot that will be used to access the value.
 #' @param label Label to display on button, if \code{NULL} use column's content.
@@ -188,7 +188,7 @@ grid_col_button <- function(grid,
     columns = column,
     ...,
     renderer = list(
-      type = JS("DatagridButtonRenderer"),
+      type = JS("datagrid.renderer.button"),
       options = dropNulls(list(
         status = status,
         width = btn_width,

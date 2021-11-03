@@ -21,7 +21,7 @@ grid_colorbar(
 )
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{The name of the column where to create a color bar.}
 

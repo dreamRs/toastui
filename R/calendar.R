@@ -3,25 +3,27 @@
 #'
 #' @description Build interactive calendar with the JavaScript tui-calendar library.
 #'
-#' @param data A \code{data.frame} with schedules data, see \code{\link{cal_demo_data}}.
+#' @param data A `data.frame` with schedules data, see [cal_demo_data()].
 #' @param view Default view of calendar. The default value is 'week',
 #'  other possible values are 'month' and 'day'.
 #' @param defaultDate Default date for displaying calendar.
 #' @param taskView Show the milestone and task in weekly, daily view.
-#'  The default value is \code{FALSE}. If the value is a vector, it can be \code{"milestone"}, \code{"task"}.
+#'  The default value is `FALSE`. If the value is a vector, it can be `"milestone"`, `"task"`.
 #' @param scheduleView Show the all day and time grid in weekly, daily view.
-#'  The default value is \code{TRUE}. If the value is a vector, it can be \code{"allday"}, \code{"time"}.
+#'  The default value is `TRUE`. If the value is a vector, it can be `"allday"`, `"time"`.
 #' @param useDetailPopup Logical. Display a pop-up on click with detailed informations about schedules.
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
-#' @param useNavigation Add navigation buttons to got to previous or next period, or return to 'today'.
-#' @param bttnOpts Options tu customize buttons (only if \code{useNavigation = TRUE}), see \code{\link{bttn_options}}.
+#' @param navigation Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param navOpts Options tu customize buttons (only if `navigation = TRUE`), see [navigation_options()].
+#' @param ... Additional arguments passed to JavaScript method. 
 #' @param width,height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget sizingPolicy
 #' @importFrom htmltools findDependencies
 #' @importFrom shiny icon
+#' @importFrom shinyWidgets html_dependency_bttn
 #'
 #' @export
 #'
@@ -36,8 +38,9 @@ calendar <- function(data = NULL,
                      useDetailPopup = TRUE,
                      useCreationPopup = FALSE,
                      isReadOnly = TRUE,
-                     useNavigation = FALSE,
-                     bttnOpts = bttn_options(),
+                     navigation = FALSE,
+                     navOpts = navigation_options(),
+                     ...,
                      width = NULL,
                      height = NULL,
                      elementId = NULL) {
@@ -50,18 +53,19 @@ calendar <- function(data = NULL,
       useDetailPopup = useDetailPopup,
       useCreationPopup = useCreationPopup,
       isReadOnly = isReadOnly,
+      ...,
       usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
     ),
     schedules = list(),
-    useNav = isTRUE(useNavigation),
+    navigation = isTRUE(navigation),
     defaultDate = defaultDate,
     events = list(),
-    bttnOpts = bttnOpts
+    navigationOptions = navOpts
   )
 
   dependencies <- NULL
-  if (isTRUE(useNavigation)) {
-    dependencies <- findDependencies(icon("home"))
+  if (isTRUE(navigation)) {
+    dependencies <- c(findDependencies(icon("home")), list(html_dependency_bttn()))
   }
 
   cal <- createWidget(
@@ -135,10 +139,11 @@ calendar_html <- function(id, style, class, ...) {
 #' @param class Class to add to buttons.
 #' @param bg,color Background and text colors.
 #' @param fmt_date Format for the date displayed next to the buttons,
-#'  use moment.js date format (see\url{https://momentjs.com/docs/#/displaying/})
+#'  use dayjs library (see https://day.js.org/docs/en/display/format).
+#' @param sep_date Separator to use between start date and end date.
 #'
-#' @note Buttons are generated with the following CSS library : \url{http://bttn.surge.sh/},
-#'  where you can find available options for \code{class} argument.
+#' @note Buttons are generated with the following CSS library : http://bttn.surge.sh/,
+#'  where you can find available options for `class` argument.
 #'
 #' @return a \code{list}.
 #' @export
@@ -149,32 +154,44 @@ calendar_html <- function(id, style, class, ...) {
 #' @examples
 #' # Use another button style
 #' calendar(
-#'   useNav = TRUE,
-#'   bttnOpts = bttn_options(
+#'   navigation = TRUE,
+#'   navOpts = navigation_options(
 #'     class = "bttn-stretch bttn-sm bttn-warning"
 #'   )
 #' )
 #'
 #' # Custom colors (background and text)
 #' calendar(
-#'   useNav = TRUE,
-#'   bttnOpts = bttn_options(bg = "#FE2E2E", color = "#FFF")
+#'   navigation = TRUE,
+#'   navOpts = navigation_options(bg = "#FE2E2E", color = "#FFF")
 #' )
 #'
 #' # both
 #' calendar(
-#'   useNav = TRUE,
-#'   bttnOpts = bttn_options(
+#'   navigation = TRUE,
+#'   navOpts = navigation_options(
 #'     bg = "#04B431", color = "#FFF",
 #'     class = "bttn-float bttn-md"
 #'   )
 #' )
-bttn_options <- function(today_label = "Today",
-                         prev_label = icon("chevron-left"),
-                         next_label = icon("chevron-right"),
-                         class = "bttn-bordered bttn-sm bttn-primary",
-                         bg = NULL, color = NULL,
-                         fmt_date = "YYYY-MM-DD") {
+#' 
+#' 
+#' # Change date format and separator
+#' calendar(
+#'   navigation = TRUE,
+#'   navOpts = navigation_options(
+#'     fmt_date = "DD/MM/YYYY", 
+#'     sep_date = " - "
+#'   )
+#' )
+navigation_options <- function(today_label = "Today",
+                               prev_label = icon("chevron-left"),
+                               next_label = icon("chevron-right"),
+                               class = "bttn-bordered bttn-sm bttn-primary",
+                               bg = NULL,
+                               color = NULL,
+                               fmt_date = "YYYY-MM-DD",
+                               sep_date = " ~ ") {
   dropNulls(list(
     today_label = doRenderTags(today_label),
     prev_label = doRenderTags(prev_label),
@@ -182,7 +199,8 @@ bttn_options <- function(today_label = "Today",
     class = paste0(" ", class),
     bg = bg,
     color = color,
-    fmt_date = fmt_date
+    fmt_date = fmt_date,
+    sep_date = sep_date
   ))
 }
 
@@ -203,7 +221,7 @@ bttn_options <- function(today_label = "Today",
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
-#'   
+#'
 #' @return Output element that can be included in UI. Render function to create output in server.
 #'
 #' @name calendar-shiny
@@ -211,7 +229,7 @@ bttn_options <- function(today_label = "Today",
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-#' 
+#'
 #' @example examples/shiny-calendar.R
 calendarOutput <- function(outputId, width = "100%", height = "600px"){
   shinyWidgetOutput(outputId, "calendar", width, height, package = "toastui")

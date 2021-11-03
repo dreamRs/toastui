@@ -24,8 +24,8 @@ simple_filters <- function(data) {
 
 #' Set filters options
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
-#' @param columns Name(s) of column in the data used in \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
+#' @param columns Name(s) of column in the data used in [datagrid()].
 #' @param showApplyBtn Apply filters only when button is pressed.
 #' @param showClearBtn Reset the filter that has already been applied.
 #' @param operator Multi-option filter, the operator used against multiple rules : `"OR"` or `"AND"`.
@@ -36,7 +36,7 @@ simple_filters <- function(data) {
 #' @export
 #'
 #' @example examples/ex-grid_filters.R
-grid_filters <- function(grid, 
+grid_filters <- function(grid,
                          columns,
                          showApplyBtn = NULL,
                          showClearBtn = NULL,
@@ -64,7 +64,7 @@ grid_filters <- function(grid,
     }
     filtering <- dropNulls(list(
       type = type[j],
-      format = if (type[j] == "date") format,
+      options = if (type[j] == "date") list(format = format),
       showApplyBtn = showApplyBtn[j],
       showClearBtn = showClearBtn[j],
       operator = operator[j]

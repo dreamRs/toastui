@@ -3,7 +3,7 @@
 #'
 #' @description Apply styles to an entire row identified by an expression.
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param expr An expression giving position of row. Must return a logical vector.
 #' @param background Background color.
 #' @param color Text color.
@@ -63,7 +63,7 @@ grid_style_row <- function(grid,
 #' @description Customize cell(s) appearance with CSS
 #'  according to an expression in the data used in the grid.
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param expr An expression giving position of row. Must return a logical vector.
 #' @param column Name of column (variable name) where to apply style.
 #' @param background Background color.
@@ -209,7 +209,7 @@ grid_style_cells <- function(grid,
 
 #' Style cells with a color bar
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param column The name of the column where to create a color bar.
 #' @param bar_bg Background color of the color bar.
 #' @param color Color of the text.
@@ -262,7 +262,7 @@ grid_colorbar <- function(grid,
     columns = column,
     align = align,
     renderer = list(
-      type = htmlwidgets::JS("DatagridBarRenderer"),
+      type = htmlwidgets::JS("datagrid.renderer.colorbar"),
       options = list(
         bar_bg = bar_bg,
         color = color,
@@ -288,7 +288,7 @@ grid_colorbar <- function(grid,
 #' @description Apply styles to a column according to CSS properties
 #'  declared by expression based on data passed to grid..
 #'
-#' @param grid A grid created with \code{\link{datagrid}}.
+#' @param grid A grid created with [datagrid()].
 #' @param column Name of column (variable name) where to apply style.
 #' @param background Background color.
 #' @param color Text color.

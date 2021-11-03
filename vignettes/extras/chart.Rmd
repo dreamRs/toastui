@@ -27,13 +27,15 @@ Interactive charts with [tui-chart](https://ui.toast.com/tui-chart) library. Cur
 
 ```{r columns}
 count(mpg, class) %>% 
-  chart(aes(class, n), type = "column")
+  chart(aes(class, n), type = "column") %>% 
+  chart_options(legend = list(visible = FALSE))
 ```
 
 
 ```{r columns-dodge}
 count(mpg, class, year) %>% 
-  chart(aes(class, n, fill = year), type = "column")
+  chart(aes(class, n, fill = year), type = "column") %>% 
+  chart_options(legend = list(align = "bottom"))
 ```
 
 

@@ -1,0 +1,5 @@
+{
+  "datagrid": "./srcjs/widgets/datagrid.js",
+  "chart": "./srcjs/widgets/chart.js",
+  "calendar": "./srcjs/widgets/calendar.js"
+}

@@ -1,20 +1,20 @@
 
 #' @title Calendar demo data
-#' 
+#'
 #' @description Create calendar demo data for schedules and properties
 #'
 #' @param view Calendar view for which to use the data.
 #'
 #' @return a \code{data.frame}.
 #' @export
-#' 
+#'
 #' @name cal-demo-data
 #'
 #' @examples
 #'
 #' # Monthly schedule
 #' cal_demo_data("month")
-#' 
+#'
 #' #' # Weekly schedule
 #' cal_demo_data("week")
 cal_demo_data <- function(view = c("month", "week", "day")) {
@@ -45,7 +45,7 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
       list(
         calendarId = 1, title = "Week-end", body = "Week-end with friends", recurrenceRule = NA,
         start = as.character(get_day_month("6")[2]),
-        end = as.character(get_day_month("7")[2]),
+        end = as.character(get_day_month("6")[2] + 1),
         category = "allday", location = NA,
         bgColor = NA, color = NA, borderColor = NA
       ),
@@ -196,7 +196,7 @@ get_day_week <- function(day) {
 
 
 #' @export
-#' 
+#'
 #' @rdname cal-demo-data
 cal_demo_props <- function() {
   props <- list(
@@ -218,7 +218,7 @@ cal_demo_props <- function() {
       id = 3,
       name = "COURSES",
       color = "#000",
-      bgColor = "#c6e2f6", 
+      bgColor = "#c6e2f6",
       borderColor = "#3b7cc6"
     )
   )

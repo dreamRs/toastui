@@ -12,8 +12,9 @@
 #' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
 #'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.
 #' @param align Aligment for columns content: \code{"auto"} (numeric and date on right, other on left), \code{"right"},
-#'  \code{"center"} or \code{"left"}. Use \code{NULL} to ignore. 
+#'  \code{"center"} or \code{"left"}. Use \code{NULL} to ignore.
 #' @param theme Predefined theme to be used.
+#' @param draggable Whether to enable to drag the row for changing the order of rows.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -33,6 +34,7 @@ datagrid <- function(data = list(), ...,
                      colwidths = "fit",
                      align = "auto",
                      theme = c("clean", "striped", "default"),
+                     draggable = FALSE,
                      width = NULL,
                      height = NULL,
                      elementId = NULL) {
@@ -65,7 +67,8 @@ datagrid <- function(data = list(), ...,
         ))
       }
     ),
-    bodyHeight = "fitToParent"
+    bodyHeight = "fitToParent",
+    draggable = draggable
   )
 
   options <- modifyList(x = options, val = list(...), keep.null = FALSE)
@@ -105,7 +108,8 @@ datagrid <- function(data = list(), ...,
     rowAttributes = list(),
     updateEditOnClick = NULL,
     validationInput = FALSE,
-    editorInput = FALSE
+    editorInput = FALSE,
+    dragInput = isTRUE(draggable)
   ))
 
   # create widget
@@ -202,7 +206,7 @@ datagrid_html <- function(id, style, class, ...) {
 
 #' Shiny bindings for \code{datagrid}
 #'
-#' Output and render functions for using \code{\link{datagrid}} within Shiny
+#' Output and render functions for using [datagrid()] within Shiny
 #' applications and interactive Rmd documents.
 #'
 #' @param outputId output variable to read from
@@ -213,7 +217,7 @@ datagrid_html <- function(id, style, class, ...) {
 #' @param env The environment in which to evaluate \code{expr}.
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
-#'   
+#'
 #' @return Output element that can be included in UI. Render function to create output in server.
 #'
 #' @name datagrid-shiny
@@ -221,7 +225,7 @@ datagrid_html <- function(id, style, class, ...) {
 #' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-#' 
+#'
 #' @example examples/shiny-datagrid.R
 datagridOutput <- function(outputId, width = "100%", height = "400px"){
   shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)

@@ -495,10 +495,10 @@ tags$div(
 ```{js, echo=FALSE}
 document.querySelector('#apply-theme-custom').addEventListener('click', function() {
   const options = {"selection":{},"scrollbar":{},"outline":{},"frozenBorder":{},"area":{"header":{},"body":{},"summary":{}},"row":{"odd":{},"even":{"background":"#ddebf7"},"dummy":{},"hover":{}},"cell":{"normal":{"border":"#9bc2e6","showVerticalBorder":true,"showHorizontalBorder":true},"header":{"background":"#5b9bd5","text":"#FFF"},"rowHeader":{"border":"#9bc2e6","showVerticalBorder":true,"showHorizontalBorder":true},"summary":{},"selectedHeader":{"background":"#013ADF"},"selectedRowHeader":{},"focused":{"border":"#013ADF"},"focusedInactive":{},"required":{},"editable":{},"disabled":{},"invalid":{}}};
-  tui.Grid.applyTheme('clean', options);
+  datagrid.applyTheme('clean', options);
 });
 document.querySelector('#apply-theme-default').addEventListener('click', function() {
-  tui.Grid.applyTheme('clean', {});
+  datagrid.applyTheme('clean', {});
 });
 ```
 

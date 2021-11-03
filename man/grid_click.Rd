@@ -7,7 +7,7 @@
 grid_click(grid, inputId)
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{inputId}{The \code{input} slot that will be used to access the value.}
 }

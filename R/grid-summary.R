@@ -1,7 +1,7 @@
 
 #' Add summary area to grid
 #'
-#' @param grid A table created with \code{\link{datagrid}}.
+#' @param grid A table created with [datagrid()].
 #' @param columns Name of column (variable name) for which to add a summary.
 #' @param stat Statistic to display: `"sum"`, `"min"`, `"max"` or `"avg"`. Can be several values.
 #' @param digits Number of digits to display.

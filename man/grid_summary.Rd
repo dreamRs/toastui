@@ -17,7 +17,7 @@ grid_summary(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{columns}{Name of column (variable name) for which to add a summary.}
 

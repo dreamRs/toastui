@@ -7,7 +7,7 @@
 grid_sparkline(grid, column, renderer, height = "40px", styles = NULL)
 }
 \arguments{
-\item{grid}{A grid created with \code{\link{datagrid}}.}
+\item{grid}{A grid created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{column}{Column data are stored and where to render widgets.}
 

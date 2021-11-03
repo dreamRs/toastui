@@ -47,3 +47,24 @@ Interactive charts:
 ![](man/figures/chart-heatmap.png)
 ![](man/figures/chart-treemap.png)
 
+
+
+## Development
+
+This package uses [packer](https://github.com/JohnCoene/packer) to manage JavaScript source code and dependencies. If you want to modify it, you'll need a working installation of [Node.js](https://nodejs.org/en/).
+
+After cloning the Git repository, install nodes modules with:
+
+```r
+packer::npm_install()
+```
+
+Modify code in `srcjs/` directory, then run:
+
+```r
+packer::bundle_prod() # or packer::bundle_dev()
+```
+
+Re-install the package or use `pkgload::load_all()` to try changes.
+
+

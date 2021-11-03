@@ -1,6 +1,6 @@
 Package: toastui
 Title: Interactive Tables, Calendars and Charts for the Web
-Version: 0.1.2.9410
+Version: 0.1.2.9500
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
   person("Fanny", "Meyer", role = "aut"),
@@ -17,16 +17,18 @@ Imports:
     utils,
     htmlwidgets,
     htmltools,
-    shiny (>= 1.1.0),
     magrittr,
-    rlang
-RoxygenNote: 7.1.1
-Roxygen: list(markdown = TRUE)
+    rlang,
+    shiny (>= 1.1.0),
+    shinyWidgets
 Suggests: 
     apexcharter,
     knitr,
     rmarkdown,
-    scales, tinytest
+    scales, 
+    tinytest
 VignetteBuilder: knitr
+RoxygenNote: 7.1.2
+Roxygen: list(markdown = TRUE)
 URL: https://dreamrs.github.io/toastui/
 BugReports: https://github.com/dreamRs/toastui/issues

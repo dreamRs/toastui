@@ -13,7 +13,7 @@ grid_columns_opts(
 )
 }
 \arguments{
-\item{grid}{A table created with \code{\link{datagrid}}.}
+\item{grid}{A table created with \code{\link[=datagrid]{datagrid()}}.}
 
 \item{minWidth}{Minimum width of each columns.}
 

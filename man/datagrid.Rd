@@ -14,6 +14,7 @@ datagrid(
   colwidths = "fit",
   align = "auto",
   theme = c("clean", "striped", "default"),
+  draggable = FALSE,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -39,6 +40,8 @@ or a single or numeric vector to set the width in pixel. Use \code{NULL} to disa
 \code{"center"} or \code{"left"}. Use \code{NULL} to ignore.}
 
 \item{theme}{Predefined theme to be used.}
+
+\item{draggable}{Whether to enable to drag the row for changing the order of rows.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 
