@@ -12,12 +12,12 @@ export function formatDateNav(calendar, fmt = "YYYY-MM-DD", sep = " - ") {
   return start + sep + end;
 }
 
-function clickPrev(calendar, renderRange, formatNav, sepNav) {
+function clickPrev(calendar, renderRange, formatNav, sepNav, id) {
   return function (event) {
     if (calendar !== null) {
       calendar.prev();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
-      Shiny.setInputValue(el.id + "_dates", {
+      Shiny.setInputValue(id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
         end: dayjs(calendar.getDateRangeEnd()._date).format(),
@@ -26,12 +26,12 @@ function clickPrev(calendar, renderRange, formatNav, sepNav) {
   };
 }
 
-function clickNext(calendar, renderRange, formatNav, sepNav) {
+function clickNext(calendar, renderRange, formatNav, sepNav, id) {
   return function (event) {
     if (calendar !== null) {
       calendar.next();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
-      Shiny.setInputValue(el.id + "_dates", {
+      Shiny.setInputValue(id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
         end: dayjs(calendar.getDateRangeEnd()._date).format(),
@@ -40,12 +40,12 @@ function clickNext(calendar, renderRange, formatNav, sepNav) {
   };
 }
 
-function clickToday(calendar, renderRange, formatNav, sepNav) {
+function clickToday(calendar, renderRange, formatNav, sepNav, id) {
   return function (event) {
     if (calendar !== null) {
       calendar.today();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
-      Shiny.setInputValue(el.id + "_dates", {
+      Shiny.setInputValue(id + "_dates", {
         current: dayjs(calendar.getDate()._date).format(),
         start: dayjs(calendar.getDateRangeStart()._date).format(),
         end: dayjs(calendar.getDateRangeEnd()._date).format(),
@@ -65,11 +65,11 @@ export function addNavigation(calendar, id, options) {
   prev.innerHTML = options.prev_label;
   prev.removeEventListener(
     "click",
-    clickPrev(calendar, renderRange, formatNav, sepNav)
+    clickPrev(calendar, renderRange, formatNav, sepNav, id)
   );
   prev.addEventListener(
     "click",
-    clickPrev(calendar, renderRange, formatNav, sepNav)
+    clickPrev(calendar, renderRange, formatNav, sepNav, id)
   );
 
   var next = document.getElementById(id + "_next");
@@ -77,11 +77,11 @@ export function addNavigation(calendar, id, options) {
   next.innerHTML = options.next_label;
   next.removeEventListener(
     "click",
-    clickNext(calendar, renderRange, formatNav, sepNav)
+    clickNext(calendar, renderRange, formatNav, sepNav, id)
   );
   next.addEventListener(
     "click",
-    clickNext(calendar, renderRange, formatNav, sepNav)
+    clickNext(calendar, renderRange, formatNav, sepNav, id)
   );
 
   var today = document.getElementById(id + "_today");
@@ -89,11 +89,11 @@ export function addNavigation(calendar, id, options) {
   today.innerHTML = options.today_label;
   today.removeEventListener(
     "click",
-    clickToday(calendar, renderRange, formatNav, sepNav)
+    clickToday(calendar, renderRange, formatNav, sepNav, id)
   );
   today.addEventListener(
     "click",
-    clickToday(calendar, renderRange, formatNav, sepNav)
+    clickToday(calendar, renderRange, formatNav, sepNav, id)
   );
 
   if (options.hasOwnProperty("bg")) {
