@@ -14,7 +14,7 @@ cal_timezone(
 )
 }
 \arguments{
-\item{cal}{A \code{calendar} object.}
+\item{cal}{A \code{\link[=calendar]{calendar()}} object.}
 
 \item{timezoneName}{timezone name (time zone names of the IANA time zone database, such as 'Asia/Seoul', 'America/New_York').
 Basically, it will calculate the offset using 'Intl.DateTimeFormat' with the value of the this property entered.}

@@ -3,7 +3,7 @@
 #'
 #' @description Currently only works in Shiny applications.
 #'
-#' @param cal A \code{calendar} htmlwidget object.
+#' @param cal A `calendar` htmlwidget object.
 #' @param afterRenderSchedule Fire this event by every single schedule after rendering whole calendar.
 #' @param beforeCreateSchedule Fire this event when select time period in daily, weekly, monthly.
 #' @param beforeDeleteSchedule Fire this event when delete a schedule.
@@ -13,9 +13,9 @@
 #' @param clickSchedule Fire this event when click a schedule.
 #' @param clickTimezonesCollapseBtncalendar Fire this event by clicking timezones collapse button.
 #'
-#' @note All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}.
+#' @note All arguments must be JavaScript function wrapped in [htmlwidgets::JS()].
 #'
-#' @return A \code{calendar} htmlwidget object.
+#' @return A `calendar` htmlwidget object.
 #' @export
 #'
 #' @example examples/ex-cal_events.R
@@ -53,14 +53,14 @@ cal_events <- function(cal,
 #' "week" prefix is for weekly and daily view.
 #' "month" prefix is for monthly view.
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param ... Named arguments to customize appearance with CSS. See online documentation for full list of options.
-#' @param .list Alternative to \code{...} for using a list.
+#' @param .list Alternative to `...` for using a list.
 #'
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig/}
 #'
 #' @export
-#' @return A \code{calendar} htmlwidget object.
+#' @return A `calendar` htmlwidget object.
 #'
 #'
 #' @examples
@@ -88,17 +88,17 @@ cal_theme <- function(cal, ..., .list = NULL) {
 #'
 #' @description Template JS functions to support customer renderer
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param milestoneTitle The milestone title (at left column) template function.
 #' @param taskTitle The task title (at left column) template function.
 #' @param alldayTitle The allday title (at left column) template function.
 #' @param ... Additionals arguments, see online documentation.
 #'
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template/}.
-#'  All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}. 
+#'  All arguments must be JavaScript function with [htmlwidgets::JS()].
 #'
 #' @export
-#' @return A \code{calendar} htmlwidget object.
+#' @return A `calendar` htmlwidget object.
 #'
 #'
 #' @examples

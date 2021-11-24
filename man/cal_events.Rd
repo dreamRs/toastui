@@ -42,7 +42,7 @@ A \code{calendar} htmlwidget object.
 Currently only works in Shiny applications.
 }
 \note{
-All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}.
+All arguments must be JavaScript function wrapped in \code{\link[htmlwidgets:JS]{htmlwidgets::JS()}}.
 }
 \examples{
 library(shiny)

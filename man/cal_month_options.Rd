@@ -19,7 +19,7 @@ cal_month_options(
 )
 }
 \arguments{
-\item{cal}{A \code{calendar} object.}
+\item{cal}{A \code{\link[=calendar]{calendar()}} object.}
 
 \item{startDayOfWeek}{Numeric. The start day of week.}
 

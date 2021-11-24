@@ -16,7 +16,7 @@
 #' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param navigation Add navigation buttons to got to previous or next period, or return to 'today'.
 #' @param navOpts Options tu customize buttons (only if `navigation = TRUE`), see [navigation_options()].
-#' @param ... Additional arguments passed to JavaScript method. 
+#' @param ... Additional arguments passed to JavaScript method.
 #' @param width,height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -27,7 +27,9 @@
 #'
 #' @export
 #'
-#' @return A \code{calendar} htmlwidget.
+#' @seealso [calendarOutput()] / [renderCalendar()] for usage in Shiny applications.
+#'
+#' @return A `calendar` htmlwidget.
 #'
 #' @example examples/ex-calendar.R
 calendar <- function(data = NULL,
@@ -174,13 +176,13 @@ calendar_html <- function(id, style, class, ...) {
 #'     class = "bttn-float bttn-md"
 #'   )
 #' )
-#' 
-#' 
+#'
+#'
 #' # Change date format and separator
 #' calendar(
 #'   navigation = TRUE,
 #'   navOpts = navigation_options(
-#'     fmt_date = "DD/MM/YYYY", 
+#'     fmt_date = "DD/MM/YYYY",
 #'     sep_date = " - "
 #'   )
 #' )
@@ -206,38 +208,3 @@ navigation_options <- function(today_label = "Today",
 
 
 
-
-
-#' Shiny bindings for calendar
-#'
-#' Output and render functions for using calendar within Shiny
-#' applications and interactive Rmd documents.
-#'
-#' @param outputId output variable to read from
-#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a calendar
-#' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
-#'   is useful if you want to save an expression in a variable.
-#'
-#' @return Output element that can be included in UI. Render function to create output in server.
-#'
-#' @name calendar-shiny
-#'
-#' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
-#'
-#' @export
-#'
-#' @example examples/shiny-calendar.R
-calendarOutput <- function(outputId, width = "100%", height = "600px"){
-  shinyWidgetOutput(outputId, "calendar", width, height, package = "toastui")
-}
-
-#' @rdname calendar-shiny
-#' @export
-renderCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, calendarOutput, env, quoted = TRUE)
-}

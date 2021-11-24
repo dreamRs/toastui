@@ -11,14 +11,14 @@
 #'
 #' @description Define calendar properties for grouping schedules under common theme.
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param ... Either named arguments to use as calendar properties or a
 #'  \code{data.frame} with rows as calendars and columns as properties.
 #'  See \url{https://nhn.github.io/tui.calendar/latest/CalendarProps/} for options.
 #'
 #' @export
 #'
-#' @return A \code{calendar} htmlwidget.
+#' @return A `calendar` htmlwidget.
 #'
 #' @example examples/ex-cal_props.R
 cal_props <- function(cal, ...) {

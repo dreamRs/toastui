@@ -98,3 +98,6 @@ datagrid(
 )
 
 }
+\seealso{
+\code{\link[=datagridOutput]{datagridOutput()}} / \code{\link[=renderDatagrid]{renderDatagrid()}} for usage in Shiny applications.
+}

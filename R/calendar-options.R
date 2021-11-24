@@ -3,7 +3,7 @@
 #'
 #' @description Options for daily, weekly view.
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param startDayOfWeek Numeric. The start day of week.
 #' @param daynames Vector. The day names in weekly and daily. Default values are 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'.
 #' @param narrowWeekend Logical. Make weekend column narrow(1/2 width).
@@ -17,7 +17,7 @@
 #'
 #' @export
 #'
-#' @return A \code{calendar} htmlwidget.
+#' @return A `calendar` htmlwidget.
 #'
 #' @example examples/ex-cal_week_options.R
 cal_week_options <- function(cal,
@@ -50,7 +50,7 @@ cal_week_options <- function(cal,
 #'
 #' @description Options for monthly view.
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param startDayOfWeek Numeric. The start day of week.
 #' @param daynames Vector. The day names in monthly. Default values are 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
 #' @param narrowWeekend Logical. Make weekend column narrow(1/2 width).
@@ -66,7 +66,7 @@ cal_week_options <- function(cal,
 #'
 #' @export
 #'
-#' @return A \code{calendar} htmlwidget.
+#' @return A `calendar` htmlwidget.
 #'
 #' @example examples/ex-cal_month_options.R
 cal_month_options <- function(cal,
@@ -108,7 +108,7 @@ cal_month_options <- function(cal,
 #'
 #' @description Set a custom time zone. You can add secondary timezone in the weekly/daily view.
 #'
-#' @param cal A \code{calendar} object.
+#' @param cal A [calendar()] object.
 #' @param timezoneName timezone name (time zone names of the IANA time zone database, such as 'Asia/Seoul', 'America/New_York').
 #'  Basically, it will calculate the offset using 'Intl.DateTimeFormat' with the value of the this property entered.
 #' @param displayLabel The display label of your timezone at weekly/daily view(e.g. 'GMT+09:00')
@@ -118,7 +118,7 @@ cal_month_options <- function(cal,
 #' 
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone/}
 #' 
-#' @return A \code{calendar} htmlwidget.
+#' @return A `calendar` htmlwidget.
 #' @export
 #'
 #' @examples

@@ -17,7 +17,7 @@ chart(
 )
 }
 \arguments{
-\item{data}{A \code{data.frame} if you used with \code{mapping} otherwise a configuration \code{list}.}
+\item{data}{A \code{data.frame} if used with \code{mapping} otherwise a configuration \code{list}.}
 
 \item{mapping}{Default list of aesthetic mappings to use for chart if \code{data} is a \code{data.frame}.}
 
@@ -66,4 +66,7 @@ chart(
   ),
   type = "column"
 )
+}
+\seealso{
+\code{\link[=chartOutput]{chartOutput()}} / \code{\link[=renderChart]{renderChart()}} for usage in Shiny applications.
 }

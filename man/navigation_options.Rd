@@ -70,7 +70,7 @@ calendar(
 calendar(
   navigation = TRUE,
   navOpts = navigation_options(
-    fmt_date = "DD/MM/YYYY", 
+    fmt_date = "DD/MM/YYYY",
     sep_date = " - "
   )
 )

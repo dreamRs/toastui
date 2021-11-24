@@ -7,7 +7,7 @@
 cal_props(cal, ...)
 }
 \arguments{
-\item{cal}{A \code{calendar} object.}
+\item{cal}{A \code{\link[=calendar]{calendar()}} object.}
 
 \item{...}{Either named arguments to use as calendar properties or a
 \code{data.frame} with rows as calendars and columns as properties.

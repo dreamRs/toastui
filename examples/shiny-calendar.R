@@ -19,9 +19,9 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$my_calendar <- renderCalendar({
-    calendar(cal_demo_data(), useNavigation = TRUE) %>%
+    calendar(cal_demo_data(), navigation = TRUE) %>%
       cal_props(
         list(
           id = 1,
@@ -39,15 +39,15 @@ server <- function(input, output, session) {
         )
       )
   })
-  
+
   output$dates <- renderPrint({
     input$my_calendar_dates
   })
-  
+
   output$click <- renderPrint({
     input$my_calendar_click
   })
-  
+
 }
 
 if (interactive())

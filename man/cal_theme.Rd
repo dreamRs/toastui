@@ -7,7 +7,7 @@
 cal_theme(cal, ..., .list = NULL)
 }
 \arguments{
-\item{cal}{A \code{calendar} object.}
+\item{cal}{A \code{\link[=calendar]{calendar()}} object.}
 
 \item{...}{Named arguments to customize appearance with CSS. See online documentation for full list of options.}
 

@@ -115,3 +115,6 @@ calendar(useDetailPopup = TRUE) \%>\%
     category = "allday"
   )
 }
+\seealso{
+\code{\link[=calendarOutput]{calendarOutput()}} / \code{\link[=renderCalendar]{renderCalendar()}} for usage in Shiny applications.
+}

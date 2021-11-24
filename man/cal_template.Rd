@@ -13,7 +13,7 @@ cal_template(
 )
 }
 \arguments{
-\item{cal}{A \code{calendar} object.}
+\item{cal}{A \code{\link[=calendar]{calendar()}} object.}
 
 \item{milestoneTitle}{The milestone title (at left column) template function.}
 
@@ -31,7 +31,7 @@ Template JS functions to support customer renderer
 }
 \note{
 Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template/}.
-All arguments must be JavaScript function with \code{\link[htmlwidgets]{JS}}.
+All arguments must be JavaScript function with \code{\link[htmlwidgets:JS]{htmlwidgets::JS()}}.
 }
 \examples{
 calendar(view = "week", taskView = TRUE) \%>\%

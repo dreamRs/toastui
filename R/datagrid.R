@@ -23,6 +23,8 @@
 #'
 #' @export
 #'
+#' @seealso [datagridOutput()] / [renderDatagrid()] for usage in Shiny applications.
+#'
 #' @return A `datagrid` htmlwidget.
 #'
 #' @example examples/ex-datagrid.R
@@ -204,36 +206,3 @@ datagrid_html <- function(id, style, class, ...) {
   )
 }
 
-#' Shiny bindings for \code{datagrid}
-#'
-#' Output and render functions for using [datagrid()] within Shiny
-#' applications and interactive Rmd documents.
-#'
-#' @param outputId output variable to read from
-#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
-#'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a datagrid.
-#' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
-#'   is useful if you want to save an expression in a variable.
-#'
-#' @return Output element that can be included in UI. Render function to create output in server.
-#'
-#' @name datagrid-shiny
-#'
-#' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
-#'
-#' @export
-#'
-#' @example examples/shiny-datagrid.R
-datagridOutput <- function(outputId, width = "100%", height = "400px"){
-  shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)
-}
-
-#' @rdname datagrid-shiny
-#' @export
-renderDatagrid <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
-}
