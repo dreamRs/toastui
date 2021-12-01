@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shiny bindings for datagrid — datagrid-shiny • toastui</title>
+<title>Shiny bindings for datagrid() — datagrid-shiny • toastui</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Shiny bindings for datagrid — datagrid-shiny" />
+<meta property="og:title" content="Shiny bindings for datagrid() — datagrid-shiny" />
 <meta property="og:description" content="Output and render functions for using datagrid() within Shiny
 applications and interactive Rmd documents." />
 
@@ -133,8 +133,8 @@ applications and interactive Rmd documents." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shiny bindings for <code>datagrid</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/datagrid.R'><code>R/datagrid.R</code></a></small>
+    <h1>Shiny bindings for <code><a href='datagrid.html'>datagrid()</a></code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
     <div class="hidden name"><code>datagrid-shiny.Rd</code></div>
     </div>
 
@@ -152,17 +152,23 @@ applications and interactive Rmd documents.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>outputId</th>
-      <td><p>output variable to read from</p></td>
+      <td><p>Output variable to read from.</p></td>
     </tr>
     <tr>
-      <th>width, height</th>
-      <td><p>Must be a valid CSS unit (like <code>'100%'</code>,
-<code>'400px'</code>, <code>'auto'</code>) or a number, which will be coerced to a
-string and have <code>'px'</code> appended.</p></td>
+      <th>width</th>
+      <td><p>Must be a valid CSS unit (like <code>100%</code>,
+<code>400px</code>, <code>auto</code>) or a number, which will be coerced to a
+string and have <code>px</code> appended.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>Must be a valid CSS unit (like <code>100%</code>,
+<code>400px</code>, <code>auto</code>) or a number, which will be coerced to a
+string and have <code>px</code> appended.</p></td>
     </tr>
     <tr>
       <th>expr</th>
-      <td><p>An expression that generates a datagrid.</p></td>
+      <td><p>An expression that generates a calendar</p></td>
     </tr>
     <tr>
       <th>env</th>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shiny bindings for calendar — calendar-shiny • toastui</title>
+<title>Shiny bindings for calendar() — calendar-shiny • toastui</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Shiny bindings for calendar — calendar-shiny" />
-<meta property="og:description" content="Output and render functions for using calendar within Shiny
+<meta property="og:title" content="Shiny bindings for calendar() — calendar-shiny" />
+<meta property="og:description" content="Output and render functions for using calendar() within Shiny
 applications and interactive Rmd documents." />
 
 
@@ -133,13 +133,13 @@ applications and interactive Rmd documents." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shiny bindings for calendar</h1>
-    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/calendar.R'><code>R/calendar.R</code></a></small>
+    <h1>Shiny bindings for <code><a href='calendar.html'>calendar()</a></code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
     <div class="hidden name"><code>calendar-shiny.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Output and render functions for using calendar within Shiny
+    <p>Output and render functions for using <code><a href='calendar.html'>calendar()</a></code> within Shiny
 applications and interactive Rmd documents.</p>
     </div>
 
@@ -152,13 +152,13 @@ applications and interactive Rmd documents.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>outputId</th>
-      <td><p>output variable to read from</p></td>
+      <td><p>Output variable to read from.</p></td>
     </tr>
     <tr>
       <th>width, height</th>
-      <td><p>Must be a valid CSS unit (like <code>'100%'</code>,
-<code>'400px'</code>, <code>'auto'</code>) or a number, which will be coerced to a
-string and have <code>'px'</code> appended.</p></td>
+      <td><p>Must be a valid CSS unit (like <code>100%</code>,
+<code>400px</code>, <code>auto</code>) or a number, which will be coerced to a
+string and have <code>px</code> appended.</p></td>
     </tr>
     <tr>
       <th>expr</th>
@@ -178,6 +178,19 @@ is useful if you want to save an expression in a variable.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Output element that can be included in UI. Render function to create output in server.</p>
+    <h2 class="hasAnchor" id="special-inputs"><a class="anchor" href="#special-inputs"></a>Special inputs</h2>
+
+    <p>The following <code>input</code> values will be accessible in the server:</p><ul>
+<li><p><strong>input$outputId_add</strong> : contain data about schedule added via the creation popup. Javascript event: <code>beforeCreateSchedule</code>.</p></li>
+<li><p><strong>input$outputId_schedules</strong> : contain data about last schedule added. Javascript event: <code>afterRenderSchedule</code>.</p></li>
+<li><p><strong>input$outputId_click</strong> : contain data about schedule user click on. Javascript event: <code>clickSchedule</code>.</p></li>
+<li><p><strong>input$outputId_delete</strong> : contain data about schedule deleted by user via creation popup. Javascript event: <code>beforeDeleteSchedule</code>.</p></li>
+<li><p><strong>input$outputId_update</strong> : contain data about schedule updated by user via creation popup. Javascript event: <code>beforeUpdateSchedule</code>.</p></li>
+<li><p><strong>input$outputId_dates</strong> : start and end date represented in the calendar.</p></li>
+</ul>
+
+<p>To use them you need to replace <code>outputId</code> by the id you've used to create the calendar.
+If you use one of the above javascript event in <code><a href='cal_events.html'>cal_events()</a></code>, the input won't be accessible.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span></span>
@@ -201,9 +214,9 @@ is useful if you want to save an expression in a variable.</p></td>
 <span class='r-in'><span class='op'>)</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span class='r-in'>  </span>
+<span class='r-in'></span>
 <span class='r-in'>  <span class='va'>output</span><span class='op'>$</span><span class='va'>my_calendar</span> <span class='op'>&lt;-</span> <span class='fu'>renderCalendar</span><span class='op'>(</span><span class='op'>{</span></span>
-<span class='r-in'>    <span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span><span class='fu'><a href='cal-demo-data.html'>cal_demo_data</a></span><span class='op'>(</span><span class='op'>)</span>, useNavigation <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
+<span class='r-in'>    <span class='fu'><a href='calendar.html'>calendar</a></span><span class='op'>(</span><span class='fu'><a href='cal-demo-data.html'>cal_demo_data</a></span><span class='op'>(</span><span class='op'>)</span>, navigation <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='toastui-exports.html'>%&gt;%</a></span></span>
 <span class='r-in'>      <span class='fu'><a href='cal_props.html'>cal_props</a></span><span class='op'>(</span></span>
 <span class='r-in'>        <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
 <span class='r-in'>          id <span class='op'>=</span> <span class='fl'>1</span>,</span>
@@ -221,15 +234,15 @@ is useful if you want to save an expression in a variable.</p></td>
 <span class='r-in'>        <span class='op'>)</span></span>
 <span class='r-in'>      <span class='op'>)</span></span>
 <span class='r-in'>  <span class='op'>}</span><span class='op'>)</span></span>
-<span class='r-in'>  </span>
+<span class='r-in'></span>
 <span class='r-in'>  <span class='va'>output</span><span class='op'>$</span><span class='va'>dates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPrint.html'>renderPrint</a></span><span class='op'>(</span><span class='op'>{</span></span>
 <span class='r-in'>    <span class='va'>input</span><span class='op'>$</span><span class='va'>my_calendar_dates</span></span>
 <span class='r-in'>  <span class='op'>}</span><span class='op'>)</span></span>
-<span class='r-in'>  </span>
+<span class='r-in'></span>
 <span class='r-in'>  <span class='va'>output</span><span class='op'>$</span><span class='va'>click</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPrint.html'>renderPrint</a></span><span class='op'>(</span><span class='op'>{</span></span>
 <span class='r-in'>    <span class='va'>input</span><span class='op'>$</span><span class='va'>my_calendar_click</span></span>
 <span class='r-in'>  <span class='op'>}</span><span class='op'>)</span></span>
-<span class='r-in'>  </span>
+<span class='r-in'></span>
 <span class='r-in'><span class='op'>}</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>

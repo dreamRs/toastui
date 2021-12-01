@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shiny bindings for chart — chart-shiny • toastui</title>
+<title>Shiny bindings for chart() — chart-shiny • toastui</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Shiny bindings for chart — chart-shiny" />
-<meta property="og:description" content="Output and render functions for using chart within Shiny
+<meta property="og:title" content="Shiny bindings for chart() — chart-shiny" />
+<meta property="og:description" content="Output and render functions for using chart() within Shiny
 applications and interactive Rmd documents." />
 
 
@@ -133,13 +133,13 @@ applications and interactive Rmd documents." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shiny bindings for <code>chart</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/chart.R'><code>R/chart.R</code></a></small>
+    <h1>Shiny bindings for <code><a href='chart.html'>chart()</a></code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/dreamRs/toastui/blob/master/R/shiny.R'><code>R/shiny.R</code></a></small>
     <div class="hidden name"><code>chart-shiny.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Output and render functions for using <code><a href='chart.html'>chart</a></code> within Shiny
+    <p>Output and render functions for using <code><a href='chart.html'>chart()</a></code> within Shiny
 applications and interactive Rmd documents.</p>
     </div>
 
@@ -152,17 +152,23 @@ applications and interactive Rmd documents.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>outputId</th>
-      <td><p>output variable to read from</p></td>
+      <td><p>Output variable to read from.</p></td>
     </tr>
     <tr>
-      <th>width, height</th>
-      <td><p>Must be a valid CSS unit (like <code>'100%'</code>,
-<code>'400px'</code>, <code>'auto'</code>) or a number, which will be coerced to a
-string and have <code>'px'</code> appended.</p></td>
+      <th>width</th>
+      <td><p>Must be a valid CSS unit (like <code>100%</code>,
+<code>400px</code>, <code>auto</code>) or a number, which will be coerced to a
+string and have <code>px</code> appended.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>Must be a valid CSS unit (like <code>100%</code>,
+<code>400px</code>, <code>auto</code>) or a number, which will be coerced to a
+string and have <code>px</code> appended.</p></td>
     </tr>
     <tr>
       <th>expr</th>
-      <td><p>An expression that generates a chart.</p></td>
+      <td><p>An expression that generates a calendar</p></td>
     </tr>
     <tr>
       <th>env</th>
