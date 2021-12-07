@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dreamrs.github.io/toastui/404.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/articles/extras/calendar.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/articles/extras/chart.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/articles/extras/grid.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/articles/toastui.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/authors.html</loc>
+  </url>
+  <url>
     <loc>https://dreamrs.github.io/toastui/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/news/index.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/caes.html</loc>
@@ -151,6 +181,9 @@
     <loc>https://dreamrs.github.io/toastui/reference/grid_summary.html</loc>
   </url>
   <url>
+    <loc>https://dreamrs.github.io/toastui/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://dreamrs.github.io/toastui/reference/met_paris.html</loc>
   </url>
   <url>
@@ -179,17 +212,5 @@
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/validateOpts.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/calendar.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/chart.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/grid.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/toastui.html</loc>
   </url>
 </urlset>
