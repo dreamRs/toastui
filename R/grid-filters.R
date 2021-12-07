@@ -11,7 +11,7 @@ simple_filters <- function(data) {
           "text"
         }
       } else if (inherits(x, what = c("Date", "POSIXct"))) {
-        "date"
+        list(type = "date", options = list(format = "yyyy-MM-dd"))
       } else if (inherits(x, what = c("numeric", "integer"))) {
         "number"
       } else {
