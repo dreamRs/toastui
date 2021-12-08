@@ -8,7 +8,7 @@
 #' @return No return value.
 #' @export
 #'
-#' @example examples/ex-language.R
+#' @example examples/grid-language.R
 set_grid_lang <- function(display.noData = "No data",
                           display.loadingData = "Loading data...",
                           display.resizeHandleGuide = "You can change the width... [truncated]",

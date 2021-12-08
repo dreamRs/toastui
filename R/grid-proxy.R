@@ -62,7 +62,7 @@ datagrid_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain())
 #'
 #' @family datagrid proxy methods
 #'
-#' @example examples/grid-proxy-addrow.R
+#' @example examples/grid-proxy-add-row.R
 grid_proxy_add_row <- function(proxy, data) {
   data <- as.data.frame(data)
   if (is.character(proxy)) {

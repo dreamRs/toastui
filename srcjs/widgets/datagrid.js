@@ -185,7 +185,7 @@ HTMLWidgets.widget({
         }
 
         // Edit
-        if (HTMLWidgets.shinyMode & (x.editorInput === true)) {
+        if (HTMLWidgets.shinyMode & (x.dataAsInput === true)) {
           Shiny.setInputValue(el.id + "_data:datagridEdit", {
             data: grid.getData(),
             colnames: x.colnames,

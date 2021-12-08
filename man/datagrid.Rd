@@ -15,6 +15,7 @@ datagrid(
   align = "auto",
   theme = c("clean", "striped", "default"),
   draggable = FALSE,
+  data_as_input = FALSE,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -23,7 +24,7 @@ datagrid(
 \arguments{
 \item{data}{A \code{data.frame} or something convertible in \code{data.frame}.}
 
-\item{...}{Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid/}.}
+\item{...}{Arguments passed to the \code{Grid} \href{https://nhn.github.io/tui.grid/latest/Grid/}{JavaScript method}.}
 
 \item{sortable}{Logical, allow to sort columns.}
 
@@ -37,11 +38,13 @@ datagrid(
 or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.}
 
 \item{align}{Aligment for columns content: \code{"auto"} (numeric and date on right, other on left), \code{"right"},
-\code{"center"} or \code{"left"}. Use \code{NULL} to ignore.}
+\\code{"center"} or \code{"left"}. Use \code{NULL} to ignore.}
 
 \item{theme}{Predefined theme to be used.}
 
 \item{draggable}{Whether to enable to drag the row for changing the order of rows.}
+
+\item{data_as_input}{Should the \code{data} be available in an input \verb{input$<ID>_data} server-side?}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 

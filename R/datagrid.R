@@ -1,20 +1,21 @@
 #' @title Interactive tables with tui-grid
 #'
 #' @description Create interactive tables : sortable, filterable,
-#'  editable with the JavaScript library \href{https://ui.toast.com/tui-grid/}{tui-grid}.
+#'  editable with the JavaScript library [tui-grid](https://ui.toast.com/tui-grid/).
 #'
-#' @param data A \code{data.frame} or something convertible in \code{data.frame}.
-#' @param ... Arguments passed to the \code{Grid} JavaScript method : \url{https://nhn.github.io/tui.grid/latest/Grid/}.
+#' @param data A `data.frame` or something convertible in `data.frame`.
+#' @param ... Arguments passed to the `Grid` [JavaScript method](https://nhn.github.io/tui.grid/latest/Grid/).
 #' @param sortable Logical, allow to sort columns.
-#' @param pagination Number of rows per page to display, default to \code{NULL} (no pagination).
+#' @param pagination Number of rows per page to display, default to `NULL` (no pagination).
 #' @param filters Logical, allow to filter columns.
 #' @param colnames Alternative colnames to be displayed in the header.
-#' @param colwidths Width for the columns, can be \code{"auto"} (width is determined by column's content)
-#'  or a single or numeric vector to set the width in pixel. Use \code{NULL} to disable and use default behavior.
-#' @param align Aligment for columns content: \code{"auto"} (numeric and date on right, other on left), \code{"right"},
-#'  \code{"center"} or \code{"left"}. Use \code{NULL} to ignore.
+#' @param colwidths Width for the columns, can be `"auto"` (width is determined by column's content)
+#'  or a single or numeric vector to set the width in pixel. Use `NULL` to disable and use default behavior.
+#' @param align Aligment for columns content: `"auto"` (numeric and date on right, other on left), `"right"`,
+#'  \`"center"` or `"left"`. Use `NULL` to ignore.
 #' @param theme Predefined theme to be used.
 #' @param draggable Whether to enable to drag the row for changing the order of rows.
+#' @param data_as_input Should the `data` be available in an input `input$<ID>_data` server-side?
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -37,6 +38,7 @@ datagrid <- function(data = list(), ...,
                      align = "auto",
                      theme = c("clean", "striped", "default"),
                      draggable = FALSE,
+                     data_as_input = FALSE,
                      width = NULL,
                      height = NULL,
                      elementId = NULL) {
@@ -110,7 +112,7 @@ datagrid <- function(data = list(), ...,
     rowAttributes = list(),
     updateEditOnClick = NULL,
     validationInput = FALSE,
-    editorInput = FALSE,
+    dataAsInput = data_as_input,
     dragInput = isTRUE(draggable)
   ))
 

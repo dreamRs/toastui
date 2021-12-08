@@ -20,7 +20,7 @@ server <- function(input, output, session) {
       value = 1:12
     )
     grid <- datagrid(mydata)
-    grid$x$editorInput <- TRUE
+    grid$x$dataAsInput <- TRUE
     # grid$x$options$editingEvent <- "click"
     grid %>%
       grid_columns(

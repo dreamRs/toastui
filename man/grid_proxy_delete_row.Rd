@@ -25,7 +25,8 @@ library(shiny)
 ui <- fluidPage(
   tags$h2("Delete row in grid via proxy"),
   datagridOutput("grid"),
-  verbatimTextOutput("clicks")
+  verbatimTextOutput("clicks"),
+  verbatimTextOutput("data")
 )
 
 server <- function(input, output, session) {
@@ -61,6 +62,10 @@ server <- function(input, output, session) {
     grid_proxy_delete_row("grid", input$remove_row)
   })
 
+  output$data <- renderPrint({
+    input$grid_data
+  })
+  
 }
 
 if (interactive())

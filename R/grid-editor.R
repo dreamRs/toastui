@@ -31,7 +31,7 @@ grid_editor <- function(grid,
     type <- "text"
     validation$type <- "number"
   }
-  grid$x$editorInput <- TRUE
+  grid$x$dataAsInput <- TRUE
   if (length(validation) < 1) {
     validation <- NULL
   } else {
