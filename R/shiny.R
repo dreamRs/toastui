@@ -55,6 +55,16 @@ renderCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' @inheritParams renderCalendar
 #'
 #' @return Output element that can be included in UI. Render function to create output in server.
+#' 
+#' @details # Special inputs
+#' The following `input` values will be accessible in the server:
+#' * **input$outputId_data** : contain the data displayed in grid, only available when `datagrid(data_as_input = TRUE)` or when using [grid_editor()]
+#' * **input$outputId_validation** : contain results of validation rules applied to data, only available when using `validation` argument in [grid_editor()]
+#' 
+#' These other inputs can be defined using other functions:
+#' * *row selection*: giving row selected with checkboxes or radio buttons in `inputId` defined in [grid_selection_row()]
+#' * *cell selection*: giving cell selected with mouse in `inputId` defined in [grid_selection_cell()]
+#' * *cell clicked*: giving row index and column name of cell clicked in `inputId` defined in [grid_click()]
 #'
 #' @name datagrid-shiny
 #'

@@ -35,6 +35,21 @@ Output element that can be included in UI. Render function to create output in s
 Output and render functions for using \code{\link[=datagrid]{datagrid()}} within Shiny
 applications and interactive Rmd documents.
 }
+\section{Special inputs}{
+The following \code{input} values will be accessible in the server:
+\itemize{
+\item \strong{input$outputId_data} : contain the data displayed in grid, only available when \code{datagrid(data_as_input = TRUE)} or when using \code{\link[=grid_editor]{grid_editor()}}
+\item \strong{input$outputId_validation} : contain results of validation rules applied to data, only available when using \code{validation} argument in \code{\link[=grid_editor]{grid_editor()}}
+}
+
+These other inputs can be defined using other functions:
+\itemize{
+\item \emph{row selection}: giving row selected with checkboxes or radio buttons in \code{inputId} defined in \code{\link[=grid_selection_row]{grid_selection_row()}}
+\item \emph{cell selection}: giving cell selected with mouse in \code{inputId} defined in \code{\link[=grid_selection_cell]{grid_selection_cell()}}
+\item \emph{cell clicked}: giving row index and column name of cell clicked in \code{inputId} defined in \code{\link[=grid_click]{grid_click()}}
+}
+}
+
 \examples{
 library(shiny)
 library(toastui)
