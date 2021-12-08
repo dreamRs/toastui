@@ -1,7 +1,7 @@
 
 # Grid's helpers ----------------------------------------------------------
 
-grid_ <- datagrid(rolling_stones_50) %>% grid_cell_selection(inputId = "ID")
+grid_ <- datagrid(rolling_stones_50) %>% grid_selection_cell(inputId = "ID")
 expect_inherits(grid_, "datagrid")
 
 

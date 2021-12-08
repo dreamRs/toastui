@@ -64,9 +64,9 @@ grid_selection_row <- function(grid,
 #' @return A `datagrid` htmlwidget.
 #' @export
 #'
-#' @example examples/ex-grid_cell_selection.R
-grid_cell_selection <- function(grid, inputId, selectionUnit = c("cell", "row")) {
-  check_grid(grid, "grid_cell_selection")
+#' @example examples/ex-grid_selection_cell.R
+grid_selection_cell <- function(grid, inputId, selectionUnit = c("cell", "row")) {
+  check_grid(grid, "grid_selection_cell")
   selectionUnit <- match.arg(selectionUnit)
   grid$x$options$selectionUnit <- selectionUnit
   grid$x$cellSelection <- list(
