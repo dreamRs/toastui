@@ -94,6 +94,14 @@ is useful if you want to save an expression in a variable.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Output element that can be included in UI. Render function to create output in server.</p>
     </div>
+    <div class="section level2">
+    <h2 id="special-inputs">Special inputs<a class="anchor" aria-label="anchor" href="#special-inputs"></a></h2>
+    <p>The following <code>input</code> values will be accessible in the server:</p><ul><li><p><strong>input$outputId_data</strong> : contain the data displayed in grid, only available when <code>datagrid(data_as_input = TRUE)</code> or when using <code><a href="grid-editor.html">grid_editor()</a></code></p></li>
+<li><p><strong>input$outputId_validation</strong> : contain results of validation rules applied to data, only available when using <code>validation</code> argument in <code><a href="grid-editor.html">grid_editor()</a></code></p></li>
+</ul><p>These other inputs can be defined using other functions:</p><ul><li><p><em>row selection</em>: giving row selected with checkboxes or radio buttons in <code>inputId</code> defined in <code><a href="grid_selection_row.html">grid_selection_row()</a></code></p></li>
+<li><p><em>cell selection</em>: giving cell selected with mouse in <code>inputId</code> defined in <code><a href="grid_selection_cell.html">grid_selection_cell()</a></code></p></li>
+<li><p><em>cell clicked</em>: giving row index and column name of cell clicked in <code>inputId</code> defined in <code><a href="grid_click.html">grid_click()</a></code></p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

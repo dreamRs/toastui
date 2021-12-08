@@ -130,9 +130,6 @@
     <loc>https://dreamrs.github.io/toastui/reference/grid-header.html</loc>
   </url>
   <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_cell_selection.html</loc>
-  </url>
-  <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid_click.html</loc>
   </url>
   <url>
@@ -164,6 +161,9 @@
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid_row_merge.html</loc>
+  </url>
+  <url>
+    <loc>https://dreamrs.github.io/toastui/reference/grid_selection_cell.html</loc>
   </url>
   <url>
     <loc>https://dreamrs.github.io/toastui/reference/grid_selection_row.html</loc>
