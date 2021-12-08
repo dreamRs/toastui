@@ -15,6 +15,15 @@ export function getWidget(id) {
   return widgetObj;
 }
 
+export function getConfig(id) {
+  var htmlWidgetsObj = HTMLWidgets.find("#" + id);
+  var configObj;
+  if (typeof htmlWidgetsObj != "undefined") {
+    configObj = htmlWidgetsObj.getConfig();
+  }
+  return configObj;
+}
+
 export function addStyle(styles) {
   var css = document.createElement("style");
   css.type = "text/css";

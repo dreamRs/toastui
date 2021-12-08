@@ -17,6 +17,14 @@ export function ProxyGrid() {
             data.push(row);
           }
           grid.appendRows(data, true);
+          
+          var config = utils.getConfig(obj.id);
+          if (config.dataAsInput === true) {
+            Shiny.setInputValue(obj.id + "_data:datagridEdit", {
+              data: grid.getData(),
+              colnames: config.colnames,
+            });
+          }
         }
       }
     );
@@ -28,6 +36,13 @@ export function ProxyGrid() {
           const idx = obj.data.index;
           for (let i = 0; i < idx.length; i += 1) {
             grid.removeRow(idx[i]);
+          }
+          var config = utils.getConfig(obj.id);
+          if (config.dataAsInput === true) {
+            Shiny.setInputValue(obj.id + "_data:datagridEdit", {
+              data: grid.getData(),
+              colnames: config.colnames,
+            });
           }
         }
       }

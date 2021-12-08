@@ -18,15 +18,22 @@ A \code{datagrid_proxy} object.
 Delete row in an existent grid
 }
 \examples{
-
 library(toastui)
 library(shiny)
 
 ui <- fluidPage(
   tags$h2("Delete row in grid via proxy"),
-  datagridOutput("grid"),
-  verbatimTextOutput("clicks"),
-  verbatimTextOutput("data")
+  fluidRow(
+    column(
+      width = 6,
+      datagridOutput("grid"),
+      verbatimTextOutput("clicks")
+    ),
+    column(
+      width = 6,
+      verbatimTextOutput("output_data")
+    )
+  )
 )
 
 server <- function(input, output, session) {
@@ -38,7 +45,7 @@ server <- function(input, output, session) {
   )
 
   output$grid <- renderDatagrid({
-    datagrid(dat) \%>\%
+    datagrid(dat, data_as_input = TRUE) \%>\%
       grid_columns("remove", width = 120) \%>\%
       grid_col_button(
         column = "remove",
@@ -46,14 +53,14 @@ server <- function(input, output, session) {
         label = "Remove",
         icon = icon("trash"),
         status = "danger",
-        btn_width = "90\%",
-        align = "center"
+        btn_width = "115px", 
+        align = "left"
       )
   })
 
   output$clicks <- renderPrint({
     cat(
-      "Remove: ", input$remove_row,
+      "Removed: ", input$remove_row,
       "\n"
     )
   })
@@ -62,7 +69,7 @@ server <- function(input, output, session) {
     grid_proxy_delete_row("grid", input$remove_row)
   })
 
-  output$data <- renderPrint({
+  output$output_data <- renderPrint({
     input$grid_data
   })
   

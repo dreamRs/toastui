@@ -52,7 +52,7 @@ HTMLWidgets.widget({
   type: "output",
 
   factory: function (el, width, height) {
-    var grid;
+    var grid, config;
 
     return {
       renderValue: function (x) {
@@ -63,6 +63,7 @@ HTMLWidgets.widget({
           container.innerHTML = "";
         }
 
+        config = x;
         var options = x.options;
         options.el = container;
 
@@ -249,6 +250,9 @@ HTMLWidgets.widget({
 
       getWidget: function () {
         return grid;
+      },
+      getConfig: function () {
+        return config;
       },
 
       resize: function (width, height) {
