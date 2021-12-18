@@ -33,7 +33,7 @@
     "moment": "^2.29.1",
     "style-loader": "^3.3.1",
     "tui-calendar": "^1.15.1",
-    "tui-grid": "^4.19.4",
+    "tui-grid": "^4.20.0",
     "tui-pagination": "^3.4.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",

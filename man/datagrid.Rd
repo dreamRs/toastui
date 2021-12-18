@@ -16,6 +16,7 @@ datagrid(
   theme = c("clean", "striped", "default"),
   draggable = FALSE,
   data_as_input = FALSE,
+  contextmenu = FALSE,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -45,6 +46,10 @@ or a single or numeric vector to set the width in pixel. Use \code{NULL} to disa
 \item{draggable}{Whether to enable to drag the row for changing the order of rows.}
 
 \item{data_as_input}{Should the \code{data} be available in an input \verb{input$<ID>_data} server-side?}
+
+\item{contextmenu}{Display or not a context menu when using right click in the grid.
+Can also be a list of custom options, see \href{https://nhn.github.io/tui.grid/latest/tutorial-example27-export}{tui-grid documentation}
+for examples.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 
