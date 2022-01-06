@@ -11,8 +11,8 @@
 #' @param colnames Alternative colnames to be displayed in the header.
 #' @param colwidths Width for the columns, can be `"auto"` (width is determined by column's content)
 #'  or a single or numeric vector to set the width in pixel. Use `NULL` to disable and use default behavior.
-#' @param align Aligment for columns content: `"auto"` (numeric and date on right, other on left), `"right"`,
-#'  \`"center"` or `"left"`. Use `NULL` to ignore.
+#' @param align Alignment for columns content: `"auto"` (numeric and date on right, other on left), `"right"`,
+#'  `"center"` or `"left"`. Use `NULL` to ignore.
 #' @param theme Predefined theme to be used.
 #' @param draggable Whether to enable to drag the row for changing the order of rows.
 #' @param data_as_input Should the `data` be available in an input `input$<ID>_data` server-side?

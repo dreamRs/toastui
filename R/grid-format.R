@@ -3,7 +3,7 @@
 #'
 #' @param grid A table created with [datagrid()].
 #' @param column Name of the column to format.
-#' @param formatter Either an R function or a JavaScript function wraped in \code{JS}.
+#' @param formatter Either an R function or a JavaScript function wrapped in [JS()].
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export

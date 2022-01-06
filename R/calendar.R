@@ -15,7 +15,7 @@
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param navigation Add navigation buttons to got to previous or next period, or return to 'today'.
-#' @param navOpts Options tu customize buttons (only if `navigation = TRUE`), see [navigation_options()].
+#' @param navOpts Options to customize buttons (only if `navigation = TRUE`), see [navigation_options()].
 #' @param ... Additional arguments passed to JavaScript method.
 #' @param width,height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.

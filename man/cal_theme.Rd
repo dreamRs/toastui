@@ -18,7 +18,7 @@ A \code{calendar} htmlwidget object.
 }
 \description{
 Full configuration for theme.
-"common" prefix is for entire calendar. "common" properties can be overriden by "week", "month".
+"common" prefix is for entire calendar. "common" properties can be overridden by "week", "month".
 "week" prefix is for weekly and daily view.
 "month" prefix is for monthly view.
 }

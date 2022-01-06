@@ -43,7 +43,7 @@ The default value is \code{TRUE}. If the value is a vector, it can be \code{"all
 
 \item{navigation}{Add navigation buttons to got to previous or next period, or return to 'today'.}
 
-\item{navOpts}{Options tu customize buttons (only if \code{navigation = TRUE}), see \code{\link[=navigation_options]{navigation_options()}}.}
+\item{navOpts}{Options to customize buttons (only if \code{navigation = TRUE}), see \code{\link[=navigation_options]{navigation_options()}}.}
 
 \item{...}{Additional arguments passed to JavaScript method.}
 

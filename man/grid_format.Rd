@@ -11,7 +11,7 @@ grid_format(grid, column, formatter)
 
 \item{column}{Name of the column to format.}
 
-\item{formatter}{Either an R function or a JavaScript function wraped in \code{JS}.}
+\item{formatter}{Either an R function or a JavaScript function wrapped in \code{\link[=JS]{JS()}}.}
 }
 \value{
 A \code{datagrid} htmlwidget.
