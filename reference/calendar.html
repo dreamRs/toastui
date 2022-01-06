@@ -104,7 +104,7 @@ The default value is <code>TRUE</code>. If the value is a vector, it can be <cod
 <dt>navigation</dt>
 <dd><p>Add navigation buttons to got to previous or next period, or return to 'today'.</p></dd>
 <dt>navOpts</dt>
-<dd><p>Options tu customize buttons (only if <code>navigation = TRUE</code>), see <code><a href="navigation_options.html">navigation_options()</a></code>.</p></dd>
+<dd><p>Options to customize buttons (only if <code>navigation = TRUE</code>), see <code><a href="navigation_options.html">navigation_options()</a></code>.</p></dd>
 <dt>...</dt>
 <dd><p>Additional arguments passed to JavaScript method.</p></dd>
 <dt>width, height</dt>
@@ -126,85 +126,85 @@ The default value is <code>TRUE</code>. If the value is a vector, it can be <cod
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="co"># Default: monthly view</span></span>
 <span class="r-in"><span class="fu">calendar</span><span class="op">(</span><span class="op">)</span></span>
-<div id="htmlwidget-809f7ae88a5ca9943175_menu">
-  <span id="htmlwidget-809f7ae88a5ca9943175_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-809f7ae88a5ca9943175_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-809f7ae88a5ca9943175_prev">
+<div id="htmlwidget-c9854050a010f74aaeb2_menu">
+  <span id="htmlwidget-c9854050a010f74aaeb2_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-c9854050a010f74aaeb2_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-c9854050a010f74aaeb2_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-809f7ae88a5ca9943175_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-c9854050a010f74aaeb2_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-809f7ae88a5ca9943175_renderRange" class="render-range"></span>
+  <span id="htmlwidget-c9854050a010f74aaeb2_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-809f7ae88a5ca9943175" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-809f7ae88a5ca9943175">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-c9854050a010f74aaeb2" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-c9854050a010f74aaeb2">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"><span class="co"># Weekly view</span></span>
 <span class="r-in"><span class="fu">calendar</span><span class="op">(</span>view <span class="op">=</span> <span class="st">"week"</span><span class="op">)</span></span>
-<div id="htmlwidget-79f3a08854dd89ee0e68_menu">
-  <span id="htmlwidget-79f3a08854dd89ee0e68_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-79f3a08854dd89ee0e68_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-79f3a08854dd89ee0e68_prev">
+<div id="htmlwidget-9d6f6dacbcd7c36df6c4_menu">
+  <span id="htmlwidget-9d6f6dacbcd7c36df6c4_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9d6f6dacbcd7c36df6c4_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9d6f6dacbcd7c36df6c4_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-79f3a08854dd89ee0e68_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9d6f6dacbcd7c36df6c4_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-79f3a08854dd89ee0e68_renderRange" class="render-range"></span>
+  <span id="htmlwidget-9d6f6dacbcd7c36df6c4_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-79f3a08854dd89ee0e68" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-79f3a08854dd89ee0e68">{"x":{"options":{"defaultView":"week","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-9d6f6dacbcd7c36df6c4" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-9d6f6dacbcd7c36df6c4">{"x":{"options":{"defaultView":"week","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"><span class="co"># Or only day:</span></span>
 <span class="r-in"><span class="fu">calendar</span><span class="op">(</span>view <span class="op">=</span> <span class="st">"day"</span><span class="op">)</span></span>
-<div id="htmlwidget-2b473d199cf42bd8b77f_menu">
-  <span id="htmlwidget-2b473d199cf42bd8b77f_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b473d199cf42bd8b77f_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b473d199cf42bd8b77f_prev">
+<div id="htmlwidget-2ff846468f25c7db9fd5_menu">
+  <span id="htmlwidget-2ff846468f25c7db9fd5_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2ff846468f25c7db9fd5_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2ff846468f25c7db9fd5_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b473d199cf42bd8b77f_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2ff846468f25c7db9fd5_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-2b473d199cf42bd8b77f_renderRange" class="render-range"></span>
+  <span id="htmlwidget-2ff846468f25c7db9fd5_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-2b473d199cf42bd8b77f" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-2b473d199cf42bd8b77f">{"x":{"options":{"defaultView":"day","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-2ff846468f25c7db9fd5" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-2ff846468f25c7db9fd5">{"x":{"options":{"defaultView":"day","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"><span class="co"># Add navigation buttons</span></span>
 <span class="r-in"><span class="fu">calendar</span><span class="op">(</span>navigation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<div id="htmlwidget-83fa0cf758f8d00584e4_menu">
-  <span id="htmlwidget-83fa0cf758f8d00584e4_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-83fa0cf758f8d00584e4_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-83fa0cf758f8d00584e4_prev">
+<div id="htmlwidget-2b700613a6a29f2042d0_menu">
+  <span id="htmlwidget-2b700613a6a29f2042d0_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b700613a6a29f2042d0_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b700613a6a29f2042d0_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-83fa0cf758f8d00584e4_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2b700613a6a29f2042d0_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-83fa0cf758f8d00584e4_renderRange" class="render-range"></span>
+  <span id="htmlwidget-2b700613a6a29f2042d0_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-83fa0cf758f8d00584e4" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-83fa0cf758f8d00584e4">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":true,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-2b700613a6a29f2042d0" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-2b700613a6a29f2042d0">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":true,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"><span class="co"># Add schedules data</span></span>
 <span class="r-in"><span class="va">ex_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="cal-demo-data.html">cal_demo_data</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">calendar</span><span class="op">(</span><span class="va">ex_data</span><span class="op">)</span></span>
-<div id="htmlwidget-e1a1ffa680bd0d869b48_menu">
-  <span id="htmlwidget-e1a1ffa680bd0d869b48_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e1a1ffa680bd0d869b48_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e1a1ffa680bd0d869b48_prev">
+<div id="htmlwidget-f3fcfabb87d2e4f51c14_menu">
+  <span id="htmlwidget-f3fcfabb87d2e4f51c14_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f3fcfabb87d2e4f51c14_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f3fcfabb87d2e4f51c14_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e1a1ffa680bd0d869b48_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f3fcfabb87d2e4f51c14_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-e1a1ffa680bd0d869b48_renderRange" class="render-range"></span>
+  <span id="htmlwidget-f3fcfabb87d2e4f51c14_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-e1a1ffa680bd0d869b48" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-e1a1ffa680bd0d869b48">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"time","dueDateClass":"","id":"schedule3e31af985c6415f53943a4b3","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-12-05 20:00:00","end":"2021-12-05 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule3f8862e05f6ee45dac891443","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-12-12 20:00:00","end":"2021-12-12 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule1aa71263f82c4bcad7fcc201","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2021-12-19 20:00:00","end":"2021-12-19 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule6549c168faf677a8340d10b4","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2021-12-11","end":"2021-12-12","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule3f1713e3426ed566f9beabd5","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-12-06","end":"2021-12-07","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule98e20a1631a31fef77882c02","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-12-07","end":"2021-12-10","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule0c5587512e1b6c5fb2e8e5b0","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2021-12-29","end":"2021-12-29","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule1a48765d6bcdd2d1b3a8d2d5","calendarId":"3","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2021-12-14","end":"2021-12-17","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulef8652704f661e3a2f5663b09","calendarId":"3","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2021-12-21","end":"2021-12-23","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule4c466f44d10cc95ad376e61b","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2021-12-20 14:00:00","end":"2021-12-20 17:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"scheduleb4938c9ddf3e6326e26ce2d6","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2021-12-24 12:00:00","end":"2021-12-24 14:00:00","location":"Some restaurant","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule50377f8b54b54d5e0977e60f","calendarId":"3","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2021-12-27","end":"2021-12-28","location":"Conference center","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulee4c0af284a7336bd9c37ac97","calendarId":"4","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2021-12-03","end":"2021-12-03","location":null,"bgColor":"#FAFAFA","color":"#FF0000","borderColor":"#FF0000"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-f3fcfabb87d2e4f51c14" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-f3fcfabb87d2e4f51c14">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"time","dueDateClass":"","id":"schedulee970bdd372229d0b154dcfbd","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2022-01-05 20:00:00","end":"2022-01-05 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"scheduled380282ab7f2454f59e41e90","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2022-01-12 20:00:00","end":"2022-01-12 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulea80ff72abfee1d5dc78f1240","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2022-01-19 20:00:00","end":"2022-01-19 22:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule62dfc353b1c15ad190fea56d","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2022-01-08","end":"2022-01-09","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduleb825977fdf34fffc5d000378","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2022-01-03","end":"2022-01-04","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule1ac2dd653c3ef7ec1ff2814a","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2022-01-04","end":"2022-01-07","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedulea7a2955254db8824cae59f45","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2022-01-29","end":"2022-01-29","location":null,"bgColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"scheduleb27f9ccf5f30dda17e29863f","calendarId":"3","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2022-01-11","end":"2022-01-14","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulee08a9d5b725e21fd015d89c5","calendarId":"3","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2022-01-18","end":"2022-01-20","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulef09ec499beff8497e14d80d4","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2022-01-20 14:00:00","end":"2022-01-20 17:00:00","location":null,"bgColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule22e98fcfe6aa4d5128001c0e","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2022-01-24 12:00:00","end":"2022-01-24 14:00:00","location":"Some restaurant","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulebf066316439401c7a50e7773","calendarId":"3","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2022-01-27","end":"2022-01-28","location":"Conference center","bgColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule20058bf89ae52d6cbae857ec","calendarId":"4","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2022-01-03","end":"2022-01-03","location":null,"bgColor":"#FAFAFA","color":"#FF0000","borderColor":"#FF0000"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># By default detail popup is activated</span></span>
 <span class="r-in"><span class="co"># you can click on a schedule to view detail</span></span>
@@ -216,20 +216,20 @@ The default value is <code>TRUE</code>. If the value is a vector, it can be <cod
 <span class="r-in">    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-04"</span><span class="op">)</span>,</span>
 <span class="r-in">    category <span class="op">=</span> <span class="st">"allday"</span></span>
 <span class="r-in">  <span class="op">)</span></span>
-<div id="htmlwidget-f7d1b22395ed5900cffe_menu">
-  <span id="htmlwidget-f7d1b22395ed5900cffe_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f7d1b22395ed5900cffe_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f7d1b22395ed5900cffe_prev">
+<div id="htmlwidget-d69e0c80e748115e0b9e_menu">
+  <span id="htmlwidget-d69e0c80e748115e0b9e_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d69e0c80e748115e0b9e_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d69e0c80e748115e0b9e_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-f7d1b22395ed5900cffe_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d69e0c80e748115e0b9e_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-f7d1b22395ed5900cffe_renderRange" class="render-range"></span>
+  <span id="htmlwidget-d69e0c80e748115e0b9e_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-f7d1b22395ed5900cffe" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-f7d1b22395ed5900cffe">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"scheduleaed2d44be31c319872867218","calendarId":"1","title":"My schedule","body":"Some detail about it","start":"2021-12-03","end":"2021-12-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
+<br><div id="htmlwidget-d69e0c80e748115e0b9e" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-d69e0c80e748115e0b9e">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedule70aff6563794f6defeae9ccd","calendarId":"1","title":"My schedule","body":"Some detail about it","start":"2022-01-03","end":"2022-01-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"></span>
 <span class="r-in"><span class="co"># to disable it use useDetailPopup = FALSE</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># You can use HTML tags inside it:</span></span>
@@ -257,20 +257,20 @@ The default value is <code>TRUE</code>. If the value is a vector, it can be <cod
 <span class="r-in">    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-04"</span><span class="op">)</span>,</span>
 <span class="r-in">    category <span class="op">=</span> <span class="st">"allday"</span></span>
 <span class="r-in">  <span class="op">)</span></span>
-<div id="htmlwidget-61c4f3cbfccedddd8837_menu">
-  <span id="htmlwidget-61c4f3cbfccedddd8837_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-61c4f3cbfccedddd8837_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-61c4f3cbfccedddd8837_prev">
+<div id="htmlwidget-970d4cb15bdc44f43d2f_menu">
+  <span id="htmlwidget-970d4cb15bdc44f43d2f_menu_navi">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-970d4cb15bdc44f43d2f_today">Today</button>
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-970d4cb15bdc44f43d2f_prev">
       <i class="fa fa-chevron-left"></i>
     </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-61c4f3cbfccedddd8837_next">
+    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-970d4cb15bdc44f43d2f_next">
       <i class="fa fa-chevron-right"></i>
     </button>
   </span>
-  <span id="htmlwidget-61c4f3cbfccedddd8837_renderRange" class="render-range"></span>
+  <span id="htmlwidget-970d4cb15bdc44f43d2f_renderRange" class="render-range"></span>
 </div>
-<br><div id="htmlwidget-61c4f3cbfccedddd8837" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-61c4f3cbfccedddd8837">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedule7c51ea04cde8a5d1fce92ab0","calendarId":"1","title":"My schedule","body":"<div>\n  <h3>Title for my schedule<\/h3>\n  <p>\n    Yan can write\n    <em>custom<\/em>\n    <b>HTML<\/b>\n    in a popup !\n  <\/p>\n  <p style=\"color: firebrick;\">For example write in red !<\/p>\n  <ul>\n    <li>Or make a bullet list!<\/li>\n    <li>With another item<\/li>\n    <li>And one more<\/li>\n  <\/ul>\n<\/div>","start":"2021-12-03","end":"2021-12-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script></code></pre></div>
+<br><div id="htmlwidget-970d4cb15bdc44f43d2f" style="width:700px;height:432.632880098888px;" class="calendar html-widget" width="700" height="432.632880098888"></div>
+<script type="application/json" data-for="htmlwidget-970d4cb15bdc44f43d2f">{"x":{"options":{"defaultView":"month","taskView":false,"scheduleView":true,"useDetailPopup":true,"useCreationPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedulef97df7f42fad6f2c17e70cd9","calendarId":"1","title":"My schedule","body":"<div>\n  <h3>Title for my schedule<\/h3>\n  <p>\n    Yan can write\n    <em>custom<\/em>\n    <b>HTML<\/b>\n    in a popup !\n  <\/p>\n  <p style=\"color: firebrick;\">For example write in red !<\/p>\n  <ul>\n    <li>Or make a bullet list!<\/li>\n    <li>With another item<\/li>\n    <li>And one more<\/li>\n  <\/ul>\n<\/div>","start":"2022-01-03","end":"2022-01-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<i class=\"fa fa-chevron-left\" role=\"presentation\" aria-label=\"chevron-left icon\"><\/i>","next_label":"<i class=\"fa fa-chevron-right\" role=\"presentation\" aria-label=\"chevron-right icon\"><\/i>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script></code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
