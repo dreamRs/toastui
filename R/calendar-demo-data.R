@@ -5,7 +5,7 @@
 #'
 #' @param view Calendar view for which to use the data.
 #'
-#' @return a \code{data.frame}.
+#' @return a `data.frame`.
 #' @export
 #'
 #' @name cal-demo-data

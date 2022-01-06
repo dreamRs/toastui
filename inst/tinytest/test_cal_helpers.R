@@ -104,3 +104,20 @@ cal_ <- calendar(view = "week", taskView = TRUE) %>%
 expect_inherits(cal_, "calendar")
 expect_inherits(cal_$x$options$template, "list")
 expect_false(is.null(cal_$x$options$template$milestoneTitle))
+
+
+
+# Demo data ---------------------------------------------------------------
+
+expect_inherits(cal_demo_data(view = "month"), "data.frame")
+expect_inherits(cal_demo_data(view = "week"), "data.frame")
+
+expect_true(hasName(cal_demo_data(view = "month"), "start"))
+expect_true(hasName(cal_demo_data(view = "month"), "end"))
+expect_true(hasName(cal_demo_data(view = "week"), "start"))
+expect_true(hasName(cal_demo_data(view = "week"), "end"))
+
+expect_inherits(cal_demo_props(), "data.frame")
+
+expect_true(hasName(cal_demo_props(), "id"))
+expect_true(hasName(cal_demo_props(), "name"))
