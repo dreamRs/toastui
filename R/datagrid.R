@@ -17,7 +17,7 @@
 #' @param draggable Whether to enable to drag the row for changing the order of rows.
 #' @param data_as_input Should the `data` be available in an input `input$<ID>_data` server-side?
 #' @param contextmenu Display or not a context menu when using right click in the grid.
-#'  Can also be a list of custom options, see [tui-grid documentation](https://nhn.github.io/tui.grid/latest/tutorial-example27-export)
+#'  Can also be a list of custom options, see [tui-grid documentation](https://nhn.github.io/tui.grid/latest/tutorial-example27-export/)
 #'  for examples.
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.

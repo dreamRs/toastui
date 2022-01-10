@@ -48,7 +48,7 @@ or a single or numeric vector to set the width in pixel. Use \code{NULL} to disa
 \item{data_as_input}{Should the \code{data} be available in an input \verb{input$<ID>_data} server-side?}
 
 \item{contextmenu}{Display or not a context menu when using right click in the grid.
-Can also be a list of custom options, see \href{https://nhn.github.io/tui.grid/latest/tutorial-example27-export}{tui-grid documentation}
+Can also be a list of custom options, see \href{https://nhn.github.io/tui.grid/latest/tutorial-example27-export/}{tui-grid documentation}
 for examples.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}

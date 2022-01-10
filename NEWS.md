@@ -1,3 +1,10 @@
+# toastui 0.2.1
+
+* First CRAN submission.
+* Updated JavaScript dependencies (tui-calendar 1.15.1, @toast-ui/chart 4.4.1, tui-grid 4.20.0).
+
+
+
 # toastui 0.2.0
 
 * Use [packer](https://github.com/JohnCoene/packer) to manage JavaScript source code and dependencies.
