@@ -15,3 +15,4 @@
 ^webpack\.prod\.js$
 ^webpack\.common\.js$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
