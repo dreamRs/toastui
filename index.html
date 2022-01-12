@@ -85,9 +85,13 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install toastui from GitHub with:</p>
+<p>Install from <a href="https://CRAN.R-project.org/package=toastui" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dreamRs/toastui"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"toastui"</span><span class="op">)</span></code></pre></div>
+<p>Or install the development version from <a href="https://github.com/dreamRs/toastui" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dreamRs/toastui"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="grid">Grid<a class="anchor" aria-label="anchor" href="#grid"></a>
@@ -121,10 +125,10 @@
 </h2>
 <p>This package uses <a href="https://github.com/JohnCoene/packer" class="external-link">packer</a> to manage JavaScript source code and dependencies. If you want to modify it, you’ll need a working installation of <a href="https://nodejs.org/en/" class="external-link">Node.js</a>.</p>
 <p>After cloning the Git repository, install nodes modules with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">packer</span><span class="fu">::</span><span class="fu">npm_install</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Modify code in <code>srcjs/</code> directory, then run:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">packer</span><span class="fu">::</span><span class="fu">bundle_prod</span><span class="op">(</span><span class="op">)</span> <span class="co"># or packer::bundle_dev()</span></code></pre></div>
 <p>Re-install the package or use <code>pkgload::load_all()</code> to try changes.</p>
 </div>
@@ -132,6 +136,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=toastui" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/dreamRs/toastui/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/dreamRs/toastui/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -167,6 +172,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=toastui" class="external-link"><img src="http://www.r-pkg.org/badges/version/toastui" alt="version"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/dreamRs/toastui/actions" class="external-link"><img src="https://github.com/dreamRs/toastui/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
