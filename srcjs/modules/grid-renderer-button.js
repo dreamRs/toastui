@@ -8,6 +8,7 @@ export class DatagridButtonRenderer {
     el.style.padding = "5px 0";
     el.style.boxSizing = "border-box";
     el.classList.add("btn");
+    el.classList.add("btn-datagrid-column");
     el.classList.add("btn-sm");
     el.classList.add("btn-" + status);
 
@@ -32,7 +33,7 @@ export class DatagridButtonRenderer {
     const inputId = props.columnInfo.renderer.options.inputId;
     this.el.onclick = function () {
       if (HTMLWidgets.shinyMode) {
-        Shiny.setInputValue(inputId, String(props.value));
+        Shiny.setInputValue(inputId, String(props.value), {priority: "event"});
       }
     };
     this.el.innerHTML = label;

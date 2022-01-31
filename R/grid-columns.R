@@ -152,12 +152,13 @@ grid_columns_opts <- function(grid,
 #'
 #' @param grid A table created with [datagrid()].
 #' @param column The name of the column where to create buttons.
-#' @param inputId The \code{input} slot that will be used to access the value.
-#' @param label Label to display on button, if \code{NULL} use column's content.
+#' @param inputId The `input` slot that will be used to access the value.
+#' @param label Label to display on button, if `NULL` use column's content.
 #' @param icon Icon to display in button.
-#' @param status Status (color) of the button: default, primary, success, info, warning, danger.
+#' @param status Bootstrap status (color) of the button: default, primary, success, info, warning, danger, ...
+#'  A class prefixed by `btn-` will be added to the button.
 #' @param btn_width Button's width.
-#' @param ... Further arguments passed to \code{\link{grid_columns}}.
+#' @param ... Further arguments passed to [grid_columns()].
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
@@ -168,11 +169,11 @@ grid_col_button <- function(grid,
                             inputId,
                             label = NULL,
                             icon = NULL,
-                            status = c("default", "primary", "success", "info", "warning", "danger"),
+                            status = "default",
                             btn_width = "100%",
                             ...) {
   check_grid(grid, "grid_col_button")
-  status <- match.arg(status)
+  stopifnot(is.character(status))
   stopifnot(is.character(column) & length(column) == 1)
   column <- check_grid_column(grid, column)
   if (!is.null(icon)) {
@@ -190,7 +191,7 @@ grid_col_button <- function(grid,
     renderer = list(
       type = JS("datagrid.renderer.button"),
       options = dropNulls(list(
-        status = status,
+        status = status[1],
         width = btn_width,
         label = label,
         inputId = inputId,

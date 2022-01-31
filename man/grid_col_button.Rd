@@ -10,7 +10,7 @@ grid_col_button(
   inputId,
   label = NULL,
   icon = NULL,
-  status = c("default", "primary", "success", "info", "warning", "danger"),
+  status = "default",
   btn_width = "100\%",
   ...
 )
@@ -26,11 +26,12 @@ grid_col_button(
 
 \item{icon}{Icon to display in button.}
 
-\item{status}{Status (color) of the button: default, primary, success, info, warning, danger.}
+\item{status}{Bootstrap status (color) of the button: default, primary, success, info, warning, danger, ...
+A class prefixed by \verb{btn-} will be added to the button.}
 
 \item{btn_width}{Button's width.}
 
-\item{...}{Further arguments passed to \code{\link{grid_columns}}.}
+\item{...}{Further arguments passed to \code{\link[=grid_columns]{grid_columns()}}.}
 }
 \value{
 A \code{datagrid} htmlwidget.
