@@ -10,14 +10,14 @@
     
     <a class="navbar-brand me-2" href="../index.html">toastui</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item">
   <a class="nav-link" href="../articles/toastui.html">Get started</a>
 </li>
@@ -68,7 +68,7 @@
   <span class="va">inputId</span>,
   label <span class="op">=</span> <span class="cn">NULL</span>,
   icon <span class="op">=</span> <span class="cn">NULL</span>,
-  status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"default"</span>, <span class="st">"primary"</span>, <span class="st">"success"</span>, <span class="st">"info"</span>, <span class="st">"warning"</span>, <span class="st">"danger"</span><span class="op">)</span>,
+  status <span class="op">=</span> <span class="st">"default"</span>,
   btn_width <span class="op">=</span> <span class="st">"100%"</span>,
   <span class="va">...</span>
 <span class="op">)</span></code></pre></div>
@@ -87,11 +87,12 @@
 <dt>icon</dt>
 <dd><p>Icon to display in button.</p></dd>
 <dt>status</dt>
-<dd><p>Status (color) of the button: default, primary, success, info, warning, danger.</p></dd>
+<dd><p>Bootstrap status (color) of the button: default, primary, success, info, warning, danger, ...
+A class prefixed by <code>btn-</code> will be added to the button.</p></dd>
 <dt>btn_width</dt>
 <dd><p>Button's width.</p></dd>
 <dt>...</dt>
-<dd><p>Further arguments passed to <code><a href="grid_columns.html">grid_columns</a></code>.</p></dd>
+<dd><p>Further arguments passed to <code><a href="grid_columns.html">grid_columns()</a></code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -164,7 +165,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
     </footer></div>
