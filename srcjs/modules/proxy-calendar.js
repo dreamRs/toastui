@@ -1,6 +1,7 @@
 import "widgets";
 import dayjs from "dayjs";
 import * as utils from "./utils";
+import { formatDateNav, getNavOptions } from "./calendar-utils";
 
 export function ProxyCalendar() {
   if (HTMLWidgets.shinyMode) {
@@ -32,6 +33,13 @@ export function ProxyCalendar() {
         var cal = utils.getWidget(obj.id);
         if (typeof cal != "undefined") {
           cal.changeView(obj.data.view, true);
+          var renderRange = document.getElementById(obj.id + "_renderRange");
+          if (typeof renderRange != "undefined") {
+            var options = getNavOptions(obj.id);
+            var formatNav = options.fmt_date;
+            var sepNav = options.sep_date;
+            renderRange.innerHTML = formatDateNav(cal, formatNav, sepNav);
+          }
         }
       }
     );

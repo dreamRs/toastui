@@ -17,7 +17,8 @@ HTMLWidgets.widget({
   factory: function (el, width, height) {
     var cal,
       renderRange,
-      formatNav = "YYYY-MM-DD";
+      formatNav = "YYYY-MM-DD",
+      navigationOptions;
 
     return {
       renderValue: function (x) {
@@ -46,6 +47,7 @@ HTMLWidgets.widget({
         // Navigation buttons
         if (x.navigation) {
           addNavigation(cal, el.id, x.navigationOptions);
+          navigationOptions = x.navigationOptions;
         }
 
         if (x.events.hasOwnProperty("beforeCreateSchedule")) {
@@ -176,6 +178,10 @@ HTMLWidgets.widget({
 
       getWidget: function () {
         return cal;
+      },
+
+      getNavOptions: function() {
+        return navigationOptions;
       },
 
       resize: function (width, height) {
