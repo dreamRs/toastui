@@ -28,14 +28,13 @@
   "homepage": "https://github.com/dreamRs/toastui#readme",
   "devDependencies": {
     "@toast-ui/chart": "^4.4.1",
-    "css-loader": "^6.5.1",
+    "css-loader": "^6.6.0",
     "dayjs": "^1.10.7",
-    "moment": "^2.29.1",
     "style-loader": "^3.3.1",
-    "tui-calendar": "^1.15.2",
-    "tui-grid": "^4.20.1",
+    "tui-calendar": "^1.15.3",
+    "tui-grid": "^4.20.3",
     "tui-pagination": "^3.4.1",
-    "webpack": "^5.68.0",
+    "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-merge": "^5.8.0"
   }
