@@ -48,7 +48,7 @@ Create a monthly calendar:
 * `cal_props()`: set properties for schedules groups (background and text color ...)
 
 ```{r monthly}
-calendar(cal_demo_data(), useNavigation = TRUE) %>%
+calendar(cal_demo_data(), navigation = TRUE, defaultDate = Sys.Date()) %>%
   cal_month_options(
     startDayOfWeek  = 1, 
     narrowWeekend = TRUE
