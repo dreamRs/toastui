@@ -32,7 +32,7 @@
     "dayjs": "^1.10.7",
     "style-loader": "^3.3.1",
     "tui-calendar": "^1.15.3",
-    "tui-grid": "^4.20.3",
+    "tui-grid": "^4.21.0",
     "tui-pagination": "^3.4.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
