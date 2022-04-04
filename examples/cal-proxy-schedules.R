@@ -9,11 +9,11 @@ ui <- fluidPage(
     column(
       width = 4,
       actionButton(
-        inputId = "add", 
+        inputId = "add",
         label = "Add random schedule"
       ),
       actionButton(
-        inputId = "clear", 
+        inputId = "clear",
         label = "Clear all",
         class = "btn-danger"
       )
@@ -21,8 +21,8 @@ ui <- fluidPage(
     column(
       width = 4,
       numericInput(
-        inputId = "id", 
-        label = "Delete specific schedule: e.g. 1, 2, 3, ...", 
+        inputId = "id",
+        label = "Delete specific schedule: e.g. 1, 2, 3, ...",
         value = 1,
         width = "100%"
       )
@@ -32,7 +32,7 @@ ui <- fluidPage(
       tags$b("Then click:"),
       tags$br(),
       actionButton(
-        inputId = "delete", 
+        inputId = "delete",
         label = "Delete schedule",
         class = "btn-danger"
       )
@@ -42,26 +42,26 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$my_calendar <- renderCalendar({
-    calendar(useNavigation = TRUE) %>% 
-      cal_props(id = "a", name = "Schedule A", color = "#FFF", bgColor = "#E41A1C") %>% 
-      cal_props(id = "b", name = "Schedule B", color = "#FFF", bgColor = "#377EB8") %>% 
+    calendar(navigation = TRUE) %>%
+      cal_props(id = "a", name = "Schedule A", color = "#FFF", bgColor = "#E41A1C") %>%
+      cal_props(id = "b", name = "Schedule B", color = "#FFF", bgColor = "#377EB8") %>%
       cal_props(id = "c", name = "Schedule C", color = "#FFF", bgColor = "#4DAF4A")
   })
-  
+
   observeEvent(input$add, {
     my_date <- sample(seq(
       from = Sys.Date() - 15,
       to = Sys.Date() + 15,
       by = "1 day"
     ), 1)
-    calendar_proxy("my_calendar") %>% 
+    calendar_proxy("my_calendar") %>%
       cal_proxy_add(
         list(
           id = input$add,
           calendarId = sample(c("a", "b", "c"), 1),
-          title = paste("Schedule", input$add), 
+          title = paste("Schedule", input$add),
           body = paste("What i'm going todo in schedule", input$add),
           start = my_date,
           end = my_date,
@@ -69,18 +69,18 @@ server <- function(input, output, session) {
         )
       )
   })
-  
+
   observeEvent(input$clear, cal_proxy_clear("my_calendar"))
-  
+
   observe(updateActionButton(session, "delete", paste("Delete schedule", input$id)))
-  
+
   observeEvent(input$delete, {
-    calendarProxy("my_calendar") %>% 
+    calendarProxy("my_calendar") %>%
       cal_proxy_delete(list(calendarId = "a", id = input$id)) %>% # to be sure, we remove from all calendars
-      cal_proxy_delete(list(calendarId = "b", id = input$id)) %>% 
+      cal_proxy_delete(list(calendarId = "b", id = input$id)) %>%
       cal_proxy_delete(list(calendarId = "c", id = input$id))
   })
-  
+
 }
 
 if (interactive())

@@ -9,11 +9,11 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$my_calendar <- renderCalendar({
-    calendar(cal_demo_data(), useNavigation = FALSE)
+    calendar(cal_demo_data(), navigation = FALSE)
   })
-  
+
   observeEvent(input$clear, cal_proxy_clear("my_calendar"))
 }
 

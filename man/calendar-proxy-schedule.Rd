@@ -53,7 +53,7 @@ server <- function(input, output) {
   output$my_calendar <- renderCalendar({
     cal <- calendar(
       defaultDate = Sys.Date(),
-      useNavigation = TRUE,
+      navigation = TRUE,
       isReadOnly = FALSE,
       useCreationPopup = TRUE
     )
