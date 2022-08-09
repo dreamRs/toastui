@@ -79,8 +79,8 @@ HTMLWidgets.widget({
               isAllDay: event.isAllDay,
               category: event.isAllDay ? "allday" : "time",
               calendarId: event.calendarId,
-            });
-          });
+            }, {priority: "event"});
+          }, {priority: "event"});
         }
 
         if (x.events.hasOwnProperty("afterRenderSchedule")) {
@@ -89,7 +89,7 @@ HTMLWidgets.widget({
           cal.on("afterRenderSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
-            Shiny.setInputValue(el.id + "_schedules", schedule);
+            Shiny.setInputValue(el.id + "_schedules", schedule, {priority: "event"});
           });
         }
 
@@ -99,7 +99,7 @@ HTMLWidgets.widget({
           cal.on("clickSchedule", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
-            Shiny.setInputValue(el.id + "_click", schedule);
+            Shiny.setInputValue(el.id + "_click", schedule, {priority: "event"});
           });
         }
 
@@ -118,7 +118,7 @@ HTMLWidgets.widget({
               isAllDay: schedule.isAllDay,
               category: schedule.isAllDay ? "allday" : "time",
               calendarId: schedule.calendarId,
-            });
+            }, {priority: "event"});
           });
         }
 
@@ -148,7 +148,7 @@ HTMLWidgets.widget({
                 calendarId: schedule.calendarId,
               },
               changes: changes,
-            });
+            }, {priority: "event"});
           });
         }
 
@@ -172,7 +172,7 @@ HTMLWidgets.widget({
             current: dayjs(cal.getDate()._date).format(),
             start: dayjs(cal.getDateRangeStart()._date).format(),
             end: dayjs(cal.getDateRangeEnd()._date).format(),
-          });
+          }, {priority: "event"});
         }
       },
 

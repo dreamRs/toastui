@@ -160,7 +160,7 @@ HTMLWidgets.widget({
               selected: grid.getCheckedRows(),
               colnames: x.colnames,
               returnValue: x.rowSelection.returnValue,
-            });
+            }, {priority: "event"});
           }
           grid.on("checkAll", rowSelection);
           grid.on("uncheckAll", rowSelection);
@@ -173,7 +173,7 @@ HTMLWidgets.widget({
               selected: grid.getSelectionRange(),
               colnames: x.colnames,
               returnValue: x.cellSelection.returnValue,
-            });
+            }, {priority: "event"});
           });
         }
         if (x.hasOwnProperty("clickEvent") & HTMLWidgets.shinyMode) {
@@ -181,7 +181,7 @@ HTMLWidgets.widget({
             Shiny.setInputValue(x.clickEvent.id, {
               row: ev.rowKey + 1,
               col: ev.columnName,
-            });
+            }, {priority: "event"});
           });
         }
 
@@ -190,16 +190,18 @@ HTMLWidgets.widget({
           Shiny.setInputValue(el.id + "_data:datagridEdit", {
             data: grid.getData(),
             colnames: x.colnames,
-          });
+          }, {priority: "event"});
           if (x.validationInput === true) {
             Shiny.setInputValue(
               el.id + "_validation:datagridValidation",
-              grid.validate()
+              grid.validate(),
+              {priority: "event"}
             );
             grid.on("editingFinish", function (ev) {
               Shiny.setInputValue(
                 el.id + "_validation:datagridValidation",
-                grid.validate()
+                grid.validate(),
+                {priority: "event"}
               );
             });
           }
@@ -212,7 +214,7 @@ HTMLWidgets.widget({
                 Shiny.setInputValue(el.id + "_data:datagridEdit", {
                   data: grid.getData(),
                   colnames: x.colnames,
-                });
+                }, {priority: "event"});
               });
             }
           } else {
@@ -220,7 +222,7 @@ HTMLWidgets.widget({
               Shiny.setInputValue(el.id + "_data:datagridEdit", {
                 data: ev.instance.getData(),
                 colnames: x.colnames,
-              });
+              }, {priority: "event"});
             });
           }
         }
@@ -233,17 +235,17 @@ HTMLWidgets.widget({
             Shiny.setInputValue(el.id + "_drag", {
               rowKey: ev.rowKey + 1,
               targetRowKey: ev.targetRowKey + 1,
-            });
+            }, {priority: "event"});
           });
           grid.on("drop", function (ev) {
             Shiny.setInputValue(el.id + "_drop", {
               rowKey: ev.rowKey + 1,
               targetRowKey: ev.targetRowKey + 1,
-            });
+            }, {priority: "event"});
             Shiny.setInputValue(el.id + "_data:datagridEdit", {
               data: ev.instance.getData(),
               colnames: x.colnames,
-            });
+            }, {priority: "event"});
           });
         }
       },
