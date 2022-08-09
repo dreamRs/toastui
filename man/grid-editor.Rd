@@ -11,7 +11,8 @@ grid_editor(
   column,
   type = c("text", "number", "checkbox", "select", "radio", "password"),
   choices = NULL,
-  validation = validateOpts()
+  validation = validateOpts(),
+  useListItemText = FALSE
 )
 
 grid_editor_opts(
@@ -32,7 +33,10 @@ grid_editor_opts(
 \item{choices}{Vector of choices, required for \code{"checkbox"},
 \code{"select"} and \code{"radio"} type.}
 
-\item{validation}{Rules to validate content edited, see \code{\link{validateOpts}}.}
+\item{validation}{Rules to validate content edited, see \code{\link[=validateOpts]{validateOpts()}}.}
+
+\item{useListItemText}{If \code{choices} contains special characters (spaces, punctuation, ...)
+set this option to \code{TRUE}, you'll have to encode data in \code{column} to numeric as character (e.g. \code{"1"}, \code{"2"}, ...).}
 
 \item{editingEvent}{If set to \code{"click"}, editable cell in
 the view-mode will be changed to edit-mode by a single click.}
@@ -48,7 +52,7 @@ A \code{datagrid} htmlwidget.
 }
 \description{
 Allow to edit content of columns with different inputs,
-then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
+then retrieve value server-side in shiny application with \verb{input$<outputId>_data}.
 }
 \examples{
 library(toastui)

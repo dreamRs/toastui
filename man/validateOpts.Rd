@@ -32,7 +32,7 @@ validateOpts(
 \value{
 A \code{datagrid} htmlwidget.
 
-
+a \code{list} of options to use in \code{\link[=grid_editor]{grid_editor()}}.
 }
 \description{
 Validate columns' content with rules, useful when content is editable.

@@ -2,15 +2,17 @@
 #' @title Grid editor for columns
 #'
 #' @description Allow to edit content of columns with different inputs,
-#'  then retrieve value server-side in shiny application with \code{input$<outputId>_data}.
+#'  then retrieve value server-side in shiny application with `input$<outputId>_data`.
 #'
 #' @param grid A table created with [datagrid()].
 #' @param column Column for which to activate the editable content.
-#' @param type Type of editor: \code{"text"}, \code{"number"}, \code{"checkbox"},
-#'  \code{"select"}, \code{"radio"} or \code{"password"}.
-#' @param choices Vector of choices, required for \code{"checkbox"},
-#'  \code{"select"} and \code{"radio"} type.
-#' @param validation Rules to validate content edited, see \code{\link{validateOpts}}.
+#' @param type Type of editor: `"text"`, `"number"`, `"checkbox"`,
+#'  `"select"`, `"radio"` or `"password"`.
+#' @param choices Vector of choices, required for `"checkbox"`,
+#'  `"select"` and `"radio"` type.
+#' @param validation Rules to validate content edited, see [validateOpts()].
+#' @param useListItemText If `choices` contains special characters (spaces, punctuation, ...)
+#'  set this option to `TRUE`, you'll have to encode data in `column` to numeric as character (e.g. `"1"`, `"2"`, ...).
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
@@ -24,7 +26,8 @@ grid_editor <- function(grid,
                         column,
                         type = c("text", "number", "checkbox", "select", "radio", "password"),
                         choices = NULL,
-                        validation = validateOpts()) {
+                        validation = validateOpts(),
+                        useListItemText = FALSE) {
   check_grid(grid, "grid_editor")
   type <- match.arg(type)
   if (identical(type, "number")) {
@@ -52,15 +55,26 @@ grid_editor <- function(grid,
     grid_columns(
       grid = grid,
       columns = column,
+      formatter = if (useListItemText) "listItemText",
       editor = list(
         type = type,
         options = list(
-          listItems = lapply(
-            X = choices,
-            FUN = function(x) {
-              list(text = x, value = x)
-            }
-          )
+          instantApply = TRUE,
+          listItems = if (useListItemText) {
+            lapply(
+              X = seq_along(choices),
+              FUN = function(i) {
+                list(text = choices[i], value = as.character(i))
+              }
+            )
+          } else {
+            lapply(
+              X = choices,
+              FUN = function(x) {
+                list(text = x, value = x)
+              }
+            )
+          }
         )
       ),
       validation = validation
@@ -75,7 +89,7 @@ grid_editor <- function(grid,
 #' @param editingEvent If set to \code{"click"}, editable cell in
 #'  the view-mode will be changed to edit-mode by a single click.
 #' @param actionButtonId Use an \code{actionButton} inputId to send
-#'  edited data to the server only when this button is clicked. 
+#'  edited data to the server only when this button is clicked.
 #'  This allows not to send all the changes made by the user to the server.
 #' @param session Shiny session.
 #'
@@ -117,7 +131,7 @@ grid_editor_opts <- function(grid,
 #'
 #' @importFrom htmlwidgets JS
 #'
-#' @return
+#' @return a `list` of options to use in [grid_editor()].
 #' @export
 #'
 #' @example examples/ex-grid_validation-shiny.R
