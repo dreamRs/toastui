@@ -59,8 +59,8 @@ HTMLWidgets.widget({
                   location: event.location,
                   start: dayjs(event.start).format(),
                   end: dayjs(event.end).format(),
-                  isAllDay: event.isAllDay,
-                  category: event.isAllDay ? "allday" : "time",
+                  isAllday: event.isAllday,
+                  category: event.isAllday ? "allday" : "time",
                   calendarId: event.calendarId,
                 },
               ]);
@@ -76,8 +76,8 @@ HTMLWidgets.widget({
               location: event.location,
               start: dayjs(event.start).format(),
               end: dayjs(event.end).format(),
-              isAllDay: event.isAllDay,
-              category: event.isAllDay ? "allday" : "time",
+              isAllday: event.isAllday,
+              category: event.isAllday ? "allday" : "time",
               calendarId: event.calendarId,
             }, {priority: "event"});
           }, {priority: "event"});
@@ -113,8 +113,8 @@ HTMLWidgets.widget({
               location: event.location,
               start: dayjs(event.start).format(),
               end: dayjs(event.end).format(),
-              isAllDay: event.isAllDay,
-              category: event.isAllDay ? "allday" : "time",
+              isAllday: event.isAllday,
+              category: event.isAllday ? "allday" : "time",
               calendarId: event.calendarId,
             }, {priority: "event"});
           });
@@ -141,8 +141,8 @@ HTMLWidgets.widget({
                 location: event.location,
                 start: dayjs(event.start).format(),
                 end: dayjs(event.end).format(),
-                isAllDay: event.isAllDay,
-                category: event.isAllDay ? "allday" : "time",
+                isAllday: event.isAllday,
+                category: event.isAllday ? "allday" : "time",
                 calendarId: event.calendarId,
               },
               changes: changes,
