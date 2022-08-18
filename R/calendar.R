@@ -17,8 +17,6 @@
 #' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget sizingPolicy
-#' @importFrom htmltools findDependencies
-#' @importFrom shiny icon
 #' @importFrom shinyWidgets html_dependency_bttn
 #'
 #' @export
@@ -59,9 +57,8 @@ calendar <- function(data = NULL,
     navigationOptions = navOpts
   )
 
-  dependencies <- NULL
-  if (isTRUE(navigation)) {
-    dependencies <- c(findDependencies(icon("home")), list(html_dependency_bttn()))
+  dependencies <- if (isTRUE(navigation)) {
+    list(html_dependency_bttn())
   }
 
   cal <- createWidget(
@@ -69,9 +66,9 @@ calendar <- function(data = NULL,
     x = x,
     width = width,
     height = height,
-    dependencies = dependencies,
     package = "toastui",
     elementId = elementId,
+    dependencies = dependencies,
     sizingPolicy = sizingPolicy(
       padding = 0,
       defaultWidth = "100%",
@@ -145,7 +142,7 @@ calendar_html <- function(id, style, class, ...) {
 #' @export
 #'
 #' @importFrom htmltools tags doRenderTags
-#' @importFrom shiny icon
+#' @importFrom phosphoricons ph
 #'
 #' @examples
 #' # Use another button style
@@ -181,8 +178,8 @@ calendar_html <- function(id, style, class, ...) {
 #'   )
 #' )
 navigation_options <- function(today_label = "Today",
-                               prev_label = icon("chevron-left"),
-                               next_label = icon("chevron-right"),
+                               prev_label = ph("caret-left"),
+                               next_label = ph("caret-right"),
                                class = "bttn-bordered bttn-sm bttn-primary",
                                bg = NULL,
                                color = NULL,

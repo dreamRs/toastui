@@ -6,8 +6,8 @@
 \usage{
 navigation_options(
   today_label = "Today",
-  prev_label = icon("chevron-left"),
-  next_label = icon("chevron-right"),
+  prev_label = ph("caret-left"),
+  next_label = ph("caret-right"),
   class = "bttn-bordered bttn-sm bttn-primary",
   bg = NULL,
   color = NULL,

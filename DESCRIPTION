@@ -17,6 +17,7 @@ Imports:
     htmlwidgets,
     htmltools,
     magrittr,
+    phosphoricons,
     rlang,
     shiny (>= 1.1.0),
     shinyWidgets
