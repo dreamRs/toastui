@@ -21,9 +21,9 @@ export function ProxyCalendar() {
           cal.setDate(obj.data.date);
         }
         Shiny.setInputValue(obj.id + "_dates", {
-          current: dayjs(cal.getDate()._date).format(),
-          start: dayjs(cal.getDateRangeStart()._date).format(),
-          end: dayjs(cal.getDateRangeEnd()._date).format(),
+          current: dayjs(cal.getDate()).format(),
+          start: dayjs(cal.getDateRangeStart()).format(),
+          end: dayjs(cal.getDateRangeEnd()).format(),
         });
       }
     });

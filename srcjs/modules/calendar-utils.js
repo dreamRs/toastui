@@ -2,14 +2,14 @@ import dayjs from "dayjs";
 
 export function formatDateNav(calendar, fmt = "YYYY-MM-DD", sep = " - ") {
   var viewName = calendar.getViewName();
-  var start = calendar.getDateRangeStart()._date;
+  var start = calendar.getDateRangeStart();
   start = dayjs(start);
   if (viewName === "month") {
     start = start.subtract(7, "day").endOf("month");
     start = start.add(1, "day");
   }
   start = start.format(fmt);
-  var end = calendar.getDateRangeEnd()._date;
+  var end = calendar.getDateRangeEnd();
   end = dayjs(end);
   if (viewName === "month") {
     end = end.add(7, "day").startOf("month");
@@ -28,9 +28,9 @@ function clickPrev(calendar, renderRange, formatNav, sepNav, id) {
       calendar.prev();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(id + "_dates", {
-        current: dayjs(calendar.getDate()._date).format(),
-        start: dayjs(calendar.getDateRangeStart()._date).format(),
-        end: dayjs(calendar.getDateRangeEnd()._date).format(),
+        current: dayjs(calendar.getDate()).format(),
+        start: dayjs(calendar.getDateRangeStart()).format(),
+        end: dayjs(calendar.getDateRangeEnd()).format(),
       });
     }
   };
@@ -42,9 +42,9 @@ function clickNext(calendar, renderRange, formatNav, sepNav, id) {
       calendar.next();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(id + "_dates", {
-        current: dayjs(calendar.getDate()._date).format(),
-        start: dayjs(calendar.getDateRangeStart()._date).format(),
-        end: dayjs(calendar.getDateRangeEnd()._date).format(),
+        current: dayjs(calendar.getDate()).format(),
+        start: dayjs(calendar.getDateRangeStart()).format(),
+        end: dayjs(calendar.getDateRangeEnd()).format(),
       });
     }
   };
@@ -56,9 +56,9 @@ function clickToday(calendar, renderRange, formatNav, sepNav, id) {
       calendar.today();
       renderRange.innerHTML = formatDateNav(calendar, formatNav, sepNav);
       Shiny.setInputValue(id + "_dates", {
-        current: dayjs(calendar.getDate()._date).format(),
-        start: dayjs(calendar.getDateRangeStart()._date).format(),
-        end: dayjs(calendar.getDateRangeEnd()._date).format(),
+        current: dayjs(calendar.getDate()).format(),
+        start: dayjs(calendar.getDateRangeStart()).format(),
+        end: dayjs(calendar.getDateRangeEnd()).format(),
       });
     }
   };

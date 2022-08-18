@@ -57,8 +57,8 @@ HTMLWidgets.widget({
                 {
                   title: event.title,
                   location: event.location,
-                  start: dayjs(event.start._date).format(),
-                  end: dayjs(event.end._date).format(),
+                  start: dayjs(event.start).format(),
+                  end: dayjs(event.end).format(),
                   isAllDay: event.isAllDay,
                   category: event.isAllDay ? "allday" : "time",
                   calendarId: event.calendarId,
@@ -74,8 +74,8 @@ HTMLWidgets.widget({
             Shiny.setInputValue(el.id + "_add", {
               title: event.title,
               location: event.location,
-              start: dayjs(event.start._date).format(),
-              end: dayjs(event.end._date).format(),
+              start: dayjs(event.start).format(),
+              end: dayjs(event.end).format(),
               isAllDay: event.isAllDay,
               category: event.isAllDay ? "allday" : "time",
               calendarId: event.calendarId,
@@ -87,18 +87,17 @@ HTMLWidgets.widget({
           cal.on("afterRenderEvent", x.events.afterRenderSchedule);
         } else if (HTMLWidgets.shinyMode) {
           cal.on("afterRenderEvent", function (event) {
-            var schedule = event.schedule;
-            schedule = cal.getSchedule(schedule.id, schedule.calendarId);
-            Shiny.setInputValue(el.id + "_schedules", schedule, {priority: "event"});
+            var events = cal.getEvent(event.id, event.calendarId);
+            Shiny.setInputValue(el.id + "_schedules", events, {priority: "event"});
           });
         }
 
         if (x.events.hasOwnProperty("clickSchedule")) {
           cal.on("clickEvent", x.events.clickSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("clickEvent", function (event) {
-            var schedule = event.schedule;
-            schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+          cal.on("clickEvent", function (obj) {
+            var schedule = obj.event;
+            schedule = cal.getEvent(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_click", schedule, {priority: "event"});
           });
         }
@@ -106,18 +105,17 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("beforeDeleteSchedule")) {
           cal.on("beforeDeleteEvent", x.events.beforeDeleteSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeDeleteEvent", function (event) {
-            var schedule = event.schedule;
-            schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+          cal.on("beforeDeleteEvent", function (eventObj) {
+            var event = cal.getEvent(eventObj.id, eventObj.calendarId);
             Shiny.setInputValue(el.id + "_delete", {
-              id: schedule.id,
-              title: schedule.title,
-              location: schedule.location,
-              start: dayjs(schedule.start._date).format(),
-              end: dayjs(schedule.end._date).format(),
-              isAllDay: schedule.isAllDay,
-              category: schedule.isAllDay ? "allday" : "time",
-              calendarId: schedule.calendarId,
+              id: event.id,
+              title: event.title,
+              location: event.location,
+              start: dayjs(event.start).format(),
+              end: dayjs(event.end).format(),
+              isAllDay: event.isAllDay,
+              category: event.isAllDay ? "allday" : "time",
+              calendarId: event.calendarId,
             }, {priority: "event"});
           });
         }
@@ -125,27 +123,27 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("beforeUpdateSchedule")) {
           cal.on("beforeUpdateEvent", x.events.beforeUpdateSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeUpdateEvent", function (event) {
-            var schedule = event.schedule;
-            schedule = cal.getSchedule(schedule.id, schedule.calendarId);
-            var changes = event.changes;
+          cal.on("beforeUpdateEvent", function (updatedEventInfo) {
+            var event = updatedEventInfo.event;
+            event = cal.getEvent(event.id, event.calendarId);
+            var changes = updatedEventInfo.changes;
             //cal.updateSchedule(schedule.id, schedule.calendarId, changes);
             if (changes.hasOwnProperty("end")) {
-              changes.end = dayjs(changes.end._date).format();
+              changes.end = dayjs(changes.end).format();
             }
             if (changes.hasOwnProperty("start")) {
-              changes.start = dayjs(changes.start._date).format();
+              changes.start = dayjs(changes.start).format();
             }
             Shiny.setInputValue(el.id + "_update", {
               schedule: {
-                id: schedule.id,
-                title: schedule.title,
-                location: schedule.location,
-                start: dayjs(schedule.start._date).format(),
-                end: dayjs(schedule.end._date).format(),
-                isAllDay: schedule.isAllDay,
-                category: schedule.isAllDay ? "allday" : "time",
-                calendarId: schedule.calendarId,
+                id: event.id,
+                title: event.title,
+                location: event.location,
+                start: dayjs(event.start).format(),
+                end: dayjs(event.end).format(),
+                isAllDay: event.isAllDay,
+                category: event.isAllDay ? "allday" : "time",
+                calendarId: event.calendarId,
               },
               changes: changes,
             }, {priority: "event"});
@@ -169,9 +167,9 @@ HTMLWidgets.widget({
 
         if (HTMLWidgets.shinyMode) {
           Shiny.setInputValue(el.id + "_dates", {
-            current: dayjs(cal.getDate()._date).format(),
-            start: dayjs(cal.getDateRangeStart()._date).format(),
-            end: dayjs(cal.getDateRangeEnd()._date).format(),
+            current: dayjs(cal.getDate()).format(),
+            start: dayjs(cal.getDateRangeStart()).format(),
+            end: dayjs(cal.getDateRangeEnd()).format(),
           }, {priority: "event"});
         }
       },
