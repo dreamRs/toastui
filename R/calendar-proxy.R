@@ -8,29 +8,29 @@
 #'   default value will suffice.
 #'
 #' @return A `calendar_proxy` object.
-#' 
+#'
 #' @family calendar proxy methods
-#' 
+#'
 #' @export
 #'
 #' @importFrom shiny getDefaultReactiveDomain
-#' 
-#' @examples 
+#'
+#' @examples
 #' \dontrun{
-#' 
+#'
 #' # Consider having created a calendar widget with
 #' calendarOutput("my_calendar") # UI
 #' output$my_calendar <- renderCalendar({}) # Server
-#' 
+#'
 #' # Then you can call proxy methods in observer:
-#' 
+#'
 #' # set calendar proxy then call a cal_proxy_* function
-#' calendar_proxy("my_calendar") %>% 
+#' calendar_proxy("my_calendar") %>%
 #'   cal_proxy_today()
-#' 
+#'
 #' # or directly
 #' cal_proxy_today("my_calendar")
-#' 
+#'
 #' }
 calendar_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
   if (is.null(session)) {
@@ -131,7 +131,7 @@ cal_proxy_date <- function(proxy, date) {
 #' @export
 #'
 #' @return A `calendar_proxy` object.
-#' 
+#'
 #' @family calendar proxy methods
 #'
 #' @example examples/cal-proxy-view.R
@@ -241,23 +241,21 @@ cal_proxy_update <- function(proxy, value) {
 #' @description This function allow to delete all schedules and clear view.
 #'
 #' @param proxy A [calendar_proxy()] `htmlwidget` object.
-#' @param immediately Render it immediately. Or wait, if you want to add schedule after that for example.
 #'
 #' @export
 #'
 #' @return A `calendar_proxy` object.
-#' 
+#'
 #' @family calendar proxy methods
-#' 
+#'
 #' @example examples/cal-proxy-clear.R
-cal_proxy_clear <- function(proxy, immediately = TRUE) {
+cal_proxy_clear <- function(proxy) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
   }
   .call_proxy(
     proxy = proxy,
-    name = "calendar-clear",
-    immediately = immediately
+    name = "calendar-clear"
   )
 }
 
@@ -274,9 +272,9 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #' @export
 #'
 #' @return A `calendar_proxy` object.
-#' 
+#'
 #' @family calendar proxy methods
-#' 
+#'
 #' @example examples/cal-proxy-options.R
 cal_proxy_options <- function(proxy, ...) {
   if (is.character(proxy)) {
@@ -300,7 +298,7 @@ cal_proxy_options <- function(proxy, ...) {
 #'
 #' @return A `calendar_proxy` object.
 #' @export
-#' 
+#'
 #' @family calendar proxy methods
 #'
 #' @example examples/cal-proxy-toggle.R
@@ -311,7 +309,7 @@ cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {
   .call_proxy(
     proxy = proxy,
     name = "calendar-toggle",
-    calendarId = list1(as.character(calendarId)), 
+    calendarId = list1(as.character(calendarId)),
     toHide = isTRUE(toHide)
   )
 }

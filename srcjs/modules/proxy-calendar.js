@@ -46,7 +46,7 @@ export function ProxyCalendar() {
     Shiny.addCustomMessageHandler("proxy-toastui-calendar-add", function (obj) {
       var cal = utils.getWidget(obj.id);
       if (typeof cal != "undefined") {
-        cal.createSchedules(obj.data.schedule);
+        cal.createEvents(obj.data.schedule);
       }
     });
     Shiny.addCustomMessageHandler(
@@ -57,7 +57,7 @@ export function ProxyCalendar() {
           var scheduleId = obj.data.scheduleId;
           var calendarId = obj.data.calendarId;
           for (let i = 0; i < scheduleId.length; i += 1) {
-            cal.deleteSchedule(scheduleId[i], calendarId[i]);
+            cal.deleteEvent(scheduleId[i], calendarId[i]);
           }
         }
       }
@@ -67,7 +67,7 @@ export function ProxyCalendar() {
       function (obj) {
         var cal = utils.getWidget(obj.id);
         if (typeof cal != "undefined") {
-          cal.updateSchedule(
+          cal.updateEvent(
             obj.data.id,
             obj.data.calendarId,
             obj.data.schedule
@@ -80,7 +80,7 @@ export function ProxyCalendar() {
       function (obj) {
         var cal = utils.getWidget(obj.id);
         if (typeof cal != "undefined") {
-          cal.clear(obj.data.immediately);
+          cal.clear();
         }
       }
     );
@@ -100,7 +100,7 @@ export function ProxyCalendar() {
         if (typeof cal != "undefined") {
           var calendarId = obj.data.calendarId;
           for (let i = 0; i < calendarId.length; i += 1) {
-            cal.toggleSchedules(calendarId[i], obj.data.toHide);
+            cal.setCalendarVisibility(calendarId[i], obj.data.toHide);
           }
         }
       }

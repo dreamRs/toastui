@@ -12,6 +12,11 @@
 #' @param timezonesCollapsed Logical. An initial multiple timezones collapsed state.
 #' @param hourStart Numeric. Can limit of render hour start.
 #' @param hourEnd Numeric. Can limit of render hour end.
+#' @param taskView Show the milestone and task in weekly, daily view.
+#'  The default value is `FALSE`. If the value is a vector, it can be `"milestone"`, `"task"`.
+#' @param scheduleView Show the all day and time grid in weekly, daily view.
+#'  The default value is `TRUE`. If the value is a vector, it can be `"allday"`, `"time"`.
+#' @param ... Additional options.
 #'
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/WeekOptions/}
 #'
@@ -28,19 +33,25 @@ cal_week_options <- function(cal,
                              showTimezoneCollapseButton = NULL,
                              timezonesCollapsed = NULL,
                              hourStart = NULL,
-                             hourEnd = NULL) {
+                             hourEnd = NULL,
+                             scheduleView = TRUE,
+                             taskView = FALSE,
+                             ...) {
   check_cal(cal, "cal_week_options")
   .widget_options(
     widget = cal,
     name_opt = "week",
     startDayOfWeek = startDayOfWeek,
-    daynames = daynames,
+    dayNames = daynames,
     narrowWeekend = narrowWeekend,
     workweek = workweek,
     showTimezoneCollapseButton = showTimezoneCollapseButton,
     timezonesCollapsed = timezonesCollapsed,
     hourStart = hourStart,
-    hourEnd = hourEnd
+    hourEnd = hourEnd,
+    scheduleView = list1(scheduleView),
+    taskView = list1(taskView),
+    ...
   )
 }
 
@@ -58,9 +69,8 @@ cal_week_options <- function(cal,
 #' @param isAlways6Week Logical. Always show 6 weeks. If false, show 5 weeks or 6 weeks based on the month.
 #' @param workweek Logical. Show only 5 days except for weekend.
 #' @param visibleScheduleCount Numeric. The visible schedule count in monthly grid.
-#' @param moreLayerSize List of parameters, see online documentation.
-#' @param grid List of parameters, see online documentation.
 #' @param scheduleFilter List of parameters, see online documentation.
+#' @param ... Additional options.
 #'
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/MonthOptions/}
 #'
@@ -77,23 +87,21 @@ cal_month_options <- function(cal,
                               isAlways6Week = NULL,
                               workweek = NULL,
                               visibleScheduleCount = NULL,
-                              moreLayerSize = NULL,
-                              grid = NULL,
-                              scheduleFilter = NULL) {
+                              scheduleFilter = NULL,
+                              ...) {
   check_cal(cal, "cal_month_options")
   .widget_options(
     widget = cal,
     name_opt = "month",
     startDayOfWeek = startDayOfWeek,
-    daynames = daynames,
+    dayNames = daynames,
     narrowWeekend = narrowWeekend,
     visibleWeeksCount = visibleWeeksCount,
-    isAlways6Week = isAlways6Week,
+    isAlways6Weeks = isAlways6Week,
     workweek = workweek,
     visibleScheduleCount = visibleScheduleCount,
-    moreLayerSize = moreLayerSize,
-    grid = grid,
-    scheduleFilter = scheduleFilter
+    scheduleFilter = scheduleFilter,
+    ...
   )
 }
 
@@ -115,21 +123,21 @@ cal_month_options <- function(cal,
 #' @param tooltip The tooltip(e.g. 'Seoul')
 #' @param extra_zones A \code{list} with additional timezones to be shown in left timegrid of weekly/daily view.
 #' @param offsetCalculator Javascript function. If you define the 'offsetCalculator' property, the offset calculation is done with this function.
-#' 
+#'
 #' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone/}
-#' 
+#'
 #' @return A `calendar` htmlwidget.
 #' @export
 #'
 #' @examples
 #' library(toastui)
-#' calendar(view = "week", defaultDate = "2021-06-18") %>% 
+#' calendar(view = "week", defaultDate = "2021-06-18") %>%
 #'   cal_schedules(
 #'     title = "My schedule",
 #'     start = "2021-06-18T10:00:00",
 #'     end = "2021-06-18T17:00:00",
 #'     category = "time"
-#'   ) %>% 
+#'   ) %>%
 #'   # Set primary timezone and add secondary timezone
 #'   cal_timezone(
 #'     timezoneName = "Europe/Paris",
@@ -143,17 +151,17 @@ cal_month_options <- function(cal,
 #'       )
 #'     )
 #'   )
-cal_timezone <- function(cal, 
+cal_timezone <- function(cal,
                          timezoneName = NULL,
                          displayLabel = NULL,
                          tooltip = NULL,
-                         extra_zones = NULL, 
+                         extra_zones = NULL,
                          offsetCalculator = NULL) {
   check_cal(cal, "cal_timezone")
   zones <- list(
     dropNulls(list(
-      timezoneName = timezoneName, 
-      displayLabel = displayLabel, 
+      timezoneName = timezoneName,
+      displayLabel = displayLabel,
       tooltip = tooltip
     ))
   )

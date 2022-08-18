@@ -14,7 +14,7 @@
 #' @param cal A [calendar()] object.
 #' @param ... Either named arguments to use as calendar properties or a
 #'  \code{data.frame} with rows as calendars and columns as properties.
-#'  See \url{https://nhn.github.io/tui.calendar/latest/CalendarProps/} for options.
+#'  See \url{https://nhn.github.io/tui.calendar/latest/CalendarInfo} for options.
 #'
 #' @export
 #'

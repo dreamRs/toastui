@@ -1,6 +1,6 @@
 import "widgets";
-import Calendar from "tui-calendar";
-import "tui-calendar/dist/tui-calendar.css";
+import Calendar from '@toast-ui/calendar';
+import '@toast-ui/calendar/dist/toastui-calendar.min.css';
 import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
 import dayjs from "dayjs";
@@ -39,7 +39,7 @@ HTMLWidgets.widget({
 
         cal = new Calendar(el, options);
         var schd = x.schedules;
-        cal.createSchedules(schd);
+        cal.createEvents(schd);
         if (x.hasOwnProperty("defaultDate")) {
           cal.setDate(x.defaultDate);
         }
@@ -52,8 +52,8 @@ HTMLWidgets.widget({
 
         if (x.events.hasOwnProperty("beforeCreateSchedule")) {
           if (x.events.beforeCreateSchedule === "auto") {
-            cal.on("beforeCreateSchedule", function (event) {
-              cal.createSchedules([
+            cal.on("beforeCreateEvent", function (event) {
+              cal.createEvents([
                 {
                   title: event.title,
                   location: event.location,
@@ -66,10 +66,10 @@ HTMLWidgets.widget({
               ]);
             });
           } else {
-            cal.on("beforeCreateSchedule", x.events.beforeCreateSchedule);
+            cal.on("beforeCreateEvent", x.events.beforeCreateSchedule);
           }
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeCreateSchedule", function (event) {
+          cal.on("beforeCreateEvent", function (event) {
             //console.log(event);
             Shiny.setInputValue(el.id + "_add", {
               title: event.title,
@@ -84,9 +84,9 @@ HTMLWidgets.widget({
         }
 
         if (x.events.hasOwnProperty("afterRenderSchedule")) {
-          cal.on("afterRenderSchedule", x.events.afterRenderSchedule);
+          cal.on("afterRenderEvent", x.events.afterRenderSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("afterRenderSchedule", function (event) {
+          cal.on("afterRenderEvent", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_schedules", schedule, {priority: "event"});
@@ -94,9 +94,9 @@ HTMLWidgets.widget({
         }
 
         if (x.events.hasOwnProperty("clickSchedule")) {
-          cal.on("clickSchedule", x.events.clickSchedule);
+          cal.on("clickEvent", x.events.clickSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("clickSchedule", function (event) {
+          cal.on("clickEvent", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_click", schedule, {priority: "event"});
@@ -104,9 +104,9 @@ HTMLWidgets.widget({
         }
 
         if (x.events.hasOwnProperty("beforeDeleteSchedule")) {
-          cal.on("beforeDeleteSchedule", x.events.beforeDeleteSchedule);
+          cal.on("beforeDeleteEvent", x.events.beforeDeleteSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeDeleteSchedule", function (event) {
+          cal.on("beforeDeleteEvent", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             Shiny.setInputValue(el.id + "_delete", {
@@ -123,9 +123,9 @@ HTMLWidgets.widget({
         }
 
         if (x.events.hasOwnProperty("beforeUpdateSchedule")) {
-          cal.on("beforeUpdateSchedule", x.events.beforeUpdateSchedule);
+          cal.on("beforeUpdateEvent", x.events.beforeUpdateSchedule);
         } else if (HTMLWidgets.shinyMode) {
-          cal.on("beforeUpdateSchedule", function (event) {
+          cal.on("beforeUpdateEvent", function (event) {
             var schedule = event.schedule;
             schedule = cal.getSchedule(schedule.id, schedule.calendarId);
             var changes = event.changes;
@@ -157,12 +157,12 @@ HTMLWidgets.widget({
         }
 
         if (x.events.hasOwnProperty("clickMorecalendar")) {
-          cal.on("clickMorecalendar", x.events.clickMorecalendar);
+          cal.on("clickMoreEventsBtn", x.events.clickMorecalendar);
         }
 
         if (x.events.hasOwnProperty("clickTimezonesCollapseBtncalendar")) {
           cal.on(
-            "clickTimezonesCollapseBtncalendar",
+            "clickTimezoneCollapseBtn",
             x.events.clickTimezonesCollapseBtncalendar
           );
         }

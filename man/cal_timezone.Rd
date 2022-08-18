@@ -38,13 +38,13 @@ Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/
 }
 \examples{
 library(toastui)
-calendar(view = "week", defaultDate = "2021-06-18") \%>\% 
+calendar(view = "week", defaultDate = "2021-06-18") \%>\%
   cal_schedules(
     title = "My schedule",
     start = "2021-06-18T10:00:00",
     end = "2021-06-18T17:00:00",
     category = "time"
-  ) \%>\% 
+  ) \%>\%
   # Set primary timezone and add secondary timezone
   cal_timezone(
     timezoneName = "Europe/Paris",

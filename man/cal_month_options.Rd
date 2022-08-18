@@ -13,9 +13,8 @@ cal_month_options(
   isAlways6Week = NULL,
   workweek = NULL,
   visibleScheduleCount = NULL,
-  moreLayerSize = NULL,
-  grid = NULL,
-  scheduleFilter = NULL
+  scheduleFilter = NULL,
+  ...
 )
 }
 \arguments{
@@ -35,11 +34,9 @@ cal_month_options(
 
 \item{visibleScheduleCount}{Numeric. The visible schedule count in monthly grid.}
 
-\item{moreLayerSize}{List of parameters, see online documentation.}
-
-\item{grid}{List of parameters, see online documentation.}
-
 \item{scheduleFilter}{List of parameters, see online documentation.}
+
+\item{...}{Additional options.}
 }
 \value{
 A \code{calendar} htmlwidget.

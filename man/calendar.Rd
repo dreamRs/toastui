@@ -8,8 +8,6 @@ calendar(
   data = NULL,
   view = c("month", "week", "day"),
   defaultDate = NULL,
-  taskView = FALSE,
-  scheduleView = TRUE,
   useDetailPopup = TRUE,
   useCreationPopup = FALSE,
   isReadOnly = TRUE,
@@ -28,12 +26,6 @@ calendar(
 other possible values are 'month' and 'day'.}
 
 \item{defaultDate}{Default date for displaying calendar.}
-
-\item{taskView}{Show the milestone and task in weekly, daily view.
-The default value is \code{FALSE}. If the value is a vector, it can be \code{"milestone"}, \code{"task"}.}
-
-\item{scheduleView}{Show the all day and time grid in weekly, daily view.
-The default value is \code{TRUE}. If the value is a vector, it can be \code{"allday"}, \code{"time"}.}
 
 \item{useDetailPopup}{Logical. Display a pop-up on click with detailed informations about schedules.}
 
@@ -56,6 +48,9 @@ A \code{calendar} htmlwidget.
 }
 \description{
 Build interactive calendar with the JavaScript tui-calendar library.
+}
+\note{
+\code{taskView} and \code{scheduleView} arguments have been moved to \code{\link[=cal_week_options]{cal_week_options()}}.
 }
 \examples{
 

@@ -22,157 +22,235 @@ cal_demo_data <- function(view = c("month", "week", "day")) {
   if (identical(view, "month")) {
     schedules <- list(
       list(
-        calendarId = 1, title = "Sport", body = "Go to sport every week", recurrenceRule = "Every week",
+        calendarId = "1",
+        title = "Sport",
+        body = "Go to sport every week",
+        recurrenceRule = "Every week",
         start = format(Sys.Date(), format = "%Y-%m-05 20:00:00"),
         end = format(Sys.Date(), format = "%Y-%m-05 22:00:00"),
-        category = "time", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "time",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 1, title = "Sport", body = "Go to sport every week", recurrenceRule = "Every week",
+        calendarId = "1",
+        title = "Sport",
+        body = "Go to sport every week",
+        recurrenceRule = "Every week",
         start = format(Sys.Date(), format = "%Y-%m-12 20:00:00"),
         end = format(Sys.Date(), format = "%Y-%m-12 22:00:00"),
-        category = "time", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "time",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 1, title = "Sport", body = "Go to sport every week", recurrenceRule = "Every week",
+        calendarId = "1",
+        title = "Sport",
+        body = "Go to sport every week",
+        recurrenceRule = "Every week",
         start = format(Sys.Date(), format = "%Y-%m-19 20:00:00"),
         end = format(Sys.Date(), format = "%Y-%m-19 22:00:00"),
-        category = "time", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "time",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 1, title = "Week-end", body = "Week-end with friends", recurrenceRule = NA,
+        calendarId = "1",
+        title = "Week-end",
+        body = "Week-end with friends",
+        recurrenceRule = NA,
         start = as.character(get_day_month("6")[2]),
         end = as.character(get_day_month("6")[2] + 1),
-        category = "allday", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "allday",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Project 1", body = "Coding cool stuff", recurrenceRule = NA,
+        calendarId = "2",
+        title = "Project 1",
+        body = "Coding cool stuff",
+        recurrenceRule = NA,
         start = as.character(get_day_month("1")[1]),
         end = as.character(get_day_month("1")[1] + 1),
-        category = "allday", location = NA,
-        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+        category = "allday",
+        location = NA,
+        backgroundColor = "#5E81AC",
+        color = "white",
+        borderColor = "#5E81AC"
       ),
       list(
-        calendarId = 2, title = "Project 2", body = "Coding cool stuff", recurrenceRule = NA,
+        calendarId = "2",
+        title = "Project 2",
+        body = "Coding cool stuff",
+        recurrenceRule = NA,
         start = as.character(get_day_month("2")[1]),
         end = as.character(get_day_month("2")[1] + 3),
-        category = "allday", location = NA,
-        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+        category = "allday",
+        location = NA,
+        backgroundColor = "#5E81AC",
+        color = "white",
+        borderColor = "#5E81AC"
       ),
       list(
-        calendarId = 2, title = "Project 3", body = "Coding cool stuff", recurrenceRule = NA,
+        calendarId = "2",
+        title = "Project 3",
+        body = "Coding cool stuff",
+        recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-29"),
         end = format(Sys.Date(), format = "%Y-%m-29"),
-        category = "allday", location = NA,
-        bgColor = "#5E81AC", color = "white", borderColor = "#5E81AC"
+        category = "allday",
+        location = NA,
+        backgroundColor = "#5E81AC",
+        color = "white",
+        borderColor = "#5E81AC"
       ),
       list(
-        calendarId = 3, title = "Training 1", body = "Learn programming", recurrenceRule = NA,
+        calendarId = "3",
+        title = "Training 1",
+        body = "Learn programming",
+        recurrenceRule = NA,
         start = as.character(get_day_month("2")[2]),
         end = as.character(get_day_month("2")[2] + 3),
-        category = "allday", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "allday",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 3, title = "Training 2", body = "Learn programming", recurrenceRule = NA,
+        calendarId = "3",
+        title = "Training 2",
+        body = "Learn programming",
+        recurrenceRule = NA,
         start = as.character(get_day_month("2")[3]),
         end = as.character(get_day_month("2")[3] + 2),
-        category = "allday", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "allday",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Meeting", body = "Meeting with John Smith", recurrenceRule = NA,
+        calendarId = "2",
+        title = "Meeting",
+        body = "Meeting with John Smith",
+        recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-20 14:00:00"),
         end = format(Sys.Date(), format = "%Y-%m-20 17:00:00"),
-        category = "time", location = NA,
-        bgColor = NA, color = NA, borderColor = NA
+        category = "time",
+        location = NA,
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 2, title = "Lunch", body = "Lunch with Jane Doe", recurrenceRule = NA,
+        calendarId = "2",
+        title = "Lunch",
+        body = "Lunch with Jane Doe",
+        recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-24 12:00:00"),
         end = format(Sys.Date(), format = "%Y-%m-24 14:00:00"),
-        category = "time", location = "Some restaurant",
-        bgColor = NA, color = NA, borderColor = NA
+        category = "time",
+        location = "Some restaurant",
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 3, title = "Conference", body = "Cool R conference", recurrenceRule = NA,
+        calendarId = "3",
+        title = "Conference",
+        body = "Cool R conference",
+        recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-27"),
         end = format(Sys.Date(), format = "%Y-%m-28"),
-        category = "allday", location = "Conference center",
-        bgColor = NA, color = NA, borderColor = NA
+        category = "allday",
+        location = "Conference center",
+        backgroundColor = NA,
+        color = NA,
+        borderColor = NA
       ),
       list(
-        calendarId = 4, title = "Mum birthday", body = "Dont forget!!!", recurrenceRule = NA,
+        calendarId = "4",
+        title = "Mum birthday",
+        body = "Dont forget!!!",
+        recurrenceRule = NA,
         start = format(Sys.Date(), format = "%Y-%m-03"),
         end = format(Sys.Date(), format = "%Y-%m-03"),
-        category = "allday", location = NA,
-        bgColor = "#FAFAFA", color = "#FF0000", borderColor = "#FF0000"
+        category = "allday",
+        location = NA,
+        backgroundColor = "#FAFAFA",
+        color = "#FF0000",
+        borderColor = "#FF0000"
       )
     )
   } else if (identical(view, "week")) {
     schedules <- list(
       list(
-        calendarId = 3,
+        calendarId = "3",
         title = "Course 1", body = "Learn something interesting",
         start = format(get_day_week(1), format = "%Y-%m-%d 8:00:00"),
         end = format(get_day_week(1), format = "%Y-%m-%d 12:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = "3",
         title = "Course 2", body = "Learn something interesting",
         start = format(get_day_week(1), format = "%Y-%m-%d 14:00:00"),
         end = format(get_day_week(1), format = "%Y-%m-%d 18:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = "3",
         title = "Course 3", body = "Learn something interesting",
         start = format(get_day_week(3), format = "%Y-%m-%d 08:00:00"),
         end = format(get_day_week(3), format = "%Y-%m-%d 11:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 3,
+        calendarId = "3",
         title = "Course 4", body = "Learn something interesting",
         start = format(get_day_week(4), format = "%Y-%m-%d 16:00:00"),
         end = format(get_day_week(4), format = "%Y-%m-%d 19:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 2,
+        calendarId = "2",
         title = "Lunch", body = "Work lunch",
         start = format(get_day_week(2), format = "%Y-%m-%d 12:00:00"),
         end = format(get_day_week(2), format = "%Y-%m-%d 14:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 2,
+        calendarId = "2",
         title = "Meeting", body = "Work meeting",
         start = format(get_day_week(2), format = "%Y-%m-%d 16:00:00"),
         end = format(get_day_week(2), format = "%Y-%m-%d 18:30:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = "1",
         title = "Sport", body = "Make some exercise",
         start = format(get_day_week(4), format = "%Y-%m-%d 07:00:00"),
         end = format(get_day_week(4), format = "%Y-%m-%d 09:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = "1",
         title = "Movie", body = "Go watch a cool movie",
         start = format(get_day_week(3), format = "%Y-%m-%d 18:00:00"),
         end = format(get_day_week(3), format = "%Y-%m-%d 21:00:00"),
         category = "time"
       ),
       list(
-        calendarId = 1,
+        calendarId = "1",
         title = "Day off", body = "Take some rest",
         start = format(get_day_week(5), format = "%Y-%m-%d"),
         end = format(get_day_week(5), format = "%Y-%m-%d"),
@@ -201,24 +279,24 @@ get_day_week <- function(day) {
 cal_demo_props <- function() {
   props <- list(
     list(
-      id = 1,
+      id = "1",
       name = "PERSO",
       color = "#000",
-      bgColor = "#c6d19d",
+      backgroundColor = "#c6d19d",
       borderColor = "forestgreen"
     ),
     list(
-      id = 2,
+      id = "2",
       name = "WORK",
       color = "#000",
-      bgColor = "#F5A9A9",
+      backgroundColor = "#F5A9A9",
       borderColor = "firebrick"
     ),
     list(
-      id = 3,
+      id = "3",
       name = "COURSES",
       color = "#000",
-      bgColor = "#c6e2f6",
+      backgroundColor = "#c6e2f6",
       borderColor = "#3b7cc6"
     )
   )

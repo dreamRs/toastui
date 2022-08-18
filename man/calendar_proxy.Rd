@@ -30,7 +30,7 @@ output$my_calendar <- renderCalendar({}) # Server
 # Then you can call proxy methods in observer:
 
 # set calendar proxy then call a cal_proxy_* function
-calendar_proxy("my_calendar") \%>\% 
+calendar_proxy("my_calendar") \%>\%
   cal_proxy_today()
 
 # or directly

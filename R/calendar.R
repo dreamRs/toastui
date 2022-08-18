@@ -7,10 +7,6 @@
 #' @param view Default view of calendar. The default value is 'week',
 #'  other possible values are 'month' and 'day'.
 #' @param defaultDate Default date for displaying calendar.
-#' @param taskView Show the milestone and task in weekly, daily view.
-#'  The default value is `FALSE`. If the value is a vector, it can be `"milestone"`, `"task"`.
-#' @param scheduleView Show the all day and time grid in weekly, daily view.
-#'  The default value is `TRUE`. If the value is a vector, it can be `"allday"`, `"time"`.
 #' @param useDetailPopup Logical. Display a pop-up on click with detailed informations about schedules.
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param isReadOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
@@ -27,6 +23,8 @@
 #'
 #' @export
 #'
+#' @note `taskView` and `scheduleView` arguments have been moved to [cal_week_options()].
+#'
 #' @seealso [calendarOutput()] / [renderCalendar()] for usage in Shiny applications.
 #'
 #' @return A `calendar` htmlwidget.
@@ -35,8 +33,6 @@
 calendar <- function(data = NULL,
                      view = c("month", "week", "day"),
                      defaultDate = NULL,
-                     taskView = FALSE,
-                     scheduleView = TRUE,
                      useDetailPopup = TRUE,
                      useCreationPopup = FALSE,
                      isReadOnly = TRUE,
@@ -50,10 +46,8 @@ calendar <- function(data = NULL,
   x <- list_(
     options = list(
       defaultView = match.arg(view),
-      taskView = list1(taskView),
-      scheduleView = list1(scheduleView),
       useDetailPopup = useDetailPopup,
-      useCreationPopup = useCreationPopup,
+      useFormPopup = useCreationPopup,
       isReadOnly = isReadOnly,
       ...,
       usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)

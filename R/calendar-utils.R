@@ -57,7 +57,7 @@ cal_events <- function(cal,
 #' @param ... Named arguments to customize appearance with CSS. See online documentation for full list of options.
 #' @param .list Alternative to `...` for using a list.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/themeConfig/}
+#' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/theme.md}
 #'
 #' @export
 #' @return A `calendar` htmlwidget object.

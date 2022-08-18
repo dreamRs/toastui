@@ -1,3 +1,9 @@
+# toastui 0.3.0
+
+* Updated tui-calendar to 2.1.3.
+
+
+
 # toastui 0.2.1
 
 * First CRAN submission.

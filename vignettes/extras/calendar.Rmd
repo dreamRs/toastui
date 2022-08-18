@@ -141,7 +141,7 @@ calendar() %>%
     id = 123, # <-- reference to schedules' calendarId
     name = "My Calendar",
     color = "white",
-    bgColor = "darkorange",
+    backgroundColor = "darkorange",
     borderColor = "darkorange"
   )
 ```
