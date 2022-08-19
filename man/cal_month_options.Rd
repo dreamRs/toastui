@@ -45,7 +45,7 @@ A \code{calendar} htmlwidget.
 Options for monthly view.
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/MonthOptions/}
+Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#month}
 }
 \examples{
 # Change option for monthly view

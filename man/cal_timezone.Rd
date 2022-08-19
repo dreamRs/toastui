@@ -34,7 +34,7 @@ A \code{calendar} htmlwidget.
 Set a custom time zone. You can add secondary timezone in the weekly/daily view.
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone/}
+Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#timezone}
 }
 \examples{
 library(toastui)

@@ -25,7 +25,7 @@
 #' @param cal A `calendar` htmlwidget.
 #' @param ... Either named arguments to use as schedule properties or a
 #'  \code{data.frame} with rows as schedules and columns as properties.
-#'  See \url{https://nhn.github.io/tui.calendar/latest/Schedule/} for options.
+#'  See \url{https://nhn.github.io/tui.calendar/latest/EventObject/} for options.
 #'
 #' @export
 #'

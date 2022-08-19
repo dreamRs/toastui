@@ -30,7 +30,7 @@ A \code{calendar} htmlwidget object.
 Template JS functions to support customer renderer
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template/}.
+Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/template.md}.
 All arguments must be JavaScript function with \code{\link[htmlwidgets:JS]{htmlwidgets::JS()}}.
 }
 \examples{

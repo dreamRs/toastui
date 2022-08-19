@@ -18,7 +18,7 @@
 #'  The default value is `TRUE`. If the value is a vector, it can be `"allday"`, `"time"`.
 #' @param ... Additional options.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/WeekOptions/}
+#' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#week}
 #'
 #' @export
 #'
@@ -72,7 +72,7 @@ cal_week_options <- function(cal,
 #' @param scheduleFilter List of parameters, see online documentation.
 #' @param ... Additional options.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/MonthOptions/}
+#' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#month}
 #'
 #' @export
 #'
@@ -124,7 +124,7 @@ cal_month_options <- function(cal,
 #' @param extra_zones A \code{list} with additional timezones to be shown in left timegrid of weekly/daily view.
 #' @param offsetCalculator Javascript function. If you define the 'offsetCalculator' property, the offset calculation is done with this function.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Timezone/}
+#' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#timezone}
 #'
 #' @return A `calendar` htmlwidget.
 #' @export

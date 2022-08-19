@@ -13,12 +13,12 @@ A \code{data.frame} with 26 rows and 3 variables:
 }
 }
 \source{
-Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule/})
+Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/EventObject/})
 }
 \usage{
 schedules_properties
 }
 \description{
-This dataset contains properties that can be use to create schedules in \code{\link{calendar}}.
+This dataset contains properties that can be use to create schedules in \code{\link[=calendar]{calendar()}}.
 }
 \keyword{datasets}

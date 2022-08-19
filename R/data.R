@@ -101,7 +101,7 @@
 
 #' Schedules properties
 #'
-#' This dataset contains properties that can be use to create schedules in \code{\link{calendar}}.
+#' This dataset contains properties that can be use to create schedules in [calendar()].
 #'
 #' @format A \code{data.frame} with 26 rows and 3 variables:
 #' \describe{
@@ -109,13 +109,13 @@
 #'   \item{Type}{Type}
 #'   \item{Description}{Description}
 #' }
-#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/Schedule/})
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/EventObject/})
 "schedules_properties"
 
 
 #' Calendar properties
 #'
-#' This dataset contains properties that can be used to set calendars properties in \code{\link{cal_props}}.
+#' This dataset contains properties that can be used to set calendars properties in [cal_props()].
 #'
 #' @format A \code{data.frame} with 6 rows and 3 variables:
 #' \describe{
@@ -123,6 +123,6 @@
 #'   \item{Type}{Type}
 #'   \item{Description}{Description}
 #' }
-#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarProps/})
+#' @source Toast UI documentation (\url{https://nhn.github.io/tui.calendar/latest/CalendarInfo/})
 "calendar_properties"
 

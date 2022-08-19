@@ -53,7 +53,7 @@ A \code{calendar} htmlwidget.
 Options for daily, weekly view.
 }
 \note{
-Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/WeekOptions/}
+Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#week}
 }
 \examples{
 # Change option for weekly view

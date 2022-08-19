@@ -94,7 +94,7 @@ cal_theme <- function(cal, ..., .list = NULL) {
 #' @param alldayTitle The allday title (at left column) template function.
 #' @param ... Additionals arguments, see online documentation.
 #'
-#' @note Online JavaScript documentation: \url{https://nhn.github.io/tui.calendar/latest/Template/}.
+#' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/template.md}.
 #'  All arguments must be JavaScript function with [htmlwidgets::JS()].
 #'
 #' @export
