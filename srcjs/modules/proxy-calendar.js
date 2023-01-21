@@ -88,8 +88,10 @@ export function ProxyCalendar() {
       "proxy-toastui-calendar-options",
       function (obj) {
         var cal = utils.getWidget(obj.id);
-        if (typeof cal != "undefined") {
-          cal.setOptions(obj.data.options);
+        if (typeof cal != "undefined" && typeof obj.data != "undefined") {
+          if (typeof obj.data.options != "undefined") {
+            cal.setOptions(obj.data.options);
+          }
         }
       }
     );
