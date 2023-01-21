@@ -1,7 +1,7 @@
 import "widgets";
 import dayjs from "dayjs";
 import * as utils from "./utils";
-import { formatDateNav, getNavOptions, addNavigation } from "./calendar-utils";
+import { formatDateNav, getNavOptions } from "./calendar-utils";
 
 export function ProxyCalendar() {
   if (HTMLWidgets.shinyMode) {
