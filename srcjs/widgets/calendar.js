@@ -41,7 +41,9 @@ HTMLWidgets.widget({
         addNavigation(cal, el.id, x.navigationOptions);
         navigationOptions = x.navigationOptions;
         // Navigation buttons
-        if (!x.navigation) {
+        if (x.navigation) {
+          menu.style.display = "block";
+        } else {
           menu.style.display = "none";
         }
 
