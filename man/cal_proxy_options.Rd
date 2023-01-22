@@ -9,8 +9,8 @@ cal_proxy_options(proxy, ...)
 \arguments{
 \item{proxy}{A \code{\link[=calendar_proxy]{calendar_proxy()}} \code{htmlwidget} object.}
 
-\item{...}{Options for the calendar, you can use arguments from \code{\link[=calendar]{calendar()}},
-\code{\link[=cal_month_options]{cal_month_options()}} (under the form \code{month = list(...)}),
+\item{...}{Options for the calendar, you can use arguments from \code{\link[=calendar]{calendar()}} -
+\code{\link[=cal_month_options]{cal_month_options()}} (under the form \code{month = list(...)}), and
 \code{\link[=cal_week_options]{cal_week_options()}} (under the form \code{week = list(...)})}
 }
 \value{
@@ -68,6 +68,7 @@ if (interactive())
 \seealso{
 Other calendar proxy methods: 
 \code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_navigation}()},
 \code{\link{cal_proxy_toggle}()},
 \code{\link{cal_proxy_view}()},
 \code{\link{calendar-proxy-navigate}},
