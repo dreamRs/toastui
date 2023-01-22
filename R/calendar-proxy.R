@@ -316,7 +316,7 @@ cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {
 
 #' @title Toggle navigation visibility
 #'
-#' @description This function allow to show or hide the calendar navigation.
+#' @description This function can show or hide the calendar navigation.
 #'
 #' @param proxy A [calendar_proxy()] `htmlwidget` object.
 #' @param navigation Logical, show or hide the navigation.
