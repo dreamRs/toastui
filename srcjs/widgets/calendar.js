@@ -24,12 +24,6 @@ HTMLWidgets.widget({
       renderValue: function (x) {
         var menu = document.getElementById(el.id + "_menu");
 
-        if (!x.navigation) {
-          if (menu !== null) {
-            menu.parentNode.removeChild(menu);
-          }
-        }
-
         if (typeof cal !== "undefined") {
           cal.destroy();
           el.innerHTML = "";
@@ -44,10 +38,13 @@ HTMLWidgets.widget({
           cal.setDate(x.defaultDate);
         }
 
+        addNavigation(cal, el.id, x.navigationOptions);
+        navigationOptions = x.navigationOptions;
         // Navigation buttons
         if (x.navigation) {
-          addNavigation(cal, el.id, x.navigationOptions);
-          navigationOptions = x.navigationOptions;
+          menu.style.display = "block";
+        } else {
+          menu.style.display = "none";
         }
 
         if (x.events.hasOwnProperty("beforeCreateSchedule")) {

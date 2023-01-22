@@ -88,8 +88,10 @@ export function ProxyCalendar() {
       "proxy-toastui-calendar-options",
       function (obj) {
         var cal = utils.getWidget(obj.id);
-        if (typeof cal != "undefined") {
-          cal.setOptions(obj.data.options);
+        if (typeof cal != "undefined" && typeof obj.data != "undefined") {
+          if (typeof obj.data.options != "undefined") {
+            cal.setOptions(obj.data.options);
+          }
         }
       }
     );
@@ -101,6 +103,26 @@ export function ProxyCalendar() {
           var calendarId = obj.data.calendarId;
           for (let i = 0; i < calendarId.length; i += 1) {
             cal.setCalendarVisibility(calendarId[i], obj.data.toHide);
+          }
+        }
+      }
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-navigation",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined" && typeof obj.data != "undefined") {
+          if (typeof obj.data.navigation === "boolean") {
+            var nav = obj.data.navigation;
+            var menu = document.getElementById(obj.id + "_menu");
+            // turn on and does not exists
+            if (nav && menu !== null) {
+              menu.style.display = "block";
+            }
+            // turn off and exists
+            if (!nav && menu !== null){
+              menu.style.display = "none";
+            }
           }
         }
       }
