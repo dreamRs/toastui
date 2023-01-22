@@ -265,8 +265,8 @@ cal_proxy_clear <- function(proxy) {
 #' @description This function allow to set options for a calendar.
 #'
 #' @param proxy A [calendar_proxy()] `htmlwidget` object.
-#' @param ... Options for the calendar, you can use arguments from [calendar()],
-#'  [cal_month_options()] (under the form `month = list(...)`),
+#' @param ... Options for the calendar, you can use arguments from [calendar()] -
+#'  [cal_month_options()] (under the form `month = list(...)`), and
 #'  [cal_week_options()] (under the form `week = list(...)`)
 #'
 #' @export
@@ -326,7 +326,7 @@ cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {
 #'
 #' @family calendar proxy methods
 #'
-#' @example examples/cal-proxy-toggle.R
+#' @example examples/cal-proxy-navigation.R
 cal_proxy_navigation <- function(proxy, navigation) {
   if (is.character(proxy)) {
     proxy <- calendar_proxy(proxy)
