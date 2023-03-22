@@ -2,7 +2,7 @@
 
 * Updated tui-calendar to @toast-ui/calendar 2.1.3 (see https://github.com/nhn/tui.calendar/blob/main/docs/en/guide/migration-guide-v2.md)
 * Updated @toast-ui/chart to 4.6.1.
-* Updated tui-grid to 4.21.7.
+* Updated tui-grid to 4.21.9.
 
 
 
