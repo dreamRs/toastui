@@ -145,85 +145,95 @@ other possible values are 'month' and 'day'.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Default: monthly view</span></span></span>
 <span class="r-in"><span><span class="fu">calendar</span><span class="op">(</span><span class="op">)</span></span></span>
-<div id="htmlwidget-d49047341475c5aa6d11_menu">
-  <span id="htmlwidget-d49047341475c5aa6d11_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d49047341475c5aa6d11_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d49047341475c5aa6d11_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d49047341475c5aa6d11_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-d49047341475c5aa6d11_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-1b8bf682e089b61edad9_menu">
+    <span id="htmlwidget-1b8bf682e089b61edad9_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1b8bf682e089b61edad9_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1b8bf682e089b61edad9_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1b8bf682e089b61edad9_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-1b8bf682e089b61edad9_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-1b8bf682e089b61edad9" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-d49047341475c5aa6d11" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-d49047341475c5aa6d11">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-1b8bf682e089b61edad9">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Weekly view</span></span></span>
 <span class="r-in"><span><span class="fu">calendar</span><span class="op">(</span>view <span class="op">=</span> <span class="st">"week"</span><span class="op">)</span></span></span>
-<div id="htmlwidget-85119a53b38fa31abb16_menu">
-  <span id="htmlwidget-85119a53b38fa31abb16_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-85119a53b38fa31abb16_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-85119a53b38fa31abb16_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-85119a53b38fa31abb16_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-85119a53b38fa31abb16_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-04e8fe5800f88a8f1b85_menu">
+    <span id="htmlwidget-04e8fe5800f88a8f1b85_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-04e8fe5800f88a8f1b85_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-04e8fe5800f88a8f1b85_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-04e8fe5800f88a8f1b85_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-04e8fe5800f88a8f1b85_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-04e8fe5800f88a8f1b85" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-85119a53b38fa31abb16" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-85119a53b38fa31abb16">{"x":{"options":{"defaultView":"week","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-04e8fe5800f88a8f1b85">{"x":{"options":{"defaultView":"week","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Or only day:</span></span></span>
 <span class="r-in"><span><span class="fu">calendar</span><span class="op">(</span>view <span class="op">=</span> <span class="st">"day"</span><span class="op">)</span></span></span>
-<div id="htmlwidget-d325107694a0c8a7227c_menu">
-  <span id="htmlwidget-d325107694a0c8a7227c_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d325107694a0c8a7227c_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d325107694a0c8a7227c_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d325107694a0c8a7227c_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-d325107694a0c8a7227c_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-2f66611191f0b897d0c7_menu">
+    <span id="htmlwidget-2f66611191f0b897d0c7_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2f66611191f0b897d0c7_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2f66611191f0b897d0c7_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2f66611191f0b897d0c7_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-2f66611191f0b897d0c7_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-2f66611191f0b897d0c7" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-d325107694a0c8a7227c" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-d325107694a0c8a7227c">{"x":{"options":{"defaultView":"day","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-2f66611191f0b897d0c7">{"x":{"options":{"defaultView":"day","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Add navigation buttons</span></span></span>
 <span class="r-in"><span><span class="fu">calendar</span><span class="op">(</span>navigation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<div id="htmlwidget-43224917f25fc89ea783_menu">
-  <span id="htmlwidget-43224917f25fc89ea783_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-43224917f25fc89ea783_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-43224917f25fc89ea783_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-43224917f25fc89ea783_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-43224917f25fc89ea783_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-5e2f8c57caf8fdb5297d_menu">
+    <span id="htmlwidget-5e2f8c57caf8fdb5297d_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-5e2f8c57caf8fdb5297d_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-5e2f8c57caf8fdb5297d_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-5e2f8c57caf8fdb5297d_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-5e2f8c57caf8fdb5297d_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-5e2f8c57caf8fdb5297d" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-43224917f25fc89ea783" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-43224917f25fc89ea783">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":true,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-5e2f8c57caf8fdb5297d">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[],"navigation":true,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Add schedules data</span></span></span>
 <span class="r-in"><span><span class="va">ex_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="cal-demo-data.html">cal_demo_data</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">calendar</span><span class="op">(</span><span class="va">ex_data</span><span class="op">)</span></span></span>
-<div id="htmlwidget-1db8ea4c4b2c8c2a0020_menu">
-  <span id="htmlwidget-1db8ea4c4b2c8c2a0020_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1db8ea4c4b2c8c2a0020_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1db8ea4c4b2c8c2a0020_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-1db8ea4c4b2c8c2a0020_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-1db8ea4c4b2c8c2a0020_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-67dbf79aa102d5af071d_menu">
+    <span id="htmlwidget-67dbf79aa102d5af071d_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-67dbf79aa102d5af071d_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-67dbf79aa102d5af071d_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-67dbf79aa102d5af071d_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-67dbf79aa102d5af071d_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-67dbf79aa102d5af071d" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-1db8ea4c4b2c8c2a0020" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-1db8ea4c4b2c8c2a0020">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"time","dueDateClass":"","id":"schedulea55fb4cca980b23ed12c3d93","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-05 20:00:00","end":"2023-03-05 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule15c88f8aec987a077bd6ccee","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-12 20:00:00","end":"2023-03-12 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulee00599a6d07aa300df2075a3","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-19 20:00:00","end":"2023-03-19 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule9a0a17fc3a20e583d3c92002","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2023-03-11","end":"2023-03-12","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule3124e6d6c7f68b950edabb7f","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-06","end":"2023-03-07","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule0f18488e4f1daff7d2f6395e","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-07","end":"2023-03-10","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule1d0028d871b89e35e0f18d46","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-29","end":"2023-03-29","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule22db0d6897c50b5a4a18e8d5","calendarId":"3","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2023-03-14","end":"2023-03-17","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule4376c5ea30a4f3a6150c999e","calendarId":"3","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2023-03-21","end":"2023-03-23","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule938987b1e1687379161627ff","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2023-03-20 14:00:00","end":"2023-03-20 17:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule282fc679e1920c4aca6391c7","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2023-03-24 12:00:00","end":"2023-03-24 14:00:00","location":"Some restaurant","backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduleed35d2edafa9ad8431cc749a","calendarId":"3","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2023-03-27","end":"2023-03-28","location":"Conference center","backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedulee9ecc4bf05eef47d85239d29","calendarId":"4","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2023-03-03","end":"2023-03-03","location":null,"backgroundColor":"#FAFAFA","color":"#FF0000","borderColor":"#FF0000"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-67dbf79aa102d5af071d">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"time","dueDateClass":"","id":"schedulefb8dcc86b77740393bd5ef49","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-05 20:00:00","end":"2023-03-05 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule75dcfca03c5483e4c47bd773","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-12 20:00:00","end":"2023-03-12 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulec43aa3301934d3bfeebe7b73","calendarId":"1","title":"Sport","body":"Go to sport every week","recurrenceRule":"Every week","start":"2023-03-19 20:00:00","end":"2023-03-19 22:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule2bb7f0bbdaed9242a31b0475","calendarId":"1","title":"Week-end","body":"Week-end with friends","recurrenceRule":null,"start":"2023-03-11","end":"2023-03-12","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule5e78bf71414c0e4374e44f03","calendarId":"2","title":"Project 1","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-06","end":"2023-03-07","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule33426992163fb267f3b300b6","calendarId":"2","title":"Project 2","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-07","end":"2023-03-10","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule1258407889c881b256b89052","calendarId":"2","title":"Project 3","body":"Coding cool stuff","recurrenceRule":null,"start":"2023-03-29","end":"2023-03-29","location":null,"backgroundColor":"#5E81AC","color":"white","borderColor":"#5E81AC"},{"category":"allday","dueDateClass":"","id":"schedule69ffeade86c322c5c71830e6","calendarId":"3","title":"Training 1","body":"Learn programming","recurrenceRule":null,"start":"2023-03-14","end":"2023-03-17","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule682e8fd1546f06d889c14d15","calendarId":"3","title":"Training 2","body":"Learn programming","recurrenceRule":null,"start":"2023-03-21","end":"2023-03-23","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedulea15ae31ee8908c39ce6d0e80","calendarId":"2","title":"Meeting","body":"Meeting with John Smith","recurrenceRule":null,"start":"2023-03-20 14:00:00","end":"2023-03-20 17:00:00","location":null,"backgroundColor":null,"color":null,"borderColor":null},{"category":"time","dueDateClass":"","id":"schedule1f4743250ce74aa8295cc479","calendarId":"2","title":"Lunch","body":"Lunch with Jane Doe","recurrenceRule":null,"start":"2023-03-24 12:00:00","end":"2023-03-24 14:00:00","location":"Some restaurant","backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"schedule6f8e45792782bc1218a6b033","calendarId":"3","title":"Conference","body":"Cool R conference","recurrenceRule":null,"start":"2023-03-27","end":"2023-03-28","location":"Conference center","backgroundColor":null,"color":null,"borderColor":null},{"category":"allday","dueDateClass":"","id":"scheduleda80eb644b5125f37dff050d","calendarId":"4","title":"Mum birthday","body":"Dont forget!!!","recurrenceRule":null,"start":"2023-03-03","end":"2023-03-03","location":null,"backgroundColor":"#FAFAFA","color":"#FF0000","borderColor":"#FF0000"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># By default detail popup is activated</span></span></span>
 <span class="r-in"><span><span class="co"># you can click on a schedule to view detail</span></span></span>
@@ -235,20 +245,22 @@ other possible values are 'month' and 'day'.</p></dd>
 <span class="r-in"><span>    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-04"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    category <span class="op">=</span> <span class="st">"allday"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<div id="htmlwidget-2173205d7a0f5ec8ebb2_menu">
-  <span id="htmlwidget-2173205d7a0f5ec8ebb2_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2173205d7a0f5ec8ebb2_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2173205d7a0f5ec8ebb2_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-2173205d7a0f5ec8ebb2_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-2173205d7a0f5ec8ebb2_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-e32bf0090715e1bf42e7_menu">
+    <span id="htmlwidget-e32bf0090715e1bf42e7_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e32bf0090715e1bf42e7_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e32bf0090715e1bf42e7_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-e32bf0090715e1bf42e7_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-e32bf0090715e1bf42e7_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-e32bf0090715e1bf42e7" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-2173205d7a0f5ec8ebb2" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-2173205d7a0f5ec8ebb2">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedulea6da7ad19bad1a58fddf4d6c","calendarId":"1","title":"My schedule","body":"Some detail about it","start":"2023-03-03","end":"2023-03-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
+<script type="application/json" data-for="htmlwidget-e32bf0090715e1bf42e7">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedule1b28d39f811a5940d7d1fddb","calendarId":"1","title":"My schedule","body":"Some detail about it","start":"2023-03-03","end":"2023-03-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># to disable it use useDetailPopup = FALSE</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can use HTML tags inside it:</span></span></span>
@@ -276,20 +288,22 @@ other possible values are 'month' and 'day'.</p></dd>
 <span class="r-in"><span>    end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%Y-%m-04"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    category <span class="op">=</span> <span class="st">"allday"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<div id="htmlwidget-d3de30eba93dcf43348a_menu">
-  <span id="htmlwidget-d3de30eba93dcf43348a_menu_navi">
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d3de30eba93dcf43348a_today">Today</button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d3de30eba93dcf43348a_prev">
-      <i class="fa fa-chevron-left"></i>
-    </button>
-    <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-d3de30eba93dcf43348a_next">
-      <i class="fa fa-chevron-right"></i>
-    </button>
-  </span>
-  <span id="htmlwidget-d3de30eba93dcf43348a_renderRange" class="render-range"></span>
+<div class="toastui-calendar calendar html-widget " style="width:700px;height:432.632880098888px;">
+  <div id="htmlwidget-9a0c4d40596f33ee64e4_menu">
+    <span id="htmlwidget-9a0c4d40596f33ee64e4_menu_navi">
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9a0c4d40596f33ee64e4_today">Today</button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9a0c4d40596f33ee64e4_prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button type="button" class="btn bttn-no-outline action-button" id="htmlwidget-9a0c4d40596f33ee64e4_next">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </span>
+    <span id="htmlwidget-9a0c4d40596f33ee64e4_renderRange" class="render-range"></span>
+  </div>
+  <br><div id="htmlwidget-9a0c4d40596f33ee64e4" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
 </div>
-<br><div id="htmlwidget-d3de30eba93dcf43348a" style="width:700px;height:432.632880098888px;" class="calendar html-widget " width="700" height="432.632880098888"></div>
-<script type="application/json" data-for="htmlwidget-d3de30eba93dcf43348a">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedulef29a2e25561fcceb13575e6f","calendarId":"1","title":"My schedule","body":"<div>\n  <h3>Title for my schedule<\/h3>\n  <p>\n    Yan can write\n    <em>custom<\/em>\n    <b>HTML<\/b>\n    in a popup !\n  <\/p>\n  <p style=\"color: firebrick;\">For example write in red !<\/p>\n  <ul>\n    <li>Or make a bullet list!<\/li>\n    <li>With another item<\/li>\n    <li>And one more<\/li>\n  <\/ul>\n<\/div>","start":"2023-03-03","end":"2023-03-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script></code></pre></div>
+<script type="application/json" data-for="htmlwidget-9a0c4d40596f33ee64e4">{"x":{"options":{"defaultView":"month","useDetailPopup":true,"useFormPopup":false,"isReadOnly":true,"usageStatistics":false},"schedules":[{"category":"allday","dueDateClass":"","id":"schedule1cca79d9e130e1180ad601b6","calendarId":"1","title":"My schedule","body":"<div>\n  <h3>Title for my schedule<\/h3>\n  <p>\n    Yan can write\n    <em>custom<\/em>\n    <b>HTML<\/b>\n    in a popup !\n  <\/p>\n  <p style=\"color: firebrick;\">For example write in red !<\/p>\n  <ul>\n    <li>Or make a bullet list!<\/li>\n    <li>With another item<\/li>\n    <li>And one more<\/li>\n  <\/ul>\n<\/div>","start":"2023-03-03","end":"2023-03-04"}],"navigation":false,"events":[],"navigationOptions":{"today_label":"Today","prev_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M160,214a5.8,5.8,0,0,1-4.2-1.8l-80-80a5.8,5.8,0,0,1,0-8.4l80-80a5.9,5.9,0,0,1,8.4,8.4L88.5,128l75.7,75.8A6,6,0,0,1,160,214Z\"><\/path>\n  <title>caret-left-light<\/title>\n<\/svg>","next_label":"<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 256 256\" class=\"phosphor-svg\" height=\"1.33em\" fill=\"currentColor\" style=\"vertical-align:-0.25em;\">\n  <path d=\"M96,214a6,6,0,0,1-4.2-10.2L167.5,128,91.8,52.2a5.9,5.9,0,0,1,8.4-8.4l80,80a5.8,5.8,0,0,1,0,8.4l-80,80A5.8,5.8,0,0,1,96,214Z\"><\/path>\n  <title>caret-right-light<\/title>\n<\/svg>","class":" bttn-bordered bttn-sm bttn-primary","fmt_date":"YYYY-MM-DD","sep_date":" ~ "}},"evals":[],"jsHooks":[]}</script></code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
