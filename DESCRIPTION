@@ -28,7 +28,7 @@ Suggests:
     scales, 
     tinytest
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 URL: https://dreamrs.github.io/toastui/
 BugReports: https://github.com/dreamRs/toastui/issues

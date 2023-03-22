@@ -91,7 +91,8 @@ calendar <- function(data = NULL,
 
 #' @importFrom htmltools tagList tags
 calendar_html <- function(id, style, class, ...) {
-  tagList(
+  tags$div(
+    class = "toastui-calendar", style = style, class = class,
     tags$div(
       id = paste0(id, "_menu"),
       tags$span(
