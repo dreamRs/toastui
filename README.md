@@ -59,7 +59,7 @@ Interactive charts:
 
 ## Development
 
-This package uses [packer](https://github.com/JohnCoene/packer) to manage JavaScript source code and dependencies. If you want to modify it, you'll need a working installation of [Node.js](https://nodejs.org/en/).
+This package uses [packer](https://github.com/JohnCoene/packer) to manage JavaScript source code and dependencies. If you want to modify it, you'll need a working installation of [Node.js](https://nodejs.org).
 
 After cloning the Git repository, install nodes modules with:
 
