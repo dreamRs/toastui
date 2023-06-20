@@ -14,6 +14,8 @@ simple_filters <- function(data) {
         list(type = "date", options = list(format = "yyyy-MM-dd"))
       } else if (inherits(x, what = c("numeric", "integer"))) {
         "number"
+      } else if (inherits(x, what = c("logical"))) {
+        "select"
       } else {
         NULL
       }
