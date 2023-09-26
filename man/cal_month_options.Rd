@@ -12,8 +12,7 @@ cal_month_options(
   visibleWeeksCount = NULL,
   isAlways6Week = NULL,
   workweek = NULL,
-  visibleScheduleCount = NULL,
-  scheduleFilter = NULL,
+  visibleEventCount = NULL,
   ...
 )
 }
@@ -32,9 +31,7 @@ cal_month_options(
 
 \item{workweek}{Logical. Show only 5 days except for weekend.}
 
-\item{visibleScheduleCount}{Numeric. The visible schedule count in monthly grid.}
-
-\item{scheduleFilter}{List of parameters, see online documentation.}
+\item{visibleEventCount}{Numeric. The visible schedule count in monthly grid.}
 
 \item{...}{Additional options.}
 }

@@ -8,14 +8,16 @@
 #' @param daynames Vector. The day names in weekly and daily. Default values are 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'.
 #' @param narrowWeekend Logical. Make weekend column narrow(1/2 width).
 #' @param workweek Logical. Show only 5 days except for weekend.
+#' @param showNowIndicator Display or not the current time indicator in the weekly/daily view.
 #' @param showTimezoneCollapseButton Logical. Show a collapse button to close multiple timezones
 #' @param timezonesCollapsed Logical. An initial multiple timezones collapsed state.
 #' @param hourStart Numeric. Can limit of render hour start.
 #' @param hourEnd Numeric. Can limit of render hour end.
 #' @param taskView Show the milestone and task in weekly, daily view.
 #'  The default value is `FALSE`. If the value is a vector, it can be `"milestone"`, `"task"`.
-#' @param scheduleView Show the all day and time grid in weekly, daily view.
+#' @param eventView Show the all day and time grid in weekly, daily view.
 #'  The default value is `TRUE`. If the value is a vector, it can be `"allday"`, `"time"`.
+#' @param collapseDuplicateEvents Collapse duplicate events in the daily/weekly view. 
 #' @param ... Additional options.
 #'
 #' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#week}
@@ -30,12 +32,14 @@ cal_week_options <- function(cal,
                              daynames = NULL,
                              narrowWeekend = NULL,
                              workweek = NULL,
+                             showNowIndicator = NULL,
                              showTimezoneCollapseButton = NULL,
                              timezonesCollapsed = NULL,
                              hourStart = NULL,
                              hourEnd = NULL,
-                             scheduleView = TRUE,
+                             eventView = TRUE,
                              taskView = FALSE,
+                             collapseDuplicateEvents = NULL,
                              ...) {
   check_cal(cal, "cal_week_options")
   .widget_options(
@@ -45,12 +49,14 @@ cal_week_options <- function(cal,
     dayNames = daynames,
     narrowWeekend = narrowWeekend,
     workweek = workweek,
+    showNowIndicator = showNowIndicator,
     showTimezoneCollapseButton = showTimezoneCollapseButton,
     timezonesCollapsed = timezonesCollapsed,
     hourStart = hourStart,
     hourEnd = hourEnd,
-    scheduleView = list1(scheduleView),
+    eventView = list1(eventView),
     taskView = list1(taskView),
+    collapseDuplicateEvents = collapseDuplicateEvents,
     ...
   )
 }
@@ -68,8 +74,7 @@ cal_week_options <- function(cal,
 #' @param visibleWeeksCount Numeric. The visible week count in monthly(0 or null are same with 6).
 #' @param isAlways6Week Logical. Always show 6 weeks. If false, show 5 weeks or 6 weeks based on the month.
 #' @param workweek Logical. Show only 5 days except for weekend.
-#' @param visibleScheduleCount Numeric. The visible schedule count in monthly grid.
-#' @param scheduleFilter List of parameters, see online documentation.
+#' @param visibleEventCount Numeric. The visible schedule count in monthly grid.
 #' @param ... Additional options.
 #'
 #' @note Online JavaScript documentation: \url{https://github.com/nhn/tui.calendar/blob/main/docs/en/apis/options.md#month}
@@ -86,8 +91,7 @@ cal_month_options <- function(cal,
                               visibleWeeksCount = NULL,
                               isAlways6Week = NULL,
                               workweek = NULL,
-                              visibleScheduleCount = NULL,
-                              scheduleFilter = NULL,
+                              visibleEventCount = NULL,
                               ...) {
   check_cal(cal, "cal_month_options")
   .widget_options(
@@ -99,8 +103,7 @@ cal_month_options <- function(cal,
     visibleWeeksCount = visibleWeeksCount,
     isAlways6Weeks = isAlways6Week,
     workweek = workweek,
-    visibleScheduleCount = visibleScheduleCount,
-    scheduleFilter = scheduleFilter,
+    visibleEventCount = visibleEventCount,
     ...
   )
 }

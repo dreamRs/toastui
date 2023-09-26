@@ -10,12 +10,14 @@ cal_week_options(
   daynames = NULL,
   narrowWeekend = NULL,
   workweek = NULL,
+  showNowIndicator = NULL,
   showTimezoneCollapseButton = NULL,
   timezonesCollapsed = NULL,
   hourStart = NULL,
   hourEnd = NULL,
-  scheduleView = TRUE,
+  eventView = TRUE,
   taskView = FALSE,
+  collapseDuplicateEvents = NULL,
   ...
 )
 }
@@ -30,6 +32,8 @@ cal_week_options(
 
 \item{workweek}{Logical. Show only 5 days except for weekend.}
 
+\item{showNowIndicator}{Display or not the current time indicator in the weekly/daily view.}
+
 \item{showTimezoneCollapseButton}{Logical. Show a collapse button to close multiple timezones}
 
 \item{timezonesCollapsed}{Logical. An initial multiple timezones collapsed state.}
@@ -38,11 +42,13 @@ cal_week_options(
 
 \item{hourEnd}{Numeric. Can limit of render hour end.}
 
-\item{scheduleView}{Show the all day and time grid in weekly, daily view.
+\item{eventView}{Show the all day and time grid in weekly, daily view.
 The default value is \code{TRUE}. If the value is a vector, it can be \code{"allday"}, \code{"time"}.}
 
 \item{taskView}{Show the milestone and task in weekly, daily view.
 The default value is \code{FALSE}. If the value is a vector, it can be \code{"milestone"}, \code{"task"}.}
+
+\item{collapseDuplicateEvents}{Collapse duplicate events in the daily/weekly view.}
 
 \item{...}{Additional options.}
 }
