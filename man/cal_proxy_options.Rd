@@ -68,6 +68,7 @@ if (interactive())
 \seealso{
 Other calendar proxy methods: 
 \code{\link{cal_proxy_clear}()},
+\code{\link{cal_proxy_clear_selection}()},
 \code{\link{cal_proxy_toggle}()},
 \code{\link{cal_proxy_view}()},
 \code{\link{calendar-proxy-navigate}},

@@ -157,6 +157,10 @@ HTMLWidgets.widget({
         if (x.events.hasOwnProperty("clickMorecalendar")) {
           cal.on("clickMoreEventsBtn", x.events.clickMorecalendar);
         }
+        
+        if (x.events.hasOwnProperty("selectDateTime")) {
+          cal.on("selectDateTime", x.events.selectDateTime);
+        }
 
         if (x.events.hasOwnProperty("clickTimezonesCollapseBtncalendar")) {
           cal.on(

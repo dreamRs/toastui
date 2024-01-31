@@ -313,3 +313,28 @@ cal_proxy_toggle <- function(proxy, calendarId, toHide = TRUE) {
     toHide = isTRUE(toHide)
   )
 }
+
+
+
+#' @title Clear selection from calendar with Proxy
+#'
+#' @description Removes all date/time selection elements currently displayed in the calendar.
+#'
+#' @param proxy A [calendar_proxy()] `htmlwidget` object.
+#'
+#' @export
+#'
+#' @return A `calendar_proxy` object.
+#'
+#' @family calendar proxy methods
+#'
+cal_proxy_clear_selection <- function(proxy) {
+  if (is.character(proxy)) {
+    proxy <- calendar_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "calendar-clear-selection"
+  )
+}
+

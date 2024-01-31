@@ -12,6 +12,7 @@
 #' @param clickMorecalendar Fire this event when click a schedule.
 #' @param clickSchedule Fire this event when click a schedule.
 #' @param clickTimezonesCollapseBtncalendar Fire this event by clicking timezones collapse button.
+#' @param selectDateTime Occurs when dragging and dropping a specific date or time then dropping.
 #'
 #' @note All arguments must be JavaScript function wrapped in [htmlwidgets::JS()].
 #'
@@ -27,7 +28,8 @@ cal_events <- function(cal,
                        clickDayname = NULL,
                        clickMorecalendar = NULL,
                        clickSchedule = NULL,
-                       clickTimezonesCollapseBtncalendar = NULL) {
+                       clickTimezonesCollapseBtncalendar = NULL,
+                       selectDateTime = NULL) {
   check_cal(cal, "cal_events")
   cal$x$events <- dropNulls(list(
     afterRenderSchedule = afterRenderSchedule,
@@ -37,7 +39,8 @@ cal_events <- function(cal,
     clickDayname = clickDayname,
     clickMorecalendar = clickMorecalendar,
     clickSchedule = clickSchedule,
-    clickTimezonesCollapseBtncalendar = clickTimezonesCollapseBtncalendar
+    clickTimezonesCollapseBtncalendar = clickTimezonesCollapseBtncalendar,
+    selectDateTime = selectDateTime
   ))
   cal
 }

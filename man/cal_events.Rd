@@ -13,7 +13,8 @@ cal_events(
   clickDayname = NULL,
   clickMorecalendar = NULL,
   clickSchedule = NULL,
-  clickTimezonesCollapseBtncalendar = NULL
+  clickTimezonesCollapseBtncalendar = NULL,
+  selectDateTime = NULL
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ cal_events(
 \item{clickSchedule}{Fire this event when click a schedule.}
 
 \item{clickTimezonesCollapseBtncalendar}{Fire this event by clicking timezones collapse button.}
+
+\item{selectDateTime}{Occurs when dragging and dropping a specific date or time then dropping.}
 }
 \value{
 A \code{calendar} htmlwidget object.

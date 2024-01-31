@@ -105,5 +105,14 @@ export function ProxyCalendar() {
         }
       }
     );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-calendar-clear-selection",
+      function (obj) {
+        var cal = utils.getWidget(obj.id);
+        if (typeof cal != "undefined") {
+          cal.clearGridSelections();
+        }
+      }
+    );
   }
 }

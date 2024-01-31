@@ -2,6 +2,7 @@
 % Please edit documentation in R/toastui-package.R
 \docType{package}
 \name{toastui}
+\alias{toastui-package}
 \alias{toastui}
 \title{HTMLwidget interface to the
 \href{https://ui.toast.com/}{TOASTUI} javascript libraries.}
@@ -23,6 +24,14 @@ Interactive and editable calendars with \href{https://ui.toast.com/tui-calendar/
 Interactive charts with \href{https://ui.toast.com/tui-chart/}{tui-chart}, see \code{\link{chart}}.
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://dreamrs.github.io/toastui/}
+  \item Report bugs at \url{https://github.com/dreamRs/toastui/issues}
+}
+
+}
 \author{
 Victor Perrier (@dreamRs_fr)
 }

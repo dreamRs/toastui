@@ -1,6 +1,6 @@
 Package: toastui
 Title: Interactive Tables, Calendars and Charts for the Web
-Version: 0.3.0.9000
+Version: 0.3.0.9100
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
   person("Fanny", "Meyer", role = "aut"),
@@ -28,7 +28,7 @@ Suggests:
     scales, 
     tinytest
 VignetteBuilder: knitr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://dreamrs.github.io/toastui/
 BugReports: https://github.com/dreamRs/toastui/issues
