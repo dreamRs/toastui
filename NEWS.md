@@ -1,3 +1,11 @@
+# toastui 0.3.1
+
+* Updated tui-grid to 4.21.17.
+* Updated `cal_events()` example + added new event `selectDateTime`.
+* Added `cal_proxy_clear_selection()` to clear selected area on calendar. 
+
+
+
 # toastui 0.3.0
 
 * Updated tui-calendar to @toast-ui/calendar 2.1.3 (see https://github.com/nhn/tui.calendar/blob/main/docs/en/guide/migration-guide-v2.md)
