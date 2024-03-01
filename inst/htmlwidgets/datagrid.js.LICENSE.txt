@@ -7,7 +7,7 @@
 
 /*!
  * TOAST UI Grid
- * @version 4.21.17 | Mon Sep 18 2023
+ * @version 4.21.22 | Wed Jan 10 2024
  * @author NHN Cloud. FE Development Lab
  * @license MIT
  */

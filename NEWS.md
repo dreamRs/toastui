@@ -1,5 +1,7 @@
 # toastui 0.3.2
 
+* Updated tui-grid to 4.21.22.
+
 ### Breaking changes
 
 * `grid_proxy_delete_row()`: argument `index` renamed `rowKey` and now expect the row key of the row to delete, you can find the `rowKey` value in `input$<outputId>_data`.
