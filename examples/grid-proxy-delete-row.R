@@ -33,7 +33,7 @@ server <- function(input, output, session) {
         label = "Remove",
         icon = icon("trash"),
         status = "danger",
-        btn_width = "115px", 
+        btn_width = "115px",
         align = "left"
       )
   })
@@ -46,13 +46,15 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$remove_row, {
-    grid_proxy_delete_row("grid", input$remove_row)
+    data <- input$grid_data
+    rowKey <- data$rowKey[data$remove == input$remove_row]
+    grid_proxy_delete_row("grid", rowKey)
   })
 
   output$output_data <- renderPrint({
     input$grid_data
   })
-  
+
 }
 
 if (interactive())

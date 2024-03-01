@@ -82,7 +82,7 @@ grid_proxy_add_row <- function(proxy, data) {
 #' Delete row in an existent grid
 #'
 #' @param proxy A [datagrid_proxy()] or `outputId` of the grid.
-#' @param index Row indice of the row to delete.
+#' @param rowKey Row key of the row to delete, you can find the `rowKey` value in `input$<outputId>_data`.
 #'
 #' @return A `datagrid_proxy` object.
 #' @export
@@ -90,14 +90,28 @@ grid_proxy_add_row <- function(proxy, data) {
 #' @family datagrid proxy methods
 #'
 #' @example examples/grid-proxy-delete-row.R
-grid_proxy_delete_row <- function(proxy, index) {
+grid_proxy_delete_row <- function(proxy, rowKey) {
   if (is.character(proxy)) {
     proxy <- datagrid_proxy(proxy)
   }
   .call_proxy(
     proxy = proxy,
     name = "grid-delete-rows",
-    index = list1(as.numeric(index) - 1)
+    index = list1(as.numeric(rowKey))
   )
 }
 
+
+
+
+grid_proxy_custom <- function(proxy, method, config) {
+  if (is.character(proxy)) {
+    proxy <- datagrid_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "grid-custom",
+    method = method,
+    config = config
+  )
+}

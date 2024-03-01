@@ -4,6 +4,13 @@ import * as utils from "./utils";
 export function ProxyGrid() {
   if (HTMLWidgets.shinyMode) {
     Shiny.addCustomMessageHandler(
+      "proxy-toastui-grid-custom",
+      function (obj) {
+        var grid = utils.getWidget(obj.id);
+        grid[obj.method](obj.config)
+      }
+    );
+    Shiny.addCustomMessageHandler(
       "proxy-toastui-grid-add-rows",
       function (obj) {
         var grid = utils.getWidget(obj.id);
@@ -17,7 +24,8 @@ export function ProxyGrid() {
             data.push(row);
           }
           grid.appendRows(data, true);
-          
+          //console.log(grid);
+
           var config = utils.getConfig(obj.id);
           if (config.dataAsInput === true) {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
@@ -35,6 +43,8 @@ export function ProxyGrid() {
         if (typeof grid != "undefined") {
           const idx = obj.data.index;
           for (let i = 0; i < idx.length; i += 1) {
+            //console.log(idx[i]);
+            //console.log(grid);
             grid.removeRow(idx[i]);
           }
           var config = utils.getConfig(obj.id);

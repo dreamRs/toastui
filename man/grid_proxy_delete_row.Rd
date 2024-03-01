@@ -4,12 +4,12 @@
 \alias{grid_proxy_delete_row}
 \title{Delete row in an existent grid}
 \usage{
-grid_proxy_delete_row(proxy, index)
+grid_proxy_delete_row(proxy, rowKey)
 }
 \arguments{
 \item{proxy}{A \code{\link[=datagrid_proxy]{datagrid_proxy()}} or \code{outputId} of the grid.}
 
-\item{index}{Row indice of the row to delete.}
+\item{rowKey}{Row key of the row to delete, you can find the \code{rowKey} value in \verb{input$<outputId>_data}.}
 }
 \value{
 A \code{datagrid_proxy} object.
@@ -53,7 +53,7 @@ server <- function(input, output, session) {
         label = "Remove",
         icon = icon("trash"),
         status = "danger",
-        btn_width = "115px", 
+        btn_width = "115px",
         align = "left"
       )
   })
@@ -66,13 +66,15 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$remove_row, {
-    grid_proxy_delete_row("grid", input$remove_row)
+    data <- input$grid_data
+    rowKey <- data$rowKey[data$remove == input$remove_row]
+    grid_proxy_delete_row("grid", rowKey)
   })
 
   output$output_data <- renderPrint({
     input$grid_data
   })
-  
+
 }
 
 if (interactive())

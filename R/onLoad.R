@@ -33,7 +33,7 @@
     data <- do.call("rbind", lapply(
       X = data$data,
       FUN = function(x) {
-        x <- x[names(x) %in% data$colnames]
+        x <- x[names(x) %in% c(data$colnames, "rowKey")]
         x[sapply(x, is.null)] <- NA
         as.data.frame(x, stringsAsFactors = FALSE)
       }
