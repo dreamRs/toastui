@@ -1,6 +1,7 @@
 # toastui 0.3.2
 
 * Updated tui-grid to 4.21.22.
+* `grid_editor_date()` new arguments `language` and `weekStartDay`.
 
 ### Breaking changes
 

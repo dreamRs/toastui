@@ -4,6 +4,7 @@ import "tui-grid/dist/tui-grid.min.css";
 import "tui-pagination/dist/tui-pagination.css";
 import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
+import TuiDatePicker from "tui-date-picker";
 
 import { ProxyGrid } from "../modules/proxy-grid";
 import { addStyle } from "../modules/utils";
@@ -68,6 +69,10 @@ HTMLWidgets.widget({
         options.el = container;
 
         var rowAttributes = x.rowAttributes;
+
+        if (config.hasOwnProperty("datepicker_locale")) {
+          TuiDatePicker.localeTexts["custom"] = config.datepicker_locale;
+        }
 
         //if (options.hasOwnProperty("bodyHeight") & HTMLWidgets.shinyMode) {
         //  if (options.bodyHeight == "fitToParent") {

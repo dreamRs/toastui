@@ -17,6 +17,7 @@ datagrid(
   draggable = FALSE,
   data_as_input = FALSE,
   contextmenu = FALSE,
+  datepicker_locale = NULL,
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -50,6 +51,8 @@ or a single or numeric vector to set the width in pixel. Use \code{NULL} to disa
 \item{contextmenu}{Display or not a context menu when using right click in the grid.
 Can also be a list of custom options, see \href{https://nhn.github.io/tui.grid/latest/tutorial-example27-export/}{tui-grid documentation}
 for examples.}
+
+\item{datepicker_locale}{Custome locale texts for datepicker editor, see example in \code{\link[=grid_editor_date]{grid_editor_date()}}.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 

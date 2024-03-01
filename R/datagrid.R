@@ -19,6 +19,7 @@
 #' @param contextmenu Display or not a context menu when using right click in the grid.
 #'  Can also be a list of custom options, see [tui-grid documentation](https://nhn.github.io/tui.grid/latest/tutorial-example27-export/)
 #'  for examples.
+#' @param datepicker_locale Custome locale texts for datepicker editor, see example in [grid_editor_date()].
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -44,6 +45,7 @@ datagrid <- function(data = list(),
                      draggable = FALSE,
                      data_as_input = FALSE,
                      contextmenu = FALSE,
+                     datepicker_locale = NULL,
                      width = NULL,
                      height = NULL,
                      elementId = NULL) {
@@ -120,7 +122,8 @@ datagrid <- function(data = list(),
     updateEditOnClick = NULL,
     validationInput = FALSE,
     dataAsInput = data_as_input,
-    dragInput = isTRUE(draggable)
+    dragInput = isTRUE(draggable),
+    datepicker_locale = datepicker_locale
   ))
 
   # create widget

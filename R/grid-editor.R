@@ -167,6 +167,8 @@ validateOpts <- function(required = NULL,
 #' @param format Date format, default is \code{"yyyy-MM-dd"}.
 #' @param type Type of selection: date, month or year.
 #' @param timepicker Add a timepicker.
+#' @param weekStartDay Start of the week : 'Sun' (default), 'Mon', ..., 'Sat'
+#' @param language Either `"en"` or `"ko"` the builtin language, or `"custom"` to use texts defined in `datagrid(datepicker_locale = list(...))`, see example.
 #'
 #' @return A `datagrid` htmlwidget.
 #' @export
@@ -178,11 +180,13 @@ grid_editor_date <- function(grid,
                              column,
                              format = "yyyy-MM-dd",
                              type = c("date", "month", "year"),
-                             timepicker = c("none", "tab", "normal")) {
+                             timepicker = c("none", "tab", "normal"),
+                             weekStartDay = NULL,
+                             language = NULL) {
   check_grid(grid, "grid_editor")
   type <- match.arg(type)
   timepicker <- match.arg(timepicker)
-  options <- list(format = format)
+  options <- dropNulls(list(format = format, language = language, weekStartDay = weekStartDay))
   if (type %in% c("month", "year")) {
     options$type <- type
   }
