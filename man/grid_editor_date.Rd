@@ -53,11 +53,22 @@ datagrid(
   data = dat,
   datepicker_locale = list(
     titles = list(
-      DD = c("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"),
+      DD = c(
+        "Dimanche", "Lundi", "Mardi",
+        "Mercredi", "Jeudi", "Vendredi", "Samedi"
+      ),
       D = c("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"),
-      MMMM = c("Janvier", "F\u00e9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet",
-               "Ao\u00fbt", "Septembre", "Octobre", "Novembre", "D\u00e9cembre"),
-      MMM = c("Jan", "F\u00e9v", "Mar", "Avr", "Mai", "Juin", "Juil", "Aou", "Sept", "Oct", "Nov", "D\u00e9c")
+      MMMM = c(
+        "Janvier", "F\u00e9vrier", "Mars",
+        "Avril", "Mai", "Juin", "Juillet",
+        "Ao\u00fbt", "Septembre", "Octobre",
+        "Novembre", "D\u00e9cembre"
+      ),
+      MMM = c(
+        "Jan", "F\u00e9v", "Mar", "Avr",
+        "Mai", "Juin", "Juil", "Aou",
+        "Sept", "Oct", "Nov", "D\u00e9c"
+      )
     ),
     titleFormat = "MMM yyyy",
     todayFormat = "DD dd MMMM yyyy",
