@@ -2,20 +2,19 @@
 #'  \href{https://ui.toast.com/}{TOASTUI} javascript libraries.
 #'
 #' @description Create interactive tables, calendars and charts with one package.
-#' 
+#'
 #' @section Tables:
 #' Interactive and editable tables with \href{https://ui.toast.com/tui-grid/}{tui-grid}, see [datagrid()].
-#' 
+#'
 #' @section Calendars:
 #' Interactive and editable calendars with \href{https://ui.toast.com/tui-calendar/}{tui-calendar}, see \code{\link{calendar}}.
-#' 
+#'
 #' @section Charts:
 #' Interactive charts with \href{https://ui.toast.com/tui-chart/}{tui-chart}, see \code{\link{chart}}.
 #'
 #' @name toastui
-#' @docType package
 #' @author Victor Perrier (@@dreamRs_fr)
-NULL
+"_PACKAGE"
 
 #' toastui exported operators and S3 methods
 #'

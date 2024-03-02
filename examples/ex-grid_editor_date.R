@@ -16,9 +16,9 @@ datagrid(
     titles = list(
       DD = c("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"),
       D = c("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"),
-      MMMM = c("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
-               "Août", "Septembre", "Octobre", "Novembre", "Décembre"),
-      MMM = c("Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aou", "Sept", "Oct", "Nov", "Déc")
+      MMMM = c("Janvier", "F\u00e9vrier", "Mars", "Avril", "Mai", "Juin", "Juillet",
+               "Ao\u00fbt", "Septembre", "Octobre", "Novembre", "D\u00e9cembre"),
+      MMM = c("Jan", "F\u00e9v", "Mar", "Avr", "Mai", "Juin", "Juil", "Aou", "Sept", "Oct", "Nov", "D\u00e9c")
     ),
     titleFormat = "MMM yyyy",
     todayFormat = "DD dd MMMM yyyy",
