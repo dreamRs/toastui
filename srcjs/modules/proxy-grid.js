@@ -7,7 +7,55 @@ export function ProxyGrid() {
       "proxy-toastui-grid-custom",
       function (obj) {
         var grid = utils.getWidget(obj.id);
-        grid[obj.method](obj.config)
+        if (typeof grid != "undefined") {
+          grid[obj.method].apply(null, obj.config);
+          var config = utils.getConfig(obj.id);
+          if (config.dataAsInput === true) {
+            Shiny.setInputValue(obj.id + "_data:datagridEdit", {
+              data: grid.getData(),
+              colnames: config.colnames,
+            });
+          }
+        }
+      }
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-grid-set-column-values",
+      function (obj) {
+        var grid = utils.getWidget(obj.id);
+        if (typeof grid != "undefined") {
+          grid.setColumnValues(
+            obj.columnName, 
+            obj.columnValue, 
+            obj.checkCellState
+          );
+          var config = utils.getConfig(obj.id);
+          if (config.dataAsInput === true) {
+            Shiny.setInputValue(obj.id + "_data:datagridEdit", {
+              data: grid.getData(),
+              colnames: config.colnames,
+            });
+          }
+        }
+      }
+    );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-grid-set-row",
+      function (obj) {
+        var grid = utils.getWidget(obj.id);
+        if (typeof grid != "undefined") {
+          grid.setRow(
+            obj.rowKey, 
+            obj.row
+          );
+          var config = utils.getConfig(obj.id);
+          if (config.dataAsInput === true) {
+            Shiny.setInputValue(obj.id + "_data:datagridEdit", {
+              data: grid.getData(),
+              colnames: config.colnames,
+            });
+          }
+        }
       }
     );
     Shiny.addCustomMessageHandler(
@@ -41,7 +89,7 @@ export function ProxyGrid() {
       function (obj) {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
-          const idx = obj.data.index;
+          const idx = obj.data.rowKey;
           for (let i = 0; i < idx.length; i += 1) {
             //console.log(idx[i]);
             //console.log(grid);

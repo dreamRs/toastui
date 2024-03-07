@@ -97,7 +97,7 @@ grid_proxy_delete_row <- function(proxy, rowKey) {
   .call_proxy(
     proxy = proxy,
     name = "grid-delete-rows",
-    index = list1(as.numeric(rowKey))
+    rowKey = list1(as.numeric(rowKey))
   )
 }
 
