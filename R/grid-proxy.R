@@ -104,7 +104,7 @@ grid_proxy_delete_row <- function(proxy, rowKey) {
 
 
 
-grid_proxy_custom <- function(proxy, method, config) {
+grid_proxy_custom <- function(proxy, method, options) {
   if (is.character(proxy)) {
     proxy <- datagrid_proxy(proxy)
   }
@@ -112,6 +112,6 @@ grid_proxy_custom <- function(proxy, method, config) {
     proxy = proxy,
     name = "grid-custom",
     method = method,
-    config = config
+    options = options
   )
 }

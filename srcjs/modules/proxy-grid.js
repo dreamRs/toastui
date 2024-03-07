@@ -8,7 +8,7 @@ export function ProxyGrid() {
       function (obj) {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
-          grid[obj.method].apply(null, obj.config);
+          grid[obj.data.method].apply(null, obj.data.options);
           var config = utils.getConfig(obj.id);
           if (config.dataAsInput === true) {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
@@ -25,9 +25,9 @@ export function ProxyGrid() {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
           grid.setColumnValues(
-            obj.columnName, 
-            obj.columnValue, 
-            obj.checkCellState
+            obj.data.columnName, 
+            obj.data.columnValue, 
+            obj.data.checkCellState
           );
           var config = utils.getConfig(obj.id);
           if (config.dataAsInput === true) {
@@ -45,8 +45,8 @@ export function ProxyGrid() {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
           grid.setRow(
-            obj.rowKey, 
-            obj.row
+            obj.data.rowKey, 
+            obj.data.row
           );
           var config = utils.getConfig(obj.id);
           if (config.dataAsInput === true) {
