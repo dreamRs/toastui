@@ -14,6 +14,7 @@ import { DatagridFormatRenderer } from "../modules/grid-renderer-format";
 import { DatagridHTMLWidgetsRenderer } from "../modules/grid-renderer-htmlwidgets";
 import { DatagridButtonRenderer } from "../modules/grid-renderer-button";
 import { DatagridRadioRenderer } from "../modules/grid-renderer-radio";
+import { DatagridCheckboxRenderer } from "../modules/grid-renderer-checkbox";
 import { DatagridSliderRenderer } from "../modules/grid-renderer-slider";
 import { DatagridRowNamesRenderer } from "../modules/grid-renderer-rownames";
 export const renderer = {
@@ -22,6 +23,7 @@ export const renderer = {
   htmlwidgets: DatagridHTMLWidgetsRenderer,
   button: DatagridButtonRenderer,
   radio: DatagridRadioRenderer,
+  checkbox: DatagridCheckboxRenderer,
   slider: DatagridSliderRenderer,
   rownames: DatagridRowNamesRenderer,
 };

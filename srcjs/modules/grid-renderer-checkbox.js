@@ -1,7 +1,8 @@
-class DatagridCheckboxRenderer {
+export class DatagridCheckboxRenderer {
   constructor(props) {
     const el = document.createElement("div");
-    el.className = "form-check form-switch d-flex justify-content-center my-1";
+    const classEl = props.columnInfo.renderer.options.class;
+    el.className = classEl;
     const input = document.createElement("input");
     const { grid, rowKey, columnInfo } = props;
     const checked = Boolean(props.value);
@@ -20,11 +21,11 @@ class DatagridCheckboxRenderer {
     this.el = el;
     this.render(props);
   }
-  
+
   getElement() {
     return this.el;
   }
-  
+
   render(props) {
     //const checked = Boolean(props.value);
     //this.el.checked = checked;

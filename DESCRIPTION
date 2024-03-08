@@ -23,6 +23,7 @@ Imports:
     shinyWidgets
 Suggests: 
     apexcharter,
+    bslib,
     knitr,
     rmarkdown,
     scales, 

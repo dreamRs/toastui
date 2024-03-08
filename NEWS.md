@@ -1,3 +1,8 @@
+# toastui 0.3.3
+
+* New function `grid_col_checkbox()` to add checkboxes into a column.
+
+
 # toastui 0.3.2
 
 * Updated tui-grid to 4.21.22.
