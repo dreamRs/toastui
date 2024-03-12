@@ -27,7 +27,7 @@ server <- function(input, output, session) {
     datagrid(list(
       "Variable 1" = 1:10,
       "Variable 2" = LETTERS[1:10]
-    ), draggable = TRUE)
+    ), draggable = TRUE, data_as_input = TRUE)
   })
 
   output$drag <- renderPrint({

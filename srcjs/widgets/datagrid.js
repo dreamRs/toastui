@@ -198,6 +198,12 @@ HTMLWidgets.widget({
             data: grid.getData(),
             colnames: x.colnames,
           }, {priority: "event"});
+          grid.on("afterSort", function (ev) {
+            Shiny.setInputValue(el.id + "_data:datagridEdit", {
+              data: ev.instance.getData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+          });
           if (x.validationInput === true) {
             Shiny.setInputValue(
               el.id + "_validation:datagridValidation",
