@@ -1,15 +1,24 @@
 export class DatagridSliderRenderer {
   constructor(props) {
-    const el = document.createElement("input");
-    const { min, max } = props.columnInfo.renderer.options;
+    const el = document.createElement("div");
+    const { min, max, step } = props.columnInfo.renderer.options;
 
-    el.type = "range";
-    el.min = String(min);
-    el.max = String(max);
-    el.style.width = "100%";
-    el.value = String(props.value);
-    el.disabled = true;
+    const input = document.createElement("input");
+    input.type = "range";
+    input.className = "form-range";
+    input.min = String(min);
+    input.max = String(max);
+    input.step = String(step);
+    input.style.width = "100%";
+    input.value = String(props.value);
+    //el.disabled = true;
 
+    input.addEventListener("input", (event) => {
+      grid.setValue(rowKey, columnInfo.name, event.target.value);
+      event.preventDefault();
+    });
+
+    el.appendChild(input);
     this.el = el;
     this.render(props);
   }
@@ -19,6 +28,6 @@ export class DatagridSliderRenderer {
   }
 
   render(props) {
-    this.el.value = String(props.value);
+    //this.el.value = String(props.value);
   }
 }
