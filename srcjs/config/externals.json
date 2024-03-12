@@ -1,5 +1,6 @@
 {
   "widgets": "HTMLWidgets",
   "shiny": "Shiny",
-  "3": "jQuery"
+  "3": "jQuery",
+  "xlsx": "writeFileXLSX"
 }
