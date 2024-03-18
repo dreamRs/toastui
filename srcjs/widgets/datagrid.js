@@ -225,6 +225,8 @@ HTMLWidgets.widget({
               console.log("datagrid editor updateOnClick: could not find ID.");
             } else {
               editButton.addEventListener("click", function (event) {
+                grid.finishEditing();
+                grid.blur();
                 Shiny.setInputValue(el.id + "_data:datagridEdit", {
                   data: grid.getData(),
                   colnames: x.colnames,
