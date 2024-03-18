@@ -20,6 +20,7 @@
 #'  Can also be a list of custom options, see [tui-grid documentation](https://nhn.github.io/tui.grid/latest/tutorial-example27-export/)
 #'  for examples.
 #' @param datepicker_locale Custome locale texts for datepicker editor, see example in [grid_editor_date()].
+#' @param guess_colwidths_opts Options when `colwidths = "guess"`, see [guess_colwidths_options()].
 #' @param width,height Width and height of the table in a CSS unit or a numeric.
 #' @param elementId Use an explicit element ID for the widget.
 #'
@@ -46,6 +47,7 @@ datagrid <- function(data = list(),
                      data_as_input = FALSE,
                      contextmenu = FALSE,
                      datepicker_locale = NULL,
+                     guess_colwidths_opts = guess_colwidths_options(),
                      width = NULL,
                      height = NULL,
                      elementId = NULL) {
@@ -173,7 +175,11 @@ datagrid <- function(data = list(),
       grid = widget,
       minWidth = nchar_cols(
         data = data,
-        add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10
+        add_header = isTRUE(sortable) * 10 + isTRUE(filters) * 10,
+        min_width = guess_colwidths_opts$min_width,
+        max_width = guess_colwidths_opts$max_width,
+        mul = guess_colwidths_opts$mul,
+        add = guess_colwidths_opts$add
       ),
       whiteSpace = "normal",
       renderer = list(
@@ -218,3 +224,29 @@ datagrid_html <- function(id, style, class, ...) {
   )
 }
 
+
+#' Options for guessing columns widths
+#'
+#' @param min_width Minimal width.
+#' @param max_width Maximal width.
+#' @param mul Multiplicative constant.
+#' @param add Additive constant
+#'
+#' @return a `list` of options to use in [datagrid()].
+#' @export
+#'
+#' @examples
+#' datagrid(rolling_stones_50, colwidths = "guess")
+#' datagrid(
+#'   rolling_stones_50,
+#'   colwidths = "guess",
+#'   guess_colwidths_opts= guess_colwidths_options(mul = 2)
+#' )
+guess_colwidths_options <- function(min_width = 70, max_width = 400, mul = 1, add = 0) {
+  list(
+    min_width = min_width,
+    max_width = max_width,
+    mul = mul,
+    add = add
+  )
+}

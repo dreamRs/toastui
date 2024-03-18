@@ -165,11 +165,11 @@ maxnchar <- function(x) {
     max(nchar(as.character(x), keepNA = FALSE), na.rm = TRUE)
   }
 }
-nchar_cols <- function(data, min_width = 70, add_header = 12) {
+nchar_cols <- function(data, min_width = 70, max_width = 400, mul = 1, add = 0, add_header = 12) {
   cols <- vapply(data, maxnchar, numeric(1))
   colsnms <- ceiling(nchar(names(data), keepNA = FALSE) * 1.3) + add_header
-  widths <- pmax(cols, colsnms)
-  pmin(pmax(min_width, widths * 4), 500)
+  widths <- pmax(cols, colsnms) * 4
+  pmin(pmax(min_width, widths * mul + add), max_width)
 }
 
 

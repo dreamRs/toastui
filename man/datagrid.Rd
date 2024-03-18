@@ -18,6 +18,7 @@ datagrid(
   data_as_input = FALSE,
   contextmenu = FALSE,
   datepicker_locale = NULL,
+  guess_colwidths_opts = guess_colwidths_options(),
   width = NULL,
   height = NULL,
   elementId = NULL
@@ -53,6 +54,8 @@ Can also be a list of custom options, see \href{https://nhn.github.io/tui.grid/l
 for examples.}
 
 \item{datepicker_locale}{Custome locale texts for datepicker editor, see example in \code{\link[=grid_editor_date]{grid_editor_date()}}.}
+
+\item{guess_colwidths_opts}{Options when \code{colwidths = "guess"}, see \code{\link[=guess_colwidths_options]{guess_colwidths_options()}}.}
 
 \item{width, height}{Width and height of the table in a CSS unit or a numeric.}
 
