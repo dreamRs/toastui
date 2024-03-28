@@ -55,12 +55,12 @@ renderCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' @inheritParams renderCalendar
 #'
 #' @return Output element that can be included in UI. Render function to create output in server.
-#' 
+#'
 #' @details # Special inputs
 #' The following `input` values will be accessible in the server:
 #' * **input$outputId_data** : contain the data displayed in grid, only available when `datagrid(data_as_input = TRUE)` or when using [grid_editor()]
 #' * **input$outputId_validation** : contain results of validation rules applied to data, only available when using `validation` argument in [grid_editor()]
-#' 
+#'
 #' These other inputs can be defined using other functions:
 #' * *row selection*: giving row selected with checkboxes or radio buttons in `inputId` defined in [grid_selection_row()]
 #' * *cell selection*: giving cell selected with mouse in `inputId` defined in [grid_selection_cell()]
@@ -84,6 +84,18 @@ renderDatagrid <- function(expr, env = parent.frame(), quoted = FALSE) {
   shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
 }
 
+#' @rdname datagrid-shiny
+#' @export
+renderDatagrid2 <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  shinyRenderWidget(expr, datagridOutput2, env, quoted = TRUE)
+}
+
+#' @rdname datagrid-shiny
+#' @export
+datagridOutput2 <- function(outputId, width = "100%", height = "auto") {
+  shinyWidgetOutput(outputId, "datagrid", width, height, package = "toastui", inline = FALSE)
+}
 
 
 

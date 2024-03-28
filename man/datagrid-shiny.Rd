@@ -4,11 +4,17 @@
 \alias{datagrid-shiny}
 \alias{datagridOutput}
 \alias{renderDatagrid}
+\alias{renderDatagrid2}
+\alias{datagridOutput2}
 \title{Shiny bindings for \code{\link[=datagrid]{datagrid()}}}
 \usage{
 datagridOutput(outputId, width = "100\%", height = "400px")
 
 renderDatagrid(expr, env = parent.frame(), quoted = FALSE)
+
+renderDatagrid2(expr, env = parent.frame(), quoted = FALSE)
+
+datagridOutput2(outputId, width = "100\%", height = "auto")
 }
 \arguments{
 \item{outputId}{Output variable to read from.}
