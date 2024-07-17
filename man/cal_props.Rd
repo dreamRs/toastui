@@ -23,23 +23,21 @@ Define calendar properties for grouping schedules under common theme.
 library(toastui)
 
 # Define theme for schedules
-calendar(cal_demo_data()) \%>\%
+calendar(cal_demo_data()[, -c(9, 10, 11)]) \%>\%
   cal_props(
     list(
-      id = 1,
+      id = "1",
       name = "PERSO",
-      color = "white",
-      bgColor = "steelblue",
-      borderColor = "steelblue"
+      color = "lightblue",
+      backgroundColor = "purple",
+      borderColor = "magenta"
     ),
     list(
-      id = 2,
+      id = "2",
       name = "WORK",
-      color = "white",
-      bgColor = "forestgreen",
-      borderColor = "forestgreen"
+      color = "red",
+      backgroundColor = "yellow",
+      borderColor = "orange"
     )
   )
-
-
 }
