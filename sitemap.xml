@@ -1,225 +1,77 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://dreamrs.github.io/toastui/404.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/calendar.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/chart.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/extras/grid.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/articles/toastui.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/caes.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal-demo-data.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_events.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_month_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_props.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_proxy_clear.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_proxy_clear_selection.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_proxy_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_proxy_toggle.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_proxy_view.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_schedules.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_template.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_theme.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_timezone.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/cal_week_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar-shiny.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar_properties.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/calendar_proxy.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/chart-shiny.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/chart.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/chart_labs.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/chart_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/countries.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/datagrid-shiny.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/datagrid-theme.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/datagrid.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/datagrid_proxy.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid-cell-style.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid-editor.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid-header.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_click.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_col_button.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_col_checkbox.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_colorbar.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_columns.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_columns_opts.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_editor_date.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_filters.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_format.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_proxy_add_row.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_proxy_delete_row.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_row_merge.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_selection_cell.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_selection_row.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_sparkline.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_style_column.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_style_row.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/grid_summary.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/guess_colwidths_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/met_paris.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/navigation_options.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/ps3_games.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/rolling_stones_50.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/rolling_stones_500.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/schedules_properties.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/set_grid_lang.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/toastui-exports.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/toastui.html</loc>
-  </url>
-  <url>
-    <loc>https://dreamrs.github.io/toastui/reference/validateOpts.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://dreamrs.github.io/toastui/404.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/LICENSE-text.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/LICENSE.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/articles/extras/calendar.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/articles/extras/chart.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/articles/extras/grid.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/articles/index.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/articles/toastui.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/authors.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/index.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/news/index.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/caes.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal-demo-data.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_events.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_month_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_props.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_proxy_clear.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_proxy_clear_selection.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_proxy_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_proxy_toggle.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_proxy_view.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_schedules.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_template.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_theme.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_timezone.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/cal_week_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar-shiny.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar_properties.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/calendar_proxy.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/chart-shiny.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/chart.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/chart_labs.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/chart_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/countries.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/datagrid-shiny.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/datagrid-theme.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/datagrid.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/datagrid_proxy.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid-cell-style.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid-editor.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid-header.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_click.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_col_button.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_col_checkbox.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_colorbar.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_columns.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_columns_opts.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_editor_date.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_filters.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_format.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_proxy_add_row.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_proxy_delete_row.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_row_merge.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_selection_cell.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_selection_row.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_sparkline.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_style_column.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_style_row.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/grid_summary.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/guess_colwidths_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/index.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/met_paris.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/navigation_options.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/ps3_games.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/rolling_stones_50.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/rolling_stones_500.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/schedules_properties.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/set_grid_lang.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/toastui-exports.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/toastui.html</loc></url>
+<url><loc>https://dreamrs.github.io/toastui/reference/validateOpts.html</loc></url>
 </urlset>
+
