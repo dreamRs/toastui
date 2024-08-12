@@ -81,7 +81,8 @@ datagrid <- function(data = list(),
       }
     ),
     bodyHeight = "fitToParent",
-    draggable = draggable
+    draggable = draggable,
+    usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
   )
 
   options <- modifyList(x = options, val = list(...), keep.null = FALSE)

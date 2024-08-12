@@ -55,6 +55,8 @@ chart <- function(data = list(),
   if (is.null(options$yAxis$title) & !is.null(mapping$y)) {
     options$yAxis$title <- as_label(mapping$y)
   }
+  if (is.null(options$usageStatistics))
+    options$usageStatistics = getOption("toastuiUsageStatistics", default = FALSE)
   createWidget(
     name = "chart",
     x = list(

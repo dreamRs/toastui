@@ -1,7 +1,15 @@
+# toastui 0.3.4
+
+* Updated `cal_props()` example.
+* Turn off `usageStatistics` option for `datagrid()` and `chart()` (same as for `calendar()`).
+
+
+
 # toastui 0.3.3
 
 * New function `grid_col_checkbox()` to add checkboxes into a column.
 * `datagrid()`: new argument `guess_colwidths_opts` to customize colums widths with function `guess_colwidths_options()`.
+
 
 
 # toastui 0.3.2
