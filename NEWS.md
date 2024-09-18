@@ -2,7 +2,7 @@
 
 * Updated `cal_props()` example.
 * Turn off `usageStatistics` option for `datagrid()` and `chart()` (same as for `calendar()`).
-
+* `datagridOutput()` / `renderDatagrid()` fixed a bug causing table to have a css class `recalculating` added to the outpput element.
 
 
 # toastui 0.3.3

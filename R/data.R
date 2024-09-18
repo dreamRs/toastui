@@ -11,7 +11,7 @@
 #'   \item{Genre}{Genre name}
 #'   \item{Subgenre}{Subgenre name}
 #' }
-#' @source Gibs on Kaggle (\url{https://www.kaggle.com/notgibs/500-greatest-albums-of-all-time-rolling-stone})
+#' @source Gibs on Kaggle (https://www.kaggle.com/datasets/notgibs/500-greatest-albums-of-all-time-rolling-stone/)
 "rolling_stones_500"
 
 #' Rolling Stone's 50 Greatest Albums of All Time
@@ -27,7 +27,7 @@
 #'   \item{Genre}{Genre name}
 #'   \item{Subgenre}{Subgenre name}
 #' }
-#' @source Gibs on Kaggle (\url{https://www.kaggle.com/notgibs/500-greatest-albums-of-all-time-rolling-stone})
+#' @source Gibs on Kaggle (https://www.kaggle.com/datasets/notgibs/500-greatest-albums-of-all-time-rolling-stone/)
 "rolling_stones_50"
 
 
@@ -59,7 +59,7 @@
 #'     \item{\code{Industry}}{a numeric vector}
 #'     \item{\code{Service}}{a numeric vector}
 #'   }
-#' @source fernandol on Kaggle (\url{https://www.kaggle.com/fernandol/countries-of-the-world})
+#' @source fernandol on Kaggle (https://www.kaggle.com/datasets/fernandol/countries-of-the-world/)
 "countries"
 
 
@@ -79,7 +79,7 @@
 #'   \item{JP_Sales}{Sales in Japan (in millions)}
 #'   \item{Other_Sales}{Sales in the rest of the world (in millions)}
 #' }
-#' @source GregorySmith on Kaggle (\url{https://www.kaggle.com/gregorut/videogamesales})
+#' @source GregorySmith on Kaggle (https://www.kaggle.com/datasets/gregorut/videogamesales/)
 "ps3_games"
 
 

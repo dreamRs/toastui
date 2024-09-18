@@ -30,7 +30,7 @@ A \code{data.frame} with 227 rows and 20 variables:
 }
 }
 \source{
-fernandol on Kaggle (\url{https://www.kaggle.com/fernandol/countries-of-the-world})
+fernandol on Kaggle (https://www.kaggle.com/datasets/fernandol/countries-of-the-world/)
 }
 \usage{
 countries

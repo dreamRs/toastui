@@ -30,7 +30,7 @@ library(toastui)
 
 Create interactive tables with lot of options to customize content and that you can edit in Shiny applications.
 
-```{r grid}
+```
 datagrid(rolling_stones_50)
 ```
 
@@ -44,7 +44,7 @@ datagrid(rolling_stones_50)
 
 Create interactive calendars that you can navigate and display schedules. In Shiny you can add, update or delete schedules.
 
-```{r calendar}
+```
 calendar(cal_demo_data())
 ```
 
@@ -58,7 +58,7 @@ calendar(cal_demo_data())
 
 Create interactive charts:
 
-```{r chart}
+```
 chart(mtcars, caes(mpg, disp, color = cyl), type = "scatter")
 ```
 

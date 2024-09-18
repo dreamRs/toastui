@@ -18,7 +18,7 @@ A \code{data.frame} with 20 rows and 8 variables:
 }
 }
 \source{
-GregorySmith on Kaggle (\url{https://www.kaggle.com/gregorut/videogamesales})
+GregorySmith on Kaggle (https://www.kaggle.com/datasets/gregorut/videogamesales/)
 }
 \usage{
 ps3_games

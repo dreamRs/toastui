@@ -16,7 +16,7 @@ A \code{data.frame} with 50 rows and 6 variables:
 }
 }
 \source{
-Gibs on Kaggle (\url{https://www.kaggle.com/notgibs/500-greatest-albums-of-all-time-rolling-stone})
+Gibs on Kaggle (https://www.kaggle.com/datasets/notgibs/500-greatest-albums-of-all-time-rolling-stone/)
 }
 \usage{
 rolling_stones_50
