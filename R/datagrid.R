@@ -219,8 +219,9 @@ datagrid_html <- function(id, style, class, ...) {
     class = class,
     style = style,
     style = "margin-bottom: 15px;",
+    ...,
     tags$div(
-      id = paste0(id, "-container"), class = class, style = style, ...
+      id = paste0(id, "-container")
     )
   )
 }
