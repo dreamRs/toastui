@@ -1,5 +1,7 @@
 
 editor <- function(...,
+                   getMarkdownOnChange = TRUE,
+                   getHTMLOnChange = TRUE,
                    width = NULL,
                    height = NULL,
                    elementId = NULL) {
@@ -9,7 +11,9 @@ editor <- function(...,
       usageStatistics = getOption("toastuiUsageStatistics", default = FALSE),
       height = "100%",
       ...
-    )
+    ),
+    getMarkdownOnChange = isTRUE(getMarkdownOnChange),
+    getHTMLOnChange = isTRUE(getHTMLOnChange)
   )
   
   createWidget(
