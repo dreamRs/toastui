@@ -1,5 +1,6 @@
 {
   "datagrid": "./srcjs/widgets/datagrid.js",
   "chart": "./srcjs/widgets/chart.js",
-  "calendar": "./srcjs/widgets/calendar.js"
+  "calendar": "./srcjs/widgets/calendar.js",
+  "editor": "./srcjs/widgets/editor.js"
 }
