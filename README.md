@@ -1,6 +1,6 @@
 # toastui
 
-> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid/), [Calendar](https://ui.toast.com/tui-calendar/), [Chart](https://ui.toast.com/tui-chart/) and [Editor](https://ui.toast.com/tui-editor).
+> R Htmlwidgets for [TOAST UI](https://ui.toast.com/) JavaScript libraries: [Grid](https://ui.toast.com/tui-grid/), [Calendar](https://ui.toast.com/tui-calendar/), [Chart](https://ui.toast.com/tui-chart/) and [Editor](https://ui.toast.com/tui-editor/).
 
 <!-- badges: start -->
 [![version](https://www.r-pkg.org/badges/version/toastui)](https://CRAN.R-project.org/package=toastui)

@@ -14,7 +14,7 @@ editor(
 )
 }
 \arguments{
-\item{...}{Options for the editor, see examples or \href{https://nhn.github.io/tui.editor/latest/ToastUIEditorCore}{online reference}.}
+\item{...}{Options for the editor, see examples or \href{https://nhn.github.io/tui.editor/latest/ToastUIEditorCore/}{online reference}.}
 
 \item{getMarkdownOnChange, getHTMLOnChange}{Get editor's content in Shiny application through an input value : \verb{input$<outputId>_(markdown|html)}.}
 
