@@ -1,4 +1,15 @@
 
+#' Create an interactive editor
+#'
+#' @param ... Options for the editor, see examples or [online reference](https://nhn.github.io/tui.editor/latest/ToastUIEditorCore).
+#' @param getMarkdownOnChange,getHTMLOnChange Get editor's content in Shiny application through an input value : `input$<outputId>_(markdown|html)`.
+#' @param height,width Height and width for the chart.
+#' @param elementId An optional id.
+#'
+#' @returns An `editor` htmlwidget.
+#' @export
+#'
+#' @example examples/ex-editor.R
 editor <- function(...,
                    getMarkdownOnChange = TRUE,
                    getHTMLOnChange = TRUE,

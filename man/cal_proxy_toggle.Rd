@@ -62,8 +62,8 @@ server <- function(input, output, session) {
 
   # With checkbox
   observeEvent(input$calendarId, {
-    cal_proxy_toggle("cal", input$calendarId, toHide = FALSE)
-    cal_proxy_toggle("cal", setdiff(1:3, input$calendarId), toHide = TRUE)
+    cal_proxy_toggle("cal", input$calendarId, toHide = TRUE)
+    cal_proxy_toggle("cal", setdiff(1:3, input$calendarId), toHide = FALSE)
   }, ignoreInit = TRUE, ignoreNULL = FALSE)
   
   # With buttons
