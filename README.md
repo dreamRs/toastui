@@ -56,6 +56,12 @@ Interactive charts:
 ![](man/figures/chart-treemap.png)
 
 
+## Editor
+
+Interactive Markdown WYSIWYG Editor:
+
+![](man/figures/editor.png)
+
 
 ## Development
 

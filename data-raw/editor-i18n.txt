@@ -1,0 +1,24 @@
+| Language Name              | i18n File | Registered Code |
+| -------------------------- | --------- | --------------- |
+| Arabic                     | ar.js     | `ar`            |
+| Chinese (S)                | zh-cn.js  | `zh-CN`         |
+| Chinese (T)                | zh-tw.js  | `zh-TW`         |
+| Croatian (Croatia)         | hr-hr.js  | `hr` or `hr-HR` |
+| Czech (Czech Republic)     | cs-cz.js  | `cs` or `cs-CZ` |
+| Dutch (Netherlands)        | nl-nl.js  | `nl` or `nl-NL` |
+| English (United States)    | en-us.js  | `en` or `en-US` |
+| Finnish (Finland)          | fi-fi.js  | `fi` or `fi-FI` |
+| French (France)            | fr-fr.js  | `fr` or `fr-FR` |
+| Galician (Spain)           | gl-es.js  | `gl` or `gl-ES` |
+| German (Germany)           | de-de.js  | `de` or `de-DE` |
+| Italian (Italy)            | it-it.js  | `it` or `it-IT` |
+| Japanese (Japan)           | ja-jp.js  | `ja` or `ja-JP` |
+| Korean (Korea)             | ko-kr.js  | `ko` or `ko-KR` |
+| Norwegian Bokmål (Norway)  | nb-no.js  | `nb` or `nb-NO` |
+| Polish (Poland)            | pl-pl.js  | `pl` or `pl-PL` |
+| Portuguese (Brazil)        | pt-br.js  | `pt` or `pt-BR` |
+| Russian (Russia)           | ru-ru.js  | `ru` or `ru-RU` |
+| Spanish (Castilian, Spain) | es-es.js  | `es` or `es-ES` |
+| Swedish (Sweden)           | sv-se.js  | `sv` or `sv-SE` |
+| Turkish (Turkey)           | tr-tr.js  | `tr` or `tr-TR` |
+| Ukrainian (Ukraine)        | uk-ua.js  | `uk` or `uk-UA` |

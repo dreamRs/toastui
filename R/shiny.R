@@ -123,5 +123,36 @@ chartOutput <- function(outputId, width = "100%", height = "400px"){
 #' @export
 renderChart <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  shinyRenderWidget(expr, datagridOutput, env, quoted = TRUE)
+  shinyRenderWidget(expr, chartOutput, env, quoted = TRUE)
 }
+
+
+
+
+#' @title Shiny bindings for [editor()]
+#'
+#' @description Output and render functions for using [editor()] within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @inheritParams renderCalendar
+#'
+#' @return Output element that can be included in UI. Render function to create output in server.
+#'
+#' @name editor-shiny
+#'
+#' @importFrom htmlwidgets shinyWidgetOutput shinyRenderWidget
+#'
+#' @export
+#'
+#' @example examples/shiny-editor.R
+editorOutput <- function(outputId, width = "100%", height = "600px"){
+  shinyWidgetOutput(outputId, "editor", width, height, package = "toastui", inline = FALSE)
+}
+
+#' @rdname editor-shiny
+#' @export
+renderEditor <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  shinyRenderWidget(expr, editorOutput, env, quoted = TRUE)
+}
+
