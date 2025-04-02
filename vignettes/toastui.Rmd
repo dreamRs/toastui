@@ -66,3 +66,15 @@ chart(mtcars, caes(mpg, disp, color = cyl), type = "scatter")
 
 &#8680; [See full documentation and interactive examples](https://dreamrs.github.io/toastui/articles/extras/chart.html)
 
+
+
+## Editor
+
+Create interactive Markdown WYSIWYG editor:
+
+```
+editor(previewStyle = "vertical")
+```
+
+![](figures/chart.png)
+
