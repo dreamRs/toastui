@@ -49,3 +49,82 @@ editor_proxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) {
   )
 }
 
+
+#' Change editor's preview style
+#'
+#' @param proxy A [editor_proxy()] or `outputId` of the editor
+#' @param style Style for the editor : 'tab' or 'vertical'.
+#'
+#' @return A `editor_proxy` object.
+#' @export
+#'
+#' @family editor proxy methods
+#'
+#' @example examples/editor-proxy.R
+editor_proxy_change_preview <- function(proxy, style = c("tab", "vertical")) {
+  if (is.character(proxy)) {
+    proxy <- editor_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "editor-change-preview",
+    style = match.arg(style)
+  )
+}
+
+#' Insert text in an editor
+#'
+#' @param proxy A [editor_proxy()] or `outputId` of the editor
+#' @param text Text to insert.
+#'
+#' @return A `editor_proxy` object.
+#' @export
+#'
+#' @family editor proxy methods
+#'
+#' @example examples/editor-proxy.R
+editor_proxy_insert <- function(proxy, text) {
+  if (is.character(proxy)) {
+    proxy <- editor_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "editor-insert-text",
+    text = text
+  )
+}
+
+
+#' @title Show/hide an editor
+#'
+#' @param proxy A [editor_proxy()] `htmlwidget` object.
+#'
+#' @export
+#'
+#' @return A `editor_proxy` object.
+#'
+#' @name editor-proxy-show-hide
+#' @family editor proxy methods
+#'
+#' @example examples/editor-proxy.R
+editor_proxy_show <- function(proxy) {
+  if (is.character(proxy)) {
+    proxy <- editor_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "editor-show"
+  )
+}
+
+#' @export
+#' @rdname editor-proxy-show-hide
+editor_proxy_hide <- function(proxy) {
+  if (is.character(proxy)) {
+    proxy <- editor_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "editor-hide"
+  )
+}
