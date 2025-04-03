@@ -41,6 +41,7 @@ applications and interactive Rmd documents.
 The following \code{input} values will be accessible in the server:
 \itemize{
 \item \strong{input$outputId_data} : contain the data displayed in grid, only available when \code{datagrid(data_as_input = TRUE)} or when using \code{\link[=grid_editor]{grid_editor()}}
+\item \strong{input$outputId_data_filtered} : contain the filtered data displayed in grid, only available when \code{datagrid(data_as_input = TRUE)} or when using \code{\link[=grid_editor]{grid_editor()}}
 \item \strong{input$outputId_validation} : contain results of validation rules applied to data, only available when using \code{validation} argument in \code{\link[=grid_editor]{grid_editor()}}
 }
 

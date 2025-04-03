@@ -59,6 +59,7 @@ renderCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
 #' @details # Special inputs
 #' The following `input` values will be accessible in the server:
 #' * **input$outputId_data** : contain the data displayed in grid, only available when `datagrid(data_as_input = TRUE)` or when using [grid_editor()]
+#' * **input$outputId_data_filtered** : contain the filtered data displayed in grid, only available when `datagrid(data_as_input = TRUE)` or when using [grid_editor()]
 #' * **input$outputId_validation** : contain results of validation rules applied to data, only available when using `validation` argument in [grid_editor()]
 #'
 #' These other inputs can be defined using other functions:

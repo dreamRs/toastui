@@ -14,7 +14,11 @@ export function ProxyGrid() {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
               data: grid.getData(),
               colnames: config.colnames,
-            });
+            }, {priority: "event"});
+            Shiny.setInputValue(obj.id + "_data_filtered:datagridEdit", {
+              data: grid.getFilteredData(),
+              colnames: config.colnames,
+            }, {priority: "event"});
           }
         }
       }
@@ -25,8 +29,8 @@ export function ProxyGrid() {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
           grid.setColumnValues(
-            obj.data.columnName, 
-            obj.data.columnValue, 
+            obj.data.columnName,
+            obj.data.columnValue,
             obj.data.checkCellState
           );
           var config = utils.getConfig(obj.id);
@@ -34,7 +38,11 @@ export function ProxyGrid() {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
               data: grid.getData(),
               colnames: config.colnames,
-            });
+            }, {priority: "event"});
+            Shiny.setInputValue(obj.id + "_data_filtered:datagridEdit", {
+              data: grid.getFilteredData(),
+              colnames: config.colnames,
+            }, {priority: "event"});
           }
         }
       }
@@ -45,7 +53,7 @@ export function ProxyGrid() {
         var grid = utils.getWidget(obj.id);
         if (typeof grid != "undefined") {
           grid.setRow(
-            obj.data.rowKey, 
+            obj.data.rowKey,
             obj.data.row
           );
           var config = utils.getConfig(obj.id);
@@ -53,7 +61,11 @@ export function ProxyGrid() {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
               data: grid.getData(),
               colnames: config.colnames,
-            });
+            }, {priority: "event"});
+            Shiny.setInputValue(obj.id + "_data_filtered:datagridEdit", {
+              data: grid.getFilteredData(),
+              colnames: config.colnames,
+            }, {priority: "event"});
           }
         }
       }
@@ -79,7 +91,11 @@ export function ProxyGrid() {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
               data: grid.getData(),
               colnames: config.colnames,
-            });
+            }, {priority: "event"});
+            Shiny.setInputValue(obj.id + "_data_filtered:datagridEdit", {
+              data: grid.getFilteredData(),
+              colnames: config.colnames,
+            }, {priority: "event"});
           }
         }
       }
@@ -100,7 +116,11 @@ export function ProxyGrid() {
             Shiny.setInputValue(obj.id + "_data:datagridEdit", {
               data: grid.getData(),
               colnames: config.colnames,
-            });
+            }, {priority: "event"});
+            Shiny.setInputValue(obj.id + "_data_filtered:datagridEdit", {
+              data: grid.getFilteredData(),
+              colnames: config.colnames,
+            }, {priority: "event"});
           }
         }
       }

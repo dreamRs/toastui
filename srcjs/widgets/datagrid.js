@@ -199,9 +199,47 @@ HTMLWidgets.widget({
             data: grid.getData(),
             colnames: x.colnames,
           }, {priority: "event"});
+          Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+            data: grid.getFilteredData(),
+            colnames: x.colnames,
+          }, {priority: "event"});
           grid.on("afterSort", function (ev) {
             Shiny.setInputValue(el.id + "_data:datagridEdit", {
               data: ev.instance.getData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+            Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+              data: ev.instance.getFilteredData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+          });
+          grid.on("afterUnsort", function (ev) {
+            Shiny.setInputValue(el.id + "_data:datagridEdit", {
+              data: ev.instance.getData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+            Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+              data: ev.instance.getFilteredData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+          });
+          grid.on("afterFilter", function (ev) {
+            Shiny.setInputValue(el.id + "_data:datagridEdit", {
+              data: ev.instance.getData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+            Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+              data: ev.instance.getFilteredData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+          });
+          grid.on("afterUnfilter", function (ev) {
+            Shiny.setInputValue(el.id + "_data:datagridEdit", {
+              data: ev.instance.getData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
+            Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+              data: ev.instance.getFilteredData(),
               colnames: x.colnames,
             }, {priority: "event"});
           });
@@ -224,11 +262,15 @@ HTMLWidgets.widget({
             if (editButton === null) {
               console.log("datagrid editor updateOnClick: could not find ID.");
             } else {
-              editButton.addEventListener("click", function (event) {
-                grid.finishEditing();
-                grid.blur();
+              editButton.addEventListener("click", function (ev) {
+                ev.instance.finishEditing();
+                ev.instance.blur();
                 Shiny.setInputValue(el.id + "_data:datagridEdit", {
-                  data: grid.getData(),
+                  data: ev.instance.getData(),
+                  colnames: x.colnames,
+                }, {priority: "event"});
+                Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+                  data: ev.instance.getFilteredData(),
                   colnames: x.colnames,
                 }, {priority: "event"});
               });
@@ -237,6 +279,10 @@ HTMLWidgets.widget({
             grid.on("afterChange", function (ev) { //editingFinish
               Shiny.setInputValue(el.id + "_data:datagridEdit", {
                 data: ev.instance.getData(),
+                colnames: x.colnames,
+              }, {priority: "event"});
+              Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+                data: ev.instance.getFilteredData(),
                 colnames: x.colnames,
               }, {priority: "event"});
             });
@@ -262,6 +308,10 @@ HTMLWidgets.widget({
               data: ev.instance.getData(),
               colnames: x.colnames,
             }, {priority: "event"});
+            Shiny.setInputValue(el.id + "_data_filtered:datagridEdit", {
+              data: ev.instance.getFilteredData(),
+              colnames: x.colnames,
+            }, {priority: "event"});
           });
         }
       },
@@ -274,7 +324,6 @@ HTMLWidgets.widget({
       },
 
       resize: function (width, height) {
-        // TODO: code to re-render the widget with a new size
         if (typeof grid !== "undefined") {
           grid.refreshLayout();
         }

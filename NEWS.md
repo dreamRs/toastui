@@ -1,6 +1,8 @@
 # toastui 0.4.0
 
 * New htmlwidget `editor()`, a Markdown WYSIWYG Editor (https://ui.toast.com/tui-editor).
+* New input `input$<outputId>_data_filtered` in `datagrid()` to get filtered data displayed in table.
+
 
 
 # toastui 0.3.4
@@ -8,6 +10,7 @@
 * Updated `cal_props()` example.
 * Turn off `usageStatistics` option for `datagrid()` and `chart()` (same as for `calendar()`).
 * `datagridOutput()` / `renderDatagrid()` fixed a bug causing table to have a css class `recalculating` added to the outpput element.
+
 
 
 # toastui 0.3.3
