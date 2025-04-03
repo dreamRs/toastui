@@ -1,11 +1,11 @@
 Package: toastui
 Title: Interactive Tables, Calendars and Charts for the Web
-Version: 0.3.4.9000
+Version: 0.4.0
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre", "cph")),
   person("Fanny", "Meyer", role = "aut"),
   person("NHN FE Development Lab", role = "cph", comment = "tui-grid, tui-calendar, tui-chart libraries"))
-Description: Create interactive tables, calendars and charts with 'TOAST UI' <https://ui.toast.com/> libraries to
+Description: Create interactive tables, calendars, charts and markdown WYSIWYG editor with 'TOAST UI' <https://ui.toast.com/> libraries to
   integrate in 'shiny' applications or 'rmarkdown' 'HTML' documents.
 License: MIT + file LICENSE
 Encoding: UTF-8

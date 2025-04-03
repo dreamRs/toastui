@@ -4,8 +4,8 @@
 
 <!-- badges: start -->
 [![version](https://www.r-pkg.org/badges/version/toastui)](https://CRAN.R-project.org/package=toastui)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/dreamRs/toastui/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dreamRs/toastui/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 
