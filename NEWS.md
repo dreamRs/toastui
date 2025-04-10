@@ -1,3 +1,8 @@
+# toastui 0.4.1
+
+* Added proxy method `editor_proxy_reset()` to reset an editor.
+
+
 # toastui 0.4.0
 
 * New htmlwidget `editor()`, a Markdown WYSIWYG Editor (https://ui.toast.com/tui-editor).

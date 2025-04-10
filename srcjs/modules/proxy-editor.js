@@ -39,5 +39,14 @@ export function ProxyEditor() {
         }
       }
     );
+    Shiny.addCustomMessageHandler(
+      "proxy-toastui-editor-reset",
+      function (obj) {
+        var editor = utils.getWidget(obj.id);
+        if (typeof editor != "undefined") {
+          editor.reset();
+        }
+      }
+    );
   }
 }

@@ -94,6 +94,26 @@ editor_proxy_insert <- function(proxy, text) {
   )
 }
 
+#' Reset an editor
+#'
+#' @param proxy A [editor_proxy()] or `outputId` of the editor
+#'
+#' @return A `editor_proxy` object.
+#' @export
+#'
+#' @family editor proxy methods
+#'
+#' @example examples/editor-proxy.R
+editor_proxy_reset <- function(proxy) {
+  if (is.character(proxy)) {
+    proxy <- editor_proxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "editor-reset"
+  )
+}
+
 
 #' @title Show/hide an editor
 #'

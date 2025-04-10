@@ -34,7 +34,7 @@ ui <- fluidPage(
       ),
       checkboxInput(
         inputId = "showhide",
-        label = "Show/hide editor", 
+        label = "Show/hide editor",
         value = TRUE
       ),
       textInput(
@@ -42,7 +42,9 @@ ui <- fluidPage(
         label = "Text to insert:",
         width = "100\%"
       ),
-      actionButton("insert", "Insert text")
+      actionButton("insert", "Insert text", width = "100\%"),
+      tags$br(), tags$br(),
+      actionButton("reset", "Reset", width = "100\%")
     ),
     column(
       width = 8,
@@ -52,15 +54,15 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
+
   output$my_editor <- renderEditor({
     editor()
   })
-  
+
   observeEvent(input$changePreviewStyle, {
     editor_proxy_change_preview("my_editor", input$changePreviewStyle)
   }, ignoreInit = TRUE)
-  
+
   observeEvent(input$showhide, {
     if (input$showhide) {
       editor_proxy_show("my_editor")
@@ -68,11 +70,15 @@ server <- function(input, output, session) {
       editor_proxy_hide("my_editor")
     }
   }, ignoreInit = TRUE)
-  
+
   observeEvent(input$insert, {
     editor_proxy_insert("my_editor", text = input$text)
   })
-  
+
+  observeEvent(input$reset, {
+    editor_proxy_reset("my_editor")
+  })
+
 }
 
 if (interactive())
@@ -82,6 +88,7 @@ if (interactive())
 Other editor proxy methods: 
 \code{\link{editor-proxy-show-hide}},
 \code{\link{editor_proxy}()},
-\code{\link{editor_proxy_change_preview}()}
+\code{\link{editor_proxy_change_preview}()},
+\code{\link{editor_proxy_reset}()}
 }
 \concept{editor proxy methods}

@@ -42,6 +42,7 @@ cal_proxy_today("my_editor")
 Other editor proxy methods: 
 \code{\link{editor-proxy-show-hide}},
 \code{\link{editor_proxy_change_preview}()},
-\code{\link{editor_proxy_insert}()}
+\code{\link{editor_proxy_insert}()},
+\code{\link{editor_proxy_reset}()}
 }
 \concept{editor proxy methods}
