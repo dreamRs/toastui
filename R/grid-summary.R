@@ -39,7 +39,8 @@ grid_summary <- function(grid,
         label = label,
         sep = sep,
         position = position,
-        height = height
+        height = height,
+        js_function = js_function
       )
     }
     return(grid)
