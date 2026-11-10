@@ -1,0 +1,245 @@
+# Package index
+
+## All functions
+
+- [`caes()`](https://dreamrs.github.io/toastui/reference/caes.md) :
+  Construct aesthetic mappings
+
+- [`cal_demo_data()`](https://dreamrs.github.io/toastui/reference/cal-demo-data.md)
+  [`cal_demo_props()`](https://dreamrs.github.io/toastui/reference/cal-demo-data.md)
+  : Calendar demo data
+
+- [`cal_events()`](https://dreamrs.github.io/toastui/reference/cal_events.md)
+  : Calendar custom JavaScript events
+
+- [`cal_month_options()`](https://dreamrs.github.io/toastui/reference/cal_month_options.md)
+  : Calendar Month Options
+
+- [`cal_props()`](https://dreamrs.github.io/toastui/reference/cal_props.md)
+  : Calendar properties
+
+- [`cal_proxy_clear()`](https://dreamrs.github.io/toastui/reference/cal_proxy_clear.md)
+  : Clear calendar with Proxy
+
+- [`cal_proxy_clear_selection()`](https://dreamrs.github.io/toastui/reference/cal_proxy_clear_selection.md)
+  : Clear selection from calendar with Proxy
+
+- [`cal_proxy_options()`](https://dreamrs.github.io/toastui/reference/cal_proxy_options.md)
+  : Set calendar's options with Proxy
+
+- [`cal_proxy_toggle()`](https://dreamrs.github.io/toastui/reference/cal_proxy_toggle.md)
+  : Toggle schedules visibility with Proxy
+
+- [`cal_proxy_view()`](https://dreamrs.github.io/toastui/reference/cal_proxy_view.md)
+  : Change calendar view with Proxy
+
+- [`cal_schedules()`](https://dreamrs.github.io/toastui/reference/cal_schedules.md)
+  : Add schedules to calendar
+
+- [`cal_template()`](https://dreamrs.github.io/toastui/reference/cal_template.md)
+  : Set template for a calendar
+
+- [`cal_theme()`](https://dreamrs.github.io/toastui/reference/cal_theme.md)
+  : Calendar theme options
+
+- [`cal_timezone()`](https://dreamrs.github.io/toastui/reference/cal_timezone.md)
+  : Calendar Timezone
+
+- [`cal_week_options()`](https://dreamrs.github.io/toastui/reference/cal_week_options.md)
+  : Calendar Week Options
+
+- [`cal_proxy_next()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.md)
+  [`cal_proxy_prev()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.md)
+  [`cal_proxy_today()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.md)
+  [`cal_proxy_date()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-navigate.md)
+  : Navigate into a calendar with Proxy
+
+- [`cal_proxy_add()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.md)
+  [`cal_proxy_delete()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.md)
+  [`cal_proxy_update()`](https://dreamrs.github.io/toastui/reference/calendar-proxy-schedule.md)
+  : Create / Update / Delete schedule(s) with Proxy
+
+- [`calendarOutput()`](https://dreamrs.github.io/toastui/reference/calendar-shiny.md)
+  [`renderCalendar()`](https://dreamrs.github.io/toastui/reference/calendar-shiny.md)
+  :
+
+  Shiny bindings for
+  [`calendar()`](https://dreamrs.github.io/toastui/reference/calendar.md)
+
+- [`calendar()`](https://dreamrs.github.io/toastui/reference/calendar.md)
+  : Create an interactive calendar
+
+- [`calendar_properties`](https://dreamrs.github.io/toastui/reference/calendar_properties.md)
+  : Calendar properties
+
+- [`calendar_proxy()`](https://dreamrs.github.io/toastui/reference/calendar_proxy.md)
+  : Proxy for calendar htmlwidget
+
+- [`chartOutput()`](https://dreamrs.github.io/toastui/reference/chart-shiny.md)
+  [`renderChart()`](https://dreamrs.github.io/toastui/reference/chart-shiny.md)
+  :
+
+  Shiny bindings for
+  [`chart()`](https://dreamrs.github.io/toastui/reference/chart.md)
+
+- [`chart()`](https://dreamrs.github.io/toastui/reference/chart.md) :
+  Interactive charts
+
+- [`chart_labs()`](https://dreamrs.github.io/toastui/reference/chart_labs.md)
+  : Chart labs
+
+- [`chart_options()`](https://dreamrs.github.io/toastui/reference/chart_options.md)
+  : Chart options
+
+- [`countries`](https://dreamrs.github.io/toastui/reference/countries.md)
+  : Information on population, region, area size, infant mortality and
+  more.
+
+- [`datagridOutput()`](https://dreamrs.github.io/toastui/reference/datagrid-shiny.md)
+  [`renderDatagrid()`](https://dreamrs.github.io/toastui/reference/datagrid-shiny.md)
+  [`renderDatagrid2()`](https://dreamrs.github.io/toastui/reference/datagrid-shiny.md)
+  [`datagridOutput2()`](https://dreamrs.github.io/toastui/reference/datagrid-shiny.md)
+  :
+
+  Shiny bindings for
+  [`datagrid()`](https://dreamrs.github.io/toastui/reference/datagrid.md)
+
+- [`set_grid_theme()`](https://dreamrs.github.io/toastui/reference/datagrid-theme.md)
+  [`reset_grid_theme()`](https://dreamrs.github.io/toastui/reference/datagrid-theme.md)
+  : Set global theme options
+
+- [`datagrid()`](https://dreamrs.github.io/toastui/reference/datagrid.md)
+  : Interactive tables with tui-grid
+
+- [`datagrid_proxy()`](https://dreamrs.github.io/toastui/reference/datagrid_proxy.md)
+  : Proxy for datagrid htmlwidget
+
+- [`editor_proxy_show()`](https://dreamrs.github.io/toastui/reference/editor-proxy-show-hide.md)
+  [`editor_proxy_hide()`](https://dreamrs.github.io/toastui/reference/editor-proxy-show-hide.md)
+  : Show/hide an editor
+
+- [`editorOutput()`](https://dreamrs.github.io/toastui/reference/editor-shiny.md)
+  [`renderEditor()`](https://dreamrs.github.io/toastui/reference/editor-shiny.md)
+  :
+
+  Shiny bindings for
+  [`editor()`](https://dreamrs.github.io/toastui/reference/editor.md)
+
+- [`editor()`](https://dreamrs.github.io/toastui/reference/editor.md) :
+  Create an interactive editor
+
+- [`editor_proxy()`](https://dreamrs.github.io/toastui/reference/editor_proxy.md)
+  : Proxy for editor htmlwidget
+
+- [`editor_proxy_change_preview()`](https://dreamrs.github.io/toastui/reference/editor_proxy_change_preview.md)
+  : Change editor's preview style
+
+- [`editor_proxy_insert()`](https://dreamrs.github.io/toastui/reference/editor_proxy_insert.md)
+  : Insert text in an editor
+
+- [`editor_proxy_reset()`](https://dreamrs.github.io/toastui/reference/editor_proxy_reset.md)
+  : Reset an editor
+
+- [`grid_style_cell()`](https://dreamrs.github.io/toastui/reference/grid-cell-style.md)
+  [`grid_style_cells()`](https://dreamrs.github.io/toastui/reference/grid-cell-style.md)
+  : Set grid cell(s) style
+
+- [`grid_editor()`](https://dreamrs.github.io/toastui/reference/grid-editor.md)
+  [`grid_editor_opts()`](https://dreamrs.github.io/toastui/reference/grid-editor.md)
+  : Grid editor for columns
+
+- [`grid_header()`](https://dreamrs.github.io/toastui/reference/grid-header.md)
+  [`grid_complex_header()`](https://dreamrs.github.io/toastui/reference/grid-header.md)
+  : Header options
+
+- [`grid_click()`](https://dreamrs.github.io/toastui/reference/grid_click.md)
+  : Click event (in shiny)
+
+- [`grid_col_button()`](https://dreamrs.github.io/toastui/reference/grid_col_button.md)
+  : Display buttons in grid's column
+
+- [`grid_col_checkbox()`](https://dreamrs.github.io/toastui/reference/grid_col_checkbox.md)
+  : Display checkboxes in grid's column
+
+- [`grid_colorbar()`](https://dreamrs.github.io/toastui/reference/grid_colorbar.md)
+  : Style cells with a color bar
+
+- [`grid_columns()`](https://dreamrs.github.io/toastui/reference/grid_columns.md)
+  : Set columns options
+
+- [`grid_columns_opts()`](https://dreamrs.github.io/toastui/reference/grid_columns_opts.md)
+  : Set global columns options
+
+- [`grid_editor_date()`](https://dreamrs.github.io/toastui/reference/grid_editor_date.md)
+  : Grid editor for date/time columns
+
+- [`grid_filters()`](https://dreamrs.github.io/toastui/reference/grid_filters.md)
+  : Set filters options
+
+- [`grid_format()`](https://dreamrs.github.io/toastui/reference/grid_format.md)
+  : Format column content
+
+- [`grid_proxy_add_row()`](https://dreamrs.github.io/toastui/reference/grid_proxy_add_row.md)
+  : Add rows to an existent datagrid
+
+- [`grid_proxy_delete_row()`](https://dreamrs.github.io/toastui/reference/grid_proxy_delete_row.md)
+  : Delete row in an existent grid
+
+- [`grid_row_merge()`](https://dreamrs.github.io/toastui/reference/grid_row_merge.md)
+  : Merge rows
+
+- [`grid_selection_cell()`](https://dreamrs.github.io/toastui/reference/grid_selection_cell.md)
+  : Cell selection (in shiny)
+
+- [`grid_selection_row()`](https://dreamrs.github.io/toastui/reference/grid_selection_row.md)
+  : Row selection (in shiny)
+
+- [`grid_sparkline()`](https://dreamrs.github.io/toastui/reference/grid_sparkline.md)
+  : Render HTMLwidgets in Grid
+
+- [`grid_style_column()`](https://dreamrs.github.io/toastui/reference/grid_style_column.md)
+  : Set column style
+
+- [`grid_style_row()`](https://dreamrs.github.io/toastui/reference/grid_style_row.md)
+  : Set grid row style
+
+- [`grid_summary()`](https://dreamrs.github.io/toastui/reference/grid_summary.md)
+  : Add summary area to grid
+
+- [`guess_colwidths_options()`](https://dreamrs.github.io/toastui/reference/guess_colwidths_options.md)
+  : Options for guessing columns widths
+
+- [`met_paris`](https://dreamrs.github.io/toastui/reference/met_paris.md)
+  : Meteorological for Le Bourget Station
+
+- [`navigation_options()`](https://dreamrs.github.io/toastui/reference/navigation_options.md)
+  : Options for buttons displayed above calendar
+
+- [`ps3_games`](https://dreamrs.github.io/toastui/reference/ps3_games.md)
+  : Top 20 PS3 games
+
+- [`rolling_stones_50`](https://dreamrs.github.io/toastui/reference/rolling_stones_50.md)
+  : Rolling Stone's 50 Greatest Albums of All Time
+
+- [`rolling_stones_500`](https://dreamrs.github.io/toastui/reference/rolling_stones_500.md)
+  : Rolling Stone's 500 Greatest Albums of All Time
+
+- [`schedules_properties`](https://dreamrs.github.io/toastui/reference/schedules_properties.md)
+  : Schedules properties
+
+- [`set_grid_lang()`](https://dreamrs.github.io/toastui/reference/set_grid_lang.md)
+  : Set grid language options
+
+- [`toastui-exports`](https://dreamrs.github.io/toastui/reference/toastui-exports.md)
+  [`%>%`](https://dreamrs.github.io/toastui/reference/toastui-exports.md)
+  [`JS`](https://dreamrs.github.io/toastui/reference/toastui-exports.md)
+  : toastui exported operators and S3 methods
+
+- [`toastui-package`](https://dreamrs.github.io/toastui/reference/toastui.md)
+  [`toastui`](https://dreamrs.github.io/toastui/reference/toastui.md) :
+
+  HTMLwidget interface to the [TOASTUI](https://ui.toast.com/)
+  javascript libraries.
+
+- [`validateOpts()`](https://dreamrs.github.io/toastui/reference/validateOpts.md)
+  : Validation options

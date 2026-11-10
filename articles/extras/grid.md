@@ -1,0 +1,462 @@
+# Grid
+
+``` r
+
+library(toastui)
+```
+
+## Usage
+
+Create a table from a `data.frame` with
+[`datagrid()`](https://dreamrs.github.io/toastui/reference/datagrid.md):
+
+``` r
+
+datagrid(rolling_stones_50)
+```
+
+## Column sizing
+
+Default column width above is `"fit"`, to (try to) fit container width
+(depending on the number of columns), other alternatives are:
+
+- `"guess`: to guess minimum width according to content and column
+  names.
+
+``` r
+
+datagrid(rolling_stones_50, colwidths = "guess")
+```
+
+- `"auto"`: to set width according to content, excluding column names.
+
+``` r
+
+datagrid(rolling_stones_50, colwidths = "auto")
+```
+
+- `NULL`: to do nothing and use default behavior.
+
+``` r
+
+datagrid(rolling_stones_50, colwidths = NULL)
+```
+
+It’s also possible to set width in pixel for columns with
+[`grid_columns()`](https://dreamrs.github.io/toastui/reference/grid_columns.md),
+here we set width for first two variables to 150px:
+
+``` r
+
+datagrid(rolling_stones_50) %>% 
+  grid_columns(columns = c("Number", "Year"), width = 150)
+```
+
+## Height
+
+Default height of table created is 600px (in markdown and shiny), you
+can use a different value by using:
+
+``` r
+
+datagrid(rolling_stones_50, height = "300px")
+```
+
+To display all rows in table use `bodyHeight` argument (a bit long, not
+displayed here):
+
+``` r
+
+datagrid(rolling_stones_50, bodyHeight = "auto")
+```
+
+An other solution to control row displayed is to use pagination.
+
+## Pagination
+
+Activate pagination by indicating the number of rows to display:
+
+``` r
+
+datagrid(rolling_stones_50, pagination = 8)
+```
+
+## Sort
+
+Sort is enabled by default, you can disable it using `sortable`
+argument:
+
+``` r
+
+datagrid(rolling_stones_50, sortable = FALSE)
+```
+
+To enable sorting on a specific set of columns, use
+[`grid_columns()`](https://dreamrs.github.io/toastui/reference/grid_columns.md):
+
+``` r
+
+datagrid(rolling_stones_50, sortable = FALSE) %>% 
+  grid_columns(
+    columns = 1:2, 
+    sortable = TRUE
+  )
+```
+
+## Filter
+
+You can allow filtering rows in the table with:
+
+``` r
+
+datagrid(rolling_stones_50, filters = TRUE)
+```
+
+You can customize filter type with
+[`grid_filters()`](https://dreamrs.github.io/toastui/reference/grid_filters.md):
+
+``` r
+
+datagrid(rolling_stones_50) %>% 
+  grid_filters(
+    columns = "Artist", 
+    showApplyBtn = TRUE, 
+    showClearBtn = TRUE, 
+    type = "text"
+  )
+```
+
+## Formatting content
+
+Format a column with an R function, like `label_*` functions from scales
+package:
+
+``` r
+
+data <- data.frame(
+  col_num = rnorm(12),
+  col_currency = sample(1:1e6, 12, TRUE),
+  col_percentage = sample(1:100, 12, TRUE) / 100,
+  col_date = sample(Sys.Date() + 0:364, 12),
+  col_time = Sys.time() + sample.int(86400 * 365, 12),
+  col_logical = sample(c(TRUE, FALSE), 12, TRUE),
+  stringsAsFactors = FALSE
+)
+
+library(scales)
+datagrid(data, colwidths = "fit", bodyHeight = "auto") %>% 
+  grid_format(
+    "col_percentage", label_percent(accuracy = 1)
+  ) %>%
+  grid_format(
+    "col_currency", label_dollar(prefix = "$", big.mark = ",")
+  ) %>%
+  grid_format(
+    "col_num", label_number(accuracy = 0.01)
+  ) %>% 
+  grid_format(
+    "col_date", label_date(format = "%d/%m/%Y")
+  ) %>% 
+  grid_format(
+    "col_time", label_date(format = "%d/%m/%Y %H:%M")
+  ) %>% 
+  grid_format(
+    "col_logical", function(value) {
+      lapply(
+        X = value,
+        FUN = function(x) {
+          if (x)
+            shiny::icon("check")
+          else
+            shiny::icon("times")
+        }
+      )
+    }
+  )
+```
+
+It’s also possible to format column with a JavaScript function:
+
+``` r
+
+datagrid(data, colwidths = "fit", bodyHeight = "auto") %>% 
+  grid_format(
+    column = "col_percentage",
+    formatter = JS("function(obj) {return (obj.value*100).toFixed(0) + '%';}")
+  )
+```
+
+## Edit content
+
+### Editor options
+
+You can edit data in table and retrieve back results in Shiny, double
+click on any cell to see different options:
+
+``` r
+
+edit <- data.frame(
+  col_text = month.name,
+  col_select = month.name,
+  col_checkbox = month.abb,
+  col_radio = month.name,
+  col_month = format(as.Date("2020-01-01") + 0:11*31, format = "%Y-%m"),
+  col_date = as.Date("2020-01-01") + 0:11*31
+)
+datagrid(edit, bodyHeight = "auto") %>% 
+  grid_editor("col_text", type = "text") %>% 
+  grid_editor("col_select", type = "select", choices = month.name) %>% 
+  grid_editor("col_checkbox", type = "checkbox", choices = month.abb) %>% 
+  grid_editor("col_radio", type = "radio", choices = month.name) %>% 
+  grid_editor_date("col_month", type = "month", format = "yyyy-MM") %>% 
+  grid_editor_date("col_date", type = "date")
+```
+
+In Shiny, retrieve data edited with `input$<outputId>_data`.
+
+### Validation
+
+When grid is editable you can set some rules to validate what values
+user can enter:
+
+``` r
+
+validate <- data.frame(
+  col_text = c("a", "b", "a", NA, "c"),
+  col_number = sample(1:10, 5),
+  col_mail = c("victor@mail.com", "victor", NA, "victor@mail", "victor.fr")
+)
+
+datagrid(validate, bodyHeight = "auto") %>%
+  grid_editor(
+    "col_text", type = "text",
+    validation = validateOpts(required = TRUE, unique = TRUE)
+  ) %>%
+  grid_editor(
+    "col_number", type = "number",
+    validation = validateOpts(min = 0, max = 5)
+  ) %>%
+  grid_editor(
+    "col_mail", type = "text",
+    validation = validateOpts(
+      regExp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+    )
+  )
+```
+
+In Shiny, retrieve validation errors with `input$<outputId>_validation`,
+example above will return:
+
+    #>   row     column    error
+    #> 1   1   col_text   UNIQUE
+    #> 2   1 col_number      MAX
+    #> 3   2   col_mail   REGEXP
+    #> 4   3   col_text   UNIQUE
+    #> 5   3 col_number      MAX
+    #> 6   4   col_text REQUIRED
+    #> 7   4   col_mail   REGEXP
+    #> 8   5   col_mail   REGEXP
+
+## Selection
+
+In Shiny applications, you can select multiple rows with checkbox,
+single row with radio button or select cells by holding and selecting an
+area.
+
+``` r
+
+# Checkbox
+datagrid(rolling_stones_50) %>%
+  grid_selection_row(
+    inputId = "sel_check",
+    type = "checkbox"
+  )
+```
+
+``` r
+
+
+# Radio
+datagrid(rolling_stones_50) %>%
+  grid_selection_row(
+    inputId = "sel_radio",
+    type = "radio"
+  )
+```
+
+## Row & Column groups
+
+Group columns under a common label:
+
+``` r
+
+datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
+  grid_columns(
+    columns = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
+    header = c("North America", "Europe", "Japan", "Other")
+  ) %>%
+  grid_complex_header(
+    "Sales"= c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales")
+  )
+```
+
+Group rows with common values:
+
+``` r
+
+datagrid(ps3_games[order(ps3_games$Publisher), c(1, 4, 5:8)], colwidths = "guess") %>%
+  grid_row_merge(columns = "Publisher")
+```
+
+## Summary
+
+Add a summary area to the bottom of the grid to display statistics
+computed on column:
+
+``` r
+
+datagrid(ps3_games[, c(1, 5:8)], colwidths = "guess") %>% 
+  grid_summary(
+    column = c("NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"),
+    stat = "sum",
+    label = "Total: "
+  )
+```
+
+## Styling grid
+
+### Color bar
+
+Add a color bar depending on the value in a cell
+
+``` r
+
+datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
+  grid_colorbar(
+    column = "NA_Sales",
+    label_outside = TRUE,
+    label_width = "30px"
+  ) %>%
+  grid_colorbar(
+    column = "EU_Sales",
+    bar_bg = "#BF616A",
+    height = "20px"
+  )
+```
+
+### Color cells
+
+Add custom CSS styles to cells identified by an expression:
+
+``` r
+
+datagrid(ps3_games[, c(1, 4, 5:6)], colwidths = "guess") %>%
+  grid_style_cell(
+    startsWith(Name, "Call of"),
+    column = "Name",
+    background = "#F781BE",
+    fontWeight = "bold"
+  )
+```
+
+### Color rows
+
+In the same way you can apply styles to an entire row:
+
+``` r
+
+datagrid(ps3_games[, c(1, 4, 5:6)], colwidths = "guess") %>%
+  grid_style_row(
+    Publisher == "Electronic Arts",
+    background = "#ff4747",
+    color = "white"
+  )
+```
+
+### Color columns
+
+Set styles on an entire columns based on its values, here for example we
+use
+[`scales::col_numeric()`](https://scales.r-lib.org/reference/col_numeric.html)
+to create a color gradient:
+
+``` r
+
+library(scales)
+datagrid(ps3_games[, c(1, 5:6)], colwidths = "guess") %>%
+  grid_style_column(
+    column = "NA_Sales",
+    background = col_numeric("Blues", domain = c(0, 10))(NA_Sales),
+    fontWeight = "bold",
+    color = ifelse(NA_Sales > 5, "white", "black")
+  ) %>%
+  grid_style_column(
+    column = "EU_Sales",
+    background = col_numeric("Blues", domain = c(0, 10))(EU_Sales),
+    fontWeight = "bold",
+    color = ifelse(EU_Sales > 5, "white", "black")
+  )
+```
+
+## Sparkline
+
+You can embed sparkline charts in a grid, using an HTMLwidget capable of
+generating such type of charts. Here we use a nested `data.frame`, with
+`data.frame` inside list columns, then we use a function taking one of
+these data.frames to generate a chart.
+
+``` r
+
+library(apexcharter)
+datagrid(met_paris) %>%
+  grid_complex_header(
+    "Le Bourget meteorological data" = names(met_paris)
+  ) %>%
+  grid_columns(
+    columns = "month", width = 150
+  ) %>%
+  grid_sparkline(
+    column = "temp",
+    renderer = function(data) {
+      apex(data, aes(date, temp), type = "area") %>%
+        ax_chart(sparkline = list(enabled = TRUE)) %>%
+        ax_yaxis(min = -5, max = 30)
+    }
+  ) %>%
+  grid_sparkline(
+    column = "rh",
+    renderer = function(data) {
+      apex(data, aes(date, rh), type = "column") %>%
+        ax_chart(sparkline = list(enabled = TRUE)) %>%
+        ax_yaxis(min = 0, max = 100)
+    }
+  )
+```
+
+## Theme
+
+It’s possible to customize theme used to create tables, theme is set
+globally and will be applied to all table created after its declaration.
+In a rmarkdown document (like this one), theme is unique for all tables,
+click buttons to switch between a custom theme and the default one, you
+will see that all tables are styled.
+
+``` r
+
+set_grid_theme(
+  row.even.background = "#ddebf7",
+  cell.normal.border = "#9bc2e6",
+  cell.normal.showVerticalBorder = TRUE,
+  cell.normal.showHorizontalBorder = TRUE,
+  cell.header.background = "#5b9bd5",
+  cell.header.text = "#FFF",
+  cell.selectedHeader.background = "#013ADF",
+  cell.focused.border = "#013ADF"
+)
+
+datagrid(rolling_stones_50)
+```
+
+Apply custom theme
+
+Back to default theme
