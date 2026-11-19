@@ -19,6 +19,55 @@ export class DatagridColumnHeaderHTML {
   }
 }
 
+export class DatagridColumnHeaderShiny {
+  constructor(props) {
+    this.el = document.createElement("div");
+    this.header = props.columnInfo.header;
+    this.mounted_ = false;
+    this.destroyed = false;
+    this.queue = Promise.resolve();
+  }
+
+  getElement() {
+    return this.el;
+  }
+
+  mounted() {
+    this.mounted_ = true;
+    this.update();
+  }
+
+  render(props) {
+    if (props.columnInfo.header !== this.header) {
+      this.header = props.columnInfo.header;
+      if (this.mounted_) this.update();
+    }
+  }
+
+  update() {
+    const header = this.header;
+    this.queue = this.queue.then(async () => {
+      if (this.destroyed || header !== this.header) return;
+
+      Shiny.unbindAll(this.el);
+      this.el.innerHTML = header;
+      Shiny.initializeInputs(this.el);
+
+      try {
+        await Shiny.bindAll(this.el);
+      } finally {
+        if (this.destroyed) Shiny.unbindAll(this.el);
+      }
+    });
+  }
+
+  beforeDestroy() {
+    this.destroyed = true;
+    Shiny.unbindAll(this.el);
+  }
+}
+
+
 export class DatagridColumnHeaderSortHTML {
   constructor(props) {
     const columnInfo = props.columnInfo;
