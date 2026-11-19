@@ -72,23 +72,23 @@ cal_demo_data("month")
 #' # Weekly schedule
 cal_demo_data("week")
 #>   calendarId    title                        body               start
-#> 1          3 Course 1 Learn something interesting  2026-11-09 8:00:00
-#> 2          3 Course 2 Learn something interesting 2026-11-09 14:00:00
-#> 3          3 Course 3 Learn something interesting 2026-11-11 08:00:00
-#> 4          3 Course 4 Learn something interesting 2026-11-12 16:00:00
-#> 5          2    Lunch                  Work lunch 2026-11-10 12:00:00
-#> 6          2  Meeting                Work meeting 2026-11-10 16:00:00
-#> 7          1    Sport          Make some exercise 2026-11-12 07:00:00
-#> 8          1    Movie       Go watch a cool movie 2026-11-11 18:00:00
-#> 9          1  Day off              Take some rest          2026-11-13
+#> 1          3 Course 1 Learn something interesting  2026-11-16 8:00:00
+#> 2          3 Course 2 Learn something interesting 2026-11-16 14:00:00
+#> 3          3 Course 3 Learn something interesting 2026-11-18 08:00:00
+#> 4          3 Course 4 Learn something interesting 2026-11-19 16:00:00
+#> 5          2    Lunch                  Work lunch 2026-11-17 12:00:00
+#> 6          2  Meeting                Work meeting 2026-11-17 16:00:00
+#> 7          1    Sport          Make some exercise 2026-11-19 07:00:00
+#> 8          1    Movie       Go watch a cool movie 2026-11-18 18:00:00
+#> 9          1  Day off              Take some rest          2026-11-20
 #>                   end category
-#> 1 2026-11-09 12:00:00     time
-#> 2 2026-11-09 18:00:00     time
-#> 3 2026-11-11 11:00:00     time
-#> 4 2026-11-12 19:00:00     time
-#> 5 2026-11-10 14:00:00     time
-#> 6 2026-11-10 18:30:00     time
-#> 7 2026-11-12 09:00:00     time
-#> 8 2026-11-11 21:00:00     time
-#> 9          2026-11-13   allday
+#> 1 2026-11-16 12:00:00     time
+#> 2 2026-11-16 18:00:00     time
+#> 3 2026-11-18 11:00:00     time
+#> 4 2026-11-19 19:00:00     time
+#> 5 2026-11-17 14:00:00     time
+#> 6 2026-11-17 18:30:00     time
+#> 7 2026-11-19 09:00:00     time
+#> 8 2026-11-18 21:00:00     time
+#> 9          2026-11-20   allday
 ```
